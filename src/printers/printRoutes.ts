@@ -6,10 +6,11 @@ import {
   createDir,
   normalizeName,
   normalizeParameterName,
-  getImportString, getImportStringResponseSchema
+  getImportString, getImportStringResponseSchema, getImportFunctionString
 } from '../util/util'
 import { RouteFile, Route } from '../classes/route'
 import { Parameter } from '../classes/parameter'
+import { PrintType } from '../util/printTypes'
 
 export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Promise<void> {
   const responses = getUserResponses()
@@ -24,7 +25,7 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
     await createDir(`${routesDir}/${file}`)
     const fileName = `${routesDir}/${file}/${file}.${printType.fileType}`
     let toPrint = ''
-    toPrint = printType.importTypeBox
+    toPrint = printType.importGeneral('Type', '@sinclair/typebox')
     if (printType.type === 'typescript') {
       toPrint += getTypescriptImports()
       toPrint += getRouteFunctionStringTypescript(normalizeLowerCamelName(file))
@@ -32,9 +33,15 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
       toPrint += getRouteFunctionString(normalizeLowerCamelName(file))
     }
 
+    const functionsToImport: Record<string, string[]> = {}
+
     for (const path of routeFilesMap[file].routePaths) {
       for (const route of path.routes) {
-        toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport)
+        toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport, printType)
+        if (functionsToImport[file] == null) {
+          functionsToImport[file] = []
+        }
+        functionsToImport[file].push(route.functionName)
       }
     }
     if (toPrint.at(toPrint.length - 1) === ',') {
@@ -52,6 +59,10 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
       await appendFile(fileName, printType.importGeneral(getImportString(paramsToImport), `../../ParameterSchemas.${printType.fileType}`))
     }
     await appendFile(fileName, printType.importGeneral('Tags', `../../constants.${printType.fileType}`))
+
+    for (const file of Object.keys(functionsToImport)) {
+      await appendFile(fileName, printType.importGeneral(getImportFunctionString(functionsToImport[file]), `../connectors/${file}.${printType.fileType}`))
+    }
 
     await appendFile(fileName, toPrint)
   }
@@ -76,7 +87,7 @@ function getTypescriptImports (): string {
   return 'import { FastifyPluginAsync } from \'fastify\'\nimport { TypeBoxTypeProvider } from \'@fastify/type-provider-typebox\'\n'
 }
 
-function getRouteString (path: string, route: Route, defsToImport: string[], paramsToImport: string[], resToImport: string[]): string {
+function getRouteString (path: string, route: Route, defsToImport: string[], paramsToImport: string[], resToImport: string[], printType: PrintType): string {
   let toReturn = ''
   toReturn += `\n\n${indent(1)}fastify.${route.method}('${normalizePath(path)}', {`
   toReturn += getSchemaString(route.tags, route.summary, route, defsToImport, paramsToImport, resToImport)
@@ -84,7 +95,40 @@ function getRouteString (path: string, route: Route, defsToImport: string[], par
   if (toReturn.at(toReturn.length - 1) === ',') {
     toReturn = toReturn.slice(0, -1)
   }
+  toReturn += '\n' + indent(1) + '}'
+
+  toReturn += getHandlerString(route, printType)
   toReturn += '\n' + indent(1) + '})'
+
+  return toReturn
+}
+
+function getHandlerString (route: Route, printType: PrintType): string {
+  if (route.functionName === '') {
+    return '//TODO: attach to existing functionality'
+  }
+  const tab = indent(2)
+  let functionParameters = ''
+  let toReturn = ', async (request, reply) => {'
+
+  for (const param of route.getAllParentParameters()) {
+    const normalizedName = normalizeLowerCamelName(param.title)
+    toReturn += `\n${tab}const ${normalizedName}`
+    if (printType.type === 'typescript') {
+      if (param.parentDefinition == null) {
+        toReturn += `: ${param.type}`
+      } else {
+        toReturn += `: ${normalizeName(param.parentDefinition)}Schema`
+      }
+    }
+    toReturn += ` = request.${getFastifyParamType(param.in)}.${param.name}`
+    functionParameters += normalizedName + ', '
+  }
+  functionParameters = functionParameters.slice(0, -2)
+
+  toReturn += `\n\n${tab}const res = await ${route.functionName}(${functionParameters})`
+  toReturn += `\n${tab}// TODO: make the above work`
+
   return toReturn
 }
 
@@ -127,7 +171,13 @@ function normalizePath (fullPath: string): string {
   let toReturn = ''
   for (let i = 0; i < basePath.length; ++i) {
     if (basePath[i].startsWith('{') && basePath[i].endsWith('}')) {
-      basePath[i] = ':' + basePath[i].substring(1, basePath[i].length - 1)
+        const params = basePath[i].split(',')
+        let subPathParams = ''
+        for (const param of params) {
+          subPathParams += ':' + param.substring(1, param.length - 1) + ','
+        }
+      subPathParams = subPathParams.slice(0, -1)
+      basePath[i] = subPathParams
     }
     if (i > 1) {
       toReturn += '/' + basePath[i]
@@ -167,6 +217,15 @@ function getSchemaString (tags: string[], summary: string, route: Route, defsToI
   return toReturn
 }
 
+function getFastifyParamType (inString: string): string {
+  switch (inString) {
+    case 'path':
+      return 'params'
+    default:
+      return inString
+  }
+}
+
 function getTagsString (tags: string[]): string {
   let toReturn = ''
   for (const tag of tags) {
@@ -180,19 +239,24 @@ function getResponsesString (parentResponses: Array<Record<string, string>>, res
   let toReturn = ''
   toReturn += `\n${indent(3)}response: {`
   for (const response of parentResponses) {
-    toReturn += `\n${indent(4)}${response.code}: `
-    if (response.reference.includes('definition')) {
-      const refName = response.reference.split('#/definitions/')[1]
-      const normalizedName = normalizeName(refName)
-      toReturn += `${normalizedName}Schema`
-      defsToImport.push(normalizedName)
-    } else if (response.reference.includes('response')) {
-      const refName = response.reference.split('#/responses/')[1]
-      const normalizedName = normalizeName(refName)
-      toReturn += `Response${normalizedName}Schema`
-      resToImport.push(normalizedName)
+    if (response.reference === 'additionalPropsObject') {
+      toReturn += `\n${indent(4)}${response.code}: Type.Object({}, { additionalProperties: true }),`
     }
-    toReturn += ','
+    else {
+      toReturn += `\n${indent(4)}${response.code}: `
+      if (response.reference.includes('definition')) {
+        const refName = response.reference.split('#/definitions/')[1]
+        const normalizedName = normalizeName(refName)
+        toReturn += `${normalizedName}Schema`
+        defsToImport.push(normalizedName)
+      } else if (response.reference.includes('response')) {
+        const refName = response.reference.split('#/responses/')[1]
+        const normalizedName = normalizeName(refName)
+        toReturn += `Response${normalizedName}Schema`
+        resToImport.push(normalizedName)
+      }
+      toReturn += ','
+    }
   }
 
   toReturn = toReturn.slice(0, -1)

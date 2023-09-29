@@ -20,9 +20,6 @@ export async function printParameters (parameters: Parameter[]): Promise<void> {
     let response = getDescription(printDescription, param)
     if (!paramSet.has(normalizedName)) { // there are some duplicates, I don't want to print duplicates
       if (param.parentDefinition == null) { // if we are just referencing a definition, just link to that directly
-        if (param.parentDefinition != null) {
-          defsToImport.push(param.parentDefinition)
-        }
         response = response + `${printType.export} ${normalizedName}Schema = ${param.toString()}`
         if (printType.type === 'typescript') {
           response = response + `\nexport type ${normalizedName} = Static<typeof ${normalizedName}Schema>`
@@ -30,6 +27,8 @@ export async function printParameters (parameters: Parameter[]): Promise<void> {
         logger.debug(response)
         schemaStrings.push(response)
         paramSet.add(normalizedName)
+      } else {
+          defsToImport.push(param.parentDefinition)
       }
     }
   }
@@ -60,10 +59,12 @@ export async function printCommonJSExports (fileName: string, parameters: Parame
   await appendFile(fileName, '\n\nmodule.exports = {')
   let exportStatement = ''
   for (let i = 0; i < parameters.length; ++i) {
-    if (i % 3 === 0) {
-      exportStatement = exportStatement + '\n' + tabs
+    if (parameters[i].parentDefinition == null) {
+      if (i % 3 === 0) {
+        exportStatement = exportStatement + '\n' + tabs
+      }
+      exportStatement = exportStatement + normalizeParameterName(parameters[i].name, parameters[i].in) + 'Schema' + ', '
     }
-    exportStatement = exportStatement + normalizeParameterName(parameters[i].name, parameters[i].in) + 'Schema' + ', '
   }
   exportStatement = exportStatement.slice(0, -2) + '\n}'
   await appendFile(fileName, exportStatement)

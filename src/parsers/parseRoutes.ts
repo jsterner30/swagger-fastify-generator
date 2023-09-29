@@ -5,7 +5,7 @@ import { getParameters, getParameter, addTag } from '../util/globals'
 
 export function parseRoutes (OpenApiJSON: SwaggerDoc): Record<string, RouteFile> {
   const routeFilesMap: Record<string, RouteFile> = {}
-  if (OpenApiJSON == null || OpenApiJSON.paths == null) return routeFilesMap
+  if (OpenApiJSON?.paths == null) return routeFilesMap
 
   const openApiRoutes = OpenApiJSON.paths
   const openApiRoutesArray = Object.keys(openApiRoutes)
@@ -44,11 +44,12 @@ function getRoute (methodObj: SwaggerRouteMethod, method: string): Route {
   const summary = methodObj.summary ?? ''
   const description = methodObj.description ?? ''
   const tags = methodObj.tags ?? []
+  const functionName = methodObj.operationId ?? ''
   for (const tag of tags) {
     addTag(tag)
   }
 
-  const route = new Route(method, summary, description, tags)
+  const route = new Route(method, summary, description, tags, functionName)
   if (methodObj.parameters != null) {
     for (const parameter of methodObj.parameters) {
       if (parameter.$ref == null) {
@@ -73,7 +74,7 @@ function getRoute (methodObj: SwaggerRouteMethod, method: string): Route {
             route.addParentResponse(responseCode, reference)
           }
         } else {
-          console.error('Unexpected state with route with summary: ' + summary)
+          route.addParentResponse(responseCode, 'additionalPropsObject')
         }
       } else {
         route.addParentResponse(responseCode, ref)

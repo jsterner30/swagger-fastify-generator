@@ -31,16 +31,18 @@ export class Route {
   summary: string
   description: string
   tags: string[]
+  functionName: string
   parentResponses: Array<Record<string, string>> = []
   parentBodyParameters: Record<string, Parameter> = {}
   parentQueryParameters: Record<string, Parameter> = {}
   parentPathParameters: Record<string, Parameter> = {}
 
-  constructor (method: string, summary: string, description: string, tags: string[]) {
+  constructor (method: string, summary: string, description: string, tags: string[], functionName: string) {
     this.method = method
     this.summary = summary
     this.description = description
     this.tags = tags
+    this.functionName = functionName
   }
 
   addParentParameter (param: Parameter): void {
@@ -73,6 +75,10 @@ export class Route {
 
   getParentPathParameters (): Parameter[] {
     return Object.values(this.parentPathParameters)
+  }
+
+  getAllParentParameters (): Parameter[] {
+    return [...Object.values(this.parentBodyParameters), ...Object.values(this.parentQueryParameters), ...Object.values(this.parentPathParameters)]
   }
 
   addParentResponse (responseCode: string, reference: string): void {

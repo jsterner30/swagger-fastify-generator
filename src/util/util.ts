@@ -87,8 +87,8 @@ export function getImportStringResponseSchema (resToImport: string[]): string {
 
   const tabs = indent(1)
   let toImport = ''
-  for (const defName of resToImport) {
-    const normalizedName = 'Response' + normalizeName(defName)
+  for (const resName of resToImport) {
+    const normalizedName = 'Response' + normalizeName(resName)
     if (!importSet.has(normalizedName)) {
       toImport = toImport + `\n${tabs}${normalizedName}Schema,`
       importSet.add(normalizedName)
@@ -108,6 +108,23 @@ export function getImportString (defsToImport: string[]): string {
     const normalizedName = normalizeName(defName)
     if (!importSet.has(normalizedName)) {
       toImport = toImport + `\n${tabs}${normalizedName}Schema,`
+      importSet.add(normalizedName)
+    }
+  }
+  toImport = toImport.slice(0, -1)
+  toImport = toImport + '\n'
+  return toImport
+}
+
+export function getImportFunctionString (funcsToImport: string[]): string {
+  const importSet: Set<string> = new Set()
+
+  const tabs = indent(1)
+  let toImport = ''
+  for (const funcName of funcsToImport) {
+    const normalizedName = normalizeLowerCamelName(funcName)
+    if (!importSet.has(normalizedName)) {
+      toImport = toImport + `\n${tabs}${normalizedName},`
       importSet.add(normalizedName)
     }
   }
