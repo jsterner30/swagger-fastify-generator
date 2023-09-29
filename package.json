@@ -1,0 +1,50 @@
+{
+  "name": "openapi-fastify-generator",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist",
+    "dev": "node -r ts-node/register -r dotenv/config src/index.ts",
+    "generateSpec": "node -r ts-node/register -r dotenv/config generateSpec.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "jest --colors"
+  },
+  "dependencies": {
+    "@fastify/type-provider-typebox": "^3.5.0",
+    "@sinclair/typebox": "^0.31.15",
+    "enquirer": "^2.4.1",
+    "fastify": "^4.23.2",
+    "inquirer": "^9.2.11",
+    "pino": "^8.15.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^2.0.1",
+    "@types/inquirer": "^9.0.3",
+    "eslint": "^8.41.0",
+    "rimraf": "^4.4.1",
+    "snazzy": "^9.0.0",
+    "standard": "^17.0.0",
+    "ts-node": "^10.9.1",
+    "ts-standard": "^12.0.1",
+    "typescript": "5.0.4"
+  },
+  "standard": {
+    "env": {
+      "jest": true,
+      "node": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}
