@@ -16,8 +16,6 @@ export async function printDefinitions (definitions: Definition[]): Promise<void
 
   await appendFile(fileName, printType.importTypeBox)
 
-  // TODO Sort alphabetically
-
   for (const def of definitions) {
     const normalizedName = normalizeName(def.name)
     // remove duplicates

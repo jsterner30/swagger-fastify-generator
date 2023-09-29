@@ -1,6 +1,6 @@
 import { Parameter } from '../classes/parameter'
 import { getUserResponses } from '../util/globals'
-import { appendFile, getImportString, normalizeParameterName, writeSchemas, indent } from '../util/util'
+import { appendFile, normalizeParameterName, writeSchemas, indent } from '../util/util'
 import logger from '../util/logger'
 
 export async function printParameters (parameters: Parameter[]): Promise<void> {
@@ -13,7 +13,6 @@ export async function printParameters (parameters: Parameter[]): Promise<void> {
   const fileName = `./gen/ParameterSchemas.${printType.fileType}`
 
   await appendFile(fileName, printType.importTypeBox)
-  const defsToImport: string[] = []
 
   for (const param of parameters) {
     const normalizedName = normalizeParameterName(param.name, param.in)
@@ -27,15 +26,10 @@ export async function printParameters (parameters: Parameter[]): Promise<void> {
         logger.debug(response)
         schemaStrings.push(response)
         paramSet.add(normalizedName)
-      } else {
-          defsToImport.push(param.parentDefinition)
       }
     }
   }
 
-  if (defsToImport.length > 0) {
-    await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), `./DefinitionSchemas.${printType.fileType}`))
-  }
   await writeSchemas(fileName, schemaStrings)
 
   if (printType.type === 'common') {

@@ -31,7 +31,7 @@ export const commonPrintType: PrintType = {
   export: 'const',
   fileType: 'js',
   importTypeBox: 'const { Type } = \'@sinclair/typebox\'\n',
-  importGeneral(importName: string, fileName: string): string {
+  importGeneral (importName: string, fileName: string): string {
     return `const { ${importName} } = require('${fileName}')\n`
   }
 }

@@ -11,8 +11,6 @@ export async function printResponses (responses: Response[]): Promise<void> {
   const printDescription = interfaceResponses.printDescription
   const printType = interfaceResponses.printType
   const fileName = `./gen/ResponseSchemas.${printType.fileType}`
-
-  await appendFile(fileName, printType.importTypeBox)
   const defsToImport = []
 
   for (const response of responses) {

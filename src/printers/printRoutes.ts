@@ -171,11 +171,11 @@ function normalizePath (fullPath: string): string {
   let toReturn = ''
   for (let i = 0; i < basePath.length; ++i) {
     if (basePath[i].startsWith('{') && basePath[i].endsWith('}')) {
-        const params = basePath[i].split(',')
-        let subPathParams = ''
-        for (const param of params) {
-          subPathParams += ':' + param.substring(1, param.length - 1) + ','
-        }
+      const params = basePath[i].split(',')
+      let subPathParams = ''
+      for (const param of params) {
+        subPathParams += ':' + param.substring(1, param.length - 1) + ','
+      }
       subPathParams = subPathParams.slice(0, -1)
       basePath[i] = subPathParams
     }
@@ -241,8 +241,7 @@ function getResponsesString (parentResponses: Array<Record<string, string>>, res
   for (const response of parentResponses) {
     if (response.reference === 'additionalPropsObject') {
       toReturn += `\n${indent(4)}${response.code}: Type.Object({}, { additionalProperties: true }),`
-    }
-    else {
+    } else {
       toReturn += `\n${indent(4)}${response.code}: `
       if (response.reference.includes('definition')) {
         const refName = response.reference.split('#/definitions/')[1]

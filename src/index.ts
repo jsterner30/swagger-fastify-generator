@@ -22,6 +22,7 @@ import { printRoutes } from './printers/printRoutes'
 import { printResponses } from './printers/printResponses'
 import { parseResponses } from './parsers/parseResponses'
 import { printTags } from './classes/tags'
+import { topologicalSort } from './util/topologicalSort'
 
 async function run (): Promise<void> {
   setUserResponses(await userInterface())
@@ -31,6 +32,8 @@ async function run (): Promise<void> {
   setResponses(parseResponses(openApiJSON))
   setRoutes(parseRoutes(openApiJSON))
   await setupGenDir()
+  // we need to find a valid ordering of definitions in the same file, so we do a topological sort on the dependency graph
+  setDefinitions(topologicalSort(getDefinitions()))
   await printDefinitions(getDefinitions())
   await printParameters(getParameters())
   await printResponses(getResponses())

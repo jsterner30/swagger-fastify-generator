@@ -28,6 +28,10 @@ export class Definition {
     return ''
   }
 
+  getParents (): Parent[] {
+    return []
+  }
+
   addParent (name: string, reference: string): void {
     this.parents.push({ name, reference })
   }
@@ -50,6 +54,15 @@ export class ObjectDefinition extends Definition {
 
   addProperty (def: Definition): void {
     this.properties.push(def)
+  }
+
+  getParents (): Parent[] {
+    let allParents: Parent[] = [...this.parents]
+    for (const prop of this.properties) {
+      allParents = [...prop.getParents(), ...allParents]
+    }
+
+    return allParents
   }
 
   toString (level: number, useOptionalType: boolean): string {
@@ -97,6 +110,15 @@ export class ArrayDefinition extends Definition {
     this.item = item
   }
 
+  getParents (): Parent[] {
+    let allParents: Parent[] = [...this.parents]
+    if (this.item != null) {
+      allParents = [...allParents, ...this.item.getParents()]
+    }
+
+    return allParents
+  }
+
   toString (level: number, useOptionalType: boolean): string {
     let response = 'Type.Array('
 
@@ -116,6 +138,15 @@ export class AllOfDefinition extends Definition {
 
   addSubDefinition (def: Definition): void {
     this.subDefinitions.push(def)
+  }
+
+  getParents (): Parent[] {
+    let allParents: Parent[] = [...this.parents]
+    for (const prop of this.subDefinitions) {
+      allParents = [...prop.getParents(), ...allParents]
+    }
+
+    return allParents
   }
 
   toString (level: number, useOptionalType: boolean): string {
