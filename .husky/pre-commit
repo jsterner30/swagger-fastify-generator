@@ -3,3 +3,4 @@
 
 echo "ggf"
 npm run update-examples
+npm test
