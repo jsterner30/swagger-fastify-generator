@@ -10,7 +10,7 @@ export async function readJsonFromFile (filePath: string): Promise<Record<string
     const fileContent = await fs.readFile(filePath, 'utf8')
     return JSON.parse(fileContent)
   } catch (error) {
-    console.log("Current working directory:", process.cwd());
+    console.log('Current working directory:', process.cwd())
     throw new Error('File does not exist at specified path. file specified: ' + filePath)
   }
 }

@@ -23,7 +23,7 @@ import { printResponses } from './printers/printResponses'
 import { parseResponses } from './parsers/parseResponses'
 import { printTags } from './classes/tags'
 import { topologicalSort } from './util/topologicalSort'
-import {getFileSettings} from "./util/getFileSettings";
+import { getFileSettings } from './util/getFileSettings'
 
 async function run (): Promise<void> {
   if (process.argv.length > 2 && process.argv[2] === '--f') {
