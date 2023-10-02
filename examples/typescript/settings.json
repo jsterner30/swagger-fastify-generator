@@ -5,5 +5,5 @@
   "filePath": "./swagger.json",
   "printDescription": true,
   "printExample": true,
-  "useOptionalType": false
+  "useOptionalType": true
 }

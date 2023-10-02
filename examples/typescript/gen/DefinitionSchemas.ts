@@ -14,8 +14,8 @@ export const IncidentBodySchema = Type.Object({
    priority: Type.String(),
    caller_id: Type.String(),
    short_description: Type.String(),
-   description: Type.String(),
-   u_email: Type.String()
+   description: Type.Optional(Type.String()),
+   u_email: Type.Optional(Type.String())
 })
 export type IncidentBody = Static<typeof IncidentBodySchema>
 
@@ -31,8 +31,8 @@ export type DecisionReasonValueArray = Static<typeof DecisionReasonValueArraySch
 */
 export const NameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type Name = Static<typeof NameSchema>
 
@@ -46,8 +46,8 @@ export type Name = Static<typeof NameSchema>
 */
 export const DescriptionSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type Description = Static<typeof DescriptionSchema>
 
@@ -72,9 +72,9 @@ export type AttributeString = Static<typeof AttributeStringSchema>
 */
 export const IdUpdatedBySchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type IdUpdatedBy = Static<typeof IdUpdatedBySchema>
 
@@ -89,9 +89,9 @@ export type IdUpdatedBy = Static<typeof IdUpdatedBySchema>
 */
 export const IdSubmittedBySchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type IdSubmittedBy = Static<typeof IdSubmittedBySchema>
 
@@ -106,9 +106,9 @@ export type IdSubmittedBy = Static<typeof IdSubmittedBySchema>
 */
 export const IdCreatedBySchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type IdCreatedBy = Static<typeof IdCreatedBySchema>
 
@@ -117,8 +117,8 @@ export type IdCreatedBy = Static<typeof IdCreatedBySchema>
 */
 export const DateTimeVerifiedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DateTimeVerified = Static<typeof DateTimeVerifiedSchema>
 
@@ -132,8 +132,8 @@ export type DateTimeVerified = Static<typeof DateTimeVerifiedSchema>
 */
 export const DateTimeUpdatedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DateTimeUpdated = Static<typeof DateTimeUpdatedSchema>
 
@@ -142,8 +142,8 @@ export type DateTimeUpdated = Static<typeof DateTimeUpdatedSchema>
 */
 export const DateTimeSubmittedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DateTimeSubmitted = Static<typeof DateTimeSubmittedSchema>
 
@@ -152,8 +152,8 @@ export type DateTimeSubmitted = Static<typeof DateTimeSubmittedSchema>
 */
 export const DateTimeReportedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DateTimeReported = Static<typeof DateTimeReportedSchema>
 
@@ -162,8 +162,8 @@ export type DateTimeReported = Static<typeof DateTimeReportedSchema>
 */
 export const DateTimeCreatedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DateTimeCreated = Static<typeof DateTimeCreatedSchema>
 
@@ -172,9 +172,9 @@ export type DateTimeCreated = Static<typeof DateTimeCreatedSchema>
 */
 export const ApplicationIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   display_label: Type.Optional(Type.String())
 })
 export type ApplicationId = Static<typeof ApplicationIdSchema>
 
@@ -183,10 +183,10 @@ export type ApplicationId = Static<typeof ApplicationIdSchema>
 */
 export const ApplicantTypeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ApplicantType = Static<typeof ApplicantTypeSchema>
 
@@ -195,9 +195,9 @@ export type ApplicantType = Static<typeof ApplicantTypeSchema>
 */
 export const ApplicantIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   display_label: Type.Optional(Type.String())
 })
 export type ApplicantId = Static<typeof ApplicantIdSchema>
 
@@ -206,11 +206,11 @@ export type ApplicantId = Static<typeof ApplicantIdSchema>
 */
 export const AdmitPeriodSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   long_description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   long_description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type AdmitPeriod = Static<typeof AdmitPeriodSchema>
 
@@ -219,10 +219,10 @@ export type AdmitPeriod = Static<typeof AdmitPeriodSchema>
 */
 export const AdmitMajorSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type AdmitMajor = Static<typeof AdmitMajorSchema>
 
@@ -231,8 +231,8 @@ export type AdmitMajor = Static<typeof AdmitMajorSchema>
 */
 export const SharedStartMonthSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SharedStartMonth = Static<typeof SharedStartMonthSchema>
 
@@ -241,8 +241,8 @@ export type SharedStartMonth = Static<typeof SharedStartMonthSchema>
 */
 export const SharedPhoneTextsOkSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SharedPhoneTextsOk = Static<typeof SharedPhoneTextsOkSchema>
 
@@ -251,8 +251,8 @@ export type SharedPhoneTextsOk = Static<typeof SharedPhoneTextsOkSchema>
 */
 export const SharedGradeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SharedGrade = Static<typeof SharedGradeSchema>
 
@@ -261,8 +261,8 @@ export type SharedGrade = Static<typeof SharedGradeSchema>
 */
 export const SharedGraduationStatusSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SharedGraduationStatus = Static<typeof SharedGraduationStatusSchema>
 
@@ -271,8 +271,8 @@ export type SharedGraduationStatus = Static<typeof SharedGraduationStatusSchema>
 */
 export const SharedEndMonthSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SharedEndMonth = Static<typeof SharedEndMonthSchema>
 
@@ -281,8 +281,8 @@ export type SharedEndMonth = Static<typeof SharedEndMonthSchema>
 */
 export const SharedCreditHoursGradedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SharedCreditHoursGraded = Static<typeof SharedCreditHoursGradedSchema>
 
@@ -291,8 +291,8 @@ export type SharedCreditHoursGraded = Static<typeof SharedCreditHoursGradedSchem
 */
 export const SharedAcademicYearSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SharedAcademicYear = Static<typeof SharedAcademicYearSchema>
 
@@ -301,8 +301,8 @@ export type SharedAcademicYear = Static<typeof SharedAcademicYearSchema>
 */
 export const TestVersionSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type TestVersion = Static<typeof TestVersionSchema>
 
@@ -311,9 +311,9 @@ export type TestVersion = Static<typeof TestVersionSchema>
 */
 export const TestNameSchema = Type.Object({
    value: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type TestName = Static<typeof TestNameSchema>
 
@@ -322,9 +322,9 @@ export type TestName = Static<typeof TestNameSchema>
 */
 export const TestDateSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   display_label: Type.Optional(Type.String())
 })
 export type TestDate = Static<typeof TestDateSchema>
 
@@ -333,8 +333,8 @@ export type TestDate = Static<typeof TestDateSchema>
 */
 export const TestCompositeScoreSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type TestCompositeScore = Static<typeof TestCompositeScoreSchema>
 
@@ -343,8 +343,8 @@ export type TestCompositeScore = Static<typeof TestCompositeScoreSchema>
 */
 export const TestComponentScoreSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type TestComponentScore = Static<typeof TestComponentScoreSchema>
 
@@ -353,10 +353,10 @@ export type TestComponentScore = Static<typeof TestComponentScoreSchema>
 */
 export const TestComponentNameSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type TestComponentName = Static<typeof TestComponentNameSchema>
 
@@ -365,8 +365,8 @@ export type TestComponentName = Static<typeof TestComponentNameSchema>
 */
 export const SeminaryYearsCompletedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryYearsCompleted = Static<typeof SeminaryYearsCompletedSchema>
 
@@ -382,10 +382,10 @@ export type SeminaryYearsCompleted = Static<typeof SeminaryYearsCompletedSchema>
 */
 export const SeminaryTypeSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryType = Static<typeof SeminaryTypeSchema>
 
@@ -394,8 +394,8 @@ export type SeminaryType = Static<typeof SeminaryTypeSchema>
 */
 export const SeminaryTermSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryTerm = Static<typeof SeminaryTermSchema>
 
@@ -404,9 +404,9 @@ export type SeminaryTerm = Static<typeof SeminaryTermSchema>
 */
 export const SeminaryTeacherEmailSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryTeacherEmail = Static<typeof SeminaryTeacherEmailSchema>
 
@@ -420,8 +420,8 @@ export type SeminaryTeacherEmail = Static<typeof SeminaryTeacherEmailSchema>
 */
 export const SeminaryTeacherNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryTeacherName = Static<typeof SeminaryTeacherNameSchema>
 
@@ -430,8 +430,8 @@ export type SeminaryTeacherName = Static<typeof SeminaryTeacherNameSchema>
 */
 export const SeminarySessionsSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminarySessions = Static<typeof SeminarySessionsSchema>
 
@@ -440,8 +440,8 @@ export type SeminarySessions = Static<typeof SeminarySessionsSchema>
 */
 export const SeminaryRecognitionSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryRecognition = Static<typeof SeminaryRecognitionSchema>
 
@@ -450,8 +450,8 @@ export type SeminaryRecognition = Static<typeof SeminaryRecognitionSchema>
 */
 export const SeminaryReadingSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryReading = Static<typeof SeminaryReadingSchema>
 
@@ -460,8 +460,8 @@ export type SeminaryReading = Static<typeof SeminaryReadingSchema>
 */
 export const SeminaryGradeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryGrade = Static<typeof SeminaryGradeSchema>
 
@@ -475,8 +475,8 @@ export type SeminaryGrade = Static<typeof SeminaryGradeSchema>
 */
 export const SeminaryExplanationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryExplanation = Static<typeof SeminaryExplanationSchema>
 
@@ -485,8 +485,8 @@ export type SeminaryExplanation = Static<typeof SeminaryExplanationSchema>
 */
 export const SeminaryCreditSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryCredit = Static<typeof SeminaryCreditSchema>
 
@@ -495,9 +495,9 @@ export type SeminaryCredit = Static<typeof SeminaryCreditSchema>
 */
 export const SeminaryClassSchema = Type.Object({
    value: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryClass = Static<typeof SeminaryClassSchema>
 
@@ -506,8 +506,8 @@ export type SeminaryClass = Static<typeof SeminaryClassSchema>
 */
 export const SeminaryAttendancePercentageSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryAttendancePercentage = Static<typeof SeminaryAttendancePercentageSchema>
 
@@ -516,8 +516,8 @@ export type SeminaryAttendancePercentage = Static<typeof SeminaryAttendancePerce
 */
 export const SeminaryAttendanceSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryAttendance = Static<typeof SeminaryAttendanceSchema>
 
@@ -526,8 +526,8 @@ export type SeminaryAttendance = Static<typeof SeminaryAttendanceSchema>
 */
 export const SeminaryAbsencesSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type SeminaryAbsences = Static<typeof SeminaryAbsencesSchema>
 
@@ -542,9 +542,9 @@ export type SeminaryAbsences = Static<typeof SeminaryAbsencesSchema>
 */
 export const QuestionUuidSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionUuid = Static<typeof QuestionUuidSchema>
 
@@ -554,8 +554,8 @@ export type QuestionUuid = Static<typeof QuestionUuidSchema>
 */
 export const QuestionTypeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionType = Static<typeof QuestionTypeSchema>
 
@@ -565,8 +565,8 @@ export type QuestionType = Static<typeof QuestionTypeSchema>
 */
 export const QuestionGroupOrdinalSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionGroupOrdinal = Static<typeof QuestionGroupOrdinalSchema>
 
@@ -580,8 +580,8 @@ export type QuestionGroupOrdinal = Static<typeof QuestionGroupOrdinalSchema>
 */
 export const QuestionGroupIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionGroupId = Static<typeof QuestionGroupIdSchema>
 
@@ -595,8 +595,8 @@ export type QuestionGroupId = Static<typeof QuestionGroupIdSchema>
 */
 export const QuestionGroupHeadingSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionGroupHeading = Static<typeof QuestionGroupHeadingSchema>
 
@@ -606,8 +606,8 @@ export type QuestionGroupHeading = Static<typeof QuestionGroupHeadingSchema>
 */
 export const QuestionElementTypeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementType = Static<typeof QuestionElementTypeSchema>
 
@@ -617,8 +617,8 @@ export type QuestionElementType = Static<typeof QuestionElementTypeSchema>
 */
 export const QuestionElementResponseRangeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementResponseRange = Static<typeof QuestionElementResponseRangeSchema>
 
@@ -632,8 +632,8 @@ export type QuestionElementResponseRange = Static<typeof QuestionElementResponse
 */
 export const QuestionElementResponseSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementResponse = Static<typeof QuestionElementResponseSchema>
 
@@ -647,8 +647,8 @@ export type QuestionElementResponse = Static<typeof QuestionElementResponseSchem
 */
 export const QuestionElementPromptSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementPrompt = Static<typeof QuestionElementPromptSchema>
 
@@ -658,8 +658,8 @@ export type QuestionElementPrompt = Static<typeof QuestionElementPromptSchema>
 */
 export const QuestionElementOrdinalSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementOrdinal = Static<typeof QuestionElementOrdinalSchema>
 
@@ -673,8 +673,8 @@ export type QuestionElementOrdinal = Static<typeof QuestionElementOrdinalSchema>
 */
 export const QuestionElementLimitSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementLimit = Static<typeof QuestionElementLimitSchema>
 
@@ -688,8 +688,8 @@ export type QuestionElementLimit = Static<typeof QuestionElementLimitSchema>
 */
 export const QuestionElementIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementId = Static<typeof QuestionElementIdSchema>
 
@@ -703,8 +703,8 @@ export type QuestionElementId = Static<typeof QuestionElementIdSchema>
 */
 export const QuestionElementExplanationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type QuestionElementExplanation = Static<typeof QuestionElementExplanationSchema>
 
@@ -713,9 +713,9 @@ export type QuestionElementExplanation = Static<typeof QuestionElementExplanatio
 */
 export const PersonalSexSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type PersonalSex = Static<typeof PersonalSexSchema>
 
@@ -724,8 +724,8 @@ export type PersonalSex = Static<typeof PersonalSexSchema>
 */
 export const PersonalReligionTenureSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type PersonalReligionTenure = Static<typeof PersonalReligionTenureSchema>
 
@@ -734,11 +734,11 @@ export type PersonalReligionTenure = Static<typeof PersonalReligionTenureSchema>
 */
 export const PersonalReligionCodeSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type PersonalReligionCode = Static<typeof PersonalReligionCodeSchema>
 
@@ -747,10 +747,10 @@ export type PersonalReligionCode = Static<typeof PersonalReligionCodeSchema>
 */
 export const PersonalMaritalStatusSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type PersonalMaritalStatus = Static<typeof PersonalMaritalStatusSchema>
 
@@ -759,9 +759,9 @@ export type PersonalMaritalStatus = Static<typeof PersonalMaritalStatusSchema>
 */
 export const PersonalDateOfBirthSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type PersonalDateOfBirth = Static<typeof PersonalDateOfBirthSchema>
 
@@ -770,9 +770,9 @@ export type PersonalDateOfBirth = Static<typeof PersonalDateOfBirthSchema>
 */
 export const MissionTypeSchema = Type.Object({
    value: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type MissionType = Static<typeof MissionTypeSchema>
 
@@ -781,8 +781,8 @@ export type MissionType = Static<typeof MissionTypeSchema>
 */
 export const MissionServiceSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type MissionService = Static<typeof MissionServiceSchema>
 
@@ -791,9 +791,9 @@ export type MissionService = Static<typeof MissionServiceSchema>
 */
 export const MissionNameSchema = Type.Object({
    value: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type MissionName = Static<typeof MissionNameSchema>
 
@@ -802,10 +802,10 @@ export type MissionName = Static<typeof MissionNameSchema>
 */
 export const MissionLanguageSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type MissionLanguage = Static<typeof MissionLanguageSchema>
 
@@ -814,8 +814,8 @@ export type MissionLanguage = Static<typeof MissionLanguageSchema>
 */
 export const IntlVisaChangePlanSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type IntlVisaChangePlan = Static<typeof IntlVisaChangePlanSchema>
 
@@ -824,8 +824,8 @@ export type IntlVisaChangePlan = Static<typeof IntlVisaChangePlanSchema>
 */
 export const IntlCurrentUsResidentSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type IntlCurrentUsResident = Static<typeof IntlCurrentUsResidentSchema>
 
@@ -834,8 +834,8 @@ export type IntlCurrentUsResident = Static<typeof IntlCurrentUsResidentSchema>
 */
 export const IntlAlienNumberSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type IntlAlienNumber = Static<typeof IntlAlienNumberSchema>
 
@@ -844,8 +844,8 @@ export type IntlAlienNumber = Static<typeof IntlAlienNumberSchema>
 */
 export const InstituteForCreditSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type InstituteForCredit = Static<typeof InstituteForCreditSchema>
 
@@ -854,8 +854,8 @@ export type InstituteForCredit = Static<typeof InstituteForCreditSchema>
 */
 export const InstituteExplanationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type InstituteExplanation = Static<typeof InstituteExplanationSchema>
 
@@ -864,9 +864,9 @@ export type InstituteExplanation = Static<typeof InstituteExplanationSchema>
 */
 export const InstituteClassSchema = Type.Object({
    value: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type InstituteClass = Static<typeof InstituteClassSchema>
 
@@ -876,8 +876,8 @@ export type InstituteClass = Static<typeof InstituteClassSchema>
 */
 export const InstituteAttendanceSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type InstituteAttendance = Static<typeof InstituteAttendanceSchema>
 
@@ -894,11 +894,11 @@ export type InstituteAttendance = Static<typeof InstituteAttendanceSchema>
 */
 export const HighSchoolTypeSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolType = Static<typeof HighSchoolTypeSchema>
 
@@ -912,8 +912,8 @@ export type HighSchoolType = Static<typeof HighSchoolTypeSchema>
 */
 export const HighSchoolTranscriptSourceSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolTranscriptSource = Static<typeof HighSchoolTranscriptSourceSchema>
 
@@ -923,8 +923,8 @@ export type HighSchoolTranscriptSource = Static<typeof HighSchoolTranscriptSourc
 */
 export const HighSchoolSubjectSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolSubject = Static<typeof HighSchoolSubjectSchema>
 
@@ -940,10 +940,10 @@ export type HighSchoolSubject = Static<typeof HighSchoolSubjectSchema>
 */
 export const HighSchoolStateSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolState = Static<typeof HighSchoolStateSchema>
 
@@ -953,8 +953,8 @@ export type HighSchoolState = Static<typeof HighSchoolStateSchema>
 */
 export const HighSchoolRepeatedFlagSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolRepeatedFlag = Static<typeof HighSchoolRepeatedFlagSchema>
 
@@ -968,8 +968,8 @@ export type HighSchoolRepeatedFlag = Static<typeof HighSchoolRepeatedFlagSchema>
 */
 export const HighSchoolNonaccreditedStatementSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolNonaccreditedStatement = Static<typeof HighSchoolNonaccreditedStatementSchema>
 
@@ -983,8 +983,8 @@ export type HighSchoolNonaccreditedStatement = Static<typeof HighSchoolNonaccred
 */
 export const HighSchoolLinkToSecondaryDocumentImageSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolLinkToSecondaryDocumentImage = Static<typeof HighSchoolLinkToSecondaryDocumentImageSchema>
 
@@ -998,8 +998,8 @@ export type HighSchoolLinkToSecondaryDocumentImage = Static<typeof HighSchoolLin
 */
 export const HighSchoolLinkToDocumentImageSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolLinkToDocumentImage = Static<typeof HighSchoolLinkToDocumentImageSchema>
 
@@ -1008,8 +1008,8 @@ export type HighSchoolLinkToDocumentImage = Static<typeof HighSchoolLinkToDocume
 */
 export const HighSchoolGraduationDateSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolGraduationDate = Static<typeof HighSchoolGraduationDateSchema>
 
@@ -1019,8 +1019,8 @@ export type HighSchoolGraduationDate = Static<typeof HighSchoolGraduationDateSch
 */
 export const HighSchoolGradingTermsSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolGradingTerms = Static<typeof HighSchoolGradingTermsSchema>
 
@@ -1030,8 +1030,8 @@ export type HighSchoolGradingTerms = Static<typeof HighSchoolGradingTermsSchema>
 */
 export const HighSchoolGradeLevelSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolGradeLevel = Static<typeof HighSchoolGradeLevelSchema>
 
@@ -1040,8 +1040,8 @@ export type HighSchoolGradeLevel = Static<typeof HighSchoolGradeLevelSchema>
 */
 export const HighSchoolGradeFinalSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolGradeFinal = Static<typeof HighSchoolGradeFinalSchema>
 
@@ -1055,8 +1055,8 @@ export type HighSchoolGradeFinal = Static<typeof HighSchoolGradeFinalSchema>
 */
 export const HighSchoolGpaCalculatedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolGpaCalculated = Static<typeof HighSchoolGpaCalculatedSchema>
 
@@ -1070,8 +1070,8 @@ export type HighSchoolGpaCalculated = Static<typeof HighSchoolGpaCalculatedSchem
 */
 export const HighSchoolGpaSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolGpa = Static<typeof HighSchoolGpaSchema>
 
@@ -1080,8 +1080,8 @@ export type HighSchoolGpa = Static<typeof HighSchoolGpaSchema>
 */
 export const HighSchoolCreditsSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolCredits = Static<typeof HighSchoolCreditsSchema>
 
@@ -1095,8 +1095,8 @@ export type HighSchoolCredits = Static<typeof HighSchoolCreditsSchema>
 */
 export const HighSchoolCourseNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolCourseName = Static<typeof HighSchoolCourseNameSchema>
 
@@ -1112,10 +1112,10 @@ export type HighSchoolCourseName = Static<typeof HighSchoolCourseNameSchema>
 */
 export const HighSchoolCountrySchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolCountry = Static<typeof HighSchoolCountrySchema>
 
@@ -1124,8 +1124,8 @@ export type HighSchoolCountry = Static<typeof HighSchoolCountrySchema>
 */
 export const HighSchoolConcurrentEnrollmentSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolConcurrentEnrollment = Static<typeof HighSchoolConcurrentEnrollmentSchema>
 
@@ -1140,9 +1140,9 @@ export type HighSchoolConcurrentEnrollment = Static<typeof HighSchoolConcurrentE
 */
 export const HighSchoolCitySchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolCity = Static<typeof HighSchoolCitySchema>
 
@@ -1151,8 +1151,8 @@ export type HighSchoolCity = Static<typeof HighSchoolCitySchema>
 */
 export const HighSchoolApIbHalfClassesSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolApIbHalfClasses = Static<typeof HighSchoolApIbHalfClassesSchema>
 
@@ -1161,8 +1161,8 @@ export type HighSchoolApIbHalfClasses = Static<typeof HighSchoolApIbHalfClassesS
 */
 export const HighSchoolApIbFullClassesSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolApIbFullClasses = Static<typeof HighSchoolApIbFullClassesSchema>
 
@@ -1172,8 +1172,8 @@ export type HighSchoolApIbFullClasses = Static<typeof HighSchoolApIbFullClassesS
 */
 export const HighSchoolApIbFlagSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchoolApIbFlag = Static<typeof HighSchoolApIbFlagSchema>
 
@@ -1190,12 +1190,12 @@ export type HighSchoolApIbFlag = Static<typeof HighSchoolApIbFlagSchema>
 */
 export const HighSchoolSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type HighSchool = Static<typeof HighSchoolSchema>
 
@@ -1204,9 +1204,9 @@ export type HighSchool = Static<typeof HighSchoolSchema>
 */
 export const GovVisaTypeSourceSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GovVisaTypeSource = Static<typeof GovVisaTypeSourceSchema>
 
@@ -1215,10 +1215,10 @@ export type GovVisaTypeSource = Static<typeof GovVisaTypeSourceSchema>
 */
 export const GovVisaTypeSchema = Type.Object({
    value: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GovVisaType = Static<typeof GovVisaTypeSchema>
 
@@ -1227,11 +1227,11 @@ export type GovVisaType = Static<typeof GovVisaTypeSchema>
 */
 export const GovCitizenshipStatusSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GovCitizenshipStatus = Static<typeof GovCitizenshipStatusSchema>
 
@@ -1240,11 +1240,11 @@ export type GovCitizenshipStatus = Static<typeof GovCitizenshipStatusSchema>
 */
 export const GovCitizenshipCountryCodeSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GovCitizenshipCountryCode = Static<typeof GovCitizenshipCountryCodeSchema>
 
@@ -1253,11 +1253,11 @@ export type GovCitizenshipCountryCode = Static<typeof GovCitizenshipCountryCodeS
 */
 export const GovBirthCountryCodeSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GovBirthCountryCode = Static<typeof GovBirthCountryCodeSchema>
 
@@ -1266,9 +1266,9 @@ export type GovBirthCountryCode = Static<typeof GovBirthCountryCodeSchema>
 */
 export const GovBirthCitySchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GovBirthCity = Static<typeof GovBirthCitySchema>
 
@@ -1277,8 +1277,8 @@ export type GovBirthCity = Static<typeof GovBirthCitySchema>
 */
 export const GeiProgramsSrsSiteSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GeiProgramsSrsSite = Static<typeof GeiProgramsSrsSiteSchema>
 
@@ -1287,8 +1287,8 @@ export type GeiProgramsSrsSite = Static<typeof GeiProgramsSrsSiteSchema>
 */
 export const GeiProgramsSrsFacilitatorSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GeiProgramsSrsFacilitator = Static<typeof GeiProgramsSrsFacilitatorSchema>
 
@@ -1297,8 +1297,8 @@ export type GeiProgramsSrsFacilitator = Static<typeof GeiProgramsSrsFacilitatorS
 */
 export const GeiProgramsSrsCertificatesSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GeiProgramsSrsCertificates = Static<typeof GeiProgramsSrsCertificatesSchema>
 
@@ -1307,8 +1307,8 @@ export type GeiProgramsSrsCertificates = Static<typeof GeiProgramsSrsCertificate
 */
 export const GeiProgramsPwSiteSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GeiProgramsPwSite = Static<typeof GeiProgramsPwSiteSchema>
 
@@ -1317,8 +1317,8 @@ export type GeiProgramsPwSite = Static<typeof GeiProgramsPwSiteSchema>
 */
 export const GeiProgramsPwGpaSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GeiProgramsPwGpa = Static<typeof GeiProgramsPwGpaSchema>
 
@@ -1327,8 +1327,8 @@ export type GeiProgramsPwGpa = Static<typeof GeiProgramsPwGpaSchema>
 */
 export const GeiProgramsPwCreditsSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GeiProgramsPwCredits = Static<typeof GeiProgramsPwCreditsSchema>
 
@@ -1337,8 +1337,8 @@ export type GeiProgramsPwCredits = Static<typeof GeiProgramsPwCreditsSchema>
 */
 export const GeiProgramsPwCompletionSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type GeiProgramsPwCompletion = Static<typeof GeiProgramsPwCompletionSchema>
 
@@ -1347,8 +1347,8 @@ export type GeiProgramsPwCompletion = Static<typeof GeiProgramsPwCompletionSchem
 */
 export const EndorsementTypeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type EndorsementType = Static<typeof EndorsementTypeSchema>
 
@@ -1357,8 +1357,8 @@ export type EndorsementType = Static<typeof EndorsementTypeSchema>
 */
 export const EndorsementStatusSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type EndorsementStatus = Static<typeof EndorsementStatusSchema>
 
@@ -1367,8 +1367,8 @@ export type EndorsementStatus = Static<typeof EndorsementStatusSchema>
 */
 export const EndorsementDateSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type EndorsementDate = Static<typeof EndorsementDateSchema>
 
@@ -1377,7 +1377,7 @@ export type EndorsementDate = Static<typeof EndorsementDateSchema>
 */
 export const DeliverableViewIdxSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String()
+   api_type: Type.Optional(Type.String())
 })
 export type DeliverableViewIdx = Static<typeof DeliverableViewIdxSchema>
 
@@ -1386,10 +1386,10 @@ export type DeliverableViewIdx = Static<typeof DeliverableViewIdxSchema>
 */
 export const DeliverableTypeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableType = Static<typeof DeliverableTypeSchema>
 
@@ -1398,10 +1398,10 @@ export type DeliverableType = Static<typeof DeliverableTypeSchema>
 */
 export const DeliverableSubtypeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableSubtype = Static<typeof DeliverableSubtypeSchema>
 
@@ -1410,8 +1410,8 @@ export type DeliverableSubtype = Static<typeof DeliverableSubtypeSchema>
 */
 export const DeliverableStatusSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableStatus = Static<typeof DeliverableStatusSchema>
 
@@ -1420,8 +1420,8 @@ export type DeliverableStatus = Static<typeof DeliverableStatusSchema>
 */
 export const DeliverableSatisfiedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableSatisfied = Static<typeof DeliverableSatisfiedSchema>
 
@@ -1430,8 +1430,8 @@ export type DeliverableSatisfied = Static<typeof DeliverableSatisfiedSchema>
 */
 export const DeliverableQualifierTypeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableQualifierType = Static<typeof DeliverableQualifierTypeSchema>
 
@@ -1440,8 +1440,8 @@ export type DeliverableQualifierType = Static<typeof DeliverableQualifierTypeSch
 */
 export const DeliverableQualifierSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableQualifier = Static<typeof DeliverableQualifierSchema>
 
@@ -1450,8 +1450,8 @@ export type DeliverableQualifier = Static<typeof DeliverableQualifierSchema>
 */
 export const DeliverableNameDisplaySchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableNameDisplay = Static<typeof DeliverableNameDisplaySchema>
 
@@ -1460,8 +1460,8 @@ export type DeliverableNameDisplay = Static<typeof DeliverableNameDisplaySchema>
 */
 export const DeliverableNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableName = Static<typeof DeliverableNameSchema>
 
@@ -1470,9 +1470,9 @@ export type DeliverableName = Static<typeof DeliverableNameSchema>
 */
 export const DeliverableIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableId = Static<typeof DeliverableIdSchema>
 
@@ -1481,8 +1481,8 @@ export type DeliverableId = Static<typeof DeliverableIdSchema>
 */
 export const DeliverableDescriptionSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableDescription = Static<typeof DeliverableDescriptionSchema>
 
@@ -1491,7 +1491,7 @@ export type DeliverableDescription = Static<typeof DeliverableDescriptionSchema>
 */
 export const DeliverableControllerIdxSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String()
+   api_type: Type.Optional(Type.String())
 })
 export type DeliverableControllerIdx = Static<typeof DeliverableControllerIdxSchema>
 
@@ -1500,8 +1500,8 @@ export type DeliverableControllerIdx = Static<typeof DeliverableControllerIdxSch
 */
 export const DeliverableDateTimeStatusSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableDateTimeStatus = Static<typeof DeliverableDateTimeStatusSchema>
 
@@ -1510,8 +1510,8 @@ export type DeliverableDateTimeStatus = Static<typeof DeliverableDateTimeStatusS
 */
 export const DeliverableDateTimeSatisfiedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type DeliverableDateTimeSatisfied = Static<typeof DeliverableDateTimeSatisfiedSchema>
 
@@ -1520,10 +1520,10 @@ export type DeliverableDateTimeSatisfied = Static<typeof DeliverableDateTimeSati
 */
 export const ContactStateCodeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactStateCode = Static<typeof ContactStateCodeSchema>
 
@@ -1532,8 +1532,8 @@ export type ContactStateCode = Static<typeof ContactStateCodeSchema>
 */
 export const ContactPostalCodeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactPostalCode = Static<typeof ContactPostalCodeSchema>
 
@@ -1542,10 +1542,10 @@ export type ContactPostalCode = Static<typeof ContactPostalCodeSchema>
 */
 export const ContactCountryCodeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactCountryCode = Static<typeof ContactCountryCodeSchema>
 
@@ -1554,8 +1554,8 @@ export type ContactCountryCode = Static<typeof ContactCountryCodeSchema>
 */
 export const ContactCitySchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactCity = Static<typeof ContactCitySchema>
 
@@ -1564,8 +1564,8 @@ export type ContactCity = Static<typeof ContactCitySchema>
 */
 export const ContactAddressLine5Schema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactAddressLine5 = Static<typeof ContactAddressLine5Schema>
 
@@ -1574,8 +1574,8 @@ export type ContactAddressLine5 = Static<typeof ContactAddressLine5Schema>
 */
 export const ContactAddressLine4Schema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactAddressLine4 = Static<typeof ContactAddressLine4Schema>
 
@@ -1584,8 +1584,8 @@ export type ContactAddressLine4 = Static<typeof ContactAddressLine4Schema>
 */
 export const ContactAddressLine3Schema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactAddressLine3 = Static<typeof ContactAddressLine3Schema>
 
@@ -1594,8 +1594,8 @@ export type ContactAddressLine3 = Static<typeof ContactAddressLine3Schema>
 */
 export const ContactAddressLine2Schema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactAddressLine2 = Static<typeof ContactAddressLine2Schema>
 
@@ -1604,8 +1604,8 @@ export type ContactAddressLine2 = Static<typeof ContactAddressLine2Schema>
 */
 export const ContactAddressLine1Schema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ContactAddressLine1 = Static<typeof ContactAddressLine1Schema>
 
@@ -1614,8 +1614,8 @@ export type ContactAddressLine1 = Static<typeof ContactAddressLine1Schema>
 */
 export const CollegeDegreeMajorSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type CollegeDegreeMajor = Static<typeof CollegeDegreeMajorSchema>
 
@@ -1624,8 +1624,8 @@ export type CollegeDegreeMajor = Static<typeof CollegeDegreeMajorSchema>
 */
 export const CollegeDegreeDateSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type CollegeDegreeDate = Static<typeof CollegeDegreeDateSchema>
 
@@ -1634,8 +1634,8 @@ export type CollegeDegreeDate = Static<typeof CollegeDegreeDateSchema>
 */
 export const CollegeDegreeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type CollegeDegree = Static<typeof CollegeDegreeSchema>
 
@@ -1644,8 +1644,8 @@ export type CollegeDegree = Static<typeof CollegeDegreeSchema>
 */
 export const CollegeGpaVerifiedSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type CollegeGpaVerified = Static<typeof CollegeGpaVerifiedSchema>
 
@@ -1654,8 +1654,8 @@ export type CollegeGpaVerified = Static<typeof CollegeGpaVerifiedSchema>
 */
 export const CollegeGpaSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type CollegeGpa = Static<typeof CollegeGpaSchema>
 
@@ -1664,11 +1664,11 @@ export type CollegeGpa = Static<typeof CollegeGpaSchema>
 */
 export const CollegeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type College = Static<typeof CollegeSchema>
 
@@ -1677,8 +1677,8 @@ export type College = Static<typeof CollegeSchema>
 */
 export const CollegeCumulativeGpaSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type CollegeCumulativeGpa = Static<typeof CollegeCumulativeGpaSchema>
 
@@ -1687,8 +1687,8 @@ export type CollegeCumulativeGpa = Static<typeof CollegeCumulativeGpaSchema>
 */
 export const CollegeCumulativeCreditSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type CollegeCumulativeCredit = Static<typeof CollegeCumulativeCreditSchema>
 
@@ -1697,8 +1697,8 @@ export type CollegeCumulativeCredit = Static<typeof CollegeCumulativeCreditSchem
 */
 export const BioSingleParentSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BioSingleParent = Static<typeof BioSingleParentSchema>
 
@@ -1707,9 +1707,9 @@ export type BioSingleParent = Static<typeof BioSingleParentSchema>
 */
 export const BioResidingWithSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BioResidingWith = Static<typeof BioResidingWithSchema>
 
@@ -1718,9 +1718,9 @@ export type BioResidingWith = Static<typeof BioResidingWithSchema>
 */
 export const BioFamilyIncomeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BioFamilyIncome = Static<typeof BioFamilyIncomeSchema>
 
@@ -1729,9 +1729,9 @@ export type BioFamilyIncome = Static<typeof BioFamilyIncomeSchema>
 */
 export const BioMothersLevelOfEducationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BioMothersLevelOfEducation = Static<typeof BioMothersLevelOfEducationSchema>
 
@@ -1740,8 +1740,8 @@ export type BioMothersLevelOfEducation = Static<typeof BioMothersLevelOfEducatio
 */
 export const BioHispanicFlagSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BioHispanicFlag = Static<typeof BioHispanicFlagSchema>
 
@@ -1750,9 +1750,9 @@ export type BioHispanicFlag = Static<typeof BioHispanicFlagSchema>
 */
 export const BioFathersLevelOfEducationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BioFathersLevelOfEducation = Static<typeof BioFathersLevelOfEducationSchema>
 
@@ -1761,8 +1761,8 @@ export type BioFathersLevelOfEducation = Static<typeof BioFathersLevelOfEducatio
 */
 export const BgUniversityDisciplineExplanationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BgUniversityDisciplineExplanation = Static<typeof BgUniversityDisciplineExplanationSchema>
 
@@ -1771,8 +1771,8 @@ export type BgUniversityDisciplineExplanation = Static<typeof BgUniversityDiscip
 */
 export const BgUniversityDisciplineSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BgUniversityDiscipline = Static<typeof BgUniversityDisciplineSchema>
 
@@ -1781,8 +1781,8 @@ export type BgUniversityDiscipline = Static<typeof BgUniversityDisciplineSchema>
 */
 export const BgSexRegistryExplanationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BgSexRegistryExplanation = Static<typeof BgSexRegistryExplanationSchema>
 
@@ -1791,8 +1791,8 @@ export type BgSexRegistryExplanation = Static<typeof BgSexRegistryExplanationSch
 */
 export const BgSexRegistrySchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BgSexRegistry = Static<typeof BgSexRegistrySchema>
 
@@ -1801,8 +1801,8 @@ export type BgSexRegistry = Static<typeof BgSexRegistrySchema>
 */
 export const BgPluralMarriageExplanationSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BgPluralMarriageExplanation = Static<typeof BgPluralMarriageExplanationSchema>
 
@@ -1811,8 +1811,8 @@ export type BgPluralMarriageExplanation = Static<typeof BgPluralMarriageExplanat
 */
 export const BgPluralMarriageSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BgPluralMarriage = Static<typeof BgPluralMarriageSchema>
 
@@ -1820,51 +1820,51 @@ export type BgPluralMarriage = Static<typeof BgPluralMarriageSchema>
 * DESCRIPTION: Details on each conviction and resolution
 */
 export const BgCriminalConvictionsSchema = Type.Array(Type.Object({
-   crime: Type.Object({
+   crime: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   crime_year: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   crime_year: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   courts: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   courts: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   conditions: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   conditions: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   probation: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   probation: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   probation_explanation: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   probation_explanation: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   penalties: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   penalties: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   penalties_explanation: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   penalties_explanation: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   }),
-   additional_explanation: Type.Object({
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   })),
+   additional_explanation: Type.Optional(Type.Object({
       value: Type.String(),
-      api_type: Type.String(),
-      display_label: Type.String()
-   })
+      api_type: Type.Optional(Type.String()),
+      display_label: Type.Optional(Type.String())
+   }))
 }))
 export type BgCriminalConvictions = Static<typeof BgCriminalConvictionsSchema>
 
@@ -1873,8 +1873,8 @@ export type BgCriminalConvictions = Static<typeof BgCriminalConvictionsSchema>
 */
 export const BgConvictionRecordSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BgConvictionRecord = Static<typeof BgConvictionRecordSchema>
 
@@ -1883,8 +1883,8 @@ export type BgConvictionRecord = Static<typeof BgConvictionRecordSchema>
 */
 export const BasicSecondaryPhoneNumberSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicSecondaryPhoneNumber = Static<typeof BasicSecondaryPhoneNumberSchema>
 
@@ -1893,9 +1893,9 @@ export type BasicSecondaryPhoneNumber = Static<typeof BasicSecondaryPhoneNumberS
 */
 export const BasicPhoneNumberSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   key: Type.Boolean(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   key: Type.Optional(Type.Boolean()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicPhoneNumber = Static<typeof BasicPhoneNumberSchema>
 
@@ -1904,9 +1904,9 @@ export type BasicPhoneNumber = Static<typeof BasicPhoneNumberSchema>
 */
 export const BasicSecondaryEmailAddressSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicSecondaryEmailAddress = Static<typeof BasicSecondaryEmailAddressSchema>
 
@@ -1915,9 +1915,9 @@ export type BasicSecondaryEmailAddress = Static<typeof BasicSecondaryEmailAddres
 */
 export const BasicEmailAddressSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicEmailAddress = Static<typeof BasicEmailAddressSchema>
 
@@ -1926,8 +1926,8 @@ export type BasicEmailAddress = Static<typeof BasicEmailAddressSchema>
 */
 export const BasicSchoolPreferenceOrderSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicSchoolPreferenceOrder = Static<typeof BasicSchoolPreferenceOrderSchema>
 
@@ -1936,9 +1936,9 @@ export type BasicSchoolPreferenceOrder = Static<typeof BasicSchoolPreferenceOrde
 */
 export const BasicSurnameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicSurname = Static<typeof BasicSurnameSchema>
 
@@ -1947,9 +1947,9 @@ export type BasicSurname = Static<typeof BasicSurnameSchema>
 */
 export const BasicSuffixSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicSuffix = Static<typeof BasicSuffixSchema>
 
@@ -1958,8 +1958,8 @@ export type BasicSuffix = Static<typeof BasicSuffixSchema>
 */
 export const BasicRestOfNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicRestOfName = Static<typeof BasicRestOfNameSchema>
 
@@ -1968,8 +1968,8 @@ export type BasicRestOfName = Static<typeof BasicRestOfNameSchema>
 */
 export const BasicPrimaryLanguageSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicPrimaryLanguage = Static<typeof BasicPrimaryLanguageSchema>
 
@@ -1978,8 +1978,8 @@ export type BasicPrimaryLanguage = Static<typeof BasicPrimaryLanguageSchema>
 */
 export const BasicPreviousNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicPreviousName = Static<typeof BasicPreviousNameSchema>
 
@@ -1988,8 +1988,8 @@ export type BasicPreviousName = Static<typeof BasicPreviousNameSchema>
 */
 export const BasicPreferredNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicPreferredName = Static<typeof BasicPreferredNameSchema>
 
@@ -1998,7 +1998,7 @@ export type BasicPreferredName = Static<typeof BasicPreferredNameSchema>
 */
 export const BasicNetIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String()
+   api_type: Type.Optional(Type.String())
 })
 export type BasicNetId = Static<typeof BasicNetIdSchema>
 
@@ -2007,9 +2007,9 @@ export type BasicNetId = Static<typeof BasicNetIdSchema>
 */
 export const BasicMiddleNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicMiddleName = Static<typeof BasicMiddleNameSchema>
 
@@ -2018,7 +2018,7 @@ export type BasicMiddleName = Static<typeof BasicMiddleNameSchema>
 */
 export const BasicInstitutionIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String()
+   api_type: Type.Optional(Type.String())
 })
 export type BasicInstitutionId = Static<typeof BasicInstitutionIdSchema>
 
@@ -2027,9 +2027,9 @@ export type BasicInstitutionId = Static<typeof BasicInstitutionIdSchema>
 */
 export const BasicHomeTownSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicHomeTown = Static<typeof BasicHomeTownSchema>
 
@@ -2038,11 +2038,11 @@ export type BasicHomeTown = Static<typeof BasicHomeTownSchema>
 */
 export const BasicHomeStateSchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicHomeState = Static<typeof BasicHomeStateSchema>
 
@@ -2051,8 +2051,8 @@ export type BasicHomeState = Static<typeof BasicHomeStateSchema>
 */
 export const BasicHomeCountySchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicHomeCounty = Static<typeof BasicHomeCountySchema>
 
@@ -2061,11 +2061,11 @@ export type BasicHomeCounty = Static<typeof BasicHomeCountySchema>
 */
 export const BasicHomeCountrySchema = Type.Object({
    value: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicHomeCountry = Static<typeof BasicHomeCountrySchema>
 
@@ -2074,9 +2074,9 @@ export type BasicHomeCountry = Static<typeof BasicHomeCountrySchema>
 */
 export const BasicFirstNameSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicFirstName = Static<typeof BasicFirstNameSchema>
 
@@ -2085,9 +2085,9 @@ export type BasicFirstName = Static<typeof BasicFirstNameSchema>
 */
 export const BasicDecisionDateTimeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicDecisionDateTime = Static<typeof BasicDecisionDateTimeSchema>
 
@@ -2096,9 +2096,9 @@ export type BasicDecisionDateTime = Static<typeof BasicDecisionDateTimeSchema>
 */
 export const BasicDecisionTemplateIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicDecisionTemplateId = Static<typeof BasicDecisionTemplateIdSchema>
 
@@ -2107,8 +2107,8 @@ export type BasicDecisionTemplateId = Static<typeof BasicDecisionTemplateIdSchem
 */
 export const BasicDecisionQualifierSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicDecisionQualifier = Static<typeof BasicDecisionQualifierSchema>
 
@@ -2117,10 +2117,10 @@ export type BasicDecisionQualifier = Static<typeof BasicDecisionQualifierSchema>
 */
 export const BasicDecisionSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicDecision = Static<typeof BasicDecisionSchema>
 
@@ -2129,8 +2129,8 @@ export type BasicDecision = Static<typeof BasicDecisionSchema>
 */
 export const BasicApplicationStatusDateTimeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicApplicationStatusDateTime = Static<typeof BasicApplicationStatusDateTimeSchema>
 
@@ -2139,10 +2139,10 @@ export type BasicApplicationStatusDateTime = Static<typeof BasicApplicationStatu
 */
 export const BasicApplicationStatusSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicApplicationStatus = Static<typeof BasicApplicationStatusSchema>
 
@@ -2151,8 +2151,8 @@ export type BasicApplicationStatus = Static<typeof BasicApplicationStatusSchema>
 */
 export const BasicAgreementFinancialResponsibilityDateTimeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicAgreementFinancialResponsibilityDateTime = Static<typeof BasicAgreementFinancialResponsibilityDateTimeSchema>
 
@@ -2161,8 +2161,8 @@ export type BasicAgreementFinancialResponsibilityDateTime = Static<typeof BasicA
 */
 export const BasicAgreementInformationReleaseDateTimeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type BasicAgreementInformationReleaseDateTime = Static<typeof BasicAgreementInformationReleaseDateTimeSchema>
 
@@ -2171,8 +2171,8 @@ export type BasicAgreementInformationReleaseDateTime = Static<typeof BasicAgreem
 */
 export const ActionDateTimeSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ActionDateTime = Static<typeof ActionDateTimeSchema>
 
@@ -2181,9 +2181,9 @@ export type ActionDateTime = Static<typeof ActionDateTimeSchema>
 */
 export const ActionByIdSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ActionById = Static<typeof ActionByIdSchema>
 
@@ -2192,9 +2192,9 @@ export type ActionById = Static<typeof ActionByIdSchema>
 */
 export const ActionResultsSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   description: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ActionResults = Static<typeof ActionResultsSchema>
 
@@ -2203,8 +2203,8 @@ export type ActionResults = Static<typeof ActionResultsSchema>
 */
 export const ActionMessageSchema = Type.Object({
    value: Type.String(),
-   api_type: Type.String(),
-   display_label: Type.String()
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type ActionMessage = Static<typeof ActionMessageSchema>
 
@@ -2219,10 +2219,10 @@ export type ActionMessage = Static<typeof ActionMessageSchema>
 */
 export const ActionSchema = Type.Object({
    action: Type.String(),
-   action_message: Type.String(),
-   component_id: Type.String(),
-   data: Type.Object({
-   })
+   action_message: Type.Optional(Type.String()),
+   component_id: Type.Optional(Type.String()),
+   data: Type.Optional(Type.Object({
+   }))
 })
 export type Action = Static<typeof ActionSchema>
 
@@ -2233,10 +2233,10 @@ export const MetadataSimpleSchema = Type.Object({
       code: Type.Integer(),
       message: Type.String()
    }),
-   validation_information: Type.Array(Type.String()),
-   cache: Type.Object({
-      date_time: Type.String()
-   })
+   validation_information: Type.Optional(Type.Array(Type.String())),
+   cache: Type.Optional(Type.Object({
+      date_time: Type.Optional(Type.String())
+   }))
 })
 export type MetadataSimple = Static<typeof MetadataSimpleSchema>
 
@@ -2245,12 +2245,12 @@ export type MetadataSimple = Static<typeof MetadataSimpleSchema>
 */
 export const DecisionReasonsSchema = Type.Object({
    metadata: MetadataSimpleSchema,
-   values: Type.Object({
-      admitReasons: DecisionReasonValueArraySchema,
-      denyReasons: DecisionReasonValueArraySchema,
-      holdReasons: DecisionReasonValueArraySchema,
-      archiveReasons: DecisionReasonValueArraySchema
-   })
+   values: Type.Optional(Type.Object({
+      admitReasons: Type.Optional(DecisionReasonValueArraySchema),
+      denyReasons: Type.Optional(DecisionReasonValueArraySchema),
+      holdReasons: Type.Optional(DecisionReasonValueArraySchema),
+      archiveReasons: Type.Optional(DecisionReasonValueArraySchema)
+   }))
 })
 export type DecisionReasons = Static<typeof DecisionReasonsSchema>
 
@@ -2259,12 +2259,12 @@ export type DecisionReasons = Static<typeof DecisionReasonsSchema>
 export const MetadataCollectionSchema = Type.Intersect([
    MetadataSimpleSchema,
    Type.Object({
-      collection_size: Type.Integer(),
-      page_start: Type.Integer(),
-      page_end: Type.Integer(),
-      page_size: Type.Integer(),
-      default_page_size: Type.Integer(),
-      max_page_size: Type.Integer()
+      collection_size: Type.Optional(Type.Integer()),
+      page_start: Type.Optional(Type.Integer()),
+      page_end: Type.Optional(Type.Integer()),
+      page_size: Type.Optional(Type.Integer()),
+      default_page_size: Type.Optional(Type.Integer()),
+      max_page_size: Type.Optional(Type.Integer())
    })
 ])
 export type MetadataCollection = Static<typeof MetadataCollectionSchema>
@@ -2274,19 +2274,19 @@ export type MetadataCollection = Static<typeof MetadataCollectionSchema>
 export const MetadataTopLevelSchema = Type.Intersect([
    MetadataCollectionSchema,
    Type.Object({
-      field_sets_returned: Type.Array(Type.String()),
-      field_sets_available: Type.Array(Type.String()),
-      field_sets_default: Type.Array(Type.String()),
-      contexts_available: Type.Object({
-         admin: Type.Array(Type.String()),
-         all: Type.Array(Type.String()),
-         application_controls: Type.Array(Type.String()),
-         applicant: Type.Array(Type.String()),
-         contact: Type.Array(Type.String()),
-         education: Type.Array(Type.String()),
-         profile: Type.Array(Type.String()),
-         religion: Type.Array(Type.String())
-      })
+      field_sets_returned: Type.Optional(Type.Array(Type.String())),
+      field_sets_available: Type.Optional(Type.Array(Type.String())),
+      field_sets_default: Type.Optional(Type.Array(Type.String())),
+      contexts_available: Type.Optional(Type.Object({
+         admin: Type.Optional(Type.Array(Type.String())),
+         all: Type.Optional(Type.Array(Type.String())),
+         application_controls: Type.Optional(Type.Array(Type.String())),
+         applicant: Type.Optional(Type.Array(Type.String())),
+         contact: Type.Optional(Type.Array(Type.String())),
+         education: Type.Optional(Type.Array(Type.String())),
+         profile: Type.Optional(Type.Array(Type.String())),
+         religion: Type.Optional(Type.Array(Type.String()))
+      }))
    })
 ])
 export type MetadataTopLevel = Static<typeof MetadataTopLevelSchema>
@@ -2301,23 +2301,23 @@ export type ErrorResponse = Static<typeof ErrorResponseSchema>
 /**
 */
 export const SeminaryTermInfoSchema = Type.Object({
-   term: SeminaryTermSchema,
-   absences: SeminaryAbsencesSchema,
-   sessions: SeminarySessionsSchema,
-   attendance: SeminaryAttendanceSchema,
-   reading: SeminaryReadingSchema,
-   recognition: SeminaryRecognitionSchema,
-   credit: SeminaryCreditSchema,
-   grade: SeminaryGradeSchema
+   term: Type.Optional(SeminaryTermSchema),
+   absences: Type.Optional(SeminaryAbsencesSchema),
+   sessions: Type.Optional(SeminarySessionsSchema),
+   attendance: Type.Optional(SeminaryAttendanceSchema),
+   reading: Type.Optional(SeminaryReadingSchema),
+   recognition: Type.Optional(SeminaryRecognitionSchema),
+   credit: Type.Optional(SeminaryCreditSchema),
+   grade: Type.Optional(SeminaryGradeSchema)
 })
 export type SeminaryTermInfo = Static<typeof SeminaryTermInfoSchema>
 
 /**
 */
 export const SeminaryClassDataSchema = Type.Object({
-   seminary_class: SeminaryClassSchema,
-   academic_year: SharedAcademicYearSchema,
-   term_info: Type.Array(SeminaryTermInfoSchema)
+   seminary_class: Type.Optional(SeminaryClassSchema),
+   academic_year: Type.Optional(SharedAcademicYearSchema),
+   term_info: Type.Optional(Type.Array(SeminaryTermInfoSchema))
 })
 export type SeminaryClassData = Static<typeof SeminaryClassDataSchema>
 
@@ -2325,16 +2325,16 @@ export type SeminaryClassData = Static<typeof SeminaryClassDataSchema>
 * DESCRIPTION: A set of question elements that should be grouped together
 */
 export const QuestionGroupSchema = Type.Object({
-   id: QuestionGroupIdSchema,
-   name: NameSchema,
-   description: DescriptionSchema,
-   ordinal: QuestionGroupOrdinalSchema,
-   heading: QuestionGroupHeadingSchema,
-   elements: Type.Array(Type.Object({
-      id: Type.String(),
-      label: Type.String(),
-      ordinal: Type.String()
-   }))
+   id: Type.Optional(QuestionGroupIdSchema),
+   name: Type.Optional(NameSchema),
+   description: Type.Optional(DescriptionSchema),
+   ordinal: Type.Optional(QuestionGroupOrdinalSchema),
+   heading: Type.Optional(QuestionGroupHeadingSchema),
+   elements: Type.Optional(Type.Array(Type.Object({
+      id: Type.Optional(Type.String()),
+      label: Type.Optional(Type.String()),
+      ordinal: Type.Optional(Type.String())
+   })))
 })
 export type QuestionGroup = Static<typeof QuestionGroupSchema>
 
@@ -2342,19 +2342,19 @@ export type QuestionGroup = Static<typeof QuestionGroupSchema>
 * DESCRIPTION: A question element
 */
 export const QuestionElementSchema = Type.Object({
-   id: QuestionElementIdSchema,
-   type: QuestionElementTypeSchema,
-   prompt: QuestionElementPromptSchema,
-   explanation: QuestionElementExplanationSchema,
-   limit: QuestionElementLimitSchema,
-   ordinal: QuestionElementOrdinalSchema,
-   response: QuestionElementResponseSchema,
-   response_range: QuestionElementResponseRangeSchema,
-   response_criteria: Type.Array(Type.Object({
-      label: Type.String(),
-      value: Type.String()
-   })),
-   response_set: Type.Array(Type.String())
+   id: Type.Optional(QuestionElementIdSchema),
+   type: Type.Optional(QuestionElementTypeSchema),
+   prompt: Type.Optional(QuestionElementPromptSchema),
+   explanation: Type.Optional(QuestionElementExplanationSchema),
+   limit: Type.Optional(QuestionElementLimitSchema),
+   ordinal: Type.Optional(QuestionElementOrdinalSchema),
+   response: Type.Optional(QuestionElementResponseSchema),
+   response_range: Type.Optional(QuestionElementResponseRangeSchema),
+   response_criteria: Type.Optional(Type.Array(Type.Object({
+      label: Type.Optional(Type.String()),
+      value: Type.Optional(Type.String())
+   }))),
+   response_set: Type.Optional(Type.Array(Type.String()))
 })
 export type QuestionElement = Static<typeof QuestionElementSchema>
 
@@ -2370,10 +2370,10 @@ export type QuestionElement = Static<typeof QuestionElementSchema>
 }
 */
 export const QuestionAnswerSchema = Type.Object({
-   answers: Type.Array(Type.Object({
-      element_id: Type.String(),
-      response: Type.String()
-   }))
+   answers: Type.Optional(Type.Array(Type.Object({
+      element_id: Type.Optional(Type.String()),
+      response: Type.Optional(Type.String())
+   })))
 })
 export type QuestionAnswer = Static<typeof QuestionAnswerSchema>
 
@@ -2381,11 +2381,11 @@ export type QuestionAnswer = Static<typeof QuestionAnswerSchema>
 * DESCRIPTION: Collection of self-declared racial categories
 */
 export const RacialCategoriesSchema = Type.Array(Type.Object({
-   value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   value: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 }))
 export type RacialCategories = Static<typeof RacialCategoriesSchema>
 
@@ -2393,35 +2393,35 @@ export type RacialCategories = Static<typeof RacialCategoriesSchema>
 * DESCRIPTION: Collection of languages in which the Applicant has declared some proficiency
 */
 export const LanguagesSchema = Type.Array(Type.Object({
-   value: Type.String(),
-   api_type: Type.String(),
-   related_resource: Type.String(),
-   description: Type.String(),
-   domain: Type.String(),
-   display_label: Type.String()
+   value: Type.Optional(Type.String()),
+   api_type: Type.Optional(Type.String()),
+   related_resource: Type.Optional(Type.String()),
+   description: Type.Optional(Type.String()),
+   domain: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 }))
 export type Languages = Static<typeof LanguagesSchema>
 
 /**
 */
 export const HighSchoolNonaccreditedWorkInfoSchema = Type.Object({
-   grade_level: HighSchoolGradeLevelSchema,
-   statement: HighSchoolNonaccreditedStatementSchema
+   grade_level: Type.Optional(HighSchoolGradeLevelSchema),
+   statement: Type.Optional(HighSchoolNonaccreditedStatementSchema)
 })
 export type HighSchoolNonaccreditedWorkInfo = Static<typeof HighSchoolNonaccreditedWorkInfoSchema>
 
 /**
 */
 export const HighSchoolCourseInfoSchema = Type.Object({
-   grade_level: HighSchoolGradeLevelSchema,
-   subject: HighSchoolSubjectSchema,
-   course_name: HighSchoolCourseNameSchema,
-   ap_ib_flag: HighSchoolApIbFlagSchema,
-   repeated: HighSchoolRepeatedFlagSchema,
-   grading_terms: HighSchoolGradingTermsSchema,
-   grade_final: HighSchoolGradeFinalSchema,
-   credits: HighSchoolCreditsSchema,
-   grades: Type.Array(SharedGradeSchema)
+   grade_level: Type.Optional(HighSchoolGradeLevelSchema),
+   subject: Type.Optional(HighSchoolSubjectSchema),
+   course_name: Type.Optional(HighSchoolCourseNameSchema),
+   ap_ib_flag: Type.Optional(HighSchoolApIbFlagSchema),
+   repeated: Type.Optional(HighSchoolRepeatedFlagSchema),
+   grading_terms: Type.Optional(HighSchoolGradingTermsSchema),
+   grade_final: Type.Optional(HighSchoolGradeFinalSchema),
+   credits: Type.Optional(HighSchoolCreditsSchema),
+   grades: Type.Optional(Type.Array(SharedGradeSchema))
 })
 export type HighSchoolCourseInfo = Static<typeof HighSchoolCourseInfoSchema>
 
@@ -2434,9 +2434,9 @@ export type HighSchoolCourseInfo = Static<typeof HighSchoolCourseInfoSchema>
 }
 */
 export const InternationalRecordsModifySchema = Type.Object({
-   alien_number: Type.String(),
-   current_us_resident: Type.String(),
-   visa_change_plan: Type.String()
+   alien_number: Type.Optional(Type.String()),
+   current_us_resident: Type.Optional(Type.String()),
+   visa_change_plan: Type.Optional(Type.String())
 })
 export type InternationalRecordsModify = Static<typeof InternationalRecordsModifySchema>
 
@@ -2451,34 +2451,34 @@ export type InternationalRecordsModify = Static<typeof InternationalRecordsModif
 }
 */
 export const MissionsModifySchema = Type.Object({
-   mission_type: Type.String(),
-   mission_name: Type.String(),
-   mission_language: Type.String(),
-   start_month: Type.String(),
-   end_month: Type.String()
+   mission_type: Type.Optional(Type.String()),
+   mission_name: Type.Optional(Type.String()),
+   mission_language: Type.Optional(Type.String()),
+   start_month: Type.Optional(Type.String()),
+   end_month: Type.Optional(Type.String())
 })
 export type MissionsModify = Static<typeof MissionsModifySchema>
 
 /**
 */
 export const HighSchoolNonaccreditedWorkInfoModifySchema = Type.Object({
-   grade_level: Type.String(),
-   statement: Type.String()
+   grade_level: Type.Optional(Type.String()),
+   statement: Type.Optional(Type.String())
 })
 export type HighSchoolNonaccreditedWorkInfoModify = Static<typeof HighSchoolNonaccreditedWorkInfoModifySchema>
 
 /**
 */
 export const HighSchoolCourseInfoModifySchema = Type.Object({
-   grade_level: Type.String(),
-   subject: Type.String(),
-   course_name: Type.String(),
-   ap_ib_flag: Type.String(),
-   repeated: Type.String(),
-   grading_terms: Type.String(),
-   grades: Type.Array(Type.String()),
-   grade_final: Type.String(),
-   credits: Type.String()
+   grade_level: Type.Optional(Type.String()),
+   subject: Type.Optional(Type.String()),
+   course_name: Type.Optional(Type.String()),
+   ap_ib_flag: Type.Optional(Type.String()),
+   repeated: Type.Optional(Type.String()),
+   grading_terms: Type.Optional(Type.String()),
+   grades: Type.Optional(Type.Array(Type.String())),
+   grade_final: Type.Optional(Type.String()),
+   credits: Type.Optional(Type.String())
 })
 export type HighSchoolCourseInfoModify = Static<typeof HighSchoolCourseInfoModifySchema>
 
@@ -2518,25 +2518,25 @@ export type HighSchoolCourseInfoModify = Static<typeof HighSchoolCourseInfoModif
 }
 */
 export const HighSchoolSummaryModifySchema = Type.Object({
-   high_school_type: Type.String(),
-   high_school_code: Type.String(),
-   high_school_name: Type.String(),
-   high_school_city: Type.String(),
-   high_school_state: Type.String(),
-   high_school_country: Type.String(),
-   start_month: Type.String(),
-   end_month: Type.String(),
-   graduation_status: Type.String(),
-   graduation_date: Type.String(),
-   high_school_gpa: Type.String(),
-   list_of_classes: Type.Array(HighSchoolCourseInfoModifySchema),
-   list_of_nonaccredited_work: Type.Array(HighSchoolNonaccreditedWorkInfoModifySchema),
-   concurrent_enrollment: Type.String(),
-   transcript_source: Type.String(),
-   verified_by_id: Type.String(),
-   date_time_verified: Type.String(),
-   link_to_document_image: Type.String(),
-   link_to_secondary_document_image: Type.String()
+   high_school_type: Type.Optional(Type.String()),
+   high_school_code: Type.Optional(Type.String()),
+   high_school_name: Type.Optional(Type.String()),
+   high_school_city: Type.Optional(Type.String()),
+   high_school_state: Type.Optional(Type.String()),
+   high_school_country: Type.Optional(Type.String()),
+   start_month: Type.Optional(Type.String()),
+   end_month: Type.Optional(Type.String()),
+   graduation_status: Type.Optional(Type.String()),
+   graduation_date: Type.Optional(Type.String()),
+   high_school_gpa: Type.Optional(Type.String()),
+   list_of_classes: Type.Optional(Type.Array(HighSchoolCourseInfoModifySchema)),
+   list_of_nonaccredited_work: Type.Optional(Type.Array(HighSchoolNonaccreditedWorkInfoModifySchema)),
+   concurrent_enrollment: Type.Optional(Type.String()),
+   transcript_source: Type.Optional(Type.String()),
+   verified_by_id: Type.Optional(Type.String()),
+   date_time_verified: Type.Optional(Type.String()),
+   link_to_document_image: Type.Optional(Type.String()),
+   link_to_secondary_document_image: Type.Optional(Type.String())
 })
 export type HighSchoolSummaryModify = Static<typeof HighSchoolSummaryModifySchema>
 
@@ -2555,12 +2555,12 @@ export type HighSchoolSummaryModify = Static<typeof HighSchoolSummaryModifySchem
 }
 */
 export const GovernmentRecordsModifySchema = Type.Object({
-   visa_type: Type.String(),
-   visa_type_source: Type.String(),
-   citizenship_status: Type.String(),
-   citizenship_country_code: Type.String(),
-   birth_country_code: Type.String(),
-   birth_city: Type.String()
+   visa_type: Type.Optional(Type.String()),
+   visa_type_source: Type.Optional(Type.String()),
+   citizenship_status: Type.Optional(Type.String()),
+   citizenship_country_code: Type.Optional(Type.String()),
+   birth_country_code: Type.Optional(Type.String()),
+   birth_city: Type.Optional(Type.String())
 })
 export type GovernmentRecordsModify = Static<typeof GovernmentRecordsModifySchema>
 
@@ -2573,9 +2573,9 @@ export type GovernmentRecordsModify = Static<typeof GovernmentRecordsModifySchem
 }
 */
 export const GeiProgramModifySchema = Type.Object({
-   srs_certificates: Type.String(),
-   srs_facilitator: Type.String(),
-   srs_site: Type.String()
+   srs_certificates: Type.Optional(Type.String()),
+   srs_facilitator: Type.Optional(Type.String()),
+   srs_site: Type.Optional(Type.String())
 })
 export type GeiProgramModify = Static<typeof GeiProgramModifySchema>
 
@@ -2597,18 +2597,18 @@ export type GeiProgramModify = Static<typeof GeiProgramModifySchema>
 }
 */
 export const ContactModifySchema = Type.Object({
-   preferred_name: Type.String(),
-   surname: Type.String(),
-   email_address: Type.String(),
-   phone_number: Type.String(),
-   address_line_1: Type.String(),
-   address_line_2: Type.String(),
-   address_line_3: Type.String(),
-   address_line_4: Type.String(),
-   country_code: Type.String(),
-   city: Type.String(),
-   state_code: Type.String(),
-   postal_code: Type.String()
+   preferred_name: Type.Optional(Type.String()),
+   surname: Type.Optional(Type.String()),
+   email_address: Type.Optional(Type.String()),
+   phone_number: Type.Optional(Type.String()),
+   address_line_1: Type.Optional(Type.String()),
+   address_line_2: Type.Optional(Type.String()),
+   address_line_3: Type.Optional(Type.String()),
+   address_line_4: Type.Optional(Type.String()),
+   country_code: Type.Optional(Type.String()),
+   city: Type.Optional(Type.String()),
+   state_code: Type.Optional(Type.String()),
+   postal_code: Type.Optional(Type.String())
 })
 export type ContactModify = Static<typeof ContactModifySchema>
 
@@ -2616,11 +2616,11 @@ export type ContactModify = Static<typeof ContactModifySchema>
 * DESCRIPTION: Structure to Modify College Summary Information
 */
 export const CollegeSummaryModifySchema = Type.Array(Type.Object({
-   college_code: Type.String(),
-   start_month: Type.String(),
-   end_month: Type.String(),
-   gpa: Type.String(),
-   credit_hours_graded: Type.String()
+   college_code: Type.Optional(Type.String()),
+   start_month: Type.Optional(Type.String()),
+   end_month: Type.Optional(Type.String()),
+   gpa: Type.Optional(Type.String()),
+   credit_hours_graded: Type.Optional(Type.String())
 }))
 export type CollegeSummaryModify = Static<typeof CollegeSummaryModifySchema>
 
@@ -2636,14 +2636,14 @@ export type CollegeSummaryModify = Static<typeof CollegeSummaryModifySchema>
 }
 */
 export const BiographicalClassificationsModifySchema = Type.Object({
-   hispanic_flag: Type.String(),
-   racial_categories: Type.String(),
-   languages: Type.String(),
-   mothers_level_of_education: Type.String(),
-   fathers_level_of_education: Type.String(),
-   family_income: Type.String(),
-   residing_with: Type.String(),
-   single_parent: Type.String()
+   hispanic_flag: Type.Optional(Type.String()),
+   racial_categories: Type.Optional(Type.String()),
+   languages: Type.Optional(Type.String()),
+   mothers_level_of_education: Type.Optional(Type.String()),
+   fathers_level_of_education: Type.Optional(Type.String()),
+   family_income: Type.Optional(Type.String()),
+   residing_with: Type.Optional(Type.String()),
+   single_parent: Type.Optional(Type.String())
 })
 export type BiographicalClassificationsModify = Static<typeof BiographicalClassificationsModifySchema>
 
@@ -2673,24 +2673,24 @@ export type BiographicalClassificationsModify = Static<typeof BiographicalClassi
 }
 */
 export const BackgroundQuestionsModifySchema = Type.Object({
-   conviction_record: Type.String(),
-   criminal_convictions: Type.Array(Type.Object({
-      crime: Type.String(),
-      crime_year: Type.String(),
-      courts: Type.String(),
-      conditions: Type.String(),
-      probation: Type.String(),
-      probation_explanation: Type.String(),
-      penalties: Type.String(),
-      penalties_explanation: Type.String(),
-      additional_explanation: Type.String()
-   })),
-   plural_marriage: Type.String(),
-   plural_marriage_explanation: Type.String(),
-   sex_registry: Type.String(),
-   sex_registry_explanation: Type.String(),
-   university_discipline: Type.String(),
-   university_discipline_explanation: Type.String()
+   conviction_record: Type.Optional(Type.String()),
+   criminal_convictions: Type.Optional(Type.Array(Type.Object({
+      crime: Type.Optional(Type.String()),
+      crime_year: Type.Optional(Type.String()),
+      courts: Type.Optional(Type.String()),
+      conditions: Type.Optional(Type.String()),
+      probation: Type.Optional(Type.String()),
+      probation_explanation: Type.Optional(Type.String()),
+      penalties: Type.Optional(Type.String()),
+      penalties_explanation: Type.Optional(Type.String()),
+      additional_explanation: Type.Optional(Type.String())
+   }))),
+   plural_marriage: Type.Optional(Type.String()),
+   plural_marriage_explanation: Type.Optional(Type.String()),
+   sex_registry: Type.Optional(Type.String()),
+   sex_registry_explanation: Type.Optional(Type.String()),
+   university_discipline: Type.Optional(Type.String()),
+   university_discipline_explanation: Type.Optional(Type.String())
 })
 export type BackgroundQuestionsModify = Static<typeof BackgroundQuestionsModifySchema>
 
@@ -2698,18 +2698,18 @@ export type BackgroundQuestionsModify = Static<typeof BackgroundQuestionsModifyS
 * DESCRIPTION: A Test Score from the applicant
 */
 export const TestScoreSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   test_name: TestNameSchema,
-   test_date: TestDateSchema,
-   composite_score: TestCompositeScoreSchema,
-   date_time_reported: DateTimeReportedSchema,
-   test_version: TestVersionSchema,
-   test_components: Type.Array(Type.Object({
-      component_name: TestComponentNameSchema,
-      component_score: TestComponentScoreSchema
-   }))
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   test_name: Type.Optional(TestNameSchema),
+   test_date: Type.Optional(TestDateSchema),
+   composite_score: Type.Optional(TestCompositeScoreSchema),
+   date_time_reported: Type.Optional(DateTimeReportedSchema),
+   test_version: Type.Optional(TestVersionSchema),
+   test_components: Type.Optional(Type.Array(Type.Object({
+      component_name: Type.Optional(TestComponentNameSchema),
+      component_score: Type.Optional(TestComponentScoreSchema)
+   })))
 })
 export type TestScore = Static<typeof TestScoreSchema>
 
@@ -2718,14 +2718,14 @@ export type TestScore = Static<typeof TestScoreSchema>
 */
 export const TestScoresSchema = Type.Object({
    metadata: MetadataCollectionSchema,
-   links: Type.Object({
-      test_scores__info: Type.Object({
+   links: Type.Optional(Type.Object({
+      test_scores__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   values: Type.Array(TestScoreSchema)
+      }))
+   })),
+   values: Type.Optional(Type.Array(TestScoreSchema))
 })
 export type TestScores = Static<typeof TestScoresSchema>
 
@@ -2739,61 +2739,61 @@ export type Stats = Static<typeof StatsSchema>
 * DESCRIPTION: Seminary information from the applicant API
 */
 export const SeminarySummariesSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   seminary_type: SeminaryTypeSchema,
-   years_completed: SeminaryYearsCompletedSchema,
-   attendance_percentage: SeminaryAttendancePercentageSchema,
-   graduation_status: SharedGraduationStatusSchema,
-   seminary_explanation: SeminaryExplanationSchema,
-   teacher_name: SeminaryTeacherNameSchema,
-   teacher_email: SeminaryTeacherEmailSchema,
-   date_time_reported: DateTimeReportedSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      seminary_summaries__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   seminary_type: Type.Optional(SeminaryTypeSchema),
+   years_completed: Type.Optional(SeminaryYearsCompletedSchema),
+   attendance_percentage: Type.Optional(SeminaryAttendancePercentageSchema),
+   graduation_status: Type.Optional(SharedGraduationStatusSchema),
+   seminary_explanation: Type.Optional(SeminaryExplanationSchema),
+   teacher_name: Type.Optional(SeminaryTeacherNameSchema),
+   teacher_email: Type.Optional(SeminaryTeacherEmailSchema),
+   date_time_reported: Type.Optional(DateTimeReportedSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      seminary_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      seminary_summaries__modify: Type.Object({
+      })),
+      seminary_summaries__modify: Type.Optional(Type.Object({
+         rel: Type.Optional(Type.String()),
+         href: Type.Optional(Type.String()),
+         method: Type.Optional(Type.String())
+      })),
+      seminary_summaries__remove: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      seminary_summaries__remove: Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      })
-   }),
-   seminary_classes: Type.Array(SeminaryClassDataSchema)
+      }))
+   })),
+   seminary_classes: Type.Optional(Type.Array(SeminaryClassDataSchema))
 })
 export type SeminarySummaries = Static<typeof SeminarySummariesSchema>
 
 /**
 */
 export const ReportsMetadataSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   values: Type.Array(Type.Object({
-      name: Type.String(),
-      description: Type.String(),
-      long_description: Type.String(),
-      category: Type.String(),
-      limit: Type.String(),
-      pagination_parameter: Type.String(),
-      institutions: Type.Array(Type.String()),
-      content_type: Type.Array(Type.String()),
-      parameters: Type.Array(Type.String()),
-      columns: Type.Array(Type.Object({
-         ordinal: Type.String(),
-         name: Type.String(),
-         qualifier: Type.Array(Type.String()),
-         link: Type.String()
-      }))
-   }))
+   metadata: Type.Optional(MetadataSimpleSchema),
+   values: Type.Optional(Type.Array(Type.Object({
+      name: Type.Optional(Type.String()),
+      description: Type.Optional(Type.String()),
+      long_description: Type.Optional(Type.String()),
+      category: Type.Optional(Type.String()),
+      limit: Type.Optional(Type.String()),
+      pagination_parameter: Type.Optional(Type.String()),
+      institutions: Type.Optional(Type.Array(Type.String())),
+      content_type: Type.Optional(Type.Array(Type.String())),
+      parameters: Type.Optional(Type.Array(Type.String())),
+      columns: Type.Optional(Type.Array(Type.Object({
+         ordinal: Type.Optional(Type.String()),
+         name: Type.Optional(Type.String()),
+         qualifier: Type.Optional(Type.Array(Type.String())),
+         link: Type.Optional(Type.String())
+      })))
+   })))
 })
 export type ReportsMetadata = Static<typeof ReportsMetadataSchema>
 
@@ -2801,27 +2801,27 @@ export type ReportsMetadata = Static<typeof ReportsMetadataSchema>
 * DESCRIPTION: An application question
 */
 export const QuestionSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   uuid: QuestionUuidSchema,
-   type: QuestionTypeSchema,
-   name: NameSchema,
-   description: DescriptionSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      question__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   uuid: Type.Optional(QuestionUuidSchema),
+   type: Type.Optional(QuestionTypeSchema),
+   name: Type.Optional(NameSchema),
+   description: Type.Optional(DescriptionSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      question__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      question__modify: Type.Object({
+      })),
+      question__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   elements: Type.Array(QuestionElementSchema),
-   groups: Type.Array(QuestionGroupSchema)
+      }))
+   })),
+   elements: Type.Optional(Type.Array(QuestionElementSchema)),
+   groups: Type.Optional(Type.Array(QuestionGroupSchema))
 })
 export type Question = Static<typeof QuestionSchema>
 
@@ -2830,14 +2830,14 @@ export type Question = Static<typeof QuestionSchema>
 */
 export const QuestionsSchema = Type.Object({
    metadata: MetadataCollectionSchema,
-   links: Type.Object({
-      questions__info: Type.Object({
+   links: Type.Optional(Type.Object({
+      questions__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   values: Type.Array(QuestionSchema)
+      }))
+   })),
+   values: Type.Optional(Type.Array(QuestionSchema))
 })
 export type Questions = Static<typeof QuestionsSchema>
 
@@ -2845,33 +2845,33 @@ export type Questions = Static<typeof QuestionsSchema>
 * DESCRIPTION: Confidential personal information on the applicant API
 */
 export const PersonalRecordsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   date_of_birth: PersonalDateOfBirthSchema,
-   marital_status: PersonalMaritalStatusSchema,
-   religion_code: PersonalReligionCodeSchema,
-   religion_tenure: PersonalReligionTenureSchema,
-   sex: PersonalSexSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      personal_records__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   date_of_birth: Type.Optional(PersonalDateOfBirthSchema),
+   marital_status: Type.Optional(PersonalMaritalStatusSchema),
+   religion_code: Type.Optional(PersonalReligionCodeSchema),
+   religion_tenure: Type.Optional(PersonalReligionTenureSchema),
+   sex: Type.Optional(PersonalSexSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      personal_records__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      personal_records__modify: Type.Object({
+      })),
+      personal_records__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      persons__info: Type.Object({
+      })),
+      persons__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type PersonalRecords = Static<typeof PersonalRecordsSchema>
 
@@ -2879,24 +2879,24 @@ export type PersonalRecords = Static<typeof PersonalRecordsSchema>
 * DESCRIPTION: Mission information for Applicant on the Undergradudate Application
 */
 export const MissionsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   mission_service: MissionServiceSchema,
-   mission_name: MissionNameSchema,
-   mission_language: MissionLanguageSchema,
-   start_month: SharedStartMonthSchema,
-   end_month: SharedEndMonthSchema,
-   mission_type: MissionTypeSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      missions__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   mission_service: Type.Optional(MissionServiceSchema),
+   mission_name: Type.Optional(MissionNameSchema),
+   mission_language: Type.Optional(MissionLanguageSchema),
+   start_month: Type.Optional(SharedStartMonthSchema),
+   end_month: Type.Optional(SharedEndMonthSchema),
+   mission_type: Type.Optional(MissionTypeSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      missions__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type Missions = Static<typeof MissionsSchema>
 
@@ -2904,26 +2904,26 @@ export type Missions = Static<typeof MissionsSchema>
 * DESCRIPTION: Confidential International information for Applicant API
 */
 export const InternationalRecordsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   alien_number: IntlAlienNumberSchema,
-   current_us_resident: IntlCurrentUsResidentSchema,
-   visa_change_plan: IntlVisaChangePlanSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      international_records__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   alien_number: Type.Optional(IntlAlienNumberSchema),
+   current_us_resident: Type.Optional(IntlCurrentUsResidentSchema),
+   visa_change_plan: Type.Optional(IntlVisaChangePlanSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      international_records__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      international_records__modify: Type.Object({
+      })),
+      international_records__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type InternationalRecords = Static<typeof InternationalRecordsSchema>
 
@@ -2931,10 +2931,10 @@ export type InternationalRecords = Static<typeof InternationalRecordsSchema>
 * DESCRIPTION: Institute Class Enrollment information
 */
 export const InstituteClassDataSchema = Type.Object({
-   institute_class: InstituteClassSchema,
-   academic_year: SharedAcademicYearSchema,
-   grade: SharedGradeSchema,
-   for_credit: InstituteForCreditSchema
+   institute_class: Type.Optional(InstituteClassSchema),
+   academic_year: Type.Optional(SharedAcademicYearSchema),
+   grade: Type.Optional(SharedGradeSchema),
+   for_credit: Type.Optional(InstituteForCreditSchema)
 })
 export type InstituteClassData = Static<typeof InstituteClassDataSchema>
 
@@ -2942,32 +2942,32 @@ export type InstituteClassData = Static<typeof InstituteClassDataSchema>
 * DESCRIPTION: Institute information from the Application API
 */
 export const InstituteSummariesSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   institute_attendance: InstituteAttendanceSchema,
-   institute_explanation: InstituteExplanationSchema,
-   date_time_reported: DateTimeReportedSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      institute_summaries__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   institute_attendance: Type.Optional(InstituteAttendanceSchema),
+   institute_explanation: Type.Optional(InstituteExplanationSchema),
+   date_time_reported: Type.Optional(DateTimeReportedSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      institute_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      institute_summaries__modify: Type.Object({
+      })),
+      institute_summaries__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      institute_summaries__remove: Type.Object({
+      })),
+      institute_summaries__remove: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   institute_classes: Type.Array(InstituteClassDataSchema)
+      }))
+   })),
+   institute_classes: Type.Optional(Type.Array(InstituteClassDataSchema))
 })
 export type InstituteSummaries = Static<typeof InstituteSummariesSchema>
 
@@ -2975,53 +2975,53 @@ export type InstituteSummaries = Static<typeof InstituteSummariesSchema>
 * DESCRIPTION: High School for Undergraduate Application API
 */
 export const HighSchoolSummarySchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   high_school_type: HighSchoolTypeSchema,
-   high_school: HighSchoolSchema,
-   high_school_city: HighSchoolCitySchema,
-   high_school_state: HighSchoolStateSchema,
-   high_school_country: HighSchoolCountrySchema,
-   start_month: SharedStartMonthSchema,
-   end_month: SharedEndMonthSchema,
-   graduation_status: SharedGraduationStatusSchema,
-   graduation_date: HighSchoolGraduationDateSchema,
-   high_school_gpa: HighSchoolGpaSchema,
-   gpa_calculated: HighSchoolGpaCalculatedSchema,
-   ap_ib_half_classes: HighSchoolApIbHalfClassesSchema,
-   ap_ib_full_classes: HighSchoolApIbFullClassesSchema,
-   concurrent_enrollment: HighSchoolConcurrentEnrollmentSchema,
-   transcript_source: HighSchoolTranscriptSourceSchema,
-   date_time_verified: DateTimeVerifiedSchema,
-   link_to_document_image: HighSchoolLinkToDocumentImageSchema,
-   link_to_secondary_document_image: HighSchoolLinkToSecondaryDocumentImageSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      high_school_summaries__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   high_school_type: Type.Optional(HighSchoolTypeSchema),
+   high_school: Type.Optional(HighSchoolSchema),
+   high_school_city: Type.Optional(HighSchoolCitySchema),
+   high_school_state: Type.Optional(HighSchoolStateSchema),
+   high_school_country: Type.Optional(HighSchoolCountrySchema),
+   start_month: Type.Optional(SharedStartMonthSchema),
+   end_month: Type.Optional(SharedEndMonthSchema),
+   graduation_status: Type.Optional(SharedGraduationStatusSchema),
+   graduation_date: Type.Optional(HighSchoolGraduationDateSchema),
+   high_school_gpa: Type.Optional(HighSchoolGpaSchema),
+   gpa_calculated: Type.Optional(HighSchoolGpaCalculatedSchema),
+   ap_ib_half_classes: Type.Optional(HighSchoolApIbHalfClassesSchema),
+   ap_ib_full_classes: Type.Optional(HighSchoolApIbFullClassesSchema),
+   concurrent_enrollment: Type.Optional(HighSchoolConcurrentEnrollmentSchema),
+   transcript_source: Type.Optional(HighSchoolTranscriptSourceSchema),
+   date_time_verified: Type.Optional(DateTimeVerifiedSchema),
+   link_to_document_image: Type.Optional(HighSchoolLinkToDocumentImageSchema),
+   link_to_secondary_document_image: Type.Optional(HighSchoolLinkToSecondaryDocumentImageSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      high_school_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      high_school_summaries__modify: Type.Object({
+      })),
+      high_school_summaries__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      high_school_summaries__remove: Type.Object({
+      })),
+      high_school_summaries__remove: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      high_school_codes__info: Type.Object({
+      })),
+      high_school_codes__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   list_of_classes: Type.Array(HighSchoolCourseInfoSchema),
-   list_of_nonaccredited_work: Type.Array(HighSchoolNonaccreditedWorkInfoSchema)
+      }))
+   })),
+   list_of_classes: Type.Optional(Type.Array(HighSchoolCourseInfoSchema)),
+   list_of_nonaccredited_work: Type.Optional(Type.Array(HighSchoolNonaccreditedWorkInfoSchema))
 })
 export type HighSchoolSummary = Static<typeof HighSchoolSummarySchema>
 
@@ -3030,14 +3030,14 @@ export type HighSchoolSummary = Static<typeof HighSchoolSummarySchema>
 */
 export const HighSchoolSummariesSchema = Type.Object({
    metadata: MetadataCollectionSchema,
-   links: Type.Object({
-      high_school_summaries__info: Type.Object({
+   links: Type.Optional(Type.Object({
+      high_school_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   values: Type.Array(HighSchoolSummarySchema)
+      }))
+   })),
+   values: Type.Optional(Type.Array(HighSchoolSummarySchema))
 })
 export type HighSchoolSummaries = Static<typeof HighSchoolSummariesSchema>
 
@@ -3045,83 +3045,83 @@ export type HighSchoolSummaries = Static<typeof HighSchoolSummariesSchema>
 * DESCRIPTION: Confidential Government information for an Applicant
 */
 export const GovernmentRecordsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   birth_city: GovBirthCitySchema,
-   birth_country_code: GovBirthCountryCodeSchema,
-   citizenship_country_code: GovCitizenshipCountryCodeSchema,
-   citizenship_status: GovCitizenshipStatusSchema,
-   visa_type: GovVisaTypeSchema,
-   visa_type_source: GovVisaTypeSourceSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      government_records__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   birth_city: Type.Optional(GovBirthCitySchema),
+   birth_country_code: Type.Optional(GovBirthCountryCodeSchema),
+   citizenship_country_code: Type.Optional(GovCitizenshipCountryCodeSchema),
+   citizenship_status: Type.Optional(GovCitizenshipStatusSchema),
+   visa_type: Type.Optional(GovVisaTypeSchema),
+   visa_type_source: Type.Optional(GovVisaTypeSourceSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      government_records__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      government_records__modify: Type.Object({
+      })),
+      government_records__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      persons__info: Type.Object({
+      })),
+      persons__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type GovernmentRecords = Static<typeof GovernmentRecordsSchema>
 
 /**
 */
 export const GeiProgramsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   pw_completion: GeiProgramsPwCompletionSchema,
-   pw_credits: GeiProgramsPwCreditsSchema,
-   pw_gpa: GeiProgramsPwGpaSchema,
-   pw_site: GeiProgramsPwSiteSchema,
-   srs_certificates: GeiProgramsSrsCertificatesSchema,
-   srs_facilitator: GeiProgramsSrsFacilitatorSchema,
-   srs_site: GeiProgramsSrsSiteSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      gei_programs__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   pw_completion: Type.Optional(GeiProgramsPwCompletionSchema),
+   pw_credits: Type.Optional(GeiProgramsPwCreditsSchema),
+   pw_gpa: Type.Optional(GeiProgramsPwGpaSchema),
+   pw_site: Type.Optional(GeiProgramsPwSiteSchema),
+   srs_certificates: Type.Optional(GeiProgramsSrsCertificatesSchema),
+   srs_facilitator: Type.Optional(GeiProgramsSrsFacilitatorSchema),
+   srs_site: Type.Optional(GeiProgramsSrsSiteSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      gei_programs__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      gei_programs__modify: Type.Object({
+      })),
+      gei_programs__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type GeiPrograms = Static<typeof GeiProgramsSchema>
 
 /**
 */
 export const EndorsementSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   date: EndorsementDateSchema,
-   status: EndorsementStatusSchema,
-   type: EndorsementTypeSchema,
-   links: Type.Object({
-      endorsement__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   date: Type.Optional(EndorsementDateSchema),
+   status: Type.Optional(EndorsementStatusSchema),
+   type: Type.Optional(EndorsementTypeSchema),
+   links: Type.Optional(Type.Object({
+      endorsement__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type Endorsement = Static<typeof EndorsementSchema>
 
@@ -3129,38 +3129,38 @@ export type Endorsement = Static<typeof EndorsementSchema>
 * DESCRIPTION: College Summary from the applicant
 */
 export const CollegeSummarySchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   college: CollegeSchema,
-   start_month: SharedStartMonthSchema,
-   end_month: SharedEndMonthSchema,
-   gpa: CollegeGpaSchema,
-   gpa_verified: CollegeGpaVerifiedSchema,
-   degree: CollegeDegreeSchema,
-   degree_date: CollegeDegreeDateSchema,
-   degree_major: CollegeDegreeMajorSchema,
-   credit_hours_graded: SharedCreditHoursGradedSchema,
-   date_time_verified: DateTimeVerifiedSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      college_summaries__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   college: Type.Optional(CollegeSchema),
+   start_month: Type.Optional(SharedStartMonthSchema),
+   end_month: Type.Optional(SharedEndMonthSchema),
+   gpa: Type.Optional(CollegeGpaSchema),
+   gpa_verified: Type.Optional(CollegeGpaVerifiedSchema),
+   degree: Type.Optional(CollegeDegreeSchema),
+   degree_date: Type.Optional(CollegeDegreeDateSchema),
+   degree_major: Type.Optional(CollegeDegreeMajorSchema),
+   credit_hours_graded: Type.Optional(SharedCreditHoursGradedSchema),
+   date_time_verified: Type.Optional(DateTimeVerifiedSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      college_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      college_summaries__modify: Type.Object({
+      })),
+      college_summaries__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      college_summaries__remove: Type.Object({
+      })),
+      college_summaries__remove: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type CollegeSummary = Static<typeof CollegeSummarySchema>
 
@@ -3169,16 +3169,16 @@ export type CollegeSummary = Static<typeof CollegeSummarySchema>
 */
 export const CollegeSummariesSchema = Type.Object({
    metadata: MetadataCollectionSchema,
-   cumulative_credit: CollegeCumulativeCreditSchema,
-   cumulative_gpa: CollegeCumulativeGpaSchema,
-   links: Type.Object({
-      college_summaries__info: Type.Object({
+   cumulative_credit: Type.Optional(CollegeCumulativeCreditSchema),
+   cumulative_gpa: Type.Optional(CollegeCumulativeGpaSchema),
+   links: Type.Optional(Type.Object({
+      college_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   values: Type.Array(CollegeSummarySchema)
+      }))
+   })),
+   values: Type.Optional(Type.Array(CollegeSummarySchema))
 })
 export type CollegeSummaries = Static<typeof CollegeSummariesSchema>
 
@@ -3186,41 +3186,41 @@ export type CollegeSummaries = Static<typeof CollegeSummariesSchema>
 * DESCRIPTION: Biographical Classifications
 */
 export const BiographicalClassificationsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   hispanic_flag: BioHispanicFlagSchema,
-   racial_categories: RacialCategoriesSchema,
-   languages: LanguagesSchema,
-   mothers_level_of_education: BioMothersLevelOfEducationSchema,
-   fathers_level_of_education: BioFathersLevelOfEducationSchema,
-   family_income: BioFamilyIncomeSchema,
-   residing_with: BioResidingWithSchema,
-   single_parent: BioSingleParentSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      biographical_classifications__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   hispanic_flag: Type.Optional(BioHispanicFlagSchema),
+   racial_categories: Type.Optional(RacialCategoriesSchema),
+   languages: Type.Optional(LanguagesSchema),
+   mothers_level_of_education: Type.Optional(BioMothersLevelOfEducationSchema),
+   fathers_level_of_education: Type.Optional(BioFathersLevelOfEducationSchema),
+   family_income: Type.Optional(BioFamilyIncomeSchema),
+   residing_with: Type.Optional(BioResidingWithSchema),
+   single_parent: Type.Optional(BioSingleParentSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      biographical_classifications__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      biographical_classifications__modify: Type.Object({
+      })),
+      biographical_classifications__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      ethnicities__modify: Type.Object({
+      })),
+      ethnicities__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      languages__modify: Type.Object({
+      })),
+      languages__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type BiographicalClassifications = Static<typeof BiographicalClassificationsSchema>
 
@@ -3228,77 +3228,77 @@ export type BiographicalClassifications = Static<typeof BiographicalClassificati
 * DESCRIPTION: Basic field_set for Application API
 */
 export const BasicSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   institution_id: BasicInstitutionIdSchema,
-   net_id: BasicNetIdSchema,
-   admit_period: AdmitPeriodSchema,
-   admit_major: AdmitMajorSchema,
-   applicant_type: ApplicantTypeSchema,
-   primary_language: BasicPrimaryLanguageSchema,
-   first_name: BasicFirstNameSchema,
-   middle_name: BasicMiddleNameSchema,
-   rest_of_name: BasicRestOfNameSchema,
-   surname: BasicSurnameSchema,
-   suffix: BasicSuffixSchema,
-   preferred_name: BasicPreferredNameSchema,
-   previous_name: BasicPreviousNameSchema,
-   address_line_1: ContactAddressLine1Schema,
-   address_line_2: ContactAddressLine2Schema,
-   address_line_3: ContactAddressLine3Schema,
-   address_line_4: ContactAddressLine4Schema,
-   address_line_5: ContactAddressLine5Schema,
-   city: ContactCitySchema,
-   country_code: ContactCountryCodeSchema,
-   postal_code: ContactPostalCodeSchema,
-   state_code: ContactStateCodeSchema,
-   email_address: BasicEmailAddressSchema,
-   phone_number: BasicPhoneNumberSchema,
-   secondary_email_address: BasicSecondaryEmailAddressSchema,
-   secondary_phone_number: BasicSecondaryPhoneNumberSchema,
-   phone_texts_ok: SharedPhoneTextsOkSchema,
-   home_town: BasicHomeTownSchema,
-   home_county: BasicHomeCountySchema,
-   home_state: BasicHomeStateSchema,
-   home_country: BasicHomeCountrySchema,
-   information_release: BasicAgreementInformationReleaseDateTimeSchema,
-   financial_responsibility: BasicAgreementFinancialResponsibilityDateTimeSchema,
-   school_preference_order: BasicSchoolPreferenceOrderSchema,
-   decision: BasicDecisionSchema,
-   decision_qualifier: BasicDecisionQualifierSchema,
-   decision_template_id: BasicDecisionTemplateIdSchema,
-   decision_date_time: BasicDecisionDateTimeSchema,
-   application_status: BasicApplicationStatusSchema,
-   application_status_date_time: BasicApplicationStatusDateTimeSchema,
-   created_by_id: IdCreatedBySchema,
-   created_date_time: DateTimeCreatedSchema,
-   submitted_by_id: IdSubmittedBySchema,
-   submitted_date_time: DateTimeSubmittedSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      applications__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   institution_id: Type.Optional(BasicInstitutionIdSchema),
+   net_id: Type.Optional(BasicNetIdSchema),
+   admit_period: Type.Optional(AdmitPeriodSchema),
+   admit_major: Type.Optional(AdmitMajorSchema),
+   applicant_type: Type.Optional(ApplicantTypeSchema),
+   primary_language: Type.Optional(BasicPrimaryLanguageSchema),
+   first_name: Type.Optional(BasicFirstNameSchema),
+   middle_name: Type.Optional(BasicMiddleNameSchema),
+   rest_of_name: Type.Optional(BasicRestOfNameSchema),
+   surname: Type.Optional(BasicSurnameSchema),
+   suffix: Type.Optional(BasicSuffixSchema),
+   preferred_name: Type.Optional(BasicPreferredNameSchema),
+   previous_name: Type.Optional(BasicPreviousNameSchema),
+   address_line_1: Type.Optional(ContactAddressLine1Schema),
+   address_line_2: Type.Optional(ContactAddressLine2Schema),
+   address_line_3: Type.Optional(ContactAddressLine3Schema),
+   address_line_4: Type.Optional(ContactAddressLine4Schema),
+   address_line_5: Type.Optional(ContactAddressLine5Schema),
+   city: Type.Optional(ContactCitySchema),
+   country_code: Type.Optional(ContactCountryCodeSchema),
+   postal_code: Type.Optional(ContactPostalCodeSchema),
+   state_code: Type.Optional(ContactStateCodeSchema),
+   email_address: Type.Optional(BasicEmailAddressSchema),
+   phone_number: Type.Optional(BasicPhoneNumberSchema),
+   secondary_email_address: Type.Optional(BasicSecondaryEmailAddressSchema),
+   secondary_phone_number: Type.Optional(BasicSecondaryPhoneNumberSchema),
+   phone_texts_ok: Type.Optional(SharedPhoneTextsOkSchema),
+   home_town: Type.Optional(BasicHomeTownSchema),
+   home_county: Type.Optional(BasicHomeCountySchema),
+   home_state: Type.Optional(BasicHomeStateSchema),
+   home_country: Type.Optional(BasicHomeCountrySchema),
+   information_release: Type.Optional(BasicAgreementInformationReleaseDateTimeSchema),
+   financial_responsibility: Type.Optional(BasicAgreementFinancialResponsibilityDateTimeSchema),
+   school_preference_order: Type.Optional(BasicSchoolPreferenceOrderSchema),
+   decision: Type.Optional(BasicDecisionSchema),
+   decision_qualifier: Type.Optional(BasicDecisionQualifierSchema),
+   decision_template_id: Type.Optional(BasicDecisionTemplateIdSchema),
+   decision_date_time: Type.Optional(BasicDecisionDateTimeSchema),
+   application_status: Type.Optional(BasicApplicationStatusSchema),
+   application_status_date_time: Type.Optional(BasicApplicationStatusDateTimeSchema),
+   created_by_id: Type.Optional(IdCreatedBySchema),
+   created_date_time: Type.Optional(DateTimeCreatedSchema),
+   submitted_by_id: Type.Optional(IdSubmittedBySchema),
+   submitted_date_time: Type.Optional(DateTimeSubmittedSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      applications__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      applications__modify: Type.Object({
+      })),
+      applications__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      applications__remove: Type.Object({
+      })),
+      applications__remove: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      contact__modify: Type.Object({
+      })),
+      contact__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type Basic = Static<typeof BasicSchema>
 
@@ -3306,31 +3306,31 @@ export type Basic = Static<typeof BasicSchema>
 * DESCRIPTION: Background Questions
 */
 export const BackgroundQuestionsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   conviction_record: BgConvictionRecordSchema,
-   criminal_convictions: BgCriminalConvictionsSchema,
-   plural_marriage: BgPluralMarriageSchema,
-   plural_marriage_explanation: BgPluralMarriageExplanationSchema,
-   sex_registry: BgSexRegistrySchema,
-   sex_registry_explanation: BgSexRegistryExplanationSchema,
-   university_discipline: BgUniversityDisciplineSchema,
-   university_discipline_explanation: BgUniversityDisciplineExplanationSchema,
-   updated_by_id: IdUpdatedBySchema,
-   updated_date_time: DateTimeUpdatedSchema,
-   links: Type.Object({
-      background_questions__info: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   conviction_record: Type.Optional(BgConvictionRecordSchema),
+   criminal_convictions: Type.Optional(BgCriminalConvictionsSchema),
+   plural_marriage: Type.Optional(BgPluralMarriageSchema),
+   plural_marriage_explanation: Type.Optional(BgPluralMarriageExplanationSchema),
+   sex_registry: Type.Optional(BgSexRegistrySchema),
+   sex_registry_explanation: Type.Optional(BgSexRegistryExplanationSchema),
+   university_discipline: Type.Optional(BgUniversityDisciplineSchema),
+   university_discipline_explanation: Type.Optional(BgUniversityDisciplineExplanationSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+   links: Type.Optional(Type.Object({
+      background_questions__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      background_questions__modify: Type.Object({
+      })),
+      background_questions__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type BackgroundQuestions = Static<typeof BackgroundQuestionsSchema>
 
@@ -3347,30 +3347,30 @@ export type ApplicationDeliverableModify = Static<typeof ApplicationDeliverableM
 * DESCRIPTION: A deliverable required for an application
 */
 export const ApplicationDeliverableSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   name: DeliverableNameSchema,
-   name_display: DeliverableNameDisplaySchema,
-   deliverable_id: DeliverableIdSchema,
-   controller_idx: DeliverableControllerIdxSchema,
-   view_idx: DeliverableViewIdxSchema,
-   type: DeliverableTypeSchema,
-   subtype: DeliverableSubtypeSchema,
-   qualifier: DeliverableQualifierSchema,
-   qualifier_type: DeliverableQualifierTypeSchema,
-   description: DeliverableDescriptionSchema,
-   satisfied: DeliverableSatisfiedSchema,
-   deliverable_date_time_satisfied: DeliverableDateTimeSatisfiedSchema,
-   status: DeliverableStatusSchema,
-   deliverable_date_time_status: DeliverableDateTimeStatusSchema,
-   links: Type.Object({
-      application_deliverables__modify: Type.Object({
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   name: Type.Optional(DeliverableNameSchema),
+   name_display: Type.Optional(DeliverableNameDisplaySchema),
+   deliverable_id: Type.Optional(DeliverableIdSchema),
+   controller_idx: Type.Optional(DeliverableControllerIdxSchema),
+   view_idx: Type.Optional(DeliverableViewIdxSchema),
+   type: Type.Optional(DeliverableTypeSchema),
+   subtype: Type.Optional(DeliverableSubtypeSchema),
+   qualifier: Type.Optional(DeliverableQualifierSchema),
+   qualifier_type: Type.Optional(DeliverableQualifierTypeSchema),
+   description: Type.Optional(DeliverableDescriptionSchema),
+   satisfied: Type.Optional(DeliverableSatisfiedSchema),
+   deliverable_date_time_satisfied: Type.Optional(DeliverableDateTimeSatisfiedSchema),
+   status: Type.Optional(DeliverableStatusSchema),
+   deliverable_date_time_status: Type.Optional(DeliverableDateTimeStatusSchema),
+   links: Type.Optional(Type.Object({
+      application_deliverables__modify: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   })
+      }))
+   }))
 })
 export type ApplicationDeliverable = Static<typeof ApplicationDeliverableSchema>
 
@@ -3379,19 +3379,19 @@ export type ApplicationDeliverable = Static<typeof ApplicationDeliverableSchema>
 */
 export const ApplicationDeliverablesSchema = Type.Object({
    metadata: MetadataCollectionSchema,
-   links: Type.Object({
-      application_deliverables__info: Type.Object({
+   links: Type.Optional(Type.Object({
+      application_deliverables__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      application_deliverables__add: Type.Object({
+      })),
+      application_deliverables__add: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   values: Type.Array(ApplicationDeliverableSchema)
+      }))
+   })),
+   values: Type.Optional(Type.Array(ApplicationDeliverableSchema))
 })
 export type ApplicationDeliverables = Static<typeof ApplicationDeliverablesSchema>
 
@@ -3405,8 +3405,8 @@ export type ApplicationDeliverables = Static<typeof ApplicationDeliverablesSchem
 */
 export const ApplicationActionNewSchema = Type.Object({
    action: Type.String(),
-   deliverable_id: Type.String(),
-   action_message: Type.String()
+   deliverable_id: Type.Optional(Type.String()),
+   action_message: Type.Optional(Type.String())
 })
 export type ApplicationActionNew = Static<typeof ApplicationActionNewSchema>
 
@@ -3414,15 +3414,15 @@ export type ApplicationActionNew = Static<typeof ApplicationActionNewSchema>
 * DESCRIPTION: Application action
 */
 export const ApplicationActionSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   application_id: ApplicationIdSchema,
-   applicant_id: ApplicantIdSchema,
-   deliverable_id: DeliverableIdSchema,
-   action: ActionSchema,
-   action_results: ActionResultsSchema,
-   action_message: ActionMessageSchema,
-   action_by_id: ActionByIdSchema,
-   action_date_time: ActionDateTimeSchema
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   deliverable_id: Type.Optional(DeliverableIdSchema),
+   action: Type.Optional(ActionSchema),
+   action_results: Type.Optional(ActionResultsSchema),
+   action_message: Type.Optional(ActionMessageSchema),
+   action_by_id: Type.Optional(ActionByIdSchema),
+   action_date_time: Type.Optional(ActionDateTimeSchema)
 })
 export type ApplicationAction = Static<typeof ApplicationActionSchema>
 
@@ -3431,29 +3431,29 @@ export type ApplicationAction = Static<typeof ApplicationActionSchema>
 */
 export const ApplicationActionsSchema = Type.Object({
    metadata: MetadataCollectionSchema,
-   links: Type.Object({
-      application_actions__info: Type.Object({
+   links: Type.Optional(Type.Object({
+      application_actions__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      application_actions__submit: Type.Object({
+      })),
+      application_actions__submit: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      application_actions__reopen: Type.Object({
+      })),
+      application_actions__reopen: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      }),
-      application_actions__withdraw: Type.Object({
+      })),
+      application_actions__withdraw: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   values: Type.Array(ApplicationActionSchema)
+      }))
+   })),
+   values: Type.Optional(Type.Array(ApplicationActionSchema))
 })
 export type ApplicationActions = Static<typeof ApplicationActionsSchema>
 
@@ -3477,23 +3477,23 @@ export type ApplicationNew = Static<typeof ApplicationNewSchema>
 * DESCRIPTION: An Application
 */
 export const ApplicationSchema = Type.Object({
-   application_actions: ApplicationActionsSchema,
-   application_deliverables: ApplicationDeliverablesSchema,
-   background_questions: BackgroundQuestionsSchema,
-   basic: BasicSchema,
-   biographical_classifications: BiographicalClassificationsSchema,
-   college_summaries: CollegeSummariesSchema,
-   endorsement: EndorsementSchema,
-   gei_programs: GeiProgramsSchema,
-   government_records: GovernmentRecordsSchema,
-   high_school_summaries: HighSchoolSummariesSchema,
-   institute_summaries: InstituteSummariesSchema,
-   international_records: InternationalRecordsSchema,
-   missions: MissionsSchema,
-   personal_records: PersonalRecordsSchema,
-   seminary_summaries: SeminarySummariesSchema,
-   test_scores: TestScoresSchema,
-   questions: QuestionsSchema
+   application_actions: Type.Optional(ApplicationActionsSchema),
+   application_deliverables: Type.Optional(ApplicationDeliverablesSchema),
+   background_questions: Type.Optional(BackgroundQuestionsSchema),
+   basic: Type.Optional(BasicSchema),
+   biographical_classifications: Type.Optional(BiographicalClassificationsSchema),
+   college_summaries: Type.Optional(CollegeSummariesSchema),
+   endorsement: Type.Optional(EndorsementSchema),
+   gei_programs: Type.Optional(GeiProgramsSchema),
+   government_records: Type.Optional(GovernmentRecordsSchema),
+   high_school_summaries: Type.Optional(HighSchoolSummariesSchema),
+   institute_summaries: Type.Optional(InstituteSummariesSchema),
+   international_records: Type.Optional(InternationalRecordsSchema),
+   missions: Type.Optional(MissionsSchema),
+   personal_records: Type.Optional(PersonalRecordsSchema),
+   seminary_summaries: Type.Optional(SeminarySummariesSchema),
+   test_scores: Type.Optional(TestScoresSchema),
+   questions: Type.Optional(QuestionsSchema)
 })
 export type Application = Static<typeof ApplicationSchema>
 
@@ -5627,30 +5627,30 @@ export type Application = Static<typeof ApplicationSchema>
 */
 export const ApplicationsSchema = Type.Object({
    metadata: MetadataTopLevelSchema,
-   stats: StatsSchema,
-   links: Type.Object({
-      applications__info: Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      }),
-      applications__prev: Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      }),
-      applications__next: Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      }),
-      applications__create: Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      })
-   }),
-   values: Type.Array(ApplicationSchema)
+   stats: Type.Optional(StatsSchema),
+   links: Type.Optional(Type.Object({
+      applications__info: Type.Optional(Type.Object({
+         rel: Type.Optional(Type.String()),
+         href: Type.Optional(Type.String()),
+         method: Type.Optional(Type.String())
+      })),
+      applications__prev: Type.Optional(Type.Object({
+         rel: Type.Optional(Type.String()),
+         href: Type.Optional(Type.String()),
+         method: Type.Optional(Type.String())
+      })),
+      applications__next: Type.Optional(Type.Object({
+         rel: Type.Optional(Type.String()),
+         href: Type.Optional(Type.String()),
+         method: Type.Optional(Type.String())
+      })),
+      applications__create: Type.Optional(Type.Object({
+         rel: Type.Optional(Type.String()),
+         href: Type.Optional(Type.String()),
+         method: Type.Optional(Type.String())
+      }))
+   })),
+   values: Type.Optional(Type.Array(ApplicationSchema))
 })
 export type Applications = Static<typeof ApplicationsSchema>
 
@@ -5675,21 +5675,21 @@ export type Applications = Static<typeof ApplicationsSchema>
 */
 export const StatusSchema = Type.Object({
    metadata: MetadataSimpleSchema,
-   stats: StatsSchema,
-   links: Type.Object({
-      status__info: Type.Object({
+   stats: Type.Optional(StatsSchema),
+   links: Type.Optional(Type.Object({
+      status__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
-      })
-   }),
-   trends: Type.Array(Type.Object({
-      name: Type.String(),
-      data: Type.Array(Type.Object({
-         date: Type.String(),
-         value: Type.String()
       }))
-   }))
+   })),
+   trends: Type.Optional(Type.Array(Type.Object({
+      name: Type.Optional(Type.String()),
+      data: Type.Optional(Type.Array(Type.Object({
+         date: Type.Optional(Type.String()),
+         value: Type.Optional(Type.String())
+      })))
+   })))
 })
 export type Status = Static<typeof StatusSchema>
 
@@ -5698,9 +5698,9 @@ export type Status = Static<typeof StatusSchema>
 * EXAMPLE: { id: 'age', type: 'integer', range: '0-120' }
 */
 export const ConceptSchema = Type.Object({
-   id: Type.String(),
-   type: Type.String(),
-   range: Type.String()
+   id: Type.Optional(Type.String()),
+   type: Type.Optional(Type.String()),
+   range: Type.Optional(Type.String())
 })
 export type Concept = Static<typeof ConceptSchema>
 
@@ -5709,7 +5709,7 @@ export type Concept = Static<typeof ConceptSchema>
 */
 export const ConceptsSchema = Type.Object({
    metadata: MetadataSimpleSchema,
-   values: Type.Array(ConceptSchema)
+   values: Type.Optional(Type.Array(ConceptSchema))
 })
 export type Concepts = Static<typeof ConceptsSchema>
 
@@ -5743,8 +5743,8 @@ export type ClaimArrayResponse = Static<typeof ClaimArrayResponseSchema>
 * EXAMPLE: { concept: 'age', relationship: 'greater-than-or-equal', value: '21' }
 */
 export const ClaimSchema = Type.Object({
-   concept: Type.String(),
-   relationship: Type.String(),
+   concept: Type.Optional(Type.String()),
+   relationship: Type.Optional(Type.String()),
    value: Type.String()
 }, { additionalProperties: true })
 export type Claim = Static<typeof ClaimSchema>
@@ -5765,7 +5765,7 @@ export type Claim = Static<typeof ClaimSchema>
 */
 export const ClaimBodySchema = Type.Object({
    subject: Type.String(),
-   qualifier: Type.String(),
+   qualifier: Type.Optional(Type.String()),
    claims: Type.Array(ClaimSchema)
 })
 export type ClaimBody = Static<typeof ClaimBodySchema>
@@ -5803,10 +5803,10 @@ export type ClaimBody = Static<typeof ClaimBodySchema>
 */
 export const ClaimArraySchema = Type.Object({
    values: Type.Array(Type.Object({
-      claim_id: Type.String(),
-      subject: Type.String(),
-      qualifier: Type.String(),
-      claims: Type.Array(ClaimSchema)
+      claim_id: Type.Optional(Type.String()),
+      subject: Type.Optional(Type.String()),
+      qualifier: Type.Optional(Type.String()),
+      claims: Type.Optional(Type.Array(ClaimSchema))
    }))
 })
 export type ClaimArray = Static<typeof ClaimArraySchema>

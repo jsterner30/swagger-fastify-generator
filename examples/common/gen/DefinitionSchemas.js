@@ -14,8 +14,8 @@ const IncidentBodySchema = Type.Object({
     priority: Type.String(),
     caller_id: Type.String(),
     short_description: Type.String(),
-    description: Type.String(),
-    u_email: Type.String()
+    description: Type.Optional(Type.String()),
+    u_email: Type.Optional(Type.String())
 })
 
 /**
@@ -29,8 +29,8 @@ const DecisionReasonValueArraySchema = Type.Array(Type.String())
 */
 const NameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -43,8 +43,8 @@ const NameSchema = Type.Object({
 */
 const DescriptionSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -67,9 +67,9 @@ const AttributeStringSchema = Type.Object({
 */
 const IdUpdatedBySchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -83,9 +83,9 @@ const IdUpdatedBySchema = Type.Object({
 */
 const IdSubmittedBySchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -99,9 +99,9 @@ const IdSubmittedBySchema = Type.Object({
 */
 const IdCreatedBySchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -109,8 +109,8 @@ const IdCreatedBySchema = Type.Object({
 */
 const DateTimeVerifiedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -123,8 +123,8 @@ const DateTimeVerifiedSchema = Type.Object({
 */
 const DateTimeUpdatedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -132,8 +132,8 @@ const DateTimeUpdatedSchema = Type.Object({
 */
 const DateTimeSubmittedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -141,8 +141,8 @@ const DateTimeSubmittedSchema = Type.Object({
 */
 const DateTimeReportedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -150,8 +150,8 @@ const DateTimeReportedSchema = Type.Object({
 */
 const DateTimeCreatedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -159,9 +159,9 @@ const DateTimeCreatedSchema = Type.Object({
 */
 const ApplicationIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -169,10 +169,10 @@ const ApplicationIdSchema = Type.Object({
 */
 const ApplicantTypeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -180,9 +180,9 @@ const ApplicantTypeSchema = Type.Object({
 */
 const ApplicantIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -190,11 +190,11 @@ const ApplicantIdSchema = Type.Object({
 */
 const AdmitPeriodSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    long_description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    long_description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -202,10 +202,10 @@ const AdmitPeriodSchema = Type.Object({
 */
 const AdmitMajorSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -213,8 +213,8 @@ const AdmitMajorSchema = Type.Object({
 */
 const SharedStartMonthSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -222,8 +222,8 @@ const SharedStartMonthSchema = Type.Object({
 */
 const SharedPhoneTextsOkSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -231,8 +231,8 @@ const SharedPhoneTextsOkSchema = Type.Object({
 */
 const SharedGradeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -240,8 +240,8 @@ const SharedGradeSchema = Type.Object({
 */
 const SharedGraduationStatusSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -249,8 +249,8 @@ const SharedGraduationStatusSchema = Type.Object({
 */
 const SharedEndMonthSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -258,8 +258,8 @@ const SharedEndMonthSchema = Type.Object({
 */
 const SharedCreditHoursGradedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -267,8 +267,8 @@ const SharedCreditHoursGradedSchema = Type.Object({
 */
 const SharedAcademicYearSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -276,8 +276,8 @@ const SharedAcademicYearSchema = Type.Object({
 */
 const TestVersionSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -285,9 +285,9 @@ const TestVersionSchema = Type.Object({
 */
 const TestNameSchema = Type.Object({
     value: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -295,9 +295,9 @@ const TestNameSchema = Type.Object({
 */
 const TestDateSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -305,8 +305,8 @@ const TestDateSchema = Type.Object({
 */
 const TestCompositeScoreSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -314,8 +314,8 @@ const TestCompositeScoreSchema = Type.Object({
 */
 const TestComponentScoreSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -323,10 +323,10 @@ const TestComponentScoreSchema = Type.Object({
 */
 const TestComponentNameSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -334,8 +334,8 @@ const TestComponentNameSchema = Type.Object({
 */
 const SeminaryYearsCompletedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -350,10 +350,10 @@ const SeminaryYearsCompletedSchema = Type.Object({
 */
 const SeminaryTypeSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -361,8 +361,8 @@ const SeminaryTypeSchema = Type.Object({
 */
 const SeminaryTermSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -370,9 +370,9 @@ const SeminaryTermSchema = Type.Object({
 */
 const SeminaryTeacherEmailSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -385,8 +385,8 @@ const SeminaryTeacherEmailSchema = Type.Object({
 */
 const SeminaryTeacherNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -394,8 +394,8 @@ const SeminaryTeacherNameSchema = Type.Object({
 */
 const SeminarySessionsSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -403,8 +403,8 @@ const SeminarySessionsSchema = Type.Object({
 */
 const SeminaryRecognitionSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -412,8 +412,8 @@ const SeminaryRecognitionSchema = Type.Object({
 */
 const SeminaryReadingSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -421,8 +421,8 @@ const SeminaryReadingSchema = Type.Object({
 */
 const SeminaryGradeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -435,8 +435,8 @@ const SeminaryGradeSchema = Type.Object({
 */
 const SeminaryExplanationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -444,8 +444,8 @@ const SeminaryExplanationSchema = Type.Object({
 */
 const SeminaryCreditSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -453,9 +453,9 @@ const SeminaryCreditSchema = Type.Object({
 */
 const SeminaryClassSchema = Type.Object({
     value: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -463,8 +463,8 @@ const SeminaryClassSchema = Type.Object({
 */
 const SeminaryAttendancePercentageSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -472,8 +472,8 @@ const SeminaryAttendancePercentageSchema = Type.Object({
 */
 const SeminaryAttendanceSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -481,8 +481,8 @@ const SeminaryAttendanceSchema = Type.Object({
 */
 const SeminaryAbsencesSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -496,9 +496,9 @@ const SeminaryAbsencesSchema = Type.Object({
 */
 const QuestionUuidSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -507,8 +507,8 @@ const QuestionUuidSchema = Type.Object({
 */
 const QuestionTypeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -517,8 +517,8 @@ const QuestionTypeSchema = Type.Object({
 */
 const QuestionGroupOrdinalSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -531,8 +531,8 @@ const QuestionGroupOrdinalSchema = Type.Object({
 */
 const QuestionGroupIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -545,8 +545,8 @@ const QuestionGroupIdSchema = Type.Object({
 */
 const QuestionGroupHeadingSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -555,8 +555,8 @@ const QuestionGroupHeadingSchema = Type.Object({
 */
 const QuestionElementTypeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -565,8 +565,8 @@ const QuestionElementTypeSchema = Type.Object({
 */
 const QuestionElementResponseRangeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -579,8 +579,8 @@ const QuestionElementResponseRangeSchema = Type.Object({
 */
 const QuestionElementResponseSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -593,8 +593,8 @@ const QuestionElementResponseSchema = Type.Object({
 */
 const QuestionElementPromptSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -603,8 +603,8 @@ const QuestionElementPromptSchema = Type.Object({
 */
 const QuestionElementOrdinalSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -617,8 +617,8 @@ const QuestionElementOrdinalSchema = Type.Object({
 */
 const QuestionElementLimitSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -631,8 +631,8 @@ const QuestionElementLimitSchema = Type.Object({
 */
 const QuestionElementIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -645,8 +645,8 @@ const QuestionElementIdSchema = Type.Object({
 */
 const QuestionElementExplanationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -654,9 +654,9 @@ const QuestionElementExplanationSchema = Type.Object({
 */
 const PersonalSexSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -664,8 +664,8 @@ const PersonalSexSchema = Type.Object({
 */
 const PersonalReligionTenureSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -673,11 +673,11 @@ const PersonalReligionTenureSchema = Type.Object({
 */
 const PersonalReligionCodeSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -685,10 +685,10 @@ const PersonalReligionCodeSchema = Type.Object({
 */
 const PersonalMaritalStatusSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -696,9 +696,9 @@ const PersonalMaritalStatusSchema = Type.Object({
 */
 const PersonalDateOfBirthSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -706,9 +706,9 @@ const PersonalDateOfBirthSchema = Type.Object({
 */
 const MissionTypeSchema = Type.Object({
     value: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -716,8 +716,8 @@ const MissionTypeSchema = Type.Object({
 */
 const MissionServiceSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -725,9 +725,9 @@ const MissionServiceSchema = Type.Object({
 */
 const MissionNameSchema = Type.Object({
     value: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -735,10 +735,10 @@ const MissionNameSchema = Type.Object({
 */
 const MissionLanguageSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -746,8 +746,8 @@ const MissionLanguageSchema = Type.Object({
 */
 const IntlVisaChangePlanSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -755,8 +755,8 @@ const IntlVisaChangePlanSchema = Type.Object({
 */
 const IntlCurrentUsResidentSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -764,8 +764,8 @@ const IntlCurrentUsResidentSchema = Type.Object({
 */
 const IntlAlienNumberSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -773,8 +773,8 @@ const IntlAlienNumberSchema = Type.Object({
 */
 const InstituteForCreditSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -782,8 +782,8 @@ const InstituteForCreditSchema = Type.Object({
 */
 const InstituteExplanationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -791,9 +791,9 @@ const InstituteExplanationSchema = Type.Object({
 */
 const InstituteClassSchema = Type.Object({
     value: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -802,8 +802,8 @@ const InstituteClassSchema = Type.Object({
 */
 const InstituteAttendanceSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -819,11 +819,11 @@ const InstituteAttendanceSchema = Type.Object({
 */
 const HighSchoolTypeSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -836,8 +836,8 @@ const HighSchoolTypeSchema = Type.Object({
 */
 const HighSchoolTranscriptSourceSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -846,8 +846,8 @@ const HighSchoolTranscriptSourceSchema = Type.Object({
 */
 const HighSchoolSubjectSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -862,10 +862,10 @@ const HighSchoolSubjectSchema = Type.Object({
 */
 const HighSchoolStateSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -874,8 +874,8 @@ const HighSchoolStateSchema = Type.Object({
 */
 const HighSchoolRepeatedFlagSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -888,8 +888,8 @@ const HighSchoolRepeatedFlagSchema = Type.Object({
 */
 const HighSchoolNonaccreditedStatementSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -902,8 +902,8 @@ const HighSchoolNonaccreditedStatementSchema = Type.Object({
 */
 const HighSchoolLinkToSecondaryDocumentImageSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -916,8 +916,8 @@ const HighSchoolLinkToSecondaryDocumentImageSchema = Type.Object({
 */
 const HighSchoolLinkToDocumentImageSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -925,8 +925,8 @@ const HighSchoolLinkToDocumentImageSchema = Type.Object({
 */
 const HighSchoolGraduationDateSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -935,8 +935,8 @@ const HighSchoolGraduationDateSchema = Type.Object({
 */
 const HighSchoolGradingTermsSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -945,8 +945,8 @@ const HighSchoolGradingTermsSchema = Type.Object({
 */
 const HighSchoolGradeLevelSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -954,8 +954,8 @@ const HighSchoolGradeLevelSchema = Type.Object({
 */
 const HighSchoolGradeFinalSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -968,8 +968,8 @@ const HighSchoolGradeFinalSchema = Type.Object({
 */
 const HighSchoolGpaCalculatedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -982,8 +982,8 @@ const HighSchoolGpaCalculatedSchema = Type.Object({
 */
 const HighSchoolGpaSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -991,8 +991,8 @@ const HighSchoolGpaSchema = Type.Object({
 */
 const HighSchoolCreditsSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1005,8 +1005,8 @@ const HighSchoolCreditsSchema = Type.Object({
 */
 const HighSchoolCourseNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1021,10 +1021,10 @@ const HighSchoolCourseNameSchema = Type.Object({
 */
 const HighSchoolCountrySchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1032,8 +1032,8 @@ const HighSchoolCountrySchema = Type.Object({
 */
 const HighSchoolConcurrentEnrollmentSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1047,9 +1047,9 @@ const HighSchoolConcurrentEnrollmentSchema = Type.Object({
 */
 const HighSchoolCitySchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1057,8 +1057,8 @@ const HighSchoolCitySchema = Type.Object({
 */
 const HighSchoolApIbHalfClassesSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1066,8 +1066,8 @@ const HighSchoolApIbHalfClassesSchema = Type.Object({
 */
 const HighSchoolApIbFullClassesSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1076,8 +1076,8 @@ const HighSchoolApIbFullClassesSchema = Type.Object({
 */
 const HighSchoolApIbFlagSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1093,12 +1093,12 @@ const HighSchoolApIbFlagSchema = Type.Object({
 */
 const HighSchoolSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1106,9 +1106,9 @@ const HighSchoolSchema = Type.Object({
 */
 const GovVisaTypeSourceSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1116,10 +1116,10 @@ const GovVisaTypeSourceSchema = Type.Object({
 */
 const GovVisaTypeSchema = Type.Object({
     value: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1127,11 +1127,11 @@ const GovVisaTypeSchema = Type.Object({
 */
 const GovCitizenshipStatusSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1139,11 +1139,11 @@ const GovCitizenshipStatusSchema = Type.Object({
 */
 const GovCitizenshipCountryCodeSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1151,11 +1151,11 @@ const GovCitizenshipCountryCodeSchema = Type.Object({
 */
 const GovBirthCountryCodeSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1163,9 +1163,9 @@ const GovBirthCountryCodeSchema = Type.Object({
 */
 const GovBirthCitySchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1173,8 +1173,8 @@ const GovBirthCitySchema = Type.Object({
 */
 const GeiProgramsSrsSiteSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1182,8 +1182,8 @@ const GeiProgramsSrsSiteSchema = Type.Object({
 */
 const GeiProgramsSrsFacilitatorSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1191,8 +1191,8 @@ const GeiProgramsSrsFacilitatorSchema = Type.Object({
 */
 const GeiProgramsSrsCertificatesSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1200,8 +1200,8 @@ const GeiProgramsSrsCertificatesSchema = Type.Object({
 */
 const GeiProgramsPwSiteSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1209,8 +1209,8 @@ const GeiProgramsPwSiteSchema = Type.Object({
 */
 const GeiProgramsPwGpaSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1218,8 +1218,8 @@ const GeiProgramsPwGpaSchema = Type.Object({
 */
 const GeiProgramsPwCreditsSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1227,8 +1227,8 @@ const GeiProgramsPwCreditsSchema = Type.Object({
 */
 const GeiProgramsPwCompletionSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1236,8 +1236,8 @@ const GeiProgramsPwCompletionSchema = Type.Object({
 */
 const EndorsementTypeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1245,8 +1245,8 @@ const EndorsementTypeSchema = Type.Object({
 */
 const EndorsementStatusSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1254,8 +1254,8 @@ const EndorsementStatusSchema = Type.Object({
 */
 const EndorsementDateSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1263,7 +1263,7 @@ const EndorsementDateSchema = Type.Object({
 */
 const DeliverableViewIdxSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String()
+    api_type: Type.Optional(Type.String())
 })
 
 /**
@@ -1271,10 +1271,10 @@ const DeliverableViewIdxSchema = Type.Object({
 */
 const DeliverableTypeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1282,10 +1282,10 @@ const DeliverableTypeSchema = Type.Object({
 */
 const DeliverableSubtypeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1293,8 +1293,8 @@ const DeliverableSubtypeSchema = Type.Object({
 */
 const DeliverableStatusSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1302,8 +1302,8 @@ const DeliverableStatusSchema = Type.Object({
 */
 const DeliverableSatisfiedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1311,8 +1311,8 @@ const DeliverableSatisfiedSchema = Type.Object({
 */
 const DeliverableQualifierTypeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1320,8 +1320,8 @@ const DeliverableQualifierTypeSchema = Type.Object({
 */
 const DeliverableQualifierSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1329,8 +1329,8 @@ const DeliverableQualifierSchema = Type.Object({
 */
 const DeliverableNameDisplaySchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1338,8 +1338,8 @@ const DeliverableNameDisplaySchema = Type.Object({
 */
 const DeliverableNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1347,9 +1347,9 @@ const DeliverableNameSchema = Type.Object({
 */
 const DeliverableIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1357,8 +1357,8 @@ const DeliverableIdSchema = Type.Object({
 */
 const DeliverableDescriptionSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1366,7 +1366,7 @@ const DeliverableDescriptionSchema = Type.Object({
 */
 const DeliverableControllerIdxSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String()
+    api_type: Type.Optional(Type.String())
 })
 
 /**
@@ -1374,8 +1374,8 @@ const DeliverableControllerIdxSchema = Type.Object({
 */
 const DeliverableDateTimeStatusSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1383,8 +1383,8 @@ const DeliverableDateTimeStatusSchema = Type.Object({
 */
 const DeliverableDateTimeSatisfiedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1392,10 +1392,10 @@ const DeliverableDateTimeSatisfiedSchema = Type.Object({
 */
 const ContactStateCodeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1403,8 +1403,8 @@ const ContactStateCodeSchema = Type.Object({
 */
 const ContactPostalCodeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1412,10 +1412,10 @@ const ContactPostalCodeSchema = Type.Object({
 */
 const ContactCountryCodeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1423,8 +1423,8 @@ const ContactCountryCodeSchema = Type.Object({
 */
 const ContactCitySchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1432,8 +1432,8 @@ const ContactCitySchema = Type.Object({
 */
 const ContactAddressLine5Schema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1441,8 +1441,8 @@ const ContactAddressLine5Schema = Type.Object({
 */
 const ContactAddressLine4Schema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1450,8 +1450,8 @@ const ContactAddressLine4Schema = Type.Object({
 */
 const ContactAddressLine3Schema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1459,8 +1459,8 @@ const ContactAddressLine3Schema = Type.Object({
 */
 const ContactAddressLine2Schema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1468,8 +1468,8 @@ const ContactAddressLine2Schema = Type.Object({
 */
 const ContactAddressLine1Schema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1477,8 +1477,8 @@ const ContactAddressLine1Schema = Type.Object({
 */
 const CollegeDegreeMajorSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1486,8 +1486,8 @@ const CollegeDegreeMajorSchema = Type.Object({
 */
 const CollegeDegreeDateSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1495,8 +1495,8 @@ const CollegeDegreeDateSchema = Type.Object({
 */
 const CollegeDegreeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1504,8 +1504,8 @@ const CollegeDegreeSchema = Type.Object({
 */
 const CollegeGpaVerifiedSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1513,8 +1513,8 @@ const CollegeGpaVerifiedSchema = Type.Object({
 */
 const CollegeGpaSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1522,11 +1522,11 @@ const CollegeGpaSchema = Type.Object({
 */
 const CollegeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1534,8 +1534,8 @@ const CollegeSchema = Type.Object({
 */
 const CollegeCumulativeGpaSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1543,8 +1543,8 @@ const CollegeCumulativeGpaSchema = Type.Object({
 */
 const CollegeCumulativeCreditSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1552,8 +1552,8 @@ const CollegeCumulativeCreditSchema = Type.Object({
 */
 const BioSingleParentSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1561,9 +1561,9 @@ const BioSingleParentSchema = Type.Object({
 */
 const BioResidingWithSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1571,9 +1571,9 @@ const BioResidingWithSchema = Type.Object({
 */
 const BioFamilyIncomeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1581,9 +1581,9 @@ const BioFamilyIncomeSchema = Type.Object({
 */
 const BioMothersLevelOfEducationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1591,8 +1591,8 @@ const BioMothersLevelOfEducationSchema = Type.Object({
 */
 const BioHispanicFlagSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1600,9 +1600,9 @@ const BioHispanicFlagSchema = Type.Object({
 */
 const BioFathersLevelOfEducationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1610,8 +1610,8 @@ const BioFathersLevelOfEducationSchema = Type.Object({
 */
 const BgUniversityDisciplineExplanationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1619,8 +1619,8 @@ const BgUniversityDisciplineExplanationSchema = Type.Object({
 */
 const BgUniversityDisciplineSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1628,8 +1628,8 @@ const BgUniversityDisciplineSchema = Type.Object({
 */
 const BgSexRegistryExplanationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1637,8 +1637,8 @@ const BgSexRegistryExplanationSchema = Type.Object({
 */
 const BgSexRegistrySchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1646,8 +1646,8 @@ const BgSexRegistrySchema = Type.Object({
 */
 const BgPluralMarriageExplanationSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1655,59 +1655,59 @@ const BgPluralMarriageExplanationSchema = Type.Object({
 */
 const BgPluralMarriageSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
 * DESCRIPTION: Details on each conviction and resolution
 */
 const BgCriminalConvictionsSchema = Type.Array(Type.Object({
-    crime: Type.Object({
+    crime: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    crime_year: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    crime_year: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    courts: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    courts: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    conditions: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    conditions: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    probation: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    probation: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    probation_explanation: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    probation_explanation: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    penalties: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    penalties: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    penalties_explanation: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    penalties_explanation: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    }),
-    additional_explanation: Type.Object({
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    })),
+    additional_explanation: Type.Optional(Type.Object({
         value: Type.String(),
-        api_type: Type.String(),
-        display_label: Type.String()
-    })
+        api_type: Type.Optional(Type.String()),
+        display_label: Type.Optional(Type.String())
+    }))
 }))
 
 /**
@@ -1715,8 +1715,8 @@ const BgCriminalConvictionsSchema = Type.Array(Type.Object({
 */
 const BgConvictionRecordSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1724,8 +1724,8 @@ const BgConvictionRecordSchema = Type.Object({
 */
 const BasicSecondaryPhoneNumberSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1733,9 +1733,9 @@ const BasicSecondaryPhoneNumberSchema = Type.Object({
 */
 const BasicPhoneNumberSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    key: Type.Boolean(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    key: Type.Optional(Type.Boolean()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1743,9 +1743,9 @@ const BasicPhoneNumberSchema = Type.Object({
 */
 const BasicSecondaryEmailAddressSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1753,9 +1753,9 @@ const BasicSecondaryEmailAddressSchema = Type.Object({
 */
 const BasicEmailAddressSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1763,8 +1763,8 @@ const BasicEmailAddressSchema = Type.Object({
 */
 const BasicSchoolPreferenceOrderSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1772,9 +1772,9 @@ const BasicSchoolPreferenceOrderSchema = Type.Object({
 */
 const BasicSurnameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1782,9 +1782,9 @@ const BasicSurnameSchema = Type.Object({
 */
 const BasicSuffixSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1792,8 +1792,8 @@ const BasicSuffixSchema = Type.Object({
 */
 const BasicRestOfNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1801,8 +1801,8 @@ const BasicRestOfNameSchema = Type.Object({
 */
 const BasicPrimaryLanguageSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1810,8 +1810,8 @@ const BasicPrimaryLanguageSchema = Type.Object({
 */
 const BasicPreviousNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1819,8 +1819,8 @@ const BasicPreviousNameSchema = Type.Object({
 */
 const BasicPreferredNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1828,7 +1828,7 @@ const BasicPreferredNameSchema = Type.Object({
 */
 const BasicNetIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String()
+    api_type: Type.Optional(Type.String())
 })
 
 /**
@@ -1836,9 +1836,9 @@ const BasicNetIdSchema = Type.Object({
 */
 const BasicMiddleNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1846,7 +1846,7 @@ const BasicMiddleNameSchema = Type.Object({
 */
 const BasicInstitutionIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String()
+    api_type: Type.Optional(Type.String())
 })
 
 /**
@@ -1854,9 +1854,9 @@ const BasicInstitutionIdSchema = Type.Object({
 */
 const BasicHomeTownSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1864,11 +1864,11 @@ const BasicHomeTownSchema = Type.Object({
 */
 const BasicHomeStateSchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1876,8 +1876,8 @@ const BasicHomeStateSchema = Type.Object({
 */
 const BasicHomeCountySchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1885,11 +1885,11 @@ const BasicHomeCountySchema = Type.Object({
 */
 const BasicHomeCountrySchema = Type.Object({
     value: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1897,9 +1897,9 @@ const BasicHomeCountrySchema = Type.Object({
 */
 const BasicFirstNameSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1907,9 +1907,9 @@ const BasicFirstNameSchema = Type.Object({
 */
 const BasicDecisionDateTimeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1917,9 +1917,9 @@ const BasicDecisionDateTimeSchema = Type.Object({
 */
 const BasicDecisionTemplateIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1927,8 +1927,8 @@ const BasicDecisionTemplateIdSchema = Type.Object({
 */
 const BasicDecisionQualifierSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1936,10 +1936,10 @@ const BasicDecisionQualifierSchema = Type.Object({
 */
 const BasicDecisionSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1947,8 +1947,8 @@ const BasicDecisionSchema = Type.Object({
 */
 const BasicApplicationStatusDateTimeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1956,10 +1956,10 @@ const BasicApplicationStatusDateTimeSchema = Type.Object({
 */
 const BasicApplicationStatusSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1967,8 +1967,8 @@ const BasicApplicationStatusSchema = Type.Object({
 */
 const BasicAgreementFinancialResponsibilityDateTimeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1976,8 +1976,8 @@ const BasicAgreementFinancialResponsibilityDateTimeSchema = Type.Object({
 */
 const BasicAgreementInformationReleaseDateTimeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1985,8 +1985,8 @@ const BasicAgreementInformationReleaseDateTimeSchema = Type.Object({
 */
 const ActionDateTimeSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -1994,9 +1994,9 @@ const ActionDateTimeSchema = Type.Object({
 */
 const ActionByIdSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -2004,9 +2004,9 @@ const ActionByIdSchema = Type.Object({
 */
 const ActionResultsSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    description: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -2014,8 +2014,8 @@ const ActionResultsSchema = Type.Object({
 */
 const ActionMessageSchema = Type.Object({
     value: Type.String(),
-    api_type: Type.String(),
-    display_label: Type.String()
+    api_type: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 })
 
 /**
@@ -2029,10 +2029,10 @@ const ActionMessageSchema = Type.Object({
 */
 const ActionSchema = Type.Object({
     action: Type.String(),
-    action_message: Type.String(),
-    component_id: Type.String(),
-    data: Type.Object({
-    })
+    action_message: Type.Optional(Type.String()),
+    component_id: Type.Optional(Type.String()),
+    data: Type.Optional(Type.Object({
+    }))
 })
 
 /**
@@ -2042,10 +2042,10 @@ const MetadataSimpleSchema = Type.Object({
         code: Type.Integer(),
         message: Type.String()
     }),
-    validation_information: Type.Array(Type.String()),
-    cache: Type.Object({
-        date_time: Type.String()
-    })
+    validation_information: Type.Optional(Type.Array(Type.String())),
+    cache: Type.Optional(Type.Object({
+        date_time: Type.Optional(Type.String())
+    }))
 })
 
 /**
@@ -2053,12 +2053,12 @@ const MetadataSimpleSchema = Type.Object({
 */
 const DecisionReasonsSchema = Type.Object({
     metadata: MetadataSimpleSchema,
-    values: Type.Object({
-        admitReasons: DecisionReasonValueArraySchema,
-        denyReasons: DecisionReasonValueArraySchema,
-        holdReasons: DecisionReasonValueArraySchema,
-        archiveReasons: DecisionReasonValueArraySchema
-    })
+    values: Type.Optional(Type.Object({
+        admitReasons: Type.Optional(DecisionReasonValueArraySchema),
+        denyReasons: Type.Optional(DecisionReasonValueArraySchema),
+        holdReasons: Type.Optional(DecisionReasonValueArraySchema),
+        archiveReasons: Type.Optional(DecisionReasonValueArraySchema)
+    }))
 })
 
 /**
@@ -2066,12 +2066,12 @@ const DecisionReasonsSchema = Type.Object({
 const MetadataCollectionSchema = Type.Intersect([
     MetadataSimpleSchema,
     Type.Object({
-        collection_size: Type.Integer(),
-        page_start: Type.Integer(),
-        page_end: Type.Integer(),
-        page_size: Type.Integer(),
-        default_page_size: Type.Integer(),
-        max_page_size: Type.Integer()
+        collection_size: Type.Optional(Type.Integer()),
+        page_start: Type.Optional(Type.Integer()),
+        page_end: Type.Optional(Type.Integer()),
+        page_size: Type.Optional(Type.Integer()),
+        default_page_size: Type.Optional(Type.Integer()),
+        max_page_size: Type.Optional(Type.Integer())
     })
 ])
 
@@ -2080,19 +2080,19 @@ const MetadataCollectionSchema = Type.Intersect([
 const MetadataTopLevelSchema = Type.Intersect([
     MetadataCollectionSchema,
     Type.Object({
-        field_sets_returned: Type.Array(Type.String()),
-        field_sets_available: Type.Array(Type.String()),
-        field_sets_default: Type.Array(Type.String()),
-        contexts_available: Type.Object({
-            admin: Type.Array(Type.String()),
-            all: Type.Array(Type.String()),
-            application_controls: Type.Array(Type.String()),
-            applicant: Type.Array(Type.String()),
-            contact: Type.Array(Type.String()),
-            education: Type.Array(Type.String()),
-            profile: Type.Array(Type.String()),
-            religion: Type.Array(Type.String())
-        })
+        field_sets_returned: Type.Optional(Type.Array(Type.String())),
+        field_sets_available: Type.Optional(Type.Array(Type.String())),
+        field_sets_default: Type.Optional(Type.Array(Type.String())),
+        contexts_available: Type.Optional(Type.Object({
+            admin: Type.Optional(Type.Array(Type.String())),
+            all: Type.Optional(Type.Array(Type.String())),
+            application_controls: Type.Optional(Type.Array(Type.String())),
+            applicant: Type.Optional(Type.Array(Type.String())),
+            contact: Type.Optional(Type.Array(Type.String())),
+            education: Type.Optional(Type.Array(Type.String())),
+            profile: Type.Optional(Type.Array(Type.String())),
+            religion: Type.Optional(Type.Array(Type.String()))
+        }))
     })
 ])
 
@@ -2105,57 +2105,57 @@ const ErrorResponseSchema = Type.Object({
 /**
 */
 const SeminaryTermInfoSchema = Type.Object({
-    term: SeminaryTermSchema,
-    absences: SeminaryAbsencesSchema,
-    sessions: SeminarySessionsSchema,
-    attendance: SeminaryAttendanceSchema,
-    reading: SeminaryReadingSchema,
-    recognition: SeminaryRecognitionSchema,
-    credit: SeminaryCreditSchema,
-    grade: SeminaryGradeSchema
+    term: Type.Optional(SeminaryTermSchema),
+    absences: Type.Optional(SeminaryAbsencesSchema),
+    sessions: Type.Optional(SeminarySessionsSchema),
+    attendance: Type.Optional(SeminaryAttendanceSchema),
+    reading: Type.Optional(SeminaryReadingSchema),
+    recognition: Type.Optional(SeminaryRecognitionSchema),
+    credit: Type.Optional(SeminaryCreditSchema),
+    grade: Type.Optional(SeminaryGradeSchema)
 })
 
 /**
 */
 const SeminaryClassDataSchema = Type.Object({
-    seminary_class: SeminaryClassSchema,
-    academic_year: SharedAcademicYearSchema,
-    term_info: Type.Array(SeminaryTermInfoSchema)
+    seminary_class: Type.Optional(SeminaryClassSchema),
+    academic_year: Type.Optional(SharedAcademicYearSchema),
+    term_info: Type.Optional(Type.Array(SeminaryTermInfoSchema))
 })
 
 /**
 * DESCRIPTION: A set of question elements that should be grouped together
 */
 const QuestionGroupSchema = Type.Object({
-    id: QuestionGroupIdSchema,
-    name: NameSchema,
-    description: DescriptionSchema,
-    ordinal: QuestionGroupOrdinalSchema,
-    heading: QuestionGroupHeadingSchema,
-    elements: Type.Array(Type.Object({
-        id: Type.String(),
-        label: Type.String(),
-        ordinal: Type.String()
-    }))
+    id: Type.Optional(QuestionGroupIdSchema),
+    name: Type.Optional(NameSchema),
+    description: Type.Optional(DescriptionSchema),
+    ordinal: Type.Optional(QuestionGroupOrdinalSchema),
+    heading: Type.Optional(QuestionGroupHeadingSchema),
+    elements: Type.Optional(Type.Array(Type.Object({
+        id: Type.Optional(Type.String()),
+        label: Type.Optional(Type.String()),
+        ordinal: Type.Optional(Type.String())
+    })))
 })
 
 /**
 * DESCRIPTION: A question element
 */
 const QuestionElementSchema = Type.Object({
-    id: QuestionElementIdSchema,
-    type: QuestionElementTypeSchema,
-    prompt: QuestionElementPromptSchema,
-    explanation: QuestionElementExplanationSchema,
-    limit: QuestionElementLimitSchema,
-    ordinal: QuestionElementOrdinalSchema,
-    response: QuestionElementResponseSchema,
-    response_range: QuestionElementResponseRangeSchema,
-    response_criteria: Type.Array(Type.Object({
-        label: Type.String(),
-        value: Type.String()
-    })),
-    response_set: Type.Array(Type.String())
+    id: Type.Optional(QuestionElementIdSchema),
+    type: Type.Optional(QuestionElementTypeSchema),
+    prompt: Type.Optional(QuestionElementPromptSchema),
+    explanation: Type.Optional(QuestionElementExplanationSchema),
+    limit: Type.Optional(QuestionElementLimitSchema),
+    ordinal: Type.Optional(QuestionElementOrdinalSchema),
+    response: Type.Optional(QuestionElementResponseSchema),
+    response_range: Type.Optional(QuestionElementResponseRangeSchema),
+    response_criteria: Type.Optional(Type.Array(Type.Object({
+        label: Type.Optional(Type.String()),
+        value: Type.Optional(Type.String())
+    }))),
+    response_set: Type.Optional(Type.Array(Type.String()))
 })
 
 /**
@@ -2170,54 +2170,54 @@ const QuestionElementSchema = Type.Object({
 }
 */
 const QuestionAnswerSchema = Type.Object({
-    answers: Type.Array(Type.Object({
-        element_id: Type.String(),
-        response: Type.String()
-    }))
+    answers: Type.Optional(Type.Array(Type.Object({
+        element_id: Type.Optional(Type.String()),
+        response: Type.Optional(Type.String())
+    })))
 })
 
 /**
 * DESCRIPTION: Collection of self-declared racial categories
 */
 const RacialCategoriesSchema = Type.Array(Type.Object({
-    value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    value: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 }))
 
 /**
 * DESCRIPTION: Collection of languages in which the Applicant has declared some proficiency
 */
 const LanguagesSchema = Type.Array(Type.Object({
-    value: Type.String(),
-    api_type: Type.String(),
-    related_resource: Type.String(),
-    description: Type.String(),
-    domain: Type.String(),
-    display_label: Type.String()
+    value: Type.Optional(Type.String()),
+    api_type: Type.Optional(Type.String()),
+    related_resource: Type.Optional(Type.String()),
+    description: Type.Optional(Type.String()),
+    domain: Type.Optional(Type.String()),
+    display_label: Type.Optional(Type.String())
 }))
 
 /**
 */
 const HighSchoolNonaccreditedWorkInfoSchema = Type.Object({
-    grade_level: HighSchoolGradeLevelSchema,
-    statement: HighSchoolNonaccreditedStatementSchema
+    grade_level: Type.Optional(HighSchoolGradeLevelSchema),
+    statement: Type.Optional(HighSchoolNonaccreditedStatementSchema)
 })
 
 /**
 */
 const HighSchoolCourseInfoSchema = Type.Object({
-    grade_level: HighSchoolGradeLevelSchema,
-    subject: HighSchoolSubjectSchema,
-    course_name: HighSchoolCourseNameSchema,
-    ap_ib_flag: HighSchoolApIbFlagSchema,
-    repeated: HighSchoolRepeatedFlagSchema,
-    grading_terms: HighSchoolGradingTermsSchema,
-    grade_final: HighSchoolGradeFinalSchema,
-    credits: HighSchoolCreditsSchema,
-    grades: Type.Array(SharedGradeSchema)
+    grade_level: Type.Optional(HighSchoolGradeLevelSchema),
+    subject: Type.Optional(HighSchoolSubjectSchema),
+    course_name: Type.Optional(HighSchoolCourseNameSchema),
+    ap_ib_flag: Type.Optional(HighSchoolApIbFlagSchema),
+    repeated: Type.Optional(HighSchoolRepeatedFlagSchema),
+    grading_terms: Type.Optional(HighSchoolGradingTermsSchema),
+    grade_final: Type.Optional(HighSchoolGradeFinalSchema),
+    credits: Type.Optional(HighSchoolCreditsSchema),
+    grades: Type.Optional(Type.Array(SharedGradeSchema))
 })
 
 /**
@@ -2229,9 +2229,9 @@ const HighSchoolCourseInfoSchema = Type.Object({
 }
 */
 const InternationalRecordsModifySchema = Type.Object({
-    alien_number: Type.String(),
-    current_us_resident: Type.String(),
-    visa_change_plan: Type.String()
+    alien_number: Type.Optional(Type.String()),
+    current_us_resident: Type.Optional(Type.String()),
+    visa_change_plan: Type.Optional(Type.String())
 })
 
 /**
@@ -2245,32 +2245,32 @@ const InternationalRecordsModifySchema = Type.Object({
 }
 */
 const MissionsModifySchema = Type.Object({
-    mission_type: Type.String(),
-    mission_name: Type.String(),
-    mission_language: Type.String(),
-    start_month: Type.String(),
-    end_month: Type.String()
+    mission_type: Type.Optional(Type.String()),
+    mission_name: Type.Optional(Type.String()),
+    mission_language: Type.Optional(Type.String()),
+    start_month: Type.Optional(Type.String()),
+    end_month: Type.Optional(Type.String())
 })
 
 /**
 */
 const HighSchoolNonaccreditedWorkInfoModifySchema = Type.Object({
-    grade_level: Type.String(),
-    statement: Type.String()
+    grade_level: Type.Optional(Type.String()),
+    statement: Type.Optional(Type.String())
 })
 
 /**
 */
 const HighSchoolCourseInfoModifySchema = Type.Object({
-    grade_level: Type.String(),
-    subject: Type.String(),
-    course_name: Type.String(),
-    ap_ib_flag: Type.String(),
-    repeated: Type.String(),
-    grading_terms: Type.String(),
-    grades: Type.Array(Type.String()),
-    grade_final: Type.String(),
-    credits: Type.String()
+    grade_level: Type.Optional(Type.String()),
+    subject: Type.Optional(Type.String()),
+    course_name: Type.Optional(Type.String()),
+    ap_ib_flag: Type.Optional(Type.String()),
+    repeated: Type.Optional(Type.String()),
+    grading_terms: Type.Optional(Type.String()),
+    grades: Type.Optional(Type.Array(Type.String())),
+    grade_final: Type.Optional(Type.String()),
+    credits: Type.Optional(Type.String())
 })
 
 /**
@@ -2309,25 +2309,25 @@ const HighSchoolCourseInfoModifySchema = Type.Object({
 }
 */
 const HighSchoolSummaryModifySchema = Type.Object({
-    high_school_type: Type.String(),
-    high_school_code: Type.String(),
-    high_school_name: Type.String(),
-    high_school_city: Type.String(),
-    high_school_state: Type.String(),
-    high_school_country: Type.String(),
-    start_month: Type.String(),
-    end_month: Type.String(),
-    graduation_status: Type.String(),
-    graduation_date: Type.String(),
-    high_school_gpa: Type.String(),
-    list_of_classes: Type.Array(HighSchoolCourseInfoModifySchema),
-    list_of_nonaccredited_work: Type.Array(HighSchoolNonaccreditedWorkInfoModifySchema),
-    concurrent_enrollment: Type.String(),
-    transcript_source: Type.String(),
-    verified_by_id: Type.String(),
-    date_time_verified: Type.String(),
-    link_to_document_image: Type.String(),
-    link_to_secondary_document_image: Type.String()
+    high_school_type: Type.Optional(Type.String()),
+    high_school_code: Type.Optional(Type.String()),
+    high_school_name: Type.Optional(Type.String()),
+    high_school_city: Type.Optional(Type.String()),
+    high_school_state: Type.Optional(Type.String()),
+    high_school_country: Type.Optional(Type.String()),
+    start_month: Type.Optional(Type.String()),
+    end_month: Type.Optional(Type.String()),
+    graduation_status: Type.Optional(Type.String()),
+    graduation_date: Type.Optional(Type.String()),
+    high_school_gpa: Type.Optional(Type.String()),
+    list_of_classes: Type.Optional(Type.Array(HighSchoolCourseInfoModifySchema)),
+    list_of_nonaccredited_work: Type.Optional(Type.Array(HighSchoolNonaccreditedWorkInfoModifySchema)),
+    concurrent_enrollment: Type.Optional(Type.String()),
+    transcript_source: Type.Optional(Type.String()),
+    verified_by_id: Type.Optional(Type.String()),
+    date_time_verified: Type.Optional(Type.String()),
+    link_to_document_image: Type.Optional(Type.String()),
+    link_to_secondary_document_image: Type.Optional(Type.String())
 })
 
 /**
@@ -2345,12 +2345,12 @@ const HighSchoolSummaryModifySchema = Type.Object({
 }
 */
 const GovernmentRecordsModifySchema = Type.Object({
-    visa_type: Type.String(),
-    visa_type_source: Type.String(),
-    citizenship_status: Type.String(),
-    citizenship_country_code: Type.String(),
-    birth_country_code: Type.String(),
-    birth_city: Type.String()
+    visa_type: Type.Optional(Type.String()),
+    visa_type_source: Type.Optional(Type.String()),
+    citizenship_status: Type.Optional(Type.String()),
+    citizenship_country_code: Type.Optional(Type.String()),
+    birth_country_code: Type.Optional(Type.String()),
+    birth_city: Type.Optional(Type.String())
 })
 
 /**
@@ -2362,9 +2362,9 @@ const GovernmentRecordsModifySchema = Type.Object({
 }
 */
 const GeiProgramModifySchema = Type.Object({
-    srs_certificates: Type.String(),
-    srs_facilitator: Type.String(),
-    srs_site: Type.String()
+    srs_certificates: Type.Optional(Type.String()),
+    srs_facilitator: Type.Optional(Type.String()),
+    srs_site: Type.Optional(Type.String())
 })
 
 /**
@@ -2385,29 +2385,29 @@ const GeiProgramModifySchema = Type.Object({
 }
 */
 const ContactModifySchema = Type.Object({
-    preferred_name: Type.String(),
-    surname: Type.String(),
-    email_address: Type.String(),
-    phone_number: Type.String(),
-    address_line_1: Type.String(),
-    address_line_2: Type.String(),
-    address_line_3: Type.String(),
-    address_line_4: Type.String(),
-    country_code: Type.String(),
-    city: Type.String(),
-    state_code: Type.String(),
-    postal_code: Type.String()
+    preferred_name: Type.Optional(Type.String()),
+    surname: Type.Optional(Type.String()),
+    email_address: Type.Optional(Type.String()),
+    phone_number: Type.Optional(Type.String()),
+    address_line_1: Type.Optional(Type.String()),
+    address_line_2: Type.Optional(Type.String()),
+    address_line_3: Type.Optional(Type.String()),
+    address_line_4: Type.Optional(Type.String()),
+    country_code: Type.Optional(Type.String()),
+    city: Type.Optional(Type.String()),
+    state_code: Type.Optional(Type.String()),
+    postal_code: Type.Optional(Type.String())
 })
 
 /**
 * DESCRIPTION: Structure to Modify College Summary Information
 */
 const CollegeSummaryModifySchema = Type.Array(Type.Object({
-    college_code: Type.String(),
-    start_month: Type.String(),
-    end_month: Type.String(),
-    gpa: Type.String(),
-    credit_hours_graded: Type.String()
+    college_code: Type.Optional(Type.String()),
+    start_month: Type.Optional(Type.String()),
+    end_month: Type.Optional(Type.String()),
+    gpa: Type.Optional(Type.String()),
+    credit_hours_graded: Type.Optional(Type.String())
 }))
 
 /**
@@ -2422,14 +2422,14 @@ const CollegeSummaryModifySchema = Type.Array(Type.Object({
 }
 */
 const BiographicalClassificationsModifySchema = Type.Object({
-    hispanic_flag: Type.String(),
-    racial_categories: Type.String(),
-    languages: Type.String(),
-    mothers_level_of_education: Type.String(),
-    fathers_level_of_education: Type.String(),
-    family_income: Type.String(),
-    residing_with: Type.String(),
-    single_parent: Type.String()
+    hispanic_flag: Type.Optional(Type.String()),
+    racial_categories: Type.Optional(Type.String()),
+    languages: Type.Optional(Type.String()),
+    mothers_level_of_education: Type.Optional(Type.String()),
+    fathers_level_of_education: Type.Optional(Type.String()),
+    family_income: Type.Optional(Type.String()),
+    residing_with: Type.Optional(Type.String()),
+    single_parent: Type.Optional(Type.String())
 })
 
 /**
@@ -2458,42 +2458,42 @@ const BiographicalClassificationsModifySchema = Type.Object({
 }
 */
 const BackgroundQuestionsModifySchema = Type.Object({
-    conviction_record: Type.String(),
-    criminal_convictions: Type.Array(Type.Object({
-        crime: Type.String(),
-        crime_year: Type.String(),
-        courts: Type.String(),
-        conditions: Type.String(),
-        probation: Type.String(),
-        probation_explanation: Type.String(),
-        penalties: Type.String(),
-        penalties_explanation: Type.String(),
-        additional_explanation: Type.String()
-    })),
-    plural_marriage: Type.String(),
-    plural_marriage_explanation: Type.String(),
-    sex_registry: Type.String(),
-    sex_registry_explanation: Type.String(),
-    university_discipline: Type.String(),
-    university_discipline_explanation: Type.String()
+    conviction_record: Type.Optional(Type.String()),
+    criminal_convictions: Type.Optional(Type.Array(Type.Object({
+        crime: Type.Optional(Type.String()),
+        crime_year: Type.Optional(Type.String()),
+        courts: Type.Optional(Type.String()),
+        conditions: Type.Optional(Type.String()),
+        probation: Type.Optional(Type.String()),
+        probation_explanation: Type.Optional(Type.String()),
+        penalties: Type.Optional(Type.String()),
+        penalties_explanation: Type.Optional(Type.String()),
+        additional_explanation: Type.Optional(Type.String())
+    }))),
+    plural_marriage: Type.Optional(Type.String()),
+    plural_marriage_explanation: Type.Optional(Type.String()),
+    sex_registry: Type.Optional(Type.String()),
+    sex_registry_explanation: Type.Optional(Type.String()),
+    university_discipline: Type.Optional(Type.String()),
+    university_discipline_explanation: Type.Optional(Type.String())
 })
 
 /**
 * DESCRIPTION: A Test Score from the applicant
 */
 const TestScoreSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    test_name: TestNameSchema,
-    test_date: TestDateSchema,
-    composite_score: TestCompositeScoreSchema,
-    date_time_reported: DateTimeReportedSchema,
-    test_version: TestVersionSchema,
-    test_components: Type.Array(Type.Object({
-        component_name: TestComponentNameSchema,
-        component_score: TestComponentScoreSchema
-    }))
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    test_name: Type.Optional(TestNameSchema),
+    test_date: Type.Optional(TestDateSchema),
+    composite_score: Type.Optional(TestCompositeScoreSchema),
+    date_time_reported: Type.Optional(DateTimeReportedSchema),
+    test_version: Type.Optional(TestVersionSchema),
+    test_components: Type.Optional(Type.Array(Type.Object({
+        component_name: Type.Optional(TestComponentNameSchema),
+        component_score: Type.Optional(TestComponentScoreSchema)
+    })))
 })
 
 /**
@@ -2501,14 +2501,14 @@ const TestScoreSchema = Type.Object({
 */
 const TestScoresSchema = Type.Object({
     metadata: MetadataCollectionSchema,
-    links: Type.Object({
-        test_scores__info: Type.Object({
+    links: Type.Optional(Type.Object({
+        test_scores__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    values: Type.Array(TestScoreSchema)
+        }))
+    })),
+    values: Type.Optional(Type.Array(TestScoreSchema))
 })
 
 /**
@@ -2520,87 +2520,87 @@ const StatsSchema = Type.Array(AttributeStringSchema)
 * DESCRIPTION: Seminary information from the applicant API
 */
 const SeminarySummariesSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    seminary_type: SeminaryTypeSchema,
-    years_completed: SeminaryYearsCompletedSchema,
-    attendance_percentage: SeminaryAttendancePercentageSchema,
-    graduation_status: SharedGraduationStatusSchema,
-    seminary_explanation: SeminaryExplanationSchema,
-    teacher_name: SeminaryTeacherNameSchema,
-    teacher_email: SeminaryTeacherEmailSchema,
-    date_time_reported: DateTimeReportedSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        seminary_summaries__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    seminary_type: Type.Optional(SeminaryTypeSchema),
+    years_completed: Type.Optional(SeminaryYearsCompletedSchema),
+    attendance_percentage: Type.Optional(SeminaryAttendancePercentageSchema),
+    graduation_status: Type.Optional(SharedGraduationStatusSchema),
+    seminary_explanation: Type.Optional(SeminaryExplanationSchema),
+    teacher_name: Type.Optional(SeminaryTeacherNameSchema),
+    teacher_email: Type.Optional(SeminaryTeacherEmailSchema),
+    date_time_reported: Type.Optional(DateTimeReportedSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        seminary_summaries__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        seminary_summaries__modify: Type.Object({
+        })),
+        seminary_summaries__modify: Type.Optional(Type.Object({
+            rel: Type.Optional(Type.String()),
+            href: Type.Optional(Type.String()),
+            method: Type.Optional(Type.String())
+        })),
+        seminary_summaries__remove: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        seminary_summaries__remove: Type.Object({
-            rel: Type.String(),
-            href: Type.String(),
-            method: Type.String()
-        })
-    }),
-    seminary_classes: Type.Array(SeminaryClassDataSchema)
+        }))
+    })),
+    seminary_classes: Type.Optional(Type.Array(SeminaryClassDataSchema))
 })
 
 /**
 */
 const ReportsMetadataSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    values: Type.Array(Type.Object({
-        name: Type.String(),
-        description: Type.String(),
-        long_description: Type.String(),
-        category: Type.String(),
-        limit: Type.String(),
-        pagination_parameter: Type.String(),
-        institutions: Type.Array(Type.String()),
-        content_type: Type.Array(Type.String()),
-        parameters: Type.Array(Type.String()),
-        columns: Type.Array(Type.Object({
-            ordinal: Type.String(),
-            name: Type.String(),
-            qualifier: Type.Array(Type.String()),
-            link: Type.String()
-        }))
-    }))
+    metadata: Type.Optional(MetadataSimpleSchema),
+    values: Type.Optional(Type.Array(Type.Object({
+        name: Type.Optional(Type.String()),
+        description: Type.Optional(Type.String()),
+        long_description: Type.Optional(Type.String()),
+        category: Type.Optional(Type.String()),
+        limit: Type.Optional(Type.String()),
+        pagination_parameter: Type.Optional(Type.String()),
+        institutions: Type.Optional(Type.Array(Type.String())),
+        content_type: Type.Optional(Type.Array(Type.String())),
+        parameters: Type.Optional(Type.Array(Type.String())),
+        columns: Type.Optional(Type.Array(Type.Object({
+            ordinal: Type.Optional(Type.String()),
+            name: Type.Optional(Type.String()),
+            qualifier: Type.Optional(Type.Array(Type.String())),
+            link: Type.Optional(Type.String())
+        })))
+    })))
 })
 
 /**
 * DESCRIPTION: An application question
 */
 const QuestionSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    uuid: QuestionUuidSchema,
-    type: QuestionTypeSchema,
-    name: NameSchema,
-    description: DescriptionSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        question__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    uuid: Type.Optional(QuestionUuidSchema),
+    type: Type.Optional(QuestionTypeSchema),
+    name: Type.Optional(NameSchema),
+    description: Type.Optional(DescriptionSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        question__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        question__modify: Type.Object({
+        })),
+        question__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    elements: Type.Array(QuestionElementSchema),
-    groups: Type.Array(QuestionGroupSchema)
+        }))
+    })),
+    elements: Type.Optional(Type.Array(QuestionElementSchema)),
+    groups: Type.Optional(Type.Array(QuestionGroupSchema))
 })
 
 /**
@@ -2608,192 +2608,192 @@ const QuestionSchema = Type.Object({
 */
 const QuestionsSchema = Type.Object({
     metadata: MetadataCollectionSchema,
-    links: Type.Object({
-        questions__info: Type.Object({
+    links: Type.Optional(Type.Object({
+        questions__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    values: Type.Array(QuestionSchema)
+        }))
+    })),
+    values: Type.Optional(Type.Array(QuestionSchema))
 })
 
 /**
 * DESCRIPTION: Confidential personal information on the applicant API
 */
 const PersonalRecordsSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    date_of_birth: PersonalDateOfBirthSchema,
-    marital_status: PersonalMaritalStatusSchema,
-    religion_code: PersonalReligionCodeSchema,
-    religion_tenure: PersonalReligionTenureSchema,
-    sex: PersonalSexSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        personal_records__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    date_of_birth: Type.Optional(PersonalDateOfBirthSchema),
+    marital_status: Type.Optional(PersonalMaritalStatusSchema),
+    religion_code: Type.Optional(PersonalReligionCodeSchema),
+    religion_tenure: Type.Optional(PersonalReligionTenureSchema),
+    sex: Type.Optional(PersonalSexSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        personal_records__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        personal_records__modify: Type.Object({
+        })),
+        personal_records__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        persons__info: Type.Object({
+        })),
+        persons__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 * DESCRIPTION: Mission information for Applicant on the Undergradudate Application
 */
 const MissionsSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    mission_service: MissionServiceSchema,
-    mission_name: MissionNameSchema,
-    mission_language: MissionLanguageSchema,
-    start_month: SharedStartMonthSchema,
-    end_month: SharedEndMonthSchema,
-    mission_type: MissionTypeSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        missions__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    mission_service: Type.Optional(MissionServiceSchema),
+    mission_name: Type.Optional(MissionNameSchema),
+    mission_language: Type.Optional(MissionLanguageSchema),
+    start_month: Type.Optional(SharedStartMonthSchema),
+    end_month: Type.Optional(SharedEndMonthSchema),
+    mission_type: Type.Optional(MissionTypeSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        missions__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 * DESCRIPTION: Confidential International information for Applicant API
 */
 const InternationalRecordsSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    alien_number: IntlAlienNumberSchema,
-    current_us_resident: IntlCurrentUsResidentSchema,
-    visa_change_plan: IntlVisaChangePlanSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        international_records__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    alien_number: Type.Optional(IntlAlienNumberSchema),
+    current_us_resident: Type.Optional(IntlCurrentUsResidentSchema),
+    visa_change_plan: Type.Optional(IntlVisaChangePlanSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        international_records__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        international_records__modify: Type.Object({
+        })),
+        international_records__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 * DESCRIPTION: Institute Class Enrollment information
 */
 const InstituteClassDataSchema = Type.Object({
-    institute_class: InstituteClassSchema,
-    academic_year: SharedAcademicYearSchema,
-    grade: SharedGradeSchema,
-    for_credit: InstituteForCreditSchema
+    institute_class: Type.Optional(InstituteClassSchema),
+    academic_year: Type.Optional(SharedAcademicYearSchema),
+    grade: Type.Optional(SharedGradeSchema),
+    for_credit: Type.Optional(InstituteForCreditSchema)
 })
 
 /**
 * DESCRIPTION: Institute information from the Application API
 */
 const InstituteSummariesSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    institute_attendance: InstituteAttendanceSchema,
-    institute_explanation: InstituteExplanationSchema,
-    date_time_reported: DateTimeReportedSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        institute_summaries__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    institute_attendance: Type.Optional(InstituteAttendanceSchema),
+    institute_explanation: Type.Optional(InstituteExplanationSchema),
+    date_time_reported: Type.Optional(DateTimeReportedSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        institute_summaries__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        institute_summaries__modify: Type.Object({
+        })),
+        institute_summaries__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        institute_summaries__remove: Type.Object({
+        })),
+        institute_summaries__remove: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    institute_classes: Type.Array(InstituteClassDataSchema)
+        }))
+    })),
+    institute_classes: Type.Optional(Type.Array(InstituteClassDataSchema))
 })
 
 /**
 * DESCRIPTION: High School for Undergraduate Application API
 */
 const HighSchoolSummarySchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    high_school_type: HighSchoolTypeSchema,
-    high_school: HighSchoolSchema,
-    high_school_city: HighSchoolCitySchema,
-    high_school_state: HighSchoolStateSchema,
-    high_school_country: HighSchoolCountrySchema,
-    start_month: SharedStartMonthSchema,
-    end_month: SharedEndMonthSchema,
-    graduation_status: SharedGraduationStatusSchema,
-    graduation_date: HighSchoolGraduationDateSchema,
-    high_school_gpa: HighSchoolGpaSchema,
-    gpa_calculated: HighSchoolGpaCalculatedSchema,
-    ap_ib_half_classes: HighSchoolApIbHalfClassesSchema,
-    ap_ib_full_classes: HighSchoolApIbFullClassesSchema,
-    concurrent_enrollment: HighSchoolConcurrentEnrollmentSchema,
-    transcript_source: HighSchoolTranscriptSourceSchema,
-    date_time_verified: DateTimeVerifiedSchema,
-    link_to_document_image: HighSchoolLinkToDocumentImageSchema,
-    link_to_secondary_document_image: HighSchoolLinkToSecondaryDocumentImageSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        high_school_summaries__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    high_school_type: Type.Optional(HighSchoolTypeSchema),
+    high_school: Type.Optional(HighSchoolSchema),
+    high_school_city: Type.Optional(HighSchoolCitySchema),
+    high_school_state: Type.Optional(HighSchoolStateSchema),
+    high_school_country: Type.Optional(HighSchoolCountrySchema),
+    start_month: Type.Optional(SharedStartMonthSchema),
+    end_month: Type.Optional(SharedEndMonthSchema),
+    graduation_status: Type.Optional(SharedGraduationStatusSchema),
+    graduation_date: Type.Optional(HighSchoolGraduationDateSchema),
+    high_school_gpa: Type.Optional(HighSchoolGpaSchema),
+    gpa_calculated: Type.Optional(HighSchoolGpaCalculatedSchema),
+    ap_ib_half_classes: Type.Optional(HighSchoolApIbHalfClassesSchema),
+    ap_ib_full_classes: Type.Optional(HighSchoolApIbFullClassesSchema),
+    concurrent_enrollment: Type.Optional(HighSchoolConcurrentEnrollmentSchema),
+    transcript_source: Type.Optional(HighSchoolTranscriptSourceSchema),
+    date_time_verified: Type.Optional(DateTimeVerifiedSchema),
+    link_to_document_image: Type.Optional(HighSchoolLinkToDocumentImageSchema),
+    link_to_secondary_document_image: Type.Optional(HighSchoolLinkToSecondaryDocumentImageSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        high_school_summaries__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        high_school_summaries__modify: Type.Object({
+        })),
+        high_school_summaries__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        high_school_summaries__remove: Type.Object({
+        })),
+        high_school_summaries__remove: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        high_school_codes__info: Type.Object({
+        })),
+        high_school_codes__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    list_of_classes: Type.Array(HighSchoolCourseInfoSchema),
-    list_of_nonaccredited_work: Type.Array(HighSchoolNonaccreditedWorkInfoSchema)
+        }))
+    })),
+    list_of_classes: Type.Optional(Type.Array(HighSchoolCourseInfoSchema)),
+    list_of_nonaccredited_work: Type.Optional(Type.Array(HighSchoolNonaccreditedWorkInfoSchema))
 })
 
 /**
@@ -2801,133 +2801,133 @@ const HighSchoolSummarySchema = Type.Object({
 */
 const HighSchoolSummariesSchema = Type.Object({
     metadata: MetadataCollectionSchema,
-    links: Type.Object({
-        high_school_summaries__info: Type.Object({
+    links: Type.Optional(Type.Object({
+        high_school_summaries__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    values: Type.Array(HighSchoolSummarySchema)
+        }))
+    })),
+    values: Type.Optional(Type.Array(HighSchoolSummarySchema))
 })
 
 /**
 * DESCRIPTION: Confidential Government information for an Applicant
 */
 const GovernmentRecordsSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    birth_city: GovBirthCitySchema,
-    birth_country_code: GovBirthCountryCodeSchema,
-    citizenship_country_code: GovCitizenshipCountryCodeSchema,
-    citizenship_status: GovCitizenshipStatusSchema,
-    visa_type: GovVisaTypeSchema,
-    visa_type_source: GovVisaTypeSourceSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        government_records__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    birth_city: Type.Optional(GovBirthCitySchema),
+    birth_country_code: Type.Optional(GovBirthCountryCodeSchema),
+    citizenship_country_code: Type.Optional(GovCitizenshipCountryCodeSchema),
+    citizenship_status: Type.Optional(GovCitizenshipStatusSchema),
+    visa_type: Type.Optional(GovVisaTypeSchema),
+    visa_type_source: Type.Optional(GovVisaTypeSourceSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        government_records__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        government_records__modify: Type.Object({
+        })),
+        government_records__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        persons__info: Type.Object({
+        })),
+        persons__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 */
 const GeiProgramsSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    pw_completion: GeiProgramsPwCompletionSchema,
-    pw_credits: GeiProgramsPwCreditsSchema,
-    pw_gpa: GeiProgramsPwGpaSchema,
-    pw_site: GeiProgramsPwSiteSchema,
-    srs_certificates: GeiProgramsSrsCertificatesSchema,
-    srs_facilitator: GeiProgramsSrsFacilitatorSchema,
-    srs_site: GeiProgramsSrsSiteSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        gei_programs__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    pw_completion: Type.Optional(GeiProgramsPwCompletionSchema),
+    pw_credits: Type.Optional(GeiProgramsPwCreditsSchema),
+    pw_gpa: Type.Optional(GeiProgramsPwGpaSchema),
+    pw_site: Type.Optional(GeiProgramsPwSiteSchema),
+    srs_certificates: Type.Optional(GeiProgramsSrsCertificatesSchema),
+    srs_facilitator: Type.Optional(GeiProgramsSrsFacilitatorSchema),
+    srs_site: Type.Optional(GeiProgramsSrsSiteSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        gei_programs__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        gei_programs__modify: Type.Object({
+        })),
+        gei_programs__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 */
 const EndorsementSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    date: EndorsementDateSchema,
-    status: EndorsementStatusSchema,
-    type: EndorsementTypeSchema,
-    links: Type.Object({
-        endorsement__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    date: Type.Optional(EndorsementDateSchema),
+    status: Type.Optional(EndorsementStatusSchema),
+    type: Type.Optional(EndorsementTypeSchema),
+    links: Type.Optional(Type.Object({
+        endorsement__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 * DESCRIPTION: College Summary from the applicant
 */
 const CollegeSummarySchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    college: CollegeSchema,
-    start_month: SharedStartMonthSchema,
-    end_month: SharedEndMonthSchema,
-    gpa: CollegeGpaSchema,
-    gpa_verified: CollegeGpaVerifiedSchema,
-    degree: CollegeDegreeSchema,
-    degree_date: CollegeDegreeDateSchema,
-    degree_major: CollegeDegreeMajorSchema,
-    credit_hours_graded: SharedCreditHoursGradedSchema,
-    date_time_verified: DateTimeVerifiedSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        college_summaries__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    college: Type.Optional(CollegeSchema),
+    start_month: Type.Optional(SharedStartMonthSchema),
+    end_month: Type.Optional(SharedEndMonthSchema),
+    gpa: Type.Optional(CollegeGpaSchema),
+    gpa_verified: Type.Optional(CollegeGpaVerifiedSchema),
+    degree: Type.Optional(CollegeDegreeSchema),
+    degree_date: Type.Optional(CollegeDegreeDateSchema),
+    degree_major: Type.Optional(CollegeDegreeMajorSchema),
+    credit_hours_graded: Type.Optional(SharedCreditHoursGradedSchema),
+    date_time_verified: Type.Optional(DateTimeVerifiedSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        college_summaries__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        college_summaries__modify: Type.Object({
+        })),
+        college_summaries__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        college_summaries__remove: Type.Object({
+        })),
+        college_summaries__remove: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
@@ -2935,165 +2935,165 @@ const CollegeSummarySchema = Type.Object({
 */
 const CollegeSummariesSchema = Type.Object({
     metadata: MetadataCollectionSchema,
-    cumulative_credit: CollegeCumulativeCreditSchema,
-    cumulative_gpa: CollegeCumulativeGpaSchema,
-    links: Type.Object({
-        college_summaries__info: Type.Object({
+    cumulative_credit: Type.Optional(CollegeCumulativeCreditSchema),
+    cumulative_gpa: Type.Optional(CollegeCumulativeGpaSchema),
+    links: Type.Optional(Type.Object({
+        college_summaries__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    values: Type.Array(CollegeSummarySchema)
+        }))
+    })),
+    values: Type.Optional(Type.Array(CollegeSummarySchema))
 })
 
 /**
 * DESCRIPTION: Biographical Classifications
 */
 const BiographicalClassificationsSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    hispanic_flag: BioHispanicFlagSchema,
-    racial_categories: RacialCategoriesSchema,
-    languages: LanguagesSchema,
-    mothers_level_of_education: BioMothersLevelOfEducationSchema,
-    fathers_level_of_education: BioFathersLevelOfEducationSchema,
-    family_income: BioFamilyIncomeSchema,
-    residing_with: BioResidingWithSchema,
-    single_parent: BioSingleParentSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        biographical_classifications__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    hispanic_flag: Type.Optional(BioHispanicFlagSchema),
+    racial_categories: Type.Optional(RacialCategoriesSchema),
+    languages: Type.Optional(LanguagesSchema),
+    mothers_level_of_education: Type.Optional(BioMothersLevelOfEducationSchema),
+    fathers_level_of_education: Type.Optional(BioFathersLevelOfEducationSchema),
+    family_income: Type.Optional(BioFamilyIncomeSchema),
+    residing_with: Type.Optional(BioResidingWithSchema),
+    single_parent: Type.Optional(BioSingleParentSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        biographical_classifications__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        biographical_classifications__modify: Type.Object({
+        })),
+        biographical_classifications__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        ethnicities__modify: Type.Object({
+        })),
+        ethnicities__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        languages__modify: Type.Object({
+        })),
+        languages__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 * DESCRIPTION: Basic field_set for Application API
 */
 const BasicSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    institution_id: BasicInstitutionIdSchema,
-    net_id: BasicNetIdSchema,
-    admit_period: AdmitPeriodSchema,
-    admit_major: AdmitMajorSchema,
-    applicant_type: ApplicantTypeSchema,
-    primary_language: BasicPrimaryLanguageSchema,
-    first_name: BasicFirstNameSchema,
-    middle_name: BasicMiddleNameSchema,
-    rest_of_name: BasicRestOfNameSchema,
-    surname: BasicSurnameSchema,
-    suffix: BasicSuffixSchema,
-    preferred_name: BasicPreferredNameSchema,
-    previous_name: BasicPreviousNameSchema,
-    address_line_1: ContactAddressLine1Schema,
-    address_line_2: ContactAddressLine2Schema,
-    address_line_3: ContactAddressLine3Schema,
-    address_line_4: ContactAddressLine4Schema,
-    address_line_5: ContactAddressLine5Schema,
-    city: ContactCitySchema,
-    country_code: ContactCountryCodeSchema,
-    postal_code: ContactPostalCodeSchema,
-    state_code: ContactStateCodeSchema,
-    email_address: BasicEmailAddressSchema,
-    phone_number: BasicPhoneNumberSchema,
-    secondary_email_address: BasicSecondaryEmailAddressSchema,
-    secondary_phone_number: BasicSecondaryPhoneNumberSchema,
-    phone_texts_ok: SharedPhoneTextsOkSchema,
-    home_town: BasicHomeTownSchema,
-    home_county: BasicHomeCountySchema,
-    home_state: BasicHomeStateSchema,
-    home_country: BasicHomeCountrySchema,
-    information_release: BasicAgreementInformationReleaseDateTimeSchema,
-    financial_responsibility: BasicAgreementFinancialResponsibilityDateTimeSchema,
-    school_preference_order: BasicSchoolPreferenceOrderSchema,
-    decision: BasicDecisionSchema,
-    decision_qualifier: BasicDecisionQualifierSchema,
-    decision_template_id: BasicDecisionTemplateIdSchema,
-    decision_date_time: BasicDecisionDateTimeSchema,
-    application_status: BasicApplicationStatusSchema,
-    application_status_date_time: BasicApplicationStatusDateTimeSchema,
-    created_by_id: IdCreatedBySchema,
-    created_date_time: DateTimeCreatedSchema,
-    submitted_by_id: IdSubmittedBySchema,
-    submitted_date_time: DateTimeSubmittedSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        applications__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    institution_id: Type.Optional(BasicInstitutionIdSchema),
+    net_id: Type.Optional(BasicNetIdSchema),
+    admit_period: Type.Optional(AdmitPeriodSchema),
+    admit_major: Type.Optional(AdmitMajorSchema),
+    applicant_type: Type.Optional(ApplicantTypeSchema),
+    primary_language: Type.Optional(BasicPrimaryLanguageSchema),
+    first_name: Type.Optional(BasicFirstNameSchema),
+    middle_name: Type.Optional(BasicMiddleNameSchema),
+    rest_of_name: Type.Optional(BasicRestOfNameSchema),
+    surname: Type.Optional(BasicSurnameSchema),
+    suffix: Type.Optional(BasicSuffixSchema),
+    preferred_name: Type.Optional(BasicPreferredNameSchema),
+    previous_name: Type.Optional(BasicPreviousNameSchema),
+    address_line_1: Type.Optional(ContactAddressLine1Schema),
+    address_line_2: Type.Optional(ContactAddressLine2Schema),
+    address_line_3: Type.Optional(ContactAddressLine3Schema),
+    address_line_4: Type.Optional(ContactAddressLine4Schema),
+    address_line_5: Type.Optional(ContactAddressLine5Schema),
+    city: Type.Optional(ContactCitySchema),
+    country_code: Type.Optional(ContactCountryCodeSchema),
+    postal_code: Type.Optional(ContactPostalCodeSchema),
+    state_code: Type.Optional(ContactStateCodeSchema),
+    email_address: Type.Optional(BasicEmailAddressSchema),
+    phone_number: Type.Optional(BasicPhoneNumberSchema),
+    secondary_email_address: Type.Optional(BasicSecondaryEmailAddressSchema),
+    secondary_phone_number: Type.Optional(BasicSecondaryPhoneNumberSchema),
+    phone_texts_ok: Type.Optional(SharedPhoneTextsOkSchema),
+    home_town: Type.Optional(BasicHomeTownSchema),
+    home_county: Type.Optional(BasicHomeCountySchema),
+    home_state: Type.Optional(BasicHomeStateSchema),
+    home_country: Type.Optional(BasicHomeCountrySchema),
+    information_release: Type.Optional(BasicAgreementInformationReleaseDateTimeSchema),
+    financial_responsibility: Type.Optional(BasicAgreementFinancialResponsibilityDateTimeSchema),
+    school_preference_order: Type.Optional(BasicSchoolPreferenceOrderSchema),
+    decision: Type.Optional(BasicDecisionSchema),
+    decision_qualifier: Type.Optional(BasicDecisionQualifierSchema),
+    decision_template_id: Type.Optional(BasicDecisionTemplateIdSchema),
+    decision_date_time: Type.Optional(BasicDecisionDateTimeSchema),
+    application_status: Type.Optional(BasicApplicationStatusSchema),
+    application_status_date_time: Type.Optional(BasicApplicationStatusDateTimeSchema),
+    created_by_id: Type.Optional(IdCreatedBySchema),
+    created_date_time: Type.Optional(DateTimeCreatedSchema),
+    submitted_by_id: Type.Optional(IdSubmittedBySchema),
+    submitted_date_time: Type.Optional(DateTimeSubmittedSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        applications__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        applications__modify: Type.Object({
+        })),
+        applications__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        applications__remove: Type.Object({
+        })),
+        applications__remove: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        contact__modify: Type.Object({
+        })),
+        contact__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
 * DESCRIPTION: Background Questions
 */
 const BackgroundQuestionsSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    conviction_record: BgConvictionRecordSchema,
-    criminal_convictions: BgCriminalConvictionsSchema,
-    plural_marriage: BgPluralMarriageSchema,
-    plural_marriage_explanation: BgPluralMarriageExplanationSchema,
-    sex_registry: BgSexRegistrySchema,
-    sex_registry_explanation: BgSexRegistryExplanationSchema,
-    university_discipline: BgUniversityDisciplineSchema,
-    university_discipline_explanation: BgUniversityDisciplineExplanationSchema,
-    updated_by_id: IdUpdatedBySchema,
-    updated_date_time: DateTimeUpdatedSchema,
-    links: Type.Object({
-        background_questions__info: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    conviction_record: Type.Optional(BgConvictionRecordSchema),
+    criminal_convictions: Type.Optional(BgCriminalConvictionsSchema),
+    plural_marriage: Type.Optional(BgPluralMarriageSchema),
+    plural_marriage_explanation: Type.Optional(BgPluralMarriageExplanationSchema),
+    sex_registry: Type.Optional(BgSexRegistrySchema),
+    sex_registry_explanation: Type.Optional(BgSexRegistryExplanationSchema),
+    university_discipline: Type.Optional(BgUniversityDisciplineSchema),
+    university_discipline_explanation: Type.Optional(BgUniversityDisciplineExplanationSchema),
+    updated_by_id: Type.Optional(IdUpdatedBySchema),
+    updated_date_time: Type.Optional(DateTimeUpdatedSchema),
+    links: Type.Optional(Type.Object({
+        background_questions__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        background_questions__modify: Type.Object({
+        })),
+        background_questions__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
@@ -3108,30 +3108,30 @@ const ApplicationDeliverableModifySchema = Type.Object({
 * DESCRIPTION: A deliverable required for an application
 */
 const ApplicationDeliverableSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    name: DeliverableNameSchema,
-    name_display: DeliverableNameDisplaySchema,
-    deliverable_id: DeliverableIdSchema,
-    controller_idx: DeliverableControllerIdxSchema,
-    view_idx: DeliverableViewIdxSchema,
-    type: DeliverableTypeSchema,
-    subtype: DeliverableSubtypeSchema,
-    qualifier: DeliverableQualifierSchema,
-    qualifier_type: DeliverableQualifierTypeSchema,
-    description: DeliverableDescriptionSchema,
-    satisfied: DeliverableSatisfiedSchema,
-    deliverable_date_time_satisfied: DeliverableDateTimeSatisfiedSchema,
-    status: DeliverableStatusSchema,
-    deliverable_date_time_status: DeliverableDateTimeStatusSchema,
-    links: Type.Object({
-        application_deliverables__modify: Type.Object({
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    name: Type.Optional(DeliverableNameSchema),
+    name_display: Type.Optional(DeliverableNameDisplaySchema),
+    deliverable_id: Type.Optional(DeliverableIdSchema),
+    controller_idx: Type.Optional(DeliverableControllerIdxSchema),
+    view_idx: Type.Optional(DeliverableViewIdxSchema),
+    type: Type.Optional(DeliverableTypeSchema),
+    subtype: Type.Optional(DeliverableSubtypeSchema),
+    qualifier: Type.Optional(DeliverableQualifierSchema),
+    qualifier_type: Type.Optional(DeliverableQualifierTypeSchema),
+    description: Type.Optional(DeliverableDescriptionSchema),
+    satisfied: Type.Optional(DeliverableSatisfiedSchema),
+    deliverable_date_time_satisfied: Type.Optional(DeliverableDateTimeSatisfiedSchema),
+    status: Type.Optional(DeliverableStatusSchema),
+    deliverable_date_time_status: Type.Optional(DeliverableDateTimeStatusSchema),
+    links: Type.Optional(Type.Object({
+        application_deliverables__modify: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    })
+        }))
+    }))
 })
 
 /**
@@ -3139,19 +3139,19 @@ const ApplicationDeliverableSchema = Type.Object({
 */
 const ApplicationDeliverablesSchema = Type.Object({
     metadata: MetadataCollectionSchema,
-    links: Type.Object({
-        application_deliverables__info: Type.Object({
+    links: Type.Optional(Type.Object({
+        application_deliverables__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        application_deliverables__add: Type.Object({
+        })),
+        application_deliverables__add: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    values: Type.Array(ApplicationDeliverableSchema)
+        }))
+    })),
+    values: Type.Optional(Type.Array(ApplicationDeliverableSchema))
 })
 
 /**
@@ -3164,23 +3164,23 @@ const ApplicationDeliverablesSchema = Type.Object({
 */
 const ApplicationActionNewSchema = Type.Object({
     action: Type.String(),
-    deliverable_id: Type.String(),
-    action_message: Type.String()
+    deliverable_id: Type.Optional(Type.String()),
+    action_message: Type.Optional(Type.String())
 })
 
 /**
 * DESCRIPTION: Application action
 */
 const ApplicationActionSchema = Type.Object({
-    metadata: MetadataSimpleSchema,
-    application_id: ApplicationIdSchema,
-    applicant_id: ApplicantIdSchema,
-    deliverable_id: DeliverableIdSchema,
-    action: ActionSchema,
-    action_results: ActionResultsSchema,
-    action_message: ActionMessageSchema,
-    action_by_id: ActionByIdSchema,
-    action_date_time: ActionDateTimeSchema
+    metadata: Type.Optional(MetadataSimpleSchema),
+    application_id: Type.Optional(ApplicationIdSchema),
+    applicant_id: Type.Optional(ApplicantIdSchema),
+    deliverable_id: Type.Optional(DeliverableIdSchema),
+    action: Type.Optional(ActionSchema),
+    action_results: Type.Optional(ActionResultsSchema),
+    action_message: Type.Optional(ActionMessageSchema),
+    action_by_id: Type.Optional(ActionByIdSchema),
+    action_date_time: Type.Optional(ActionDateTimeSchema)
 })
 
 /**
@@ -3188,29 +3188,29 @@ const ApplicationActionSchema = Type.Object({
 */
 const ApplicationActionsSchema = Type.Object({
     metadata: MetadataCollectionSchema,
-    links: Type.Object({
-        application_actions__info: Type.Object({
+    links: Type.Optional(Type.Object({
+        application_actions__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        application_actions__submit: Type.Object({
+        })),
+        application_actions__submit: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        application_actions__reopen: Type.Object({
+        })),
+        application_actions__reopen: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        }),
-        application_actions__withdraw: Type.Object({
+        })),
+        application_actions__withdraw: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    values: Type.Array(ApplicationActionSchema)
+        }))
+    })),
+    values: Type.Optional(Type.Array(ApplicationActionSchema))
 })
 
 /**
@@ -3232,23 +3232,23 @@ const ApplicationNewSchema = Type.Object({
 * DESCRIPTION: An Application
 */
 const ApplicationSchema = Type.Object({
-    application_actions: ApplicationActionsSchema,
-    application_deliverables: ApplicationDeliverablesSchema,
-    background_questions: BackgroundQuestionsSchema,
-    basic: BasicSchema,
-    biographical_classifications: BiographicalClassificationsSchema,
-    college_summaries: CollegeSummariesSchema,
-    endorsement: EndorsementSchema,
-    gei_programs: GeiProgramsSchema,
-    government_records: GovernmentRecordsSchema,
-    high_school_summaries: HighSchoolSummariesSchema,
-    institute_summaries: InstituteSummariesSchema,
-    international_records: InternationalRecordsSchema,
-    missions: MissionsSchema,
-    personal_records: PersonalRecordsSchema,
-    seminary_summaries: SeminarySummariesSchema,
-    test_scores: TestScoresSchema,
-    questions: QuestionsSchema
+    application_actions: Type.Optional(ApplicationActionsSchema),
+    application_deliverables: Type.Optional(ApplicationDeliverablesSchema),
+    background_questions: Type.Optional(BackgroundQuestionsSchema),
+    basic: Type.Optional(BasicSchema),
+    biographical_classifications: Type.Optional(BiographicalClassificationsSchema),
+    college_summaries: Type.Optional(CollegeSummariesSchema),
+    endorsement: Type.Optional(EndorsementSchema),
+    gei_programs: Type.Optional(GeiProgramsSchema),
+    government_records: Type.Optional(GovernmentRecordsSchema),
+    high_school_summaries: Type.Optional(HighSchoolSummariesSchema),
+    institute_summaries: Type.Optional(InstituteSummariesSchema),
+    international_records: Type.Optional(InternationalRecordsSchema),
+    missions: Type.Optional(MissionsSchema),
+    personal_records: Type.Optional(PersonalRecordsSchema),
+    seminary_summaries: Type.Optional(SeminarySummariesSchema),
+    test_scores: Type.Optional(TestScoresSchema),
+    questions: Type.Optional(QuestionsSchema)
 })
 
 /**
@@ -5381,30 +5381,30 @@ const ApplicationSchema = Type.Object({
 */
 const ApplicationsSchema = Type.Object({
     metadata: MetadataTopLevelSchema,
-    stats: StatsSchema,
-    links: Type.Object({
-        applications__info: Type.Object({
-            rel: Type.String(),
-            href: Type.String(),
-            method: Type.String()
-        }),
-        applications__prev: Type.Object({
-            rel: Type.String(),
-            href: Type.String(),
-            method: Type.String()
-        }),
-        applications__next: Type.Object({
-            rel: Type.String(),
-            href: Type.String(),
-            method: Type.String()
-        }),
-        applications__create: Type.Object({
-            rel: Type.String(),
-            href: Type.String(),
-            method: Type.String()
-        })
-    }),
-    values: Type.Array(ApplicationSchema)
+    stats: Type.Optional(StatsSchema),
+    links: Type.Optional(Type.Object({
+        applications__info: Type.Optional(Type.Object({
+            rel: Type.Optional(Type.String()),
+            href: Type.Optional(Type.String()),
+            method: Type.Optional(Type.String())
+        })),
+        applications__prev: Type.Optional(Type.Object({
+            rel: Type.Optional(Type.String()),
+            href: Type.Optional(Type.String()),
+            method: Type.Optional(Type.String())
+        })),
+        applications__next: Type.Optional(Type.Object({
+            rel: Type.Optional(Type.String()),
+            href: Type.Optional(Type.String()),
+            method: Type.Optional(Type.String())
+        })),
+        applications__create: Type.Optional(Type.Object({
+            rel: Type.Optional(Type.String()),
+            href: Type.Optional(Type.String()),
+            method: Type.Optional(Type.String())
+        }))
+    })),
+    values: Type.Optional(Type.Array(ApplicationSchema))
 })
 
 /**
@@ -5428,21 +5428,21 @@ const ApplicationsSchema = Type.Object({
 */
 const StatusSchema = Type.Object({
     metadata: MetadataSimpleSchema,
-    stats: StatsSchema,
-    links: Type.Object({
-        status__info: Type.Object({
+    stats: Type.Optional(StatsSchema),
+    links: Type.Optional(Type.Object({
+        status__info: Type.Optional(Type.Object({
             rel: Type.String(),
             href: Type.String(),
             method: Type.String()
-        })
-    }),
-    trends: Type.Array(Type.Object({
-        name: Type.String(),
-        data: Type.Array(Type.Object({
-            date: Type.String(),
-            value: Type.String()
         }))
-    }))
+    })),
+    trends: Type.Optional(Type.Array(Type.Object({
+        name: Type.Optional(Type.String()),
+        data: Type.Optional(Type.Array(Type.Object({
+            date: Type.Optional(Type.String()),
+            value: Type.Optional(Type.String())
+        })))
+    })))
 })
 
 /**
@@ -5450,9 +5450,9 @@ const StatusSchema = Type.Object({
 * EXAMPLE: { id: 'age', type: 'integer', range: '0-120' }
 */
 const ConceptSchema = Type.Object({
-    id: Type.String(),
-    type: Type.String(),
-    range: Type.String()
+    id: Type.Optional(Type.String()),
+    type: Type.Optional(Type.String()),
+    range: Type.Optional(Type.String())
 })
 
 /**
@@ -5460,7 +5460,7 @@ const ConceptSchema = Type.Object({
 */
 const ConceptsSchema = Type.Object({
     metadata: MetadataSimpleSchema,
-    values: Type.Array(ConceptSchema)
+    values: Type.Optional(Type.Array(ConceptSchema))
 })
 
 /**
@@ -5492,8 +5492,8 @@ const ClaimArrayResponseSchema = Type.Object({
 * EXAMPLE: { concept: 'age', relationship: 'greater-than-or-equal', value: '21' }
 */
 const ClaimSchema = Type.Object({
-    concept: Type.String(),
-    relationship: Type.String(),
+    concept: Type.Optional(Type.String()),
+    relationship: Type.Optional(Type.String()),
     value: Type.String()
 }, { additionalProperties: true })
 
@@ -5513,7 +5513,7 @@ const ClaimSchema = Type.Object({
 */
 const ClaimBodySchema = Type.Object({
     subject: Type.String(),
-    qualifier: Type.String(),
+    qualifier: Type.Optional(Type.String()),
     claims: Type.Array(ClaimSchema)
 })
 
@@ -5550,10 +5550,10 @@ const ClaimBodySchema = Type.Object({
 */
 const ClaimArraySchema = Type.Object({
     values: Type.Array(Type.Object({
-        claim_id: Type.String(),
-        subject: Type.String(),
-        qualifier: Type.String(),
-        claims: Type.Array(ClaimSchema)
+        claim_id: Type.Optional(Type.String()),
+        subject: Type.Optional(Type.String()),
+        qualifier: Type.Optional(Type.String()),
+        claims: Type.Optional(Type.Array(ClaimSchema))
     }))
 })
 
