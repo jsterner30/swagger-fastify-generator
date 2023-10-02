@@ -1,12 +1,12 @@
 import { Command } from 'commander'
-import { run } from './run'
 const program = new Command()
+import { run } from './run'
 
 program
-  .name('fastgen')
+    .name('fastgen')
 
-program.command('j')
-  .option('-f, use file')
-  .action(run)
+program.command('run')
+    .option('-f, use a file for settings instead of prompting the user')
+    .action(run)
 
 program.parse()

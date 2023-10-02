@@ -23,7 +23,7 @@ app/spec.yml
 # Crash log files
 crash.log
 
-# Ignore any .tfvars files that are generated automatically for each Terraform run. Most
+# Ignore any .tfvars files that are generated automatically for each Terraform index. Most
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.
 #
