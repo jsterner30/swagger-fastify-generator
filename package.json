@@ -59,5 +59,8 @@
   "bugs": {
     "url": ""
   },
+  "bin": {
+    "fastgen": ".dist/index.js"
+  },
   "homepage": ""
 }
