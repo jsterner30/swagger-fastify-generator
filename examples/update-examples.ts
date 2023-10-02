@@ -24,7 +24,7 @@ async function updateExamples(): Promise<void> {
     const command = 'node -r ts-node/register ../../src/index.ts'
 
     for (const subDir of subDirs) {
-        spawn(command, ['--f'], { shell: true, stdio: 'inherit', cwd: subDir })
+        spawn(command, ['-f'], { shell: true, stdio: 'inherit', cwd: subDir })
     }
 }
 
