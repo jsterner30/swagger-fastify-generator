@@ -41,7 +41,7 @@ function getRoutePath (pathObj: SwaggerRoute, routeUrl: string): RoutePath {
   return routePath
 }
 
-function getBasePath(path: string): string {
+function getBasePath (path: string): string {
   return path.split('/')[1]
 }
 
