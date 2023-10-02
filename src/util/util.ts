@@ -7,7 +7,6 @@ import { commonPrintType, ecmaPrintType, PrintType, typescriptPrintType } from '
 
 export async function readJsonFromFile (filePath: string): Promise<Record<string, any>> {
   try {
-    console.log(filePath)
     const fileContent = await fs.readFile(filePath, 'utf8')
     return JSON.parse(fileContent)
   } catch (error) {
