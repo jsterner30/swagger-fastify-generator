@@ -19,12 +19,6 @@ import {
    EndMonthPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getHighSchools,
-   addHighSchoolSummary,
-   modifyHighSchoolSummary,
-   deleteHighSchoolSummary
- } from '../connectors/high_school_summaries.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -52,10 +46,7 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getHighSchools(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.post('/:application_id/high_school_summaries', {
@@ -79,11 +70,7 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          })
       }
    }, async (request, reply) => {
-      const highSchoolBody: HighSchoolSummaryModifySchema = request.body.high_school_body
-      const applicationId: string = request.params.application_id
-
-      const res = await addHighSchoolSummary(highSchoolBody, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -110,14 +97,7 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          })
       }
    }, async (request, reply) => {
-      const highSchoolBody: HighSchoolSummaryModifySchema = request.body.high_school_body
-      const applicationId: string = request.params.application_id
-      const highSchool: string = request.params.high_school
-      const startMonth: string = request.params.start_month
-      const endMonth: string = request.params.end_month
-
-      const res = await modifyHighSchoolSummary(highSchoolBody, applicationId, highSchool, startMonth, endMonth)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.delete('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -139,12 +119,8 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-      const highSchool: string = request.params.high_school
-      const startMonth: string = request.params.start_month
-      const endMonth: string = request.params.end_month
-
-      const res = await deleteHighSchoolSummary(applicationId, highSchool, startMonth, endMonth)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default highSchoolSummariesRoute

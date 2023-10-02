@@ -14,9 +14,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   modifyContactInfo
- } from '../connectors/contact.js'
 import { Type } from '@sinclair/typebox'
 
 const contactRoute = async (fastifyApp) => {
@@ -43,10 +40,8 @@ const contactRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const contact = request.body.contact
-      const applicationId = request.params.application_id
-
-      const res = await modifyContactInfo(contact, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default contactRoute

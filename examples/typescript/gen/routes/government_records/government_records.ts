@@ -15,10 +15,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getGovRecs,
-   modifyGovRecs
- } from '../connectors/government_records.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -46,10 +42,7 @@ const governmentRecordsRoute: FastifyPluginAsync<OptionsInterface> = async (fast
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getGovRecs(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/government_records', {
@@ -73,10 +66,8 @@ const governmentRecordsRoute: FastifyPluginAsync<OptionsInterface> = async (fast
          })
       }
    }, async (request, reply) => {
-      const governmentRecords: GovernmentRecordsModifySchema = request.body.government_records
-      const applicationId: string = request.params.application_id
-
-      const res = await modifyGovRecs(governmentRecords, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default governmentRecordsRoute

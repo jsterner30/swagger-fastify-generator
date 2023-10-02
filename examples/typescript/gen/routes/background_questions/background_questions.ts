@@ -15,10 +15,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getBackgroundQuestions,
-   modifyBackgroundQuestions
- } from '../connectors/background_questions.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -46,10 +42,7 @@ const backgroundQuestionsRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getBackgroundQuestions(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/background_questions', {
@@ -73,10 +66,8 @@ const backgroundQuestionsRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          })
       }
    }, async (request, reply) => {
-      const background: BackgroundQuestionsModifySchema = request.body.background
-      const applicationId: string = request.params.application_id
-
-      const res = await modifyBackgroundQuestions(background, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default backgroundQuestionsRoute

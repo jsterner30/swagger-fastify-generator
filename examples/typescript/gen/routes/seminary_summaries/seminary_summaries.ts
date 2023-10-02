@@ -14,9 +14,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getSeminarySummaries
- } from '../connectors/seminary_summaries.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -44,9 +41,8 @@ const seminarySummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fast
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getSeminarySummaries(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default seminarySummariesRoute

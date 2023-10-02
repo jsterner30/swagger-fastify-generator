@@ -15,10 +15,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getGEIPrograms,
-    modifyGEIPrograms
- } = require('../connectors/gei_programs.js')
 const { Type } = require('@sinclair/typebox')
 
 const geiProgramsRoute = async (fastifyApp) => {
@@ -43,10 +39,7 @@ const geiProgramsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getGEIPrograms(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/:application_id/gei_programs', {
@@ -70,10 +63,8 @@ const geiProgramsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const geiProgram = request.body.gei_program
-        const applicationId = request.params.application_id
-
-        const res = await modifyGEIPrograms(geiProgram, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: geiProgramsRoute }

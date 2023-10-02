@@ -14,9 +14,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   modifyContactInfo
- } from '../connectors/contact.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -46,10 +43,8 @@ const contactRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): P
          })
       }
    }, async (request, reply) => {
-      const contact: ContactModifySchema = request.body.contact
-      const applicationId: string = request.params.application_id
-
-      const res = await modifyContactInfo(contact, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default contactRoute

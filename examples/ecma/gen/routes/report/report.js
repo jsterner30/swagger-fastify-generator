@@ -19,10 +19,6 @@ import {
    CursorQuerySchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getReport,
-   getReportMetadata
- } from '../connectors/report.js'
 import { Type } from '@sinclair/typebox'
 
 const reportRoute = async (fastifyApp) => {
@@ -52,16 +48,7 @@ const reportRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const admitPeriod = request.query.admit_period
-      const dateStart = request.query.date_start
-      const dateEnd = request.query.date_end
-      const name = request.query.name
-      const paginationParameter = request.query.pagination_parameter
-      const limit = request.query.limit
-      const cursor = request.query.cursor
-
-      const res = await getReport(admitPeriod, dateStart, dateEnd, name, paginationParameter, limit, cursor)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.get('/', {
@@ -79,8 +66,8 @@ const reportRoute = async (fastifyApp) => {
          }
       }
    }, async (request, reply) => {
-
-      const res = await getReportMetadata()
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default reportRoute

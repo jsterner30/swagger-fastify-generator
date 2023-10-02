@@ -6,11 +6,10 @@ import {
   createDir,
   normalizeName,
   normalizeParameterName,
-  getImportString, getImportStringResponseSchema, getImportFunctionString
+  getImportString, getImportStringResponseSchema
 } from '../util/util'
 import { RouteFile, Route } from '../classes/route'
 import { Parameter } from '../classes/parameter'
-import { PrintType } from '../util/printTypes'
 
 export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Promise<void> {
   const responses = getUserSettings()
@@ -26,18 +25,19 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
     const fileName = `${routesDir}/${file}/${file}.${printType.fileType}`
     let toPrint = ''
     toPrint = printType.importGeneral('Type', '@sinclair/typebox')
+    const functionName = normalizeLowerCamelName(file) + 'Route'
     if (printType.type === 'typescript') {
       toPrint += getTypescriptImports()
-      toPrint += getRouteFunctionStringTypescript(normalizeLowerCamelName(file))
+      toPrint += getRouteFunctionStringTypescript(functionName)
     } else {
-      toPrint += getRouteFunctionString(normalizeLowerCamelName(file))
+      toPrint += getRouteFunctionString(functionName)
     }
 
     const functionsToImport: Record<string, string[]> = {}
 
     for (const path of routeFilesMap[file].routePaths) {
       for (const route of path.routes) {
-        toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport, printType)
+        toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport)
         if (functionsToImport[file] == null) {
           functionsToImport[file] = []
         }
@@ -60,25 +60,23 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
     }
     await appendFile(fileName, printType.importGeneral('Tags', `../../constants.${printType.fileType}`))
 
-    for (const file of Object.keys(functionsToImport)) {
-      await appendFile(fileName, printType.importGeneral(getImportFunctionString(functionsToImport[file]), `../connectors/${file}.${printType.fileType}`))
-    }
+    toPrint += '\n\n' + printType.defaultExport(functionName)
 
     await appendFile(fileName, toPrint)
   }
 }
 
-function getRouteFunctionStringTypescript (routeName: string): string {
+function getRouteFunctionStringTypescript (functionName: string): string {
   const tabs = indent(1)
   let functionString = '\n// TODO define your own OptionsInterface'
-  functionString += `\nconst ${routeName}Route: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Promise<void> => {`
+  functionString += `\nconst ${functionName}: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Promise<void> => {`
   functionString += '\n' + tabs + 'const fastify = fastifyApp.withTypeProvider <TypeBoxTypeProvider>()'
   return functionString
 }
 
 function getRouteFunctionString (routeName: string): string {
   const tabs = indent(1)
-  let functionString = `\nconst ${routeName}Route = async (fastifyApp) => {`
+  let functionString = `\nconst ${routeName} = async (fastifyApp) => {`
   functionString += '\n' + tabs + 'const fastify = fastifyApp.withTypeProvider()'
   return functionString
 }
@@ -87,7 +85,7 @@ function getTypescriptImports (): string {
   return 'import { FastifyPluginAsync } from \'fastify\'\nimport { TypeBoxTypeProvider } from \'@fastify/type-provider-typebox\'\n'
 }
 
-function getRouteString (path: string, route: Route, defsToImport: string[], paramsToImport: string[], resToImport: string[], printType: PrintType): string {
+function getRouteString (path: string, route: Route, defsToImport: string[], paramsToImport: string[], resToImport: string[]): string {
   let toReturn = ''
   toReturn += `\n\n${indent(1)}fastify.${route.method}('${normalizePath(path)}', {`
   toReturn += getSchemaString(route.tags, route.summary, route, defsToImport, paramsToImport, resToImport)
@@ -97,37 +95,20 @@ function getRouteString (path: string, route: Route, defsToImport: string[], par
   }
   toReturn += '\n' + indent(1) + '}'
 
-  toReturn += getHandlerString(route, printType)
+  toReturn += getHandlerString(route)
   toReturn += '\n' + indent(1) + '})'
 
   return toReturn
 }
 
-function getHandlerString (route: Route, printType: PrintType): string {
+function getHandlerString (route: Route): string {
   if (route.functionName === '') {
     return '//TODO: attach to existing functionality'
   }
   const tab = indent(2)
-  let functionParameters = ''
   let toReturn = ', async (request, reply) => {'
 
-  for (const param of route.getAllParentParameters()) {
-    const normalizedName = normalizeLowerCamelName(param.title)
-    toReturn += `\n${tab}const ${normalizedName}`
-    if (printType.type === 'typescript') {
-      if (param.parentDefinition == null) {
-        toReturn += `: ${param.type}`
-      } else {
-        toReturn += `: ${normalizeName(param.parentDefinition)}Schema`
-      }
-    }
-    toReturn += ` = request.${getFastifyParamType(param.in)}.${param.name}`
-    functionParameters += normalizedName + ', '
-  }
-  functionParameters = functionParameters.slice(0, -2)
-
-  toReturn += `\n\n${tab}const res = await ${route.functionName}(${functionParameters})`
-  toReturn += `\n${tab}// TODO: make the above work`
+  toReturn += `\n${tab}// TODO: make this route work`
 
   return toReturn
 }
@@ -215,15 +196,6 @@ function getSchemaString (tags: string[], summary: string, route: Route, defsToI
   toReturn += '\n' + indent(2) + '},'
 
   return toReturn
-}
-
-function getFastifyParamType (inString: string): string {
-  switch (inString) {
-    case 'path':
-      return 'params'
-    default:
-      return inString
-  }
 }
 
 function getTagsString (tags: string[]): string {

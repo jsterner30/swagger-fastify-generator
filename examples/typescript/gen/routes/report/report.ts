@@ -19,10 +19,6 @@ import {
    CursorQuerySchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getReport,
-   getReportMetadata
- } from '../connectors/report.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -55,16 +51,7 @@ const reportRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          })
       }
    }, async (request, reply) => {
-      const admitPeriod: string = request.query.admit_period
-      const dateStart: string = request.query.date_start
-      const dateEnd: string = request.query.date_end
-      const name: string = request.query.name
-      const paginationParameter: string = request.query.pagination_parameter
-      const limit: string = request.query.limit
-      const cursor: string = request.query.cursor
-
-      const res = await getReport(admitPeriod, dateStart, dateEnd, name, paginationParameter, limit, cursor)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.get('/', {
@@ -82,8 +69,8 @@ const reportRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          }
       }
    }, async (request, reply) => {
-
-      const res = await getReportMetadata()
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default reportRoute

@@ -1,4 +1,4 @@
-const { Type } = '@sinclair/typebox'
+const { Type } = require('@sinclair/typebox')
 
 
 /**

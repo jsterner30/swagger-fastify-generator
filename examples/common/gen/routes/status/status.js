@@ -14,9 +14,6 @@ const {
     DateEndQuerySchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getStatus
- } = require('../connectors/status.js')
 const { Type } = require('@sinclair/typebox')
 
 const statusRoute = async (fastifyApp) => {
@@ -41,10 +38,8 @@ const statusRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const dateStart = request.query.date_start
-        const dateEnd = request.query.date_end
-
-        const res = await getStatus(dateStart, dateEnd)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: statusRoute }

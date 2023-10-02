@@ -20,12 +20,6 @@ const {
     EndMonthPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getCollegeSummaries,
-    modifyCollegeSummaries,
-    modifyApplicantCollegeSummary,
-    deleteApplicantCollegeSummary
- } = require('../connectors/college_summaries.js')
 const { Type } = require('@sinclair/typebox')
 
 const collegeSummariesRoute = async (fastifyApp) => {
@@ -50,10 +44,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getCollegeSummaries(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/:application_id/college_summaries', {
@@ -77,11 +68,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const collegeSummary = request.body.college_summary
-        const applicationId = request.params.application_id
-
-        const res = await modifyCollegeSummaries(collegeSummary, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/:application_id/college_summaries/:college,:start_month,:end_month', {
@@ -109,14 +96,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const collegeSummary = request.body.college_summary
-        const applicationId = request.params.application_id
-        const college = request.params.college
-        const startMonth = request.params.start_month
-        const endMonth = request.params.end_month
-
-        const res = await modifyApplicantCollegeSummary(collegeSummary, applicationId, college, startMonth, endMonth)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.delete('/:application_id/college_summaries/:college,:start_month,:end_month', {
@@ -138,12 +118,8 @@ const collegeSummariesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-        const college = request.params.college
-        const startMonth = request.params.start_month
-        const endMonth = request.params.end_month
-
-        const res = await deleteApplicantCollegeSummary(applicationId, college, startMonth, endMonth)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: collegeSummariesRoute }

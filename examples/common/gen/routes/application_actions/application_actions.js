@@ -16,10 +16,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getApplicationActions,
-    applyApplicationAction
- } = require('../connectors/application_actions.js')
 const { Type } = require('@sinclair/typebox')
 
 const applicationActionsRoute = async (fastifyApp) => {
@@ -44,10 +40,7 @@ const applicationActionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getApplicationActions(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.post('/:application_id/application_actions', {
@@ -71,10 +64,8 @@ const applicationActionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationAction = request.body.application_action
-        const applicationId = request.params.application_id
-
-        const res = await applyApplicationAction(applicationAction, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: applicationActionsRoute }

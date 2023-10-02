@@ -17,10 +17,6 @@ import {
    DeliverableIdPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getApplicationDeliverables,
-   modifyApplicationDeliverable
- } from '../connectors/application_deliverables.js'
 import { Type } from '@sinclair/typebox'
 
 const applicationDeliverablesRoute = async (fastifyApp) => {
@@ -45,10 +41,7 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-
-      const res = await getApplicationDeliverables(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/application_deliverables/:deliverable_id', {
@@ -73,11 +66,8 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationDeliverable = request.body.application_deliverable
-      const applicationId = request.params.application_id
-      const deliverableId = request.params.deliverable_id
-
-      const res = await modifyApplicationDeliverable(applicationDeliverable, applicationId, deliverableId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default applicationDeliverablesRoute

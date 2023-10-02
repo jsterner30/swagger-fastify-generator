@@ -16,10 +16,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getApplicationActions,
-   applyApplicationAction
- } from '../connectors/application_actions.js'
 import { Type } from '@sinclair/typebox'
 
 const applicationActionsRoute = async (fastifyApp) => {
@@ -44,10 +40,7 @@ const applicationActionsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-
-      const res = await getApplicationActions(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.post('/:application_id/application_actions', {
@@ -71,10 +64,8 @@ const applicationActionsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationAction = request.body.application_action
-      const applicationId = request.params.application_id
-
-      const res = await applyApplicationAction(applicationAction, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default applicationActionsRoute

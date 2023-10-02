@@ -14,9 +14,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getPersonalRecords
- } from '../connectors/personal_records.js'
 import { Type } from '@sinclair/typebox'
 
 const personalRecordsRoute = async (fastifyApp) => {
@@ -41,9 +38,8 @@ const personalRecordsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-
-      const res = await getPersonalRecords(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default personalRecordsRoute

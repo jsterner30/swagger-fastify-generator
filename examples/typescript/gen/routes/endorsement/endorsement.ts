@@ -14,9 +14,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getEndorsement
- } from '../connectors/endorsement.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -44,9 +41,8 @@ const endorsementRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getEndorsement(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default endorsementRoute

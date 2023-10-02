@@ -32,12 +32,6 @@ const {
     FieldSetsQuerySchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getApplications,
-    createApplication,
-    getApplication,
-    deleteApplication
- } = require('../connectors/applications.js')
 const { Type } = require('@sinclair/typebox')
 
 const applicationsRoute = async (fastifyApp) => {
@@ -74,22 +68,7 @@ const applicationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const admitPeriod = request.query.admit_period
-        const applicantType = request.query.applicant_type
-        const citizenship = request.query.citizenship
-        const country = request.query.country
-        const sex = request.query.sex
-        const state = request.query.state
-        const applicantId = request.query.applicant_id
-        const applicantName = request.query.applicant_name
-        const institutionId = request.query.institution_id
-        const email = request.query.email
-        const pageStart = request.query.page_start
-        const pageSize = request.query.page_size
-        const search = request.query.search
-
-        const res = await getApplications(admitPeriod, applicantType, citizenship, country, sex, state, applicantId, applicantName, institutionId, email, pageStart, pageSize, search)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.post('/', {
@@ -110,10 +89,7 @@ const applicationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const application = request.body.application
-
-        const res = await createApplication(application)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/:application_id', {
@@ -139,12 +115,7 @@ const applicationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const context = request.query.context
-        const fieldSets = request.query.field_sets
-        const applicationId = request.params.application_id
-
-        const res = await getApplication(context, fieldSets, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.delete('/:application_id', {
@@ -163,9 +134,8 @@ const applicationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await deleteApplication(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: applicationsRoute }

@@ -17,11 +17,6 @@ import {
    QuestionIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getQuestions,
-   getQuestion,
-   answerQuestion
- } from '../connectors/questions.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -49,10 +44,7 @@ const questionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp):
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getQuestions(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.get('/:application_id/questions/:question_id', {
@@ -75,11 +67,7 @@ const questionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp):
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-      const questionId: string = request.params.question_id
-
-      const res = await getQuestion(applicationId, questionId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/questions/:question_id', {
@@ -105,11 +93,8 @@ const questionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp):
          })
       }
    }, async (request, reply) => {
-      const questionAnswer: QuestionAnswerSchema = request.body.question_answer
-      const applicationId: string = request.params.application_id
-      const questionId: string = request.params.question_id
-
-      const res = await answerQuestion(questionAnswer, applicationId, questionId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default questionsRoute

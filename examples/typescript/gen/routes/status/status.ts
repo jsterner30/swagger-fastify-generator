@@ -14,9 +14,6 @@ import {
    DateEndQuerySchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getStatus
- } from '../connectors/status.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -44,10 +41,8 @@ const statusRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          })
       }
    }, async (request, reply) => {
-      const dateStart: string = request.query.date_start
-      const dateEnd: string = request.query.date_end
-
-      const res = await getStatus(dateStart, dateEnd)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default statusRoute

@@ -15,10 +15,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getMissions,
-   modifyMissions
- } from '../connectors/missions.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -46,10 +42,7 @@ const missionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): 
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getMissions(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/missions', {
@@ -73,10 +66,8 @@ const missionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): 
          })
       }
    }, async (request, reply) => {
-      const missions: MissionsModifySchema = request.body.missions
-      const applicationId: string = request.params.application_id
-
-      const res = await modifyMissions(missions, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default missionsRoute

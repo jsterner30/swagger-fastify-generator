@@ -15,10 +15,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getInternationalRecords,
-   modifyInternationalRecords
- } from '../connectors/international_records.js'
 import { Type } from '@sinclair/typebox'
 
 const internationalRecordsRoute = async (fastifyApp) => {
@@ -43,10 +39,7 @@ const internationalRecordsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-
-      const res = await getInternationalRecords(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/international_records', {
@@ -70,10 +63,8 @@ const internationalRecordsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const internationalRecords = request.body.international_records
-      const applicationId = request.params.application_id
-
-      const res = await modifyInternationalRecords(internationalRecords, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default internationalRecordsRoute

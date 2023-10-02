@@ -14,9 +14,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getEndorsement
- } = require('../connectors/endorsement.js')
 const { Type } = require('@sinclair/typebox')
 
 const endorsementRoute = async (fastifyApp) => {
@@ -41,9 +38,8 @@ const endorsementRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getEndorsement(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: endorsementRoute }

@@ -14,9 +14,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getTests
- } = require('../connectors/test_scores.js')
 const { Type } = require('@sinclair/typebox')
 
 const testScoresRoute = async (fastifyApp) => {
@@ -41,9 +38,8 @@ const testScoresRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getTests(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: testScoresRoute }

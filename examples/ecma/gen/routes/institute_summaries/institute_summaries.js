@@ -14,9 +14,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getInstituteSummary
- } from '../connectors/institute_summaries.js'
 import { Type } from '@sinclair/typebox'
 
 const instituteSummariesRoute = async (fastifyApp) => {
@@ -41,9 +38,8 @@ const instituteSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-
-      const res = await getInstituteSummary(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default instituteSummariesRoute

@@ -15,10 +15,6 @@ import {
    ApplicationIdPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getBioClassifications,
-   modifyBioClassification
- } from '../connectors/biographical_classifications.js'
 import { Type } from '@sinclair/typebox'
 
 const biographicalClassificationsRoute = async (fastifyApp) => {
@@ -43,10 +39,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-
-      const res = await getBioClassifications(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/biographical_classifications', {
@@ -70,10 +63,8 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const biographicalClassifications = request.body.biographical_classifications
-      const applicationId = request.params.application_id
-
-      const res = await modifyBioClassification(biographicalClassifications, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default biographicalClassificationsRoute

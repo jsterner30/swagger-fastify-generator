@@ -14,9 +14,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    modifyContactInfo
- } = require('../connectors/contact.js')
 const { Type } = require('@sinclair/typebox')
 
 const contactRoute = async (fastifyApp) => {
@@ -43,10 +40,8 @@ const contactRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const contact = request.body.contact
-        const applicationId = request.params.application_id
-
-        const res = await modifyContactInfo(contact, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: contactRoute }

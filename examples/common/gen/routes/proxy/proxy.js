@@ -43,17 +43,6 @@ const {
     LimitQuerySchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getApplications,
-    getApplication,
-    applyApplicationAction,
-    applyApplicationComponentAction,
-    getApplicationActions,
-    getDecisionReasons,
-    submitIncident,
-    getReport,
-    getReportsMetadata
- } = require('../connectors/proxy.js')
 const { Type } = require('@sinclair/typebox')
 
 const proxyRoute = async (fastifyApp) => {
@@ -91,23 +80,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicantId = request.query.applicant_id
-        const institution = request.query.institution
-        const applicantName = request.query.applicant_name
-        const email = request.query.email
-        const admitPeriod = request.query.admit_period
-        const applicantType = request.query.applicant_type
-        const citizenship = request.query.citizenship
-        const country = request.query.country
-        const sex = request.query.sex
-        const state = request.query.state
-        const subsetStart = request.query.subset_start
-        const subsetSize = request.query.subset_size
-        const search = request.query.search
-        const queryApplicationId = request.query.application_id
-
-        const res = await getApplications(applicantId, institution, applicantName, email, admitPeriod, applicantType, citizenship, country, sex, state, subsetStart, subsetSize, search, queryApplicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/applications', {
@@ -141,22 +114,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicantId = request.query.applicant_id
-        const institution = request.query.institution
-        const applicantName = request.query.applicant_name
-        const email = request.query.email
-        const admitPeriod = request.query.admit_period
-        const applicantType = request.query.applicant_type
-        const citizenship = request.query.citizenship
-        const country = request.query.country
-        const sex = request.query.sex
-        const state = request.query.state
-        const subsetStart = request.query.subset_start
-        const subsetSize = request.query.subset_size
-        const search = request.query.search
-
-        const res = await getApplications(applicantId, institution, applicantName, email, admitPeriod, applicantType, citizenship, country, sex, state, subsetStart, subsetSize, search)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/applications/:application_id', {
@@ -183,13 +141,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const context = request.query.context
-        const fieldSets = request.query.field_sets
-        const school = request.query.school
-        const applicationId = request.params.application_id
-
-        const res = await getApplication(context, fieldSets, school, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/applications/:application_id', {
@@ -213,11 +165,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const action = request.body.action
-        const applicationId = request.params.application_id
-
-        const res = await applyApplicationAction(action, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/applications/:application_id/components/:component_id', {
@@ -242,12 +190,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const action = request.body.action
-        const applicationId = request.params.application_id
-        const componentId = request.params.component_id
-
-        const res = await applyApplicationComponentAction(action, applicationId, componentId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/actions', {
@@ -271,12 +214,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const queryApplicationId = request.query.application_id
-        const dateStart = request.query.date_start
-        const dateEnd = request.query.date_end
-
-        const res = await getApplicationActions(queryApplicationId, dateStart, dateEnd)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/decisionReasons', {
@@ -298,10 +236,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const templateSets = request.query.template_sets
-
-        const res = await getDecisionReasons(templateSets)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.post('/incident', {
@@ -323,10 +258,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const incidentBody = request.body.incident_body
-
-        const res = await submitIncident(incidentBody)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/report', {
@@ -352,14 +284,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const name = request.query.name
-        const admitPeriod = request.query.admit_period
-        const paginationParameter = request.query.pagination_parameter
-        const cursor = request.query.cursor
-        const limit = request.query.limit
-
-        const res = await getReport(name, admitPeriod, paginationParameter, cursor, limit)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/reports', {
@@ -378,9 +303,7 @@ const proxyRoute = async (fastifyApp) => {
             }
         }
     }, async (request, reply) => {
-
-        const res = await getReportsMetadata()
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/:application_id', {
@@ -423,28 +346,8 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const context = request.query.context
-        const fieldSets = request.query.field_sets
-        const school = request.query.school
-        const queryApplicationId = request.query.application_id
-        const dateStart = request.query.date_start
-        const dateEnd = request.query.date_end
-        const applicantId = request.query.applicant_id
-        const institution = request.query.institution
-        const applicantName = request.query.applicant_name
-        const email = request.query.email
-        const admitPeriod = request.query.admit_period
-        const applicantType = request.query.applicant_type
-        const citizenship = request.query.citizenship
-        const country = request.query.country
-        const sex = request.query.sex
-        const state = request.query.state
-        const subsetStart = request.query.subset_start
-        const subsetSize = request.query.subset_size
-        const search = request.query.search
-        const applicationId = request.params.application_id
-
-        const res = await getApplication(context, fieldSets, school, queryApplicationId, dateStart, dateEnd, applicantId, institution, applicantName, email, admitPeriod, applicantType, citizenship, country, sex, state, subsetStart, subsetSize, search, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: proxyRoute }

@@ -17,10 +17,6 @@ import {
    DeliverableIdPathSchema
  } from '../../ParameterSchemas.ts'
 import { Tags } from '../../constants.ts'
-import { 
-   getApplicationDeliverables,
-   modifyApplicationDeliverable
- } from '../connectors/application_deliverables.ts'
 import { Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -48,10 +44,7 @@ const applicationDeliverablesRoute: FastifyPluginAsync<OptionsInterface> = async
          })
       }
    }, async (request, reply) => {
-      const applicationId: string = request.params.application_id
-
-      const res = await getApplicationDeliverables(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/application_deliverables/:deliverable_id', {
@@ -76,11 +69,8 @@ const applicationDeliverablesRoute: FastifyPluginAsync<OptionsInterface> = async
          })
       }
    }, async (request, reply) => {
-      const applicationDeliverable: ApplicationDeliverableModifySchema = request.body.application_deliverable
-      const applicationId: string = request.params.application_id
-      const deliverableId: string = request.params.deliverable_id
-
-      const res = await modifyApplicationDeliverable(applicationDeliverable, applicationId, deliverableId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default applicationDeliverablesRoute

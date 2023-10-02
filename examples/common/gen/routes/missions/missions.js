@@ -15,10 +15,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getMissions,
-    modifyMissions
- } = require('../connectors/missions.js')
 const { Type } = require('@sinclair/typebox')
 
 const missionsRoute = async (fastifyApp) => {
@@ -43,10 +39,7 @@ const missionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getMissions(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/:application_id/missions', {
@@ -70,10 +63,8 @@ const missionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const missions = request.body.missions
-        const applicationId = request.params.application_id
-
-        const res = await modifyMissions(missions, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: missionsRoute }

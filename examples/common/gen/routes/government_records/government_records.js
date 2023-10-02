@@ -15,10 +15,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getGovRecs,
-    modifyGovRecs
- } = require('../connectors/government_records.js')
 const { Type } = require('@sinclair/typebox')
 
 const governmentRecordsRoute = async (fastifyApp) => {
@@ -43,10 +39,7 @@ const governmentRecordsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getGovRecs(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/:application_id/government_records', {
@@ -70,10 +63,8 @@ const governmentRecordsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const governmentRecords = request.body.government_records
-        const applicationId = request.params.application_id
-
-        const res = await modifyGovRecs(governmentRecords, applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: governmentRecordsRoute }

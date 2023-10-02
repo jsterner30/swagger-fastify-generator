@@ -19,12 +19,6 @@ import {
    EndMonthPathSchema
  } from '../../ParameterSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getHighSchools,
-   addHighSchoolSummary,
-   modifyHighSchoolSummary,
-   deleteHighSchoolSummary
- } from '../connectors/high_school_summaries.js'
 import { Type } from '@sinclair/typebox'
 
 const highSchoolSummariesRoute = async (fastifyApp) => {
@@ -49,10 +43,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-
-      const res = await getHighSchools(applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.post('/:application_id/high_school_summaries', {
@@ -76,11 +67,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const highSchoolBody = request.body.high_school_body
-      const applicationId = request.params.application_id
-
-      const res = await addHighSchoolSummary(highSchoolBody, applicationId)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -107,14 +94,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const highSchoolBody = request.body.high_school_body
-      const applicationId = request.params.application_id
-      const highSchool = request.params.high_school
-      const startMonth = request.params.start_month
-      const endMonth = request.params.end_month
-
-      const res = await modifyHighSchoolSummary(highSchoolBody, applicationId, highSchool, startMonth, endMonth)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.delete('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -136,12 +116,8 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const applicationId = request.params.application_id
-      const highSchool = request.params.high_school
-      const startMonth = request.params.start_month
-      const endMonth = request.params.end_month
-
-      const res = await deleteHighSchoolSummary(applicationId, highSchool, startMonth, endMonth)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default highSchoolSummariesRoute

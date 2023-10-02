@@ -17,11 +17,6 @@ const {
     QuestionIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getQuestions,
-    getQuestion,
-    answerQuestion
- } = require('../connectors/questions.js')
 const { Type } = require('@sinclair/typebox')
 
 const questionsRoute = async (fastifyApp) => {
@@ -46,10 +41,7 @@ const questionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getQuestions(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.get('/:application_id/questions/:question_id', {
@@ -72,11 +64,7 @@ const questionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-        const questionId = request.params.question_id
-
-        const res = await getQuestion(applicationId, questionId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 
     fastify.put('/:application_id/questions/:question_id', {
@@ -102,11 +90,8 @@ const questionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const questionAnswer = request.body.question_answer
-        const applicationId = request.params.application_id
-        const questionId = request.params.question_id
-
-        const res = await answerQuestion(questionAnswer, applicationId, questionId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: questionsRoute }

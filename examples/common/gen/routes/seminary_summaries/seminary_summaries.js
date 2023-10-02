@@ -14,9 +14,6 @@ const {
     ApplicationIdPathSchema
  } = require('../../ParameterSchemas.js')
 const { Tags } = require('../../constants.js')
-const { 
-    getSeminarySummaries
- } = require('../connectors/seminary_summaries.js')
 const { Type } = require('@sinclair/typebox')
 
 const seminarySummariesRoute = async (fastifyApp) => {
@@ -41,9 +38,8 @@ const seminarySummariesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        const applicationId = request.params.application_id
-
-        const res = await getSeminarySummaries(applicationId)
-        // TODO: make the above work
+        // TODO: make this route work
     })
 }
+
+module.exports = { default: seminarySummariesRoute }

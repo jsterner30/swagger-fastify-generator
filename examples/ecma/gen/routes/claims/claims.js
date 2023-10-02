@@ -15,11 +15,6 @@ import {
    ResponseDefaultSchema
  } from '../../ResponseSchemas.js'
 import { Tags } from '../../constants.js'
-import { 
-   getConcepts,
-   validateClaim,
-   validateClaimArray
- } from '../connectors/claims.js'
 import { Type } from '@sinclair/typebox'
 
 const claimsRoute = async (fastifyApp) => {
@@ -41,9 +36,7 @@ const claimsRoute = async (fastifyApp) => {
          }
       }
    }, async (request, reply) => {
-
-      const res = await getConcepts()
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/', {
@@ -65,10 +58,7 @@ const claimsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const claimBody = request.body.claim_body
-
-      const res = await validateClaim(claimBody)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 
    fastify.put('/batch', {
@@ -89,9 +79,8 @@ const claimsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      const claimArray = request.body.claim_array
-
-      const res = await validateClaimArray(claimArray)
-      // TODO: make the above work
+      // TODO: make this route work
    })
 }
+
+export default claimsRoute
