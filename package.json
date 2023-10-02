@@ -47,10 +47,5 @@
   "bugs": {
     "url": ""
   },
-  "homepage": "",
-  "husky": {
-    "hooks": {
-      "pre-commit": "echo \"[Husky] pre-commit\" & npm run examples"
-  }
-}
+  "homepage": ""
 }
