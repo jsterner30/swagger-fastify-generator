@@ -60,7 +60,7 @@
     "url": ""
   },
   "bin": {
-    "fastgen": ".dist/index.js"
+    "fastgen": "./dist/index.js"
   },
   "homepage": ""
 }
