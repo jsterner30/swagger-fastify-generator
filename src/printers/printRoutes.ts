@@ -16,13 +16,19 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
   const printType = responses.printType
   const routesDir = './gen/routes'
   await createDir(`${routesDir}`)
+  const dirSet: Set<string> = new Set()
 
   for (const file of Object.keys(routeFilesMap)) {
     const defsToImport: string[] = []
     const paramsToImport: string[] = []
     const resToImport: string[] = []
-    await createDir(`${routesDir}/${file}`)
-    const fileName = `${routesDir}/${file}/${file}.${printType.fileType}`
+    const parentDir = routeFilesMap[file].parentDir
+    if (!dirSet.has(parentDir)) {
+      await createDir(`${routesDir}/${parentDir}`)
+      dirSet.add(parentDir)
+    }
+
+    const fileName = `${routesDir}/${parentDir}/${file}.${printType.fileType}`
     let toPrint = ''
     toPrint = printType.importGeneral('Type', '@sinclair/typebox')
     const functionName = normalizeLowerCamelName(file) + 'Route'
@@ -33,15 +39,9 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
       toPrint += getRouteFunctionString(functionName)
     }
 
-    const functionsToImport: Record<string, string[]> = {}
-
     for (const path of routeFilesMap[file].routePaths) {
       for (const route of path.routes) {
         toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport)
-        if (functionsToImport[file] == null) {
-          functionsToImport[file] = []
-        }
-        functionsToImport[file].push(route.functionName)
       }
     }
     if (toPrint.at(toPrint.length - 1) === ',') {

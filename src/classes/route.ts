@@ -3,9 +3,11 @@ import { Parameter } from './parameter'
 export class RouteFile {
   name: string
   routePaths: RoutePath[] = []
+  parentDir: string
 
-  constructor (name: string) {
+  constructor (name: string, parentDir: string) {
     this.name = name
+    this.parentDir = parentDir
   }
 
   addRoutePath (routePath: RoutePath): void {

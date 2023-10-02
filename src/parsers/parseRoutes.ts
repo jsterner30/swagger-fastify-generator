@@ -15,7 +15,8 @@ export function parseRoutes (OpenApiJSON: SwaggerDoc): Record<string, RouteFile>
     const fileName = routeOpenApiObj['x-controller']
     if (fileName != null) {
       if (routeFilesMap[fileName] == null) {
-        routeFilesMap[fileName] = new RouteFile(fileName)
+        const parentDir = getBasePath(route)
+        routeFilesMap[fileName] = new RouteFile(fileName, parentDir)
       }
       const routeFile = routeFilesMap[fileName]
       routeFile.addRoutePath(getRoutePath(routeOpenApiObj, route))
@@ -38,6 +39,10 @@ function getRoutePath (pathObj: SwaggerRoute, routeUrl: string): RoutePath {
   }
 
   return routePath
+}
+
+function getBasePath(path: string): string {
+  return path.split('/')[1]
 }
 
 function getRoute (methodObj: SwaggerRouteMethod, method: string): Route {
