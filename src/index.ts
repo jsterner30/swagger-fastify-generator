@@ -1,12 +1,12 @@
 import { Command } from 'commander'
-const program = new Command()
 import { run } from './run'
+const program = new Command()
 
 program
-    .name('fastgen')
+  .name('fastgen')
 
-program.command('')
-    .option('-f, use file')
-    .action(run)
+program.command('j')
+  .option('-f, use file')
+  .action(run)
 
 program.parse()
