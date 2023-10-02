@@ -27,7 +27,7 @@ import { topologicalSort } from './util/topologicalSort'
 import { getFileSettings } from './util/getFileSettings'
 
 export async function run (): Promise<void> {
-  if (process.argv.length > 3 && process.argv[3] === '-f') {
+  if (process.argv.length > 2 && process.argv[2] === '-f') {
     setUserSettings(await getFileSettings())
   } else {
     setUserSettings(await userInterface())
