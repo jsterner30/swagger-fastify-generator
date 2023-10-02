@@ -1,5 +1,5 @@
 import { Response } from '../classes/response'
-import { getUserResponses } from '../util/globals'
+import { getUserSettings } from '../util/globals'
 import { appendFile, writeSchemas, getImportString, indent, normalizeName } from '../util/util'
 import logger from '../util/logger'
 
@@ -7,7 +7,7 @@ export async function printResponses (responses: Response[]): Promise<void> {
   const printedResponses: Set<string> = new Set()
   const schemaStrings: string[] = []
 
-  const interfaceResponses = getUserResponses()
+  const interfaceResponses = getUserSettings()
   const printDescription = interfaceResponses.printDescription
   const printType = interfaceResponses.printType
   const fileName = `./gen/ResponseSchemas.${printType.fileType}`

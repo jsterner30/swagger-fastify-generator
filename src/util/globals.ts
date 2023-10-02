@@ -1,4 +1,4 @@
-import { InterfaceResponses } from './interface'
+import { InterfaceSettings } from './interface'
 import { Definition } from '../classes/definition'
 import { Parameter } from '../classes/parameter'
 import { Response } from '../classes/response'
@@ -13,12 +13,12 @@ export function getXMocks (property: string): Record<string, any> {
   return xMocks[property]
 }
 
-let userResponses: InterfaceResponses
-export function setUserResponses (responses: InterfaceResponses): void {
-  userResponses = responses
+let userSettings: InterfaceSettings
+export function setUserSettings (responses: InterfaceSettings): void {
+  userSettings = responses
 }
-export function getUserResponses (): InterfaceResponses {
-  return userResponses
+export function getUserSettings (): InterfaceSettings {
+  return userSettings
 }
 
 let definitions: Definition[] = []

@@ -1,13 +1,13 @@
 import type { Definition } from '../classes/definition'
 import logger from '../util/logger'
-import { getUserResponses } from '../util/globals'
+import { getUserSettings } from '../util/globals'
 import { indent, appendFile, normalizeName, writeSchemas } from '../util/util'
 
 export async function printDefinitions (definitions: Definition[]): Promise<void> {
   const printedDefs: Set<string> = new Set()
   const schemaStrings: string[] = []
 
-  const interfaceResponses = getUserResponses()
+  const interfaceResponses = getUserSettings()
   const printDescription = interfaceResponses.printDescription
   const printType = interfaceResponses.printType
   const printExample = interfaceResponses.printExample

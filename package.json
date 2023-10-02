@@ -8,11 +8,11 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rimraf dist",
-    "dev": "node -r ts-node/register -r dotenv/config src/index.ts",
-    "generateSpec": "node -r ts-node/register -r dotenv/config generateSpec.ts",
+    "dev": "node -r ts-node/register src/index.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "jest --colors"
+    "test": "jest --colors",
+    "examples": "node -r ts-node/register ./examples/update-examples.ts"
   },
   "dependencies": {
     "@fastify/type-provider-typebox": "^3.5.0",
@@ -20,13 +20,13 @@
     "enquirer": "^2.4.1",
     "fastify": "^4.23.2",
     "graph-data-structure": "^3.3.0",
-    "inquirer": "^9.2.11",
     "pino": "^8.15.1"
   },
   "devDependencies": {
     "@tsconfig/node18": "^2.0.1",
     "@types/inquirer": "^9.0.3",
     "eslint": "^8.41.0",
+    "husky": "^8.0.3",
     "rimraf": "^4.4.1",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
@@ -47,5 +47,10 @@
   "bugs": {
     "url": ""
   },
-  "homepage": ""
+  "homepage": "",
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo \"[Husky] pre-commit\" & npm run examples"
+  }
+}
 }

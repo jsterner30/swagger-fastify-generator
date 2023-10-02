@@ -1,12 +1,13 @@
 import { prompt } from 'enquirer'
-import { PrintType, commonPrintType, ecmaPrintType, typescriptPrintType } from './printTypes'
+import { PrintType, commonPrintType } from './printTypes'
+import { getPrintType } from './util'
 
 interface EnquirerChoice {
   name: string
   value: string
 }
 
-export interface InterfaceResponses {
+export interface InterfaceSettings {
   openApiDocVersion: string
   printType: PrintType
   indentSize: number
@@ -16,8 +17,8 @@ export interface InterfaceResponses {
   useOptionalType: boolean
 }
 
-export const userInterface = async (): Promise<InterfaceResponses> => {
-  const responses: InterfaceResponses = {
+export const userInterface = async (): Promise<InterfaceSettings> => {
+  const responses: InterfaceSettings = {
     openApiDocVersion: 'v2',
     printType: commonPrintType,
     indentSize: 4,
@@ -86,17 +87,4 @@ const booleanPrompt = async (name: string, message: string): Promise<boolean> =>
   })
 
   return res[name]
-}
-
-const getPrintType = (typeString: string): PrintType => {
-  switch (typeString) {
-    case 'CommonJS':
-      return commonPrintType
-    case 'ES6':
-      return ecmaPrintType
-    case 'Typescript':
-      return typescriptPrintType
-    default:
-      throw new Error('Unknown typeString: ' + typeString)
-  }
 }

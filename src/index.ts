@@ -3,9 +3,9 @@ import { parseDefinitions } from './parsers/parseDefinitions'
 import { userInterface } from './util/interface'
 import {
   setDefinitions,
-  setUserResponses,
+  setUserSettings,
   getDefinitions,
-  getUserResponses,
+  getUserSettings,
   setParameters,
   setRoutes,
   getParameters,
@@ -23,10 +23,16 @@ import { printResponses } from './printers/printResponses'
 import { parseResponses } from './parsers/parseResponses'
 import { printTags } from './classes/tags'
 import { topologicalSort } from './util/topologicalSort'
+import {getFileSettings} from "./util/getFileSettings";
 
 async function run (): Promise<void> {
-  setUserResponses(await userInterface())
-  const openApiJSON: SwaggerDoc = await readJsonFromFile(getUserResponses().filePath)
+  if (process.argv.length > 2 && process.argv[2] === '--f') {
+    setUserSettings(await getFileSettings())
+  } else {
+    setUserSettings(await userInterface())
+  }
+
+  const openApiJSON: SwaggerDoc = await readJsonFromFile(getUserSettings().filePath) as SwaggerDoc
   setDefinitions(parseDefinitions(openApiJSON))
   setParameters(parseParameters(openApiJSON))
   setResponses(parseResponses(openApiJSON))

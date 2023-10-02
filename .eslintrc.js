@@ -7,6 +7,7 @@ module.exports = {
     'jest.config.ts',
     'dist',
     'node_modules',
-    'examples'
+    'examples',
+    'gen'
   ]
 }

@@ -1,4 +1,4 @@
-import { getUserResponses } from '../util/globals'
+import { getUserSettings } from '../util/globals'
 import {
   appendFile,
   normalizeLowerCamelName,
@@ -13,7 +13,7 @@ import { Parameter } from '../classes/parameter'
 import { PrintType } from '../util/printTypes'
 
 export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Promise<void> {
-  const responses = getUserResponses()
+  const responses = getUserSettings()
   const printType = responses.printType
   const routesDir = './gen/routes'
   await createDir(`${routesDir}`)

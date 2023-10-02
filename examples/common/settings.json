@@ -1,0 +1,9 @@
+{
+  "openApiDocVersion": "v2",
+  "printType": "CommonJS",
+  "indentSize": 4,
+  "filePath": "./swagger.json",
+  "printDescription": true,
+  "printExample": true,
+  "useOptionalType": false
+}

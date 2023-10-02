@@ -1,5 +1,5 @@
 import { appendFile, normalizeName, indent } from '../util/util'
-import { getUserResponses } from '../util/globals'
+import { getUserSettings } from '../util/globals'
 
 export class Tags {
   tags: Set<string> = new Set<string>()
@@ -41,7 +41,7 @@ export class Tags {
 }
 
 export async function printTags (tags: Tags): Promise<void> {
-  const responses = getUserResponses()
+  const responses = getUserSettings()
   const printType = responses.printType
   let tagEnumString = ''
   if (printType.type === 'typescript') {

@@ -1,16 +1,18 @@
 import fs from 'fs/promises'
 import logger from './logger'
-import { SwaggerDoc } from './swagger'
-import { getUserResponses } from './globals'
+import { getUserSettings } from './globals'
 import path from 'path'
 import fsSync from 'node:fs'
+import { commonPrintType, ecmaPrintType, PrintType, typescriptPrintType } from './printTypes'
 
-export async function readJsonFromFile (filePath: string): Promise<SwaggerDoc> {
+export async function readJsonFromFile (filePath: string): Promise<Record<string, any>> {
   try {
+    console.log(filePath)
     const fileContent = await fs.readFile(filePath, 'utf8')
     return JSON.parse(fileContent)
   } catch (error) {
-    throw new Error('Swagger file does not exist at specified path')
+    console.log("Current working directory:", process.cwd());
+    throw new Error('File does not exist at specified path. file specified: ' + filePath)
   }
 }
 
@@ -55,7 +57,7 @@ export async function writeSchemas (fileName: string, schemaStrings: string[]): 
 }
 
 export function indent (level: number): string {
-  const tabs = getUserResponses().indentSize
+  const tabs = getUserSettings().indentSize
   let tabSpace = ''
   let response = ''
   for (let i = 0; i < tabs; ++i) {
@@ -164,4 +166,17 @@ export async function createDir (dirPath: string): Promise<void> {
 export function normalizeLowerCamelName (name: string): string {
   const normalized = normalizeName(name)
   return normalized.charAt(0).toLowerCase() + normalized.slice(1)
+}
+
+export const getPrintType = (typeString: string): PrintType => {
+  switch (typeString) {
+    case 'CommonJS':
+      return commonPrintType
+    case 'ES6':
+      return ecmaPrintType
+    case 'Typescript':
+      return typescriptPrintType
+    default:
+      throw new Error('Unknown typeString: ' + typeString)
+  }
 }
