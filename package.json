@@ -12,7 +12,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest --colors",
-    "update-examples": "node -r ts-node/register ./examples/update-examples.ts"
+    "update-examples": "node -r ts-node/register ./examples/update-examples.ts",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@fastify/type-provider-typebox": "^3.5.0",
@@ -26,7 +27,7 @@
     "@tsconfig/node18": "^2.0.1",
     "@types/inquirer": "^9.0.3",
     "eslint": "^8.41.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "rimraf": "^4.4.1",
     "snazzy": "^9.0.0",
     "standard": "^17.0.0",
