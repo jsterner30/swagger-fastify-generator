@@ -1,10 +1,12 @@
 {
-  "name": "openapi-fastify-generator",
+  "name": "swagger-fastify-gen",
   "version": "1.0.0",
   "description": "",
   "author": "",
   "license": "Apache-2.0",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rimraf dist",
@@ -16,14 +18,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@fastify/type-provider-typebox": "^3.5.0",
-    "@sinclair/typebox": "^0.31.15",
     "enquirer": "^2.4.1",
     "fastify": "^4.23.2",
     "graph-data-structure": "^3.3.0",
     "pino": "^8.15.1"
   },
   "devDependencies": {
+    "@fastify/type-provider-typebox": "^3.5.0",
+    "@sinclair/typebox": "^0.31.15",
     "@tsconfig/node18": "^2.0.1",
     "@types/inquirer": "^9.0.3",
     "eslint": "^8.41.0",
@@ -41,6 +43,12 @@
       "node": true
     }
   },
+  "keywords": [
+    "swagger",
+    "openapi",
+    "fastify",
+    "typebox"
+  ],
   "repository": {
     "type": "git",
     "url": ""
