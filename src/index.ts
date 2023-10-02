@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 import { Command } from 'commander'
 import { run } from './run'
 const program = new Command()
