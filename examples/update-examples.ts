@@ -1,6 +1,6 @@
 import * as fs from 'fs'
 import * as path from 'path'
-import { run } from '../src/run'
+import { spawn } from 'child_process'
 
 function findDirectoriesWithFile(baseDir: string, targetFile: string, results: string[] = []): string[] {
     const files = fs.readdirSync(baseDir);
@@ -21,11 +21,10 @@ function findDirectoriesWithFile(baseDir: string, targetFile: string, results: s
 
 async function updateExamples(): Promise<void> {
     const subDirs = findDirectoriesWithFile('./', 'swagger.json')
+    const command = 'node -r ts-node/register ../../src/index.ts'
 
     for (const subDir of subDirs) {
-        process.chdir(subDir)
-        console.log(`Current working directory: ${process.cwd()}`);
-        await run('-f')
+        spawn(command, ['--f'], { shell: true, stdio: 'inherit', cwd: subDir })
     }
 }
 
