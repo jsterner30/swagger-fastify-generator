@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest --colors",
-    "examples": "node -r ts-node/register ./examples/update-examples.ts"
+    "update-examples": "node -r ts-node/register ./examples/update-examples.ts"
   },
   "dependencies": {
     "@fastify/type-provider-typebox": "^3.5.0",
