@@ -1,9 +1,9 @@
 import { 
    CollegeSummariesSchema,
-   CollegeSummaryModifyParameterSchema,
+   CollegeSummaryModifySchema,
    CollegeSummarySchema,
    ErrorResponseSchema
- } from '../../DefinitionSchemas.ts'
+ } from '../../DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -12,15 +12,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.ts'
+ } from '../../ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    CollegePathSchema,
    StartMonthPathSchema,
    EndMonthPathSchema
- } from '../../ParameterSchemas.ts'
-import { Tags } from '../../constants.ts'
-import { Type } from '@sinclair/typebox'
+ } from '../../ParameterSchemas'
+import { Tags } from '../../constants'
+import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
 
@@ -67,7 +67,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            college_summary: Type.Optional(CollegeSummaryModifyParameterSchema)
+            college_summary: Type.Optional(CollegeSummaryModifySchema)
          })
       }
    }, async (request, reply) => {
@@ -95,7 +95,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
             end_month: EndMonthPathSchema
          }),
          body: Type.Object({
-            college_summary: CollegeSummaryModifyParameterSchema
+            college_summary: CollegeSummaryModifySchema
          })
       }
    }, async (request, reply) => {

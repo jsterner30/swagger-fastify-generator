@@ -30,8 +30,12 @@ export async function printResponses (responses: Response[]): Promise<void> {
     }
   }
 
+  if (printType.type === 'typescript') {
+    await appendFile(fileName, printType.importTypeBox)
+  }
+
   if (defsToImport.length > 0) {
-    await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), `./DefinitionSchemas.${printType.fileType}`))
+    await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), `./DefinitionSchemas`))
   }
   await writeSchemas(fileName, schemaStrings)
 

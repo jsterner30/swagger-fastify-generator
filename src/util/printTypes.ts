@@ -16,7 +16,7 @@ export const ecmaPrintType: PrintType = {
   },
   importTypeBox: 'import { Type } from \'@sinclair/typebox\'\n',
   importGeneral (importName: string, fileName: string): string {
-    return `import { ${importName} } from '${fileName}'\n`
+    return `import { ${importName} } from '${fileName}.${this.fileType}'\n`
   }
 }
 
@@ -42,6 +42,6 @@ export const commonPrintType: PrintType = {
   },
   importTypeBox: 'const { Type } = require(\'@sinclair/typebox\')\n',
   importGeneral (importName: string, fileName: string): string {
-    return `const { ${importName} } = require('${fileName}')\n`
+    return `const { ${importName} } = require('${fileName}.${this.fileType}')\n`
   }
 }

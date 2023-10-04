@@ -1,10 +1,10 @@
 import { 
    ConceptsSchema,
    ErrorResponseSchema,
-   ClaimBodyParameterSchema,
+   ClaimBodySchema,
    ClaimArrayResponseSchema,
-   ClaimArrayParameterSchema
- } from '../../DefinitionSchemas.ts'
+   ClaimArraySchema
+ } from '../../DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -13,9 +13,9 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.ts'
-import { Tags } from '../../constants.ts'
-import { Type } from '@sinclair/typebox'
+ } from '../../ResponseSchemas'
+import { Tags } from '../../constants'
+import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
 
@@ -57,7 +57,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            claim_body: ClaimBodyParameterSchema
+            claim_body: ClaimBodySchema
          })
       }
    }, async (request, reply) => {
@@ -78,7 +78,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            claim_array: ClaimArrayParameterSchema
+            claim_array: ClaimArraySchema
          })
       }
    }, async (request, reply) => {

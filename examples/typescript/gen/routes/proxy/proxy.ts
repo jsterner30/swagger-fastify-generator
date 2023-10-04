@@ -4,7 +4,7 @@ import {
    DecisionReasonsSchema,
    IncidentBodyParameterSchema,
    ReportsMetadataSchema
- } from '../../DefinitionSchemas.ts'
+ } from '../../DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -13,7 +13,7 @@ import {
    Response500Schema,
    ResponseDefaultSchema,
    Response404Schema
- } from '../../ResponseSchemas.ts'
+ } from '../../ResponseSchemas'
 import { 
    ApplicantIdQuerySchema,
    InstitutionQuerySchema,
@@ -41,9 +41,9 @@ import {
    PaginationParameterQuerySchema,
    CursorQuerySchema,
    LimitQuerySchema
- } from '../../ParameterSchemas.ts'
-import { Tags } from '../../constants.ts'
-import { Type } from '@sinclair/typebox'
+ } from '../../ParameterSchemas'
+import { Tags } from '../../constants'
+import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
 

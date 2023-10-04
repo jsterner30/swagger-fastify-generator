@@ -1,6 +1,6 @@
 const { 
     BackgroundQuestionsSchema,
-    BackgroundQuestionsModifyParameterSchema
+    BackgroundQuestionsModifySchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -59,7 +59,7 @@ const backgroundQuestionsRoute = async (fastifyApp) => {
                 application_id: ApplicationIdPathSchema
             }),
             body: Type.Object({
-                background: BackgroundQuestionsModifyParameterSchema
+                background: BackgroundQuestionsModifySchema
             })
         }
     }, async (request, reply) => {

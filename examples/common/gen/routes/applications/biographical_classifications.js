@@ -1,6 +1,6 @@
 const { 
     BiographicalClassificationsSchema,
-    BiographicalClassificationsModifyParameterSchema
+    BiographicalClassificationsModifySchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -59,7 +59,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
                 application_id: ApplicationIdPathSchema
             }),
             body: Type.Object({
-                biographical_classifications: BiographicalClassificationsModifyParameterSchema
+                biographical_classifications: BiographicalClassificationsModifySchema
             })
         }
     }, async (request, reply) => {

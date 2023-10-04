@@ -1,7 +1,7 @@
 import { 
    GovernmentRecordsSchema,
-   GovernmentRecordsModifyParameterSchema
- } from '../../DefinitionSchemas.ts'
+   GovernmentRecordsModifySchema
+ } from '../../DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -10,12 +10,12 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.ts'
+ } from '../../ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas.ts'
-import { Tags } from '../../constants.ts'
-import { Type } from '@sinclair/typebox'
+ } from '../../ParameterSchemas'
+import { Tags } from '../../constants'
+import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
 
@@ -62,7 +62,7 @@ const governmentRecordsRoute: FastifyPluginAsync<OptionsInterface> = async (fast
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            government_records: GovernmentRecordsModifyParameterSchema
+            government_records: GovernmentRecordsModifySchema
          })
       }
    }, async (request, reply) => {

@@ -1,7 +1,7 @@
 import { 
    QuestionsSchema,
    QuestionSchema,
-   QuestionAnswerParameterSchema
+   QuestionAnswerSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -86,7 +86,7 @@ const questionsRoute = async (fastifyApp) => {
             question_id: QuestionIdPathSchema
          }),
          body: Type.Object({
-            question_answer: QuestionAnswerParameterSchema
+            question_answer: QuestionAnswerSchema
          })
       }
    }, async (request, reply) => {

@@ -2,7 +2,7 @@ const {
     ApplicationsSchema,
     ErrorResponseSchema,
     ApplicationSchema,
-    ApplicationNewParameterSchema
+    ApplicationNewSchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -85,7 +85,7 @@ const applicationsRoute = async (fastifyApp) => {
                 default: ResponseDefaultSchema
             },
             body: Type.Object({
-                application: ApplicationNewParameterSchema
+                application: ApplicationNewSchema
             })
         }
     }, async (request, reply) => {

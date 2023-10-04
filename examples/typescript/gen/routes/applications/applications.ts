@@ -2,8 +2,8 @@ import {
    ApplicationsSchema,
    ErrorResponseSchema,
    ApplicationSchema,
-   ApplicationNewParameterSchema
- } from '../../DefinitionSchemas.ts'
+   ApplicationNewSchema
+ } from '../../DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -12,7 +12,7 @@ import {
    Response500Schema,
    ResponseDefaultSchema,
    Response404Schema
- } from '../../ResponseSchemas.ts'
+ } from '../../ResponseSchemas'
 import { 
    AdmitPeriodQuerySchema,
    ApplicantTypeQuerySchema,
@@ -30,9 +30,9 @@ import {
    ApplicationIdPathSchema,
    ContextQuerySchema,
    FieldSetsQuerySchema
- } from '../../ParameterSchemas.ts'
-import { Tags } from '../../constants.ts'
-import { Type } from '@sinclair/typebox'
+ } from '../../ParameterSchemas'
+import { Tags } from '../../constants'
+import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
 
@@ -88,7 +88,7 @@ const applicationsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyAp
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            application: ApplicationNewParameterSchema
+            application: ApplicationNewSchema
          })
       }
    }, async (request, reply) => {

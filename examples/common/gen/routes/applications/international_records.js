@@ -1,6 +1,6 @@
 const { 
     InternationalRecordsSchema,
-    InternationalRecordsModifyParameterSchema
+    InternationalRecordsModifySchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -59,7 +59,7 @@ const internationalRecordsRoute = async (fastifyApp) => {
                 application_id: ApplicationIdPathSchema
             }),
             body: Type.Object({
-                international_records: InternationalRecordsModifyParameterSchema
+                international_records: InternationalRecordsModifySchema
             })
         }
     }, async (request, reply) => {

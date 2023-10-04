@@ -1,8 +1,8 @@
 import { 
    ApplicationDeliverablesSchema,
    ApplicationDeliverableSchema,
-   ApplicationDeliverableModifyParameterSchema
- } from '../../DefinitionSchemas.ts'
+   ApplicationDeliverableModifySchema
+ } from '../../DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -11,13 +11,13 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.ts'
+ } from '../../ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    DeliverableIdPathSchema
- } from '../../ParameterSchemas.ts'
-import { Tags } from '../../constants.ts'
-import { Type } from '@sinclair/typebox'
+ } from '../../ParameterSchemas'
+import { Tags } from '../../constants'
+import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
 
@@ -65,7 +65,7 @@ const applicationDeliverablesRoute: FastifyPluginAsync<OptionsInterface> = async
             deliverable_id: DeliverableIdPathSchema
          }),
          body: Type.Object({
-            application_deliverable: ApplicationDeliverableModifyParameterSchema
+            application_deliverable: ApplicationDeliverableModifySchema
          })
       }
    }, async (request, reply) => {

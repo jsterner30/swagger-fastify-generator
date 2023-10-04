@@ -30,7 +30,7 @@ export const parseParameter = function (parameter: SwaggerRouteParameter, title:
       getDefinitions().push(def)
       paramObj.addParentDefinition(def.name)
     } else {
-      paramObj.addParentDefinition(schema.$ref.split('#/definitions/')[1] + '_parameter')
+      paramObj.addParentDefinition(schema.$ref.split('#/definitions/')[1])
     }
   }
   return paramObj

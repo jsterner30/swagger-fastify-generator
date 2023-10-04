@@ -1,6 +1,7 @@
+import { Static, Type } from '@sinclair/typebox'
 import { 
    ErrorResponseSchema
- } from './DefinitionSchemas.ts'
+ } from './DefinitionSchemas'
 
 
 /**
