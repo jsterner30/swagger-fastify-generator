@@ -1,6 +1,6 @@
 import { 
    BiographicalClassificationsSchema,
-   BiographicalClassificationsModifySchema
+   BiographicalClassificationsModifyParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -59,7 +59,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            biographical_classifications: BiographicalClassificationsModifySchema
+            biographical_classifications: BiographicalClassificationsModifyParameterSchema
          })
       }
    }, async (request, reply) => {

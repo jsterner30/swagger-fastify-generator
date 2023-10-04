@@ -1,9 +1,9 @@
 import { 
    ConceptsSchema,
    ErrorResponseSchema,
-   ClaimBodySchema,
+   ClaimBodyParameterSchema,
    ClaimArrayResponseSchema,
-   ClaimArraySchema
+   ClaimArrayParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -57,7 +57,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            claim_body: ClaimBodySchema
+            claim_body: ClaimBodyParameterSchema
          })
       }
    }, async (request, reply) => {
@@ -78,7 +78,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            claim_array: ClaimArraySchema
+            claim_array: ClaimArrayParameterSchema
          })
       }
    }, async (request, reply) => {

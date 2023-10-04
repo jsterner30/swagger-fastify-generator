@@ -1,7 +1,7 @@
 import { 
    HighSchoolSummariesSchema,
    HighSchoolSummarySchema,
-   HighSchoolSummaryModifySchema
+   HighSchoolSummaryModifyParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -63,7 +63,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
+            high_school_body: HighSchoolSummaryModifyParameterSchema
          })
       }
    }, async (request, reply) => {
@@ -90,7 +90,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
             end_month: EndMonthPathSchema
          }),
          body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
+            high_school_body: HighSchoolSummaryModifyParameterSchema
          })
       }
    }, async (request, reply) => {

@@ -1,7 +1,7 @@
 import { 
    ApplicationActionsSchema,
    ApplicationActionSchema,
-   ApplicationActionNewSchema
+   ApplicationActionNewParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -63,7 +63,7 @@ const applicationActionsRoute: FastifyPluginAsync<OptionsInterface> = async (fas
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            application_action: ApplicationActionNewSchema
+            application_action: ApplicationActionNewParameterSchema
          })
       }
    }, async (request, reply) => {

@@ -1,7 +1,7 @@
 import { 
    ApplicationDeliverablesSchema,
    ApplicationDeliverableSchema,
-   ApplicationDeliverableModifySchema
+   ApplicationDeliverableModifyParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -65,7 +65,7 @@ const applicationDeliverablesRoute: FastifyPluginAsync<OptionsInterface> = async
             deliverable_id: DeliverableIdPathSchema
          }),
          body: Type.Object({
-            application_deliverable: ApplicationDeliverableModifySchema
+            application_deliverable: ApplicationDeliverableModifyParameterSchema
          })
       }
    }, async (request, reply) => {

@@ -1,6 +1,6 @@
 const { 
     CollegeSummariesSchema,
-    CollegeSummaryModifySchema,
+    CollegeSummaryModifyParameterSchema,
     CollegeSummarySchema,
     ErrorResponseSchema
  } = require('../../DefinitionSchemas.js')
@@ -64,7 +64,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
                 application_id: ApplicationIdPathSchema
             }),
             body: Type.Object({
-                college_summary: Type.Optional(CollegeSummaryModifySchema)
+                college_summary: Type.Optional(CollegeSummaryModifyParameterSchema)
             })
         }
     }, async (request, reply) => {
@@ -92,7 +92,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
                 end_month: EndMonthPathSchema
             }),
             body: Type.Object({
-                college_summary: CollegeSummaryModifySchema
+                college_summary: CollegeSummaryModifyParameterSchema
             })
         }
     }, async (request, reply) => {

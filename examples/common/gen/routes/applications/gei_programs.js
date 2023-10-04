@@ -1,6 +1,6 @@
 const { 
     GeiProgramsSchema,
-    GeiProgramModifySchema
+    GeiProgramModifyParameterSchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -59,7 +59,7 @@ const geiProgramsRoute = async (fastifyApp) => {
                 application_id: ApplicationIdPathSchema
             }),
             body: Type.Object({
-                gei_program: GeiProgramModifySchema
+                gei_program: GeiProgramModifyParameterSchema
             })
         }
     }, async (request, reply) => {

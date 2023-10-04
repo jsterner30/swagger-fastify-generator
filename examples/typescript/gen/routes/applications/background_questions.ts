@@ -1,6 +1,6 @@
 import { 
    BackgroundQuestionsSchema,
-   BackgroundQuestionsModifySchema
+   BackgroundQuestionsModifyParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -62,7 +62,7 @@ const backgroundQuestionsRoute: FastifyPluginAsync<OptionsInterface> = async (fa
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            background: BackgroundQuestionsModifySchema
+            background: BackgroundQuestionsModifyParameterSchema
          })
       }
    }, async (request, reply) => {

@@ -1,6 +1,6 @@
 import { 
    GovernmentRecordsSchema,
-   GovernmentRecordsModifySchema
+   GovernmentRecordsModifyParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -62,7 +62,7 @@ const governmentRecordsRoute: FastifyPluginAsync<OptionsInterface> = async (fast
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            government_records: GovernmentRecordsModifySchema
+            government_records: GovernmentRecordsModifyParameterSchema
          })
       }
    }, async (request, reply) => {

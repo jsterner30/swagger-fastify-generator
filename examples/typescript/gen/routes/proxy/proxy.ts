@@ -1,8 +1,8 @@
 import { 
    ErrorResponseSchema,
-   ActionSchema,
+   ActionParameterSchema,
    DecisionReasonsSchema,
-   IncidentBodySchema,
+   IncidentBodyParameterSchema,
    ReportsMetadataSchema
  } from '../../DefinitionSchemas.ts'
 import { 
@@ -164,7 +164,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            action: ActionSchema
+            action: ActionParameterSchema
          })
       }
    }, async (request, reply) => {
@@ -189,7 +189,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
             component_id: ComponentIdPathSchema
          }),
          body: Type.Object({
-            action: ActionSchema
+            action: ActionParameterSchema
          })
       }
    }, async (request, reply) => {
@@ -257,7 +257,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            incident_body: IncidentBodySchema
+            incident_body: IncidentBodyParameterSchema
          })
       }
    }, async (request, reply) => {

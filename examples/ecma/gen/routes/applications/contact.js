@@ -1,6 +1,6 @@
 import { 
    BasicSchema,
-   ContactModifySchema
+   ContactModifyParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -36,7 +36,7 @@ const contactRoute = async (fastifyApp) => {
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            contact: ContactModifySchema
+            contact: ContactModifyParameterSchema
          })
       }
    }, async (request, reply) => {

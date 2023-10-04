@@ -1,7 +1,7 @@
 const { 
     ApplicationDeliverablesSchema,
     ApplicationDeliverableSchema,
-    ApplicationDeliverableModifySchema
+    ApplicationDeliverableModifyParameterSchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -62,7 +62,7 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
                 deliverable_id: DeliverableIdPathSchema
             }),
             body: Type.Object({
-                application_deliverable: ApplicationDeliverableModifySchema
+                application_deliverable: ApplicationDeliverableModifyParameterSchema
             })
         }
     }, async (request, reply) => {

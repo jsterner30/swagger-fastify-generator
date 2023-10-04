@@ -1,7 +1,7 @@
 import { 
    HighSchoolSummariesSchema,
    HighSchoolSummarySchema,
-   HighSchoolSummaryModifySchema
+   HighSchoolSummaryModifyParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -66,7 +66,7 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
+            high_school_body: HighSchoolSummaryModifyParameterSchema
          })
       }
    }, async (request, reply) => {
@@ -93,7 +93,7 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
             end_month: EndMonthPathSchema
          }),
          body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
+            high_school_body: HighSchoolSummaryModifyParameterSchema
          })
       }
    }, async (request, reply) => {

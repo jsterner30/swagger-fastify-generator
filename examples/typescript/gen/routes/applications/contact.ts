@@ -1,6 +1,6 @@
 import { 
    BasicSchema,
-   ContactModifySchema
+   ContactModifyParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -39,7 +39,7 @@ const contactRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): P
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            contact: ContactModifySchema
+            contact: ContactModifyParameterSchema
          })
       }
    }, async (request, reply) => {

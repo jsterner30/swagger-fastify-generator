@@ -1,7 +1,7 @@
 const { 
     QuestionsSchema,
     QuestionSchema,
-    QuestionAnswerSchema
+    QuestionAnswerParameterSchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -86,7 +86,7 @@ const questionsRoute = async (fastifyApp) => {
                 question_id: QuestionIdPathSchema
             }),
             body: Type.Object({
-                question_answer: QuestionAnswerSchema
+                question_answer: QuestionAnswerParameterSchema
             })
         }
     }, async (request, reply) => {

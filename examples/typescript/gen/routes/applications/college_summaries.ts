@@ -1,6 +1,6 @@
 import { 
    CollegeSummariesSchema,
-   CollegeSummaryModifySchema,
+   CollegeSummaryModifyParameterSchema,
    CollegeSummarySchema,
    ErrorResponseSchema
  } from '../../DefinitionSchemas.ts'
@@ -67,7 +67,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            college_summary: Type.Optional(CollegeSummaryModifySchema)
+            college_summary: Type.Optional(CollegeSummaryModifyParameterSchema)
          })
       }
    }, async (request, reply) => {
@@ -95,7 +95,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
             end_month: EndMonthPathSchema
          }),
          body: Type.Object({
-            college_summary: CollegeSummaryModifySchema
+            college_summary: CollegeSummaryModifyParameterSchema
          })
       }
    }, async (request, reply) => {

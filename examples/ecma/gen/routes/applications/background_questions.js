@@ -1,6 +1,6 @@
 import { 
    BackgroundQuestionsSchema,
-   BackgroundQuestionsModifySchema
+   BackgroundQuestionsModifyParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -59,7 +59,7 @@ const backgroundQuestionsRoute = async (fastifyApp) => {
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            background: BackgroundQuestionsModifySchema
+            background: BackgroundQuestionsModifyParameterSchema
          })
       }
    }, async (request, reply) => {

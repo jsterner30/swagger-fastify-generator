@@ -1,6 +1,6 @@
 import { 
    InternationalRecordsSchema,
-   InternationalRecordsModifySchema
+   InternationalRecordsModifyParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -59,7 +59,7 @@ const internationalRecordsRoute = async (fastifyApp) => {
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            international_records: InternationalRecordsModifySchema
+            international_records: InternationalRecordsModifyParameterSchema
          })
       }
    }, async (request, reply) => {

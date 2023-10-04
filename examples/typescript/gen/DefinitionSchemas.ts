@@ -10,14 +10,32 @@ import { Static, Type } from '@sinclair/typebox'
   u_email: 'my_alt@email.com'
 }
 */
-export const IncidentBodySchema = Type.Object({
+export const IncidentBodyParameterSchema = Type.Object({
    priority: Type.String(),
    caller_id: Type.String(),
    short_description: Type.String(),
    description: Type.Optional(Type.String()),
    u_email: Type.Optional(Type.String())
 })
-export type IncidentBody = Static<typeof IncidentBodySchema>
+export type IncidentBodyParameter = Static<typeof IncidentBodyParameterSchema>
+
+/**
+* DESCRIPTION: Elements required to perform an application action
+* EXAMPLE: {
+  component_id: 'cea9a774-dfe8-4dfd-8a2a-bb2edc984407',
+  action: 'Create',
+  action_message: 'New Application Created',
+  data: {}
+}
+*/
+export const ActionParameterSchema = Type.Object({
+   action: Type.String(),
+   action_message: Type.Optional(Type.String()),
+   component_id: Type.Optional(Type.String()),
+   data: Type.Optional(Type.Object({
+   }))
+})
+export type ActionParameter = Static<typeof ActionParameterSchema>
 
 /**
 * DESCRIPTION: A list of decision reason values
@@ -2209,20 +2227,12 @@ export const ActionMessageSchema = Type.Object({
 export type ActionMessage = Static<typeof ActionMessageSchema>
 
 /**
-* DESCRIPTION: Elements required to perform an application action
-* EXAMPLE: {
-  component_id: 'cea9a774-dfe8-4dfd-8a2a-bb2edc984407',
-  action: 'Create',
-  action_message: 'New Application Created',
-  data: {}
-}
+* DESCRIPTION: Application Action
 */
 export const ActionSchema = Type.Object({
-   action: Type.String(),
-   action_message: Type.Optional(Type.String()),
-   component_id: Type.Optional(Type.String()),
-   data: Type.Optional(Type.Object({
-   }))
+   value: Type.String(),
+   api_type: Type.Optional(Type.String()),
+   display_label: Type.Optional(Type.String())
 })
 export type Action = Static<typeof ActionSchema>
 

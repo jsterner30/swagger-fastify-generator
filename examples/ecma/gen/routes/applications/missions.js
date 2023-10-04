@@ -1,6 +1,6 @@
 import { 
    MissionsSchema,
-   MissionsModifySchema
+   MissionsModifyParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -59,7 +59,7 @@ const missionsRoute = async (fastifyApp) => {
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            missions: MissionsModifySchema
+            missions: MissionsModifyParameterSchema
          })
       }
    }, async (request, reply) => {

@@ -1,6 +1,6 @@
 import { 
    BiographicalClassificationsSchema,
-   BiographicalClassificationsModifySchema
+   BiographicalClassificationsModifyParameterSchema
  } from '../../DefinitionSchemas.ts'
 import { 
    Response400Schema,
@@ -62,7 +62,7 @@ const biographicalClassificationsRoute: FastifyPluginAsync<OptionsInterface> = a
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            biographical_classifications: BiographicalClassificationsModifySchema
+            biographical_classifications: BiographicalClassificationsModifyParameterSchema
          })
       }
    }, async (request, reply) => {

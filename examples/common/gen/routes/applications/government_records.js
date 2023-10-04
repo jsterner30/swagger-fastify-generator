@@ -1,6 +1,6 @@
 const { 
     GovernmentRecordsSchema,
-    GovernmentRecordsModifySchema
+    GovernmentRecordsModifyParameterSchema
  } = require('../../DefinitionSchemas.js')
 const { 
     Response400Schema,
@@ -59,7 +59,7 @@ const governmentRecordsRoute = async (fastifyApp) => {
                 application_id: ApplicationIdPathSchema
             }),
             body: Type.Object({
-                government_records: GovernmentRecordsModifySchema
+                government_records: GovernmentRecordsModifyParameterSchema
             })
         }
     }, async (request, reply) => {

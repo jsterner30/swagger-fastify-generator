@@ -1,6 +1,6 @@
 import { 
    GeiProgramsSchema,
-   GeiProgramModifySchema
+   GeiProgramModifyParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -59,7 +59,7 @@ const geiProgramsRoute = async (fastifyApp) => {
             application_id: ApplicationIdPathSchema
          }),
          body: Type.Object({
-            gei_program: GeiProgramModifySchema
+            gei_program: GeiProgramModifyParameterSchema
          })
       }
    }, async (request, reply) => {

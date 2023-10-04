@@ -1,9 +1,9 @@
 import { 
    ConceptsSchema,
    ErrorResponseSchema,
-   ClaimBodySchema,
+   ClaimBodyParameterSchema,
    ClaimArrayResponseSchema,
-   ClaimArraySchema
+   ClaimArrayParameterSchema
  } from '../../DefinitionSchemas.js'
 import { 
    Response400Schema,
@@ -54,7 +54,7 @@ const claimsRoute = async (fastifyApp) => {
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            claim_body: ClaimBodySchema
+            claim_body: ClaimBodyParameterSchema
          })
       }
    }, async (request, reply) => {
@@ -75,7 +75,7 @@ const claimsRoute = async (fastifyApp) => {
             default: ResponseDefaultSchema
          },
          body: Type.Object({
-            claim_array: ClaimArraySchema
+            claim_array: ClaimArrayParameterSchema
          })
       }
    }, async (request, reply) => {
