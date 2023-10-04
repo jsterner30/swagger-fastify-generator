@@ -35,7 +35,7 @@ export async function printResponses (responses: Response[]): Promise<void> {
   }
 
   if (defsToImport.length > 0) {
-    await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), `./DefinitionSchemas`))
+    await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), './DefinitionSchemas'))
   }
   await writeSchemas(fileName, schemaStrings)
 

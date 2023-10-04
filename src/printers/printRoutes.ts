@@ -50,15 +50,15 @@ export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Pr
     toPrint += '\n}'
 
     if (defsToImport.length > 0) {
-      await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), `../../DefinitionSchemas`))
+      await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), '../../DefinitionSchemas'))
     }
     if (resToImport.length > 0) {
-      await appendFile(fileName, printType.importGeneral(getImportStringResponseSchema(resToImport), `../../ResponseSchemas`))
+      await appendFile(fileName, printType.importGeneral(getImportStringResponseSchema(resToImport), '../../ResponseSchemas'))
     }
     if (paramsToImport.length > 0) {
-      await appendFile(fileName, printType.importGeneral(getImportString(paramsToImport), `../../ParameterSchemas`))
+      await appendFile(fileName, printType.importGeneral(getImportString(paramsToImport), '../../ParameterSchemas'))
     }
-    await appendFile(fileName, printType.importGeneral('Tags', `../../constants`))
+    await appendFile(fileName, printType.importGeneral('Tags', '../../constants'))
 
     toPrint += '\n\n' + printType.defaultExport(functionName)
 
