@@ -56,9 +56,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
             500: Response500Schema,
             default: ResponseDefaultSchema
          },
-         body: Type.Object({
-            claim_body: ClaimBodySchema
-         })
+         body: ClaimBodySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work
@@ -77,9 +75,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
             409: Response409Schema,
             default: ResponseDefaultSchema
          },
-         body: Type.Object({
-            claim_array: ClaimArraySchema
-         })
+         body: ClaimArraySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

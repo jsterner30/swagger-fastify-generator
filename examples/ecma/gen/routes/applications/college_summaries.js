@@ -63,9 +63,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            college_summary: Type.Optional(CollegeSummaryModifySchema)
-         })
+         body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work
@@ -91,9 +89,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
             start_month: StartMonthPathSchema,
             end_month: EndMonthPathSchema
          }),
-         body: Type.Object({
-            college_summary: CollegeSummaryModifySchema
-         })
+         body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

@@ -62,9 +62,7 @@ const applicationActionsRoute: FastifyPluginAsync<OptionsInterface> = async (fas
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            application_action: ApplicationActionNewSchema
-         })
+         body: ApplicationActionNewSchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

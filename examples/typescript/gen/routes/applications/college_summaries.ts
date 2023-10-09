@@ -66,9 +66,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            college_summary: Type.Optional(CollegeSummaryModifySchema)
-         })
+         body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work
@@ -94,9 +92,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
             start_month: StartMonthPathSchema,
             end_month: EndMonthPathSchema
          }),
-         body: Type.Object({
-            college_summary: CollegeSummaryModifySchema
-         })
+         body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

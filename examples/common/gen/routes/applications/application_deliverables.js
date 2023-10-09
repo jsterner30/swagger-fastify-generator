@@ -61,9 +61,7 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
                 application_id: ApplicationIdPathSchema,
                 deliverable_id: DeliverableIdPathSchema
             }),
-            body: Type.Object({
-                application_deliverable: ApplicationDeliverableModifySchema
-            })
+            body: ApplicationDeliverableModifySchema
         }
     }, async (request, reply) => {
         // TODO: make this route work

@@ -38,9 +38,7 @@ const contactRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): P
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            contact: ContactModifySchema
-         })
+         body: ContactModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

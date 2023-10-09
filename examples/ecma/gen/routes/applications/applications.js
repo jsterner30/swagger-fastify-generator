@@ -84,9 +84,7 @@ const applicationsRoute = async (fastifyApp) => {
             500: Response500Schema,
             default: ResponseDefaultSchema
          },
-         body: Type.Object({
-            application: ApplicationNewSchema
-         })
+         body: ApplicationNewSchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

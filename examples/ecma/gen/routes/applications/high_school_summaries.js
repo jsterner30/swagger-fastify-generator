@@ -62,9 +62,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
-         })
+         body: HighSchoolSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work
@@ -89,9 +87,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
             start_month: StartMonthPathSchema,
             end_month: EndMonthPathSchema
          }),
-         body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
-         })
+         body: HighSchoolSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

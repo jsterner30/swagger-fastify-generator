@@ -184,8 +184,15 @@ function getSchemaString (tags: string[], summary: string, route: Route, defsToI
   if (route.getParentQueryParameters().length > 0) {
     toReturn += getParamString(route.getParentQueryParameters(), paramsToImport, defsToImport, 'querystring')
   }
-  if (route.getParentBodyParameters().length > 0) {
-    toReturn += getParamString(route.getParentBodyParameters(), paramsToImport, defsToImport, 'body')
+  const parentBodyParams = route.getParentBodyParameters()
+  if (parentBodyParams.length > 0) {
+    if (parentBodyParams.length === 1 && parentBodyParams[0].parentDefinition != null) {
+      const normalizedName = normalizeName(parentBodyParams[0].parentDefinition)
+      toReturn += `\n${indent(3)}body: ${normalizedName}Schema`
+      defsToImport.push(normalizedName)
+    } else {
+      toReturn += getParamString(route.getParentBodyParameters(), paramsToImport, defsToImport, 'body')
+    }
   }
 
   if (toReturn.at(toReturn.length - 1) === ',') {

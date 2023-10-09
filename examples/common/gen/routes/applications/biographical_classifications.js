@@ -58,9 +58,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
             params: Type.Object({
                 application_id: ApplicationIdPathSchema
             }),
-            body: Type.Object({
-                biographical_classifications: BiographicalClassificationsModifySchema
-            })
+            body: BiographicalClassificationsModifySchema
         }
     }, async (request, reply) => {
         // TODO: make this route work

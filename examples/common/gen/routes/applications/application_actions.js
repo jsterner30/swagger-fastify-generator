@@ -59,9 +59,7 @@ const applicationActionsRoute = async (fastifyApp) => {
             params: Type.Object({
                 application_id: ApplicationIdPathSchema
             }),
-            body: Type.Object({
-                application_action: ApplicationActionNewSchema
-            })
+            body: ApplicationActionNewSchema
         }
     }, async (request, reply) => {
         // TODO: make this route work

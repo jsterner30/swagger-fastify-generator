@@ -58,9 +58,7 @@ const internationalRecordsRoute = async (fastifyApp) => {
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            international_records: InternationalRecordsModifySchema
-         })
+         body: InternationalRecordsModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

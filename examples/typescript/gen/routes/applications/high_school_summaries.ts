@@ -65,9 +65,7 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
-         })
+         body: HighSchoolSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work
@@ -92,9 +90,7 @@ const highSchoolSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fa
             start_month: StartMonthPathSchema,
             end_month: EndMonthPathSchema
          }),
-         body: Type.Object({
-            high_school_body: HighSchoolSummaryModifySchema
-         })
+         body: HighSchoolSummaryModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

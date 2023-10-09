@@ -163,9 +163,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            action: ActionParameterSchema
-         })
+         body: ActionParameterSchema
       }
    }, async (request, reply) => {
       // TODO: make this route work
@@ -188,9 +186,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
             application_id: ApplicationIdPathSchema,
             component_id: ComponentIdPathSchema
          }),
-         body: Type.Object({
-            action: ActionParameterSchema
-         })
+         body: ActionParameterSchema
       }
    }, async (request, reply) => {
       // TODO: make this route work
@@ -256,9 +252,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
             500: Response500Schema,
             default: ResponseDefaultSchema
          },
-         body: Type.Object({
-            incident_body: IncidentBodyParameterSchema
-         })
+         body: IncidentBodyParameterSchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

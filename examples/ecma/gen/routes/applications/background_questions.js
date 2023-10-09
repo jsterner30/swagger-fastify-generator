@@ -58,9 +58,7 @@ const backgroundQuestionsRoute = async (fastifyApp) => {
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            background: BackgroundQuestionsModifySchema
-         })
+         body: BackgroundQuestionsModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

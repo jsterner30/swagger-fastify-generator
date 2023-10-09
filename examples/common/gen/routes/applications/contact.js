@@ -35,9 +35,7 @@ const contactRoute = async (fastifyApp) => {
             params: Type.Object({
                 application_id: ApplicationIdPathSchema
             }),
-            body: Type.Object({
-                contact: ContactModifySchema
-            })
+            body: ContactModifySchema
         }
     }, async (request, reply) => {
         // TODO: make this route work

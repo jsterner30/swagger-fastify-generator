@@ -61,9 +61,7 @@ const geiProgramsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            gei_program: GeiProgramModifySchema
-         })
+         body: GeiProgramModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

@@ -88,9 +88,7 @@ const questionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp):
             application_id: ApplicationIdPathSchema,
             question_id: QuestionIdPathSchema
          }),
-         body: Type.Object({
-            question_answer: QuestionAnswerSchema
-         })
+         body: QuestionAnswerSchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

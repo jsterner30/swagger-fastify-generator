@@ -58,9 +58,7 @@ const missionsRoute = async (fastifyApp) => {
          params: Type.Object({
             application_id: ApplicationIdPathSchema
          }),
-         body: Type.Object({
-            missions: MissionsModifySchema
-         })
+         body: MissionsModifySchema
       }
    }, async (request, reply) => {
       // TODO: make this route work

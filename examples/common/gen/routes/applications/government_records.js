@@ -58,9 +58,7 @@ const governmentRecordsRoute = async (fastifyApp) => {
             params: Type.Object({
                 application_id: ApplicationIdPathSchema
             }),
-            body: Type.Object({
-                government_records: GovernmentRecordsModifySchema
-            })
+            body: GovernmentRecordsModifySchema
         }
     }, async (request, reply) => {
         // TODO: make this route work
