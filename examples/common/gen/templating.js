@@ -2982,3 +2982,20 @@ const sharedGradeTemplate = function (templateData) {
             display_label: `Grade`
     }
 }
+
+module.exports = {
+    conceptsTemplate, errorResponseTemplate, claimArrayResponseTemplate, 
+    reportsMetadataTemplate, statusTemplate, decisionReasonsTemplate, 
+    applicationsTemplate, applicationTemplate, applicationActionsTemplate, 
+    applicationActionTemplate, applicationDeliverablesTemplate, applicationDeliverableTemplate, 
+    backgroundQuestionsTemplate, biographicalClassificationsTemplate, basicTemplate, 
+    governmentRecordsTemplate, internationalRecordsTemplate, personalRecordsTemplate, 
+    collegeSummariesTemplate, collegeSummaryTemplate, highSchoolSummariesTemplate, 
+    highSchoolSummaryTemplate, testScoresTemplate, endorsementTemplate, 
+    geiProgramsTemplate, missionsTemplate, seminarySummariesTemplate, 
+    instituteSummariesTemplate, questionsTemplate, questionTemplate, 
+    conceptTemplate, attributeStringTemplate, instituteClassDataTemplate, 
+    seminaryClassDataTemplate, testScoreTemplate, highSchoolCourseInfoTemplate, 
+    highSchoolNonaccreditedWorkInfoTemplate, questionElementTemplate, questionGroupTemplate, 
+    seminaryTermInfoTemplate, sharedGradeTemplate
+}

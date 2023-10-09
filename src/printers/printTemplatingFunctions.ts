@@ -41,6 +41,9 @@ export async function printTemplatingFunctions (definitions: Definition[], route
   }
 
   await appendFile(fileName, toPrint)
+  if (printType.type === 'common') {
+    await printCommonJSExports(fileName, responsesSet)
+  }
 }
 
 function getTemplateFunctionString (responseRef: string, defMap: Record<string, Definition>, printType: PrintType, arraySubObjects: string[]): string {
@@ -55,4 +58,23 @@ function getTemplateFunctionString (responseRef: string, defMap: Record<string, 
   toPrint += '\n}'
 
   return toPrint
+}
+
+export async function printCommonJSExports (fileName: string, responses: Set<string>): Promise<void> {
+  const tabs = indent(1)
+  await appendFile(fileName, '\n\nmodule.exports = {')
+  let exportStatement = ''
+  let i = 0
+  for (const res of responses) {
+    const ref = res.split('/')
+    if (ref[1] === 'definitions') {
+      if (i % 3 === 0) {
+        exportStatement = exportStatement + '\n' + tabs
+      }
+      exportStatement += `${normalizeLowerCamelName(ref[2])}Template, `
+      ++i
+    }
+  }
+  exportStatement = exportStatement.slice(0, -2) + '\n}'
+  await appendFile(fileName, exportStatement)
 }

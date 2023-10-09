@@ -55,9 +55,9 @@ export async function printCommonJSExports (fileName: string, parameters: Parame
   for (let i = 0; i < parameters.length; ++i) {
     if (parameters[i].parentDefinition == null) {
       if (i % 3 === 0) {
-        exportStatement = exportStatement + '\n' + tabs
+        exportStatement += '\n' + tabs
       }
-      exportStatement = exportStatement + normalizeParameterName(parameters[i].name, parameters[i].in) + 'Schema' + ', '
+      exportStatement += normalizeParameterName(parameters[i].name, parameters[i].in) + 'Schema' + ', '
     }
   }
   exportStatement = exportStatement.slice(0, -2) + '\n}'
