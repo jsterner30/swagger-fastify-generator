@@ -45,12 +45,12 @@ export function getParameter (title: string): Parameter {
   throw new Error(`Parameter with title: ${title} does not exist in params list`)
 }
 
-let routeFiles: Record<string, RouteFile> = {}
-export function setRoutes (routesObj: Record<string, any>): void {
-  routeFiles = routesObj
+let routeDirs: Record<string, Record<string, RouteFile>> = {}
+export function setRoutes (routesObj: Record<string, Record<string, RouteFile>>): void {
+  routeDirs = routesObj
 }
-export function getRoutes (): Record<string, RouteFile> {
-  return routeFiles
+export function getRoutes (): Record<string, Record<string, RouteFile>> {
+  return routeDirs
 }
 
 let responses: Response[] = []

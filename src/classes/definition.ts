@@ -1,5 +1,5 @@
 import * as util from 'util'
-import { normalizeName, indent } from '../util/util'
+import { normalizeName, indent, getTemplateDataProperty } from '../util/util'
 
 export interface Parent {
   name: string
@@ -39,6 +39,10 @@ export class Definition {
   toString (level: number, useOptionalType: boolean): string {
     throw new Error('Must be implemented in inherited class')
   }
+
+  getTemplateString (level: number, defMap: Record<string, Definition>, parentName: string, arraySubObjects: string[]): string {
+    throw new Error('Must be implemented in inherited class')
+  }
 }
 
 export class ObjectDefinition extends Definition {
@@ -69,16 +73,6 @@ export class ObjectDefinition extends Definition {
     const tabs = indent(level)
     let response = 'Type.Object({'
 
-    for (const parent of this.parents) {
-      let optional = ''
-      let optionalEnd = ''
-      if (useOptionalType && !this.required.includes(parent.name)) {
-        optional = 'Type.Optional('
-        optionalEnd = ')'
-      }
-      response = response + `\n${tabs}${parent.name}: ${optional}${normalizeName(parent.reference)}Schema${optionalEnd},`
-    }
-
     for (const property of this.properties) {
       let optional = ''
       let optionalEnd = ''
@@ -87,6 +81,16 @@ export class ObjectDefinition extends Definition {
         optionalEnd = ')'
       }
       response = response + '\n' + tabs + property.name + ': ' + optional + property.toString(level + 1, useOptionalType) + optionalEnd + ','
+    }
+
+    for (const parent of this.parents) {
+      let optional = ''
+      let optionalEnd = ''
+      if (useOptionalType && !this.required.includes(parent.name)) {
+        optional = 'Type.Optional('
+        optionalEnd = ')'
+      }
+      response = response + `\n${tabs}${parent.name}: ${optional}${normalizeName(parent.reference)}Schema${optionalEnd},`
     }
 
     if (response.at(response.length - 1) === ',') {
@@ -100,6 +104,31 @@ export class ObjectDefinition extends Definition {
 
     response = response + `\n${indent(level - 1)}}${additionalPropString})`
     return response
+  }
+
+  getTemplateString (level: number, defMap: Record<string, Definition>, parentName: string, arraySubObjects: string[]): string {
+    let toReturn = '{'
+    for (const prop of this.properties) {
+      if (prop.name !== 'metadata') {
+        toReturn += `\n${indent(level + 1)}${prop.name}: `
+        toReturn += prop.getTemplateString(level + 1, defMap, parentName, arraySubObjects) + ','
+      }
+    }
+
+    for (const parDef of this.parents) {
+      if (parDef.name !== 'metadata') {
+        if (defMap[parDef.reference] != null) {
+          toReturn += `\n${indent(level + 1)}${parDef.name}: `
+          toReturn += defMap[parDef.reference].getTemplateString(level + 1, defMap, parDef.name, arraySubObjects) + ','
+        }
+      }
+    }
+
+    if (toReturn.at(toReturn.length - 1) === ',') {
+      toReturn = toReturn.slice(0, -1)
+    }
+    toReturn += `\n${indent(level - 1)}}`
+    return toReturn
   }
 }
 
@@ -130,6 +159,17 @@ export class ArrayDefinition extends Definition {
     }
 
     return response
+  }
+
+  getTemplateString (level: number, defMap: Record<string, Definition>, parentName: string, arraySubObjects: string[]): string {
+    if (this.parents.length > 0) {
+      for (const parent of this.parents) {
+        arraySubObjects.push('#/definitions/' + parent.reference)
+      }
+    }
+    return '[]'
+    // when templates expect an array, the user should instantiate the array as a property of their own object and then
+    // call the templating function for that sub-object as many times as necessary to fill the array
   }
 }
 
@@ -166,6 +206,10 @@ export class AllOfDefinition extends Definition {
     response = response + '\n])'
     return response
   }
+
+  getTemplateString (level: number, defMap: Record<string, Definition>, parentName: string): string {
+    return '"getTemplateString not implemented in AllOfDefinition class"'
+  }
 }
 
 export class StringDefinition extends Definition {
@@ -182,6 +226,23 @@ export class StringDefinition extends Definition {
 
   toString (level: number): string {
     return 'Type.String()'
+  }
+
+  getStringInterpolation (): string {
+    if (this.defaultValue != null) {
+      const placeholderRegex = /:([a-zA-Z_]+)/g
+      /* eslint-disable */
+      return '`' + this.defaultValue.replace(placeholderRegex, '${templateData.$1}') + '`'
+    }
+    throw new Error('Default value is expected but undefined in Definition with name: ' + this.name)
+  }
+
+  getTemplateString (level: number, defMap: Record<string, Definition>, parentName: string): string {
+    if (this.defaultValue == null) {
+      return getTemplateDataProperty(this.name, `templateData.${parentName}`)
+    } else {
+      return `${this.getStringInterpolation()}`
+    }
   }
 }
 
@@ -211,6 +272,14 @@ export class NumberDefinition extends Definition {
   toString (level: number): string {
     return 'Type.Integer()'
   }
+
+  getTemplateString (level: number, defMap: Record<string, Definition>, parentName: string): string {
+    if (this.defaultValue == null) {
+      return getTemplateDataProperty(this.name, `templateData.${parentName}`)
+    } else {
+      return `${this.defaultValue}`
+    }
+  }
 }
 
 export class BooleanDefinition extends Definition {
@@ -227,5 +296,13 @@ export class BooleanDefinition extends Definition {
 
   toString (level: number): string {
     return 'Type.Boolean()'
+  }
+
+  getTemplateString (level: number, defMap: Record<string, Definition>, parentName: string): string {
+    if (this.defaultValue == null) {
+      return getTemplateDataProperty(this.name, `templateData.${parentName}`)
+    } else {
+      return this.defaultValue.toString()
+    }
   }
 }

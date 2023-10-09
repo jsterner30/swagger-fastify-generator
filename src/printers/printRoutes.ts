@@ -11,58 +11,57 @@ import {
 import { RouteFile, Route } from '../classes/route'
 import { Parameter } from '../classes/parameter'
 
-export async function printRoutes (routeFilesMap: Record<string, RouteFile>): Promise<void> {
+export async function printRoutes (routeDirsMap: Record<string, Record<string, RouteFile>>): Promise<void> {
   const responses = getUserSettings()
   const printType = responses.printType
   const routesDir = './gen/routes'
   await createDir(`${routesDir}`)
-  const dirSet: Set<string> = new Set()
 
-  for (const file of Object.keys(routeFilesMap)) {
-    const defsToImport: string[] = []
-    const paramsToImport: string[] = []
-    const resToImport: string[] = []
-    const parentDir = routeFilesMap[file].parentDir
-    if (!dirSet.has(parentDir)) {
-      await createDir(`${routesDir}/${parentDir}`)
-      dirSet.add(parentDir)
-    }
+  for (const dir of Object.keys(routeDirsMap)) {
+    await createDir(`${routesDir}/${dir}`)
+    for (const file of Object.keys(routeDirsMap[dir])) {
+      const fileObj = routeDirsMap[dir][file]
+      const defsToImport: string[] = []
+      const paramsToImport: string[] = []
+      const resToImport: string[] = []
+      const parentDir = fileObj.parentDir
 
-    const fileName = `${routesDir}/${parentDir}/${file}.${printType.fileType}`
-    let toPrint = ''
-    toPrint = printType.importTypeBox
-    const functionName = normalizeLowerCamelName(file) + 'Route'
-    if (printType.type === 'typescript') {
-      toPrint += getTypescriptImports()
-      toPrint += getRouteFunctionStringTypescript(functionName)
-    } else {
-      toPrint += getRouteFunctionString(functionName)
-    }
-
-    for (const path of routeFilesMap[file].routePaths) {
-      for (const route of path.routes) {
-        toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport)
+      const fileName = `${routesDir}/${parentDir}/${file}.${printType.fileType}`
+      let toPrint = ''
+      toPrint = printType.importTypeBox
+      const functionName = normalizeLowerCamelName(file) + 'Route'
+      if (printType.type === 'typescript') {
+        toPrint += getTypescriptImports()
+        toPrint += getRouteFunctionStringTypescript(functionName)
+      } else {
+        toPrint += getRouteFunctionString(functionName)
       }
-    }
-    if (toPrint.at(toPrint.length - 1) === ',') {
-      toPrint = toPrint.slice(0, -1)
-    }
-    toPrint += '\n}'
 
-    if (defsToImport.length > 0) {
-      await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), '../../DefinitionSchemas'))
-    }
-    if (resToImport.length > 0) {
-      await appendFile(fileName, printType.importGeneral(getImportStringResponseSchema(resToImport), '../../ResponseSchemas'))
-    }
-    if (paramsToImport.length > 0) {
-      await appendFile(fileName, printType.importGeneral(getImportString(paramsToImport), '../../ParameterSchemas'))
-    }
-    await appendFile(fileName, printType.importGeneral('Tags', '../../constants'))
+      for (const path of fileObj.routePaths) {
+        for (const route of path.routes) {
+          toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport)
+        }
+      }
+      if (toPrint.at(toPrint.length - 1) === ',') {
+        toPrint = toPrint.slice(0, -1)
+      }
+      toPrint += '\n}'
 
-    toPrint += '\n\n' + printType.defaultExport(functionName)
+      if (defsToImport.length > 0) {
+        await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), '../../DefinitionSchemas'))
+      }
+      if (resToImport.length > 0) {
+        await appendFile(fileName, printType.importGeneral(getImportStringResponseSchema(resToImport), '../../ResponseSchemas'))
+      }
+      if (paramsToImport.length > 0) {
+        await appendFile(fileName, printType.importGeneral(getImportString(paramsToImport), '../../ParameterSchemas'))
+      }
+      await appendFile(fileName, printType.importGeneral('Tags', '../../constants'))
 
-    await appendFile(fileName, toPrint)
+      toPrint += '\n\n' + printType.defaultExport(functionName)
+
+      await appendFile(fileName, toPrint)
+    }
   }
 }
 

@@ -2061,13 +2061,13 @@ export const MetadataSimpleSchema = Type.Object({
 * DESCRIPTION: A list of decision reasons
 */
 export const DecisionReasonsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
    values: Type.Optional(Type.Object({
       admitReasons: Type.Optional(DecisionReasonValueArraySchema),
       denyReasons: Type.Optional(DecisionReasonValueArraySchema),
       holdReasons: Type.Optional(DecisionReasonValueArraySchema),
       archiveReasons: Type.Optional(DecisionReasonValueArraySchema)
-   }))
+   })),
+   metadata: MetadataSimpleSchema
 })
 
 /**
@@ -2127,31 +2127,36 @@ export const SeminaryTermInfoSchema = Type.Object({
 /**
 */
 export const SeminaryClassDataSchema = Type.Object({
+   term_info: Type.Optional(Type.Array(SeminaryTermInfoSchema)),
    seminary_class: Type.Optional(SeminaryClassSchema),
-   academic_year: Type.Optional(SharedAcademicYearSchema),
-   term_info: Type.Optional(Type.Array(SeminaryTermInfoSchema))
+   academic_year: Type.Optional(SharedAcademicYearSchema)
 })
 
 /**
 * DESCRIPTION: A set of question elements that should be grouped together
 */
 export const QuestionGroupSchema = Type.Object({
-   id: Type.Optional(QuestionGroupIdSchema),
-   name: Type.Optional(NameSchema),
-   description: Type.Optional(DescriptionSchema),
-   ordinal: Type.Optional(QuestionGroupOrdinalSchema),
-   heading: Type.Optional(QuestionGroupHeadingSchema),
    elements: Type.Optional(Type.Array(Type.Object({
       id: Type.Optional(Type.String()),
       label: Type.Optional(Type.String()),
       ordinal: Type.Optional(Type.String())
-   })))
+   }))),
+   id: Type.Optional(QuestionGroupIdSchema),
+   name: Type.Optional(NameSchema),
+   description: Type.Optional(DescriptionSchema),
+   ordinal: Type.Optional(QuestionGroupOrdinalSchema),
+   heading: Type.Optional(QuestionGroupHeadingSchema)
 })
 
 /**
 * DESCRIPTION: A question element
 */
 export const QuestionElementSchema = Type.Object({
+   response_criteria: Type.Optional(Type.Array(Type.Object({
+      label: Type.Optional(Type.String()),
+      value: Type.Optional(Type.String())
+   }))),
+   response_set: Type.Optional(Type.Array(Type.String())),
    id: Type.Optional(QuestionElementIdSchema),
    type: Type.Optional(QuestionElementTypeSchema),
    prompt: Type.Optional(QuestionElementPromptSchema),
@@ -2159,12 +2164,7 @@ export const QuestionElementSchema = Type.Object({
    limit: Type.Optional(QuestionElementLimitSchema),
    ordinal: Type.Optional(QuestionElementOrdinalSchema),
    response: Type.Optional(QuestionElementResponseSchema),
-   response_range: Type.Optional(QuestionElementResponseRangeSchema),
-   response_criteria: Type.Optional(Type.Array(Type.Object({
-      label: Type.Optional(Type.String()),
-      value: Type.Optional(Type.String())
-   }))),
-   response_set: Type.Optional(Type.Array(Type.String()))
+   response_range: Type.Optional(QuestionElementResponseRangeSchema)
 })
 
 /**
@@ -2218,6 +2218,7 @@ export const HighSchoolNonaccreditedWorkInfoSchema = Type.Object({
 /**
 */
 export const HighSchoolCourseInfoSchema = Type.Object({
+   grades: Type.Optional(Type.Array(SharedGradeSchema)),
    grade_level: Type.Optional(HighSchoolGradeLevelSchema),
    subject: Type.Optional(HighSchoolSubjectSchema),
    course_name: Type.Optional(HighSchoolCourseNameSchema),
@@ -2225,8 +2226,7 @@ export const HighSchoolCourseInfoSchema = Type.Object({
    repeated: Type.Optional(HighSchoolRepeatedFlagSchema),
    grading_terms: Type.Optional(HighSchoolGradingTermsSchema),
    grade_final: Type.Optional(HighSchoolGradeFinalSchema),
-   credits: Type.Optional(HighSchoolCreditsSchema),
-   grades: Type.Optional(Type.Array(SharedGradeSchema))
+   credits: Type.Optional(HighSchoolCreditsSchema)
 })
 
 /**
@@ -2491,6 +2491,10 @@ export const BackgroundQuestionsModifySchema = Type.Object({
 * DESCRIPTION: A Test Score from the applicant
 */
 export const TestScoreSchema = Type.Object({
+   test_components: Type.Optional(Type.Array(Type.Object({
+      component_name: Type.Optional(TestComponentNameSchema),
+      component_score: Type.Optional(TestComponentScoreSchema)
+   }))),
    metadata: Type.Optional(MetadataSimpleSchema),
    application_id: Type.Optional(ApplicationIdSchema),
    applicant_id: Type.Optional(ApplicantIdSchema),
@@ -2498,18 +2502,13 @@ export const TestScoreSchema = Type.Object({
    test_date: Type.Optional(TestDateSchema),
    composite_score: Type.Optional(TestCompositeScoreSchema),
    date_time_reported: Type.Optional(DateTimeReportedSchema),
-   test_version: Type.Optional(TestVersionSchema),
-   test_components: Type.Optional(Type.Array(Type.Object({
-      component_name: Type.Optional(TestComponentNameSchema),
-      component_score: Type.Optional(TestComponentScoreSchema)
-   })))
+   test_version: Type.Optional(TestVersionSchema)
 })
 
 /**
 * DESCRIPTION: A collection of Test Scores from the applicant
 */
 export const TestScoresSchema = Type.Object({
-   metadata: MetadataCollectionSchema,
    links: Type.Optional(Type.Object({
       test_scores__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2517,7 +2516,8 @@ export const TestScoresSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   values: Type.Optional(Type.Array(TestScoreSchema))
+   values: Type.Optional(Type.Array(TestScoreSchema)),
+   metadata: MetadataCollectionSchema
 })
 
 /**
@@ -2529,19 +2529,6 @@ export const StatsSchema = Type.Array(AttributeStringSchema)
 * DESCRIPTION: Seminary information from the applicant API
 */
 export const SeminarySummariesSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   seminary_type: Type.Optional(SeminaryTypeSchema),
-   years_completed: Type.Optional(SeminaryYearsCompletedSchema),
-   attendance_percentage: Type.Optional(SeminaryAttendancePercentageSchema),
-   graduation_status: Type.Optional(SharedGraduationStatusSchema),
-   seminary_explanation: Type.Optional(SeminaryExplanationSchema),
-   teacher_name: Type.Optional(SeminaryTeacherNameSchema),
-   teacher_email: Type.Optional(SeminaryTeacherEmailSchema),
-   date_time_reported: Type.Optional(DateTimeReportedSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       seminary_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2559,13 +2546,25 @@ export const SeminarySummariesSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   seminary_classes: Type.Optional(Type.Array(SeminaryClassDataSchema))
+   seminary_classes: Type.Optional(Type.Array(SeminaryClassDataSchema)),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   seminary_type: Type.Optional(SeminaryTypeSchema),
+   years_completed: Type.Optional(SeminaryYearsCompletedSchema),
+   attendance_percentage: Type.Optional(SeminaryAttendancePercentageSchema),
+   graduation_status: Type.Optional(SharedGraduationStatusSchema),
+   seminary_explanation: Type.Optional(SeminaryExplanationSchema),
+   teacher_name: Type.Optional(SeminaryTeacherNameSchema),
+   teacher_email: Type.Optional(SeminaryTeacherEmailSchema),
+   date_time_reported: Type.Optional(DateTimeReportedSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 */
 export const ReportsMetadataSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
    values: Type.Optional(Type.Array(Type.Object({
       name: Type.Optional(Type.String()),
       description: Type.Optional(Type.String()),
@@ -2582,20 +2581,14 @@ export const ReportsMetadataSchema = Type.Object({
          qualifier: Type.Optional(Type.Array(Type.String())),
          link: Type.Optional(Type.String())
       })))
-   })))
+   }))),
+   metadata: Type.Optional(MetadataSimpleSchema)
 })
 
 /**
 * DESCRIPTION: An application question
 */
 export const QuestionSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   uuid: Type.Optional(QuestionUuidSchema),
-   type: Type.Optional(QuestionTypeSchema),
-   name: Type.Optional(NameSchema),
-   description: Type.Optional(DescriptionSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       question__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2609,14 +2602,20 @@ export const QuestionSchema = Type.Object({
       }))
    })),
    elements: Type.Optional(Type.Array(QuestionElementSchema)),
-   groups: Type.Optional(Type.Array(QuestionGroupSchema))
+   groups: Type.Optional(Type.Array(QuestionGroupSchema)),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   uuid: Type.Optional(QuestionUuidSchema),
+   type: Type.Optional(QuestionTypeSchema),
+   name: Type.Optional(NameSchema),
+   description: Type.Optional(DescriptionSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: Admissions questions
 */
 export const QuestionsSchema = Type.Object({
-   metadata: MetadataCollectionSchema,
    links: Type.Optional(Type.Object({
       questions__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2624,23 +2623,14 @@ export const QuestionsSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   values: Type.Optional(Type.Array(QuestionSchema))
+   values: Type.Optional(Type.Array(QuestionSchema)),
+   metadata: MetadataCollectionSchema
 })
 
 /**
 * DESCRIPTION: Confidential personal information on the applicant API
 */
 export const PersonalRecordsSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   date_of_birth: Type.Optional(PersonalDateOfBirthSchema),
-   marital_status: Type.Optional(PersonalMaritalStatusSchema),
-   religion_code: Type.Optional(PersonalReligionCodeSchema),
-   religion_tenure: Type.Optional(PersonalReligionTenureSchema),
-   sex: Type.Optional(PersonalSexSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       personal_records__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2657,13 +2647,30 @@ export const PersonalRecordsSchema = Type.Object({
          href: Type.String(),
          method: Type.String()
       }))
-   }))
+   })),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   date_of_birth: Type.Optional(PersonalDateOfBirthSchema),
+   marital_status: Type.Optional(PersonalMaritalStatusSchema),
+   religion_code: Type.Optional(PersonalReligionCodeSchema),
+   religion_tenure: Type.Optional(PersonalReligionTenureSchema),
+   sex: Type.Optional(PersonalSexSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: Mission information for Applicant on the Undergradudate Application
 */
 export const MissionsSchema = Type.Object({
+   links: Type.Optional(Type.Object({
+      missions__info: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      }))
+   })),
    metadata: Type.Optional(MetadataSimpleSchema),
    application_id: Type.Optional(ApplicationIdSchema),
    applicant_id: Type.Optional(ApplicantIdSchema),
@@ -2674,28 +2681,13 @@ export const MissionsSchema = Type.Object({
    end_month: Type.Optional(SharedEndMonthSchema),
    mission_type: Type.Optional(MissionTypeSchema),
    updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
-   links: Type.Optional(Type.Object({
-      missions__info: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      }))
-   }))
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: Confidential International information for Applicant API
 */
 export const InternationalRecordsSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   alien_number: Type.Optional(IntlAlienNumberSchema),
-   current_us_resident: Type.Optional(IntlCurrentUsResidentSchema),
-   visa_change_plan: Type.Optional(IntlVisaChangePlanSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       international_records__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2707,7 +2699,15 @@ export const InternationalRecordsSchema = Type.Object({
          href: Type.String(),
          method: Type.String()
       }))
-   }))
+   })),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   alien_number: Type.Optional(IntlAlienNumberSchema),
+   current_us_resident: Type.Optional(IntlCurrentUsResidentSchema),
+   visa_change_plan: Type.Optional(IntlVisaChangePlanSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
@@ -2724,14 +2724,6 @@ export const InstituteClassDataSchema = Type.Object({
 * DESCRIPTION: Institute information from the Application API
 */
 export const InstituteSummariesSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   institute_attendance: Type.Optional(InstituteAttendanceSchema),
-   institute_explanation: Type.Optional(InstituteExplanationSchema),
-   date_time_reported: Type.Optional(DateTimeReportedSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       institute_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2749,36 +2741,21 @@ export const InstituteSummariesSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   institute_classes: Type.Optional(Type.Array(InstituteClassDataSchema))
+   institute_classes: Type.Optional(Type.Array(InstituteClassDataSchema)),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   institute_attendance: Type.Optional(InstituteAttendanceSchema),
+   institute_explanation: Type.Optional(InstituteExplanationSchema),
+   date_time_reported: Type.Optional(DateTimeReportedSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: High School for Undergraduate Application API
 */
 export const HighSchoolSummarySchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   high_school_type: Type.Optional(HighSchoolTypeSchema),
-   high_school: Type.Optional(HighSchoolSchema),
-   high_school_city: Type.Optional(HighSchoolCitySchema),
-   high_school_state: Type.Optional(HighSchoolStateSchema),
-   high_school_country: Type.Optional(HighSchoolCountrySchema),
-   start_month: Type.Optional(SharedStartMonthSchema),
-   end_month: Type.Optional(SharedEndMonthSchema),
-   graduation_status: Type.Optional(SharedGraduationStatusSchema),
-   graduation_date: Type.Optional(HighSchoolGraduationDateSchema),
-   high_school_gpa: Type.Optional(HighSchoolGpaSchema),
-   gpa_calculated: Type.Optional(HighSchoolGpaCalculatedSchema),
-   ap_ib_half_classes: Type.Optional(HighSchoolApIbHalfClassesSchema),
-   ap_ib_full_classes: Type.Optional(HighSchoolApIbFullClassesSchema),
-   concurrent_enrollment: Type.Optional(HighSchoolConcurrentEnrollmentSchema),
-   transcript_source: Type.Optional(HighSchoolTranscriptSourceSchema),
-   date_time_verified: Type.Optional(DateTimeVerifiedSchema),
-   link_to_document_image: Type.Optional(HighSchoolLinkToDocumentImageSchema),
-   link_to_secondary_document_image: Type.Optional(HighSchoolLinkToSecondaryDocumentImageSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       high_school_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2802,14 +2779,36 @@ export const HighSchoolSummarySchema = Type.Object({
       }))
    })),
    list_of_classes: Type.Optional(Type.Array(HighSchoolCourseInfoSchema)),
-   list_of_nonaccredited_work: Type.Optional(Type.Array(HighSchoolNonaccreditedWorkInfoSchema))
+   list_of_nonaccredited_work: Type.Optional(Type.Array(HighSchoolNonaccreditedWorkInfoSchema)),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   high_school_type: Type.Optional(HighSchoolTypeSchema),
+   high_school: Type.Optional(HighSchoolSchema),
+   high_school_city: Type.Optional(HighSchoolCitySchema),
+   high_school_state: Type.Optional(HighSchoolStateSchema),
+   high_school_country: Type.Optional(HighSchoolCountrySchema),
+   start_month: Type.Optional(SharedStartMonthSchema),
+   end_month: Type.Optional(SharedEndMonthSchema),
+   graduation_status: Type.Optional(SharedGraduationStatusSchema),
+   graduation_date: Type.Optional(HighSchoolGraduationDateSchema),
+   high_school_gpa: Type.Optional(HighSchoolGpaSchema),
+   gpa_calculated: Type.Optional(HighSchoolGpaCalculatedSchema),
+   ap_ib_half_classes: Type.Optional(HighSchoolApIbHalfClassesSchema),
+   ap_ib_full_classes: Type.Optional(HighSchoolApIbFullClassesSchema),
+   concurrent_enrollment: Type.Optional(HighSchoolConcurrentEnrollmentSchema),
+   transcript_source: Type.Optional(HighSchoolTranscriptSourceSchema),
+   date_time_verified: Type.Optional(DateTimeVerifiedSchema),
+   link_to_document_image: Type.Optional(HighSchoolLinkToDocumentImageSchema),
+   link_to_secondary_document_image: Type.Optional(HighSchoolLinkToSecondaryDocumentImageSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: High Schools for Undergraduate Application API
 */
 export const HighSchoolSummariesSchema = Type.Object({
-   metadata: MetadataCollectionSchema,
    links: Type.Optional(Type.Object({
       high_school_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2817,24 +2816,14 @@ export const HighSchoolSummariesSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   values: Type.Optional(Type.Array(HighSchoolSummarySchema))
+   values: Type.Optional(Type.Array(HighSchoolSummarySchema)),
+   metadata: MetadataCollectionSchema
 })
 
 /**
 * DESCRIPTION: Confidential Government information for an Applicant
 */
 export const GovernmentRecordsSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   birth_city: Type.Optional(GovBirthCitySchema),
-   birth_country_code: Type.Optional(GovBirthCountryCodeSchema),
-   citizenship_country_code: Type.Optional(GovCitizenshipCountryCodeSchema),
-   citizenship_status: Type.Optional(GovCitizenshipStatusSchema),
-   visa_type: Type.Optional(GovVisaTypeSchema),
-   visa_type_source: Type.Optional(GovVisaTypeSourceSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       government_records__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2851,24 +2840,23 @@ export const GovernmentRecordsSchema = Type.Object({
          href: Type.String(),
          method: Type.String()
       }))
-   }))
+   })),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   birth_city: Type.Optional(GovBirthCitySchema),
+   birth_country_code: Type.Optional(GovBirthCountryCodeSchema),
+   citizenship_country_code: Type.Optional(GovCitizenshipCountryCodeSchema),
+   citizenship_status: Type.Optional(GovCitizenshipStatusSchema),
+   visa_type: Type.Optional(GovVisaTypeSchema),
+   visa_type_source: Type.Optional(GovVisaTypeSourceSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 */
 export const GeiProgramsSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   pw_completion: Type.Optional(GeiProgramsPwCompletionSchema),
-   pw_credits: Type.Optional(GeiProgramsPwCreditsSchema),
-   pw_gpa: Type.Optional(GeiProgramsPwGpaSchema),
-   pw_site: Type.Optional(GeiProgramsPwSiteSchema),
-   srs_certificates: Type.Optional(GeiProgramsSrsCertificatesSchema),
-   srs_facilitator: Type.Optional(GeiProgramsSrsFacilitatorSchema),
-   srs_site: Type.Optional(GeiProgramsSrsSiteSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       gei_programs__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2880,46 +2868,43 @@ export const GeiProgramsSchema = Type.Object({
          href: Type.String(),
          method: Type.String()
       }))
-   }))
+   })),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   pw_completion: Type.Optional(GeiProgramsPwCompletionSchema),
+   pw_credits: Type.Optional(GeiProgramsPwCreditsSchema),
+   pw_gpa: Type.Optional(GeiProgramsPwGpaSchema),
+   pw_site: Type.Optional(GeiProgramsPwSiteSchema),
+   srs_certificates: Type.Optional(GeiProgramsSrsCertificatesSchema),
+   srs_facilitator: Type.Optional(GeiProgramsSrsFacilitatorSchema),
+   srs_site: Type.Optional(GeiProgramsSrsSiteSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 */
 export const EndorsementSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   date: Type.Optional(EndorsementDateSchema),
-   status: Type.Optional(EndorsementStatusSchema),
-   type: Type.Optional(EndorsementTypeSchema),
    links: Type.Optional(Type.Object({
       endorsement__info: Type.Optional(Type.Object({
          rel: Type.String(),
          href: Type.String(),
          method: Type.String()
       }))
-   }))
+   })),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   date: Type.Optional(EndorsementDateSchema),
+   status: Type.Optional(EndorsementStatusSchema),
+   type: Type.Optional(EndorsementTypeSchema)
 })
 
 /**
 * DESCRIPTION: College Summary from the applicant
 */
 export const CollegeSummarySchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   college: Type.Optional(CollegeSchema),
-   start_month: Type.Optional(SharedStartMonthSchema),
-   end_month: Type.Optional(SharedEndMonthSchema),
-   gpa: Type.Optional(CollegeGpaSchema),
-   gpa_verified: Type.Optional(CollegeGpaVerifiedSchema),
-   degree: Type.Optional(CollegeDegreeSchema),
-   degree_date: Type.Optional(CollegeDegreeDateSchema),
-   degree_major: Type.Optional(CollegeDegreeMajorSchema),
-   credit_hours_graded: Type.Optional(SharedCreditHoursGradedSchema),
-   date_time_verified: Type.Optional(DateTimeVerifiedSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       college_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2936,16 +2921,28 @@ export const CollegeSummarySchema = Type.Object({
          href: Type.String(),
          method: Type.String()
       }))
-   }))
+   })),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   college: Type.Optional(CollegeSchema),
+   start_month: Type.Optional(SharedStartMonthSchema),
+   end_month: Type.Optional(SharedEndMonthSchema),
+   gpa: Type.Optional(CollegeGpaSchema),
+   gpa_verified: Type.Optional(CollegeGpaVerifiedSchema),
+   degree: Type.Optional(CollegeDegreeSchema),
+   degree_date: Type.Optional(CollegeDegreeDateSchema),
+   degree_major: Type.Optional(CollegeDegreeMajorSchema),
+   credit_hours_graded: Type.Optional(SharedCreditHoursGradedSchema),
+   date_time_verified: Type.Optional(DateTimeVerifiedSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: College Summaries from the applicant
 */
 export const CollegeSummariesSchema = Type.Object({
-   metadata: MetadataCollectionSchema,
-   cumulative_credit: Type.Optional(CollegeCumulativeCreditSchema),
-   cumulative_gpa: Type.Optional(CollegeCumulativeGpaSchema),
    links: Type.Optional(Type.Object({
       college_summaries__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2953,26 +2950,16 @@ export const CollegeSummariesSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   values: Type.Optional(Type.Array(CollegeSummarySchema))
+   values: Type.Optional(Type.Array(CollegeSummarySchema)),
+   metadata: MetadataCollectionSchema,
+   cumulative_credit: Type.Optional(CollegeCumulativeCreditSchema),
+   cumulative_gpa: Type.Optional(CollegeCumulativeGpaSchema)
 })
 
 /**
 * DESCRIPTION: Biographical Classifications
 */
 export const BiographicalClassificationsSchema = Type.Object({
-   metadata: Type.Optional(MetadataSimpleSchema),
-   application_id: Type.Optional(ApplicationIdSchema),
-   applicant_id: Type.Optional(ApplicantIdSchema),
-   hispanic_flag: Type.Optional(BioHispanicFlagSchema),
-   racial_categories: Type.Optional(RacialCategoriesSchema),
-   languages: Type.Optional(LanguagesSchema),
-   mothers_level_of_education: Type.Optional(BioMothersLevelOfEducationSchema),
-   fathers_level_of_education: Type.Optional(BioFathersLevelOfEducationSchema),
-   family_income: Type.Optional(BioFamilyIncomeSchema),
-   residing_with: Type.Optional(BioResidingWithSchema),
-   single_parent: Type.Optional(BioSingleParentSchema),
-   updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
    links: Type.Optional(Type.Object({
       biographical_classifications__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -2994,13 +2981,48 @@ export const BiographicalClassificationsSchema = Type.Object({
          href: Type.String(),
          method: Type.String()
       }))
-   }))
+   })),
+   metadata: Type.Optional(MetadataSimpleSchema),
+   application_id: Type.Optional(ApplicationIdSchema),
+   applicant_id: Type.Optional(ApplicantIdSchema),
+   hispanic_flag: Type.Optional(BioHispanicFlagSchema),
+   racial_categories: Type.Optional(RacialCategoriesSchema),
+   languages: Type.Optional(LanguagesSchema),
+   mothers_level_of_education: Type.Optional(BioMothersLevelOfEducationSchema),
+   fathers_level_of_education: Type.Optional(BioFathersLevelOfEducationSchema),
+   family_income: Type.Optional(BioFamilyIncomeSchema),
+   residing_with: Type.Optional(BioResidingWithSchema),
+   single_parent: Type.Optional(BioSingleParentSchema),
+   updated_by_id: Type.Optional(IdUpdatedBySchema),
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: Basic field_set for Application API
 */
 export const BasicSchema = Type.Object({
+   links: Type.Optional(Type.Object({
+      applications__info: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      })),
+      applications__modify: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      })),
+      applications__remove: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      })),
+      contact__modify: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      }))
+   })),
    metadata: Type.Optional(MetadataSimpleSchema),
    application_id: Type.Optional(ApplicationIdSchema),
    applicant_id: Type.Optional(ApplicantIdSchema),
@@ -3049,35 +3071,25 @@ export const BasicSchema = Type.Object({
    submitted_by_id: Type.Optional(IdSubmittedBySchema),
    submitted_date_time: Type.Optional(DateTimeSubmittedSchema),
    updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
-   links: Type.Optional(Type.Object({
-      applications__info: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      })),
-      applications__modify: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      })),
-      applications__remove: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      })),
-      contact__modify: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      }))
-   }))
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
 * DESCRIPTION: Background Questions
 */
 export const BackgroundQuestionsSchema = Type.Object({
+   links: Type.Optional(Type.Object({
+      background_questions__info: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      })),
+      background_questions__modify: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      }))
+   })),
    metadata: Type.Optional(MetadataSimpleSchema),
    application_id: Type.Optional(ApplicationIdSchema),
    applicant_id: Type.Optional(ApplicantIdSchema),
@@ -3090,19 +3102,7 @@ export const BackgroundQuestionsSchema = Type.Object({
    university_discipline: Type.Optional(BgUniversityDisciplineSchema),
    university_discipline_explanation: Type.Optional(BgUniversityDisciplineExplanationSchema),
    updated_by_id: Type.Optional(IdUpdatedBySchema),
-   updated_date_time: Type.Optional(DateTimeUpdatedSchema),
-   links: Type.Optional(Type.Object({
-      background_questions__info: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      })),
-      background_questions__modify: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      }))
-   }))
+   updated_date_time: Type.Optional(DateTimeUpdatedSchema)
 })
 
 /**
@@ -3117,6 +3117,13 @@ export const ApplicationDeliverableModifySchema = Type.Object({
 * DESCRIPTION: A deliverable required for an application
 */
 export const ApplicationDeliverableSchema = Type.Object({
+   links: Type.Optional(Type.Object({
+      application_deliverables__modify: Type.Optional(Type.Object({
+         rel: Type.String(),
+         href: Type.String(),
+         method: Type.String()
+      }))
+   })),
    metadata: Type.Optional(MetadataSimpleSchema),
    application_id: Type.Optional(ApplicationIdSchema),
    applicant_id: Type.Optional(ApplicantIdSchema),
@@ -3133,21 +3140,13 @@ export const ApplicationDeliverableSchema = Type.Object({
    satisfied: Type.Optional(DeliverableSatisfiedSchema),
    deliverable_date_time_satisfied: Type.Optional(DeliverableDateTimeSatisfiedSchema),
    status: Type.Optional(DeliverableStatusSchema),
-   deliverable_date_time_status: Type.Optional(DeliverableDateTimeStatusSchema),
-   links: Type.Optional(Type.Object({
-      application_deliverables__modify: Type.Optional(Type.Object({
-         rel: Type.String(),
-         href: Type.String(),
-         method: Type.String()
-      }))
-   }))
+   deliverable_date_time_status: Type.Optional(DeliverableDateTimeStatusSchema)
 })
 
 /**
 * DESCRIPTION: Deliverables required for an application
 */
 export const ApplicationDeliverablesSchema = Type.Object({
-   metadata: MetadataCollectionSchema,
    links: Type.Optional(Type.Object({
       application_deliverables__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -3160,7 +3159,8 @@ export const ApplicationDeliverablesSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   values: Type.Optional(Type.Array(ApplicationDeliverableSchema))
+   values: Type.Optional(Type.Array(ApplicationDeliverableSchema)),
+   metadata: MetadataCollectionSchema
 })
 
 /**
@@ -3196,7 +3196,6 @@ export const ApplicationActionSchema = Type.Object({
 * DESCRIPTION: Actions performed on the application
 */
 export const ApplicationActionsSchema = Type.Object({
-   metadata: MetadataCollectionSchema,
    links: Type.Optional(Type.Object({
       application_actions__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -3219,7 +3218,8 @@ export const ApplicationActionsSchema = Type.Object({
          method: Type.String()
       }))
    })),
-   values: Type.Optional(Type.Array(ApplicationActionSchema))
+   values: Type.Optional(Type.Array(ApplicationActionSchema)),
+   metadata: MetadataCollectionSchema
 })
 
 /**
@@ -5389,8 +5389,6 @@ export const ApplicationSchema = Type.Object({
 }
 */
 export const ApplicationsSchema = Type.Object({
-   metadata: MetadataTopLevelSchema,
-   stats: Type.Optional(StatsSchema),
    links: Type.Optional(Type.Object({
       applications__info: Type.Optional(Type.Object({
          rel: Type.Optional(Type.String()),
@@ -5413,7 +5411,9 @@ export const ApplicationsSchema = Type.Object({
          method: Type.Optional(Type.String())
       }))
    })),
-   values: Type.Optional(Type.Array(ApplicationSchema))
+   values: Type.Optional(Type.Array(ApplicationSchema)),
+   metadata: MetadataTopLevelSchema,
+   stats: Type.Optional(StatsSchema)
 })
 
 /**
@@ -5436,8 +5436,6 @@ export const ApplicationsSchema = Type.Object({
 }
 */
 export const StatusSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   stats: Type.Optional(StatsSchema),
    links: Type.Optional(Type.Object({
       status__info: Type.Optional(Type.Object({
          rel: Type.String(),
@@ -5451,7 +5449,9 @@ export const StatusSchema = Type.Object({
          date: Type.Optional(Type.String()),
          value: Type.Optional(Type.String())
       })))
-   })))
+   }))),
+   metadata: MetadataSimpleSchema,
+   stats: Type.Optional(StatsSchema)
 })
 
 /**
@@ -5468,8 +5468,8 @@ export const ConceptSchema = Type.Object({
 * DESCRIPTION: A list of concepts
 */
 export const ConceptsSchema = Type.Object({
-   metadata: MetadataSimpleSchema,
-   values: Type.Optional(Type.Array(ConceptSchema))
+   values: Type.Optional(Type.Array(ConceptSchema)),
+   metadata: MetadataSimpleSchema
 })
 
 /**

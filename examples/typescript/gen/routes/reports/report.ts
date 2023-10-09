@@ -1,4 +1,7 @@
 import { 
+   ReportsMetadataSchema
+ } from '../../DefinitionSchemas'
+import { 
    Response400Schema,
    Response401Schema,
    Response403Schema,
@@ -6,15 +9,6 @@ import {
    Response500Schema,
    ResponseDefaultSchema
  } from '../../ResponseSchemas'
-import { 
-   AdmitPeriodQuerySchema,
-   DateStartQuerySchema,
-   DateEndQuerySchema,
-   NameQuerySchema,
-   PaginationParameterQuerySchema,
-   LimitQuerySchema,
-   CursorQuerySchema
- } from '../../ParameterSchemas'
 import { Tags } from '../../constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
@@ -26,26 +20,17 @@ const reportRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
 
    fastify.get('/', {
       schema: {
-         tags: [Tags.Applications],
-         summary: 'Retrieve application service report information',
+         tags: [Tags.Report],
+         summary: 'Retrieve application service reports meta data',
          response: {
-            200: Type.Object({}, { additionalProperties: true }),
+            200: ReportsMetadataSchema,
             400: Response400Schema,
             401: Response401Schema,
             403: Response403Schema,
             409: Response409Schema,
             500: Response500Schema,
             default: ResponseDefaultSchema
-         },
-         querystring: Type.Object({
-            admit_period: Type.Optional(AdmitPeriodQuerySchema),
-            date_start: Type.Optional(DateStartQuerySchema),
-            date_end: Type.Optional(DateEndQuerySchema),
-            name: NameQuerySchema,
-            pagination_parameter: Type.Optional(PaginationParameterQuerySchema),
-            limit: Type.Optional(LimitQuerySchema),
-            cursor: Type.Optional(CursorQuerySchema)
-         })
+         }
       }
    }, async (request, reply) => {
       // TODO: make this route work

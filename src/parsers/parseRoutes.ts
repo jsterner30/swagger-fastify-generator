@@ -3,26 +3,28 @@ import { SwaggerRoute, SwaggerRouteMethod, SwaggerRouteMethods, SwaggerDoc } fro
 import { parseParameter } from './parseParameters'
 import { getParameters, getParameter, addTag } from '../util/globals'
 
-export function parseRoutes (OpenApiJSON: SwaggerDoc): Record<string, RouteFile> {
-  const routeFilesMap: Record<string, RouteFile> = {}
-  if (OpenApiJSON?.paths == null) return routeFilesMap
+export function parseRoutes (OpenApiJSON: SwaggerDoc): Record<string, Record<string, RouteFile>> {
+  const routeDirsMap: Record<string, Record<string, RouteFile>> = {}
+  if (OpenApiJSON?.paths == null) return routeDirsMap
 
   const openApiRoutes = OpenApiJSON.paths
   const openApiRoutesArray = Object.keys(openApiRoutes)
 
   for (const route of openApiRoutesArray) {
     const routeOpenApiObj = openApiRoutes[route]
-    const fileName = routeOpenApiObj['x-controller']
-    if (fileName != null) {
-      if (routeFilesMap[fileName] == null) {
-        const parentDir = getBasePath(route)
-        routeFilesMap[fileName] = new RouteFile(fileName, parentDir)
-      }
-      const routeFile = routeFilesMap[fileName]
-      routeFile.addRoutePath(getRoutePath(routeOpenApiObj, route))
+    const parentDir = getBasePath(route)
+    const fileName = getFileName(routeOpenApiObj, parentDir)
+
+    if (routeDirsMap[parentDir] == null) {
+      routeDirsMap[parentDir] = {}
     }
+    if (routeDirsMap[parentDir][fileName] == null) {
+      routeDirsMap[parentDir][fileName] = new RouteFile(fileName, parentDir)
+    }
+    const routeFile = routeDirsMap[parentDir][fileName]
+    routeFile.addRoutePath(getRoutePath(routeOpenApiObj, route))
   }
-  return routeFilesMap
+  return routeDirsMap
 }
 
 function getRoutePath (pathObj: SwaggerRoute, routeUrl: string): RoutePath {
@@ -39,6 +41,15 @@ function getRoutePath (pathObj: SwaggerRoute, routeUrl: string): RoutePath {
   }
 
   return routePath
+}
+
+function getFileName (routeObj: SwaggerRoute, parentDir: string): string {
+  const xController = routeObj['x-controller']
+  if (xController != null) {
+    return xController
+  } else {
+    return parentDir
+  }
 }
 
 function getBasePath (path: string): string {

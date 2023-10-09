@@ -86,4 +86,12 @@ export class Route {
   addParentResponse (responseCode: string, reference: string): void {
     this.parentResponses.push({ code: responseCode, reference })
   }
+
+  getParentResponsesRefs (): string[] {
+    const refs = []
+    for (const parent of this.parentResponses) {
+      refs.push(parent.reference)
+    }
+    return refs
+  }
 }
