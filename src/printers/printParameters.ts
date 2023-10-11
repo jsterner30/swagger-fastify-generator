@@ -50,14 +50,19 @@ function getDescription (printDescription: boolean, param: Parameter): string {
 
 export async function printCommonJSExports (fileName: string, parameters: Parameter[]): Promise<void> {
   const tabs = indent(1)
+  const paramSet = new Set<string>()
   await appendFile(fileName, '\n\nmodule.exports = {')
   let exportStatement = ''
   for (let i = 0; i < parameters.length; ++i) {
-    if (parameters[i].parentDefinition == null) {
-      if (i % 3 === 0) {
-        exportStatement += '\n' + tabs
+    const normalizedName = normalizeParameterName(parameters[i].name, parameters[i].in)
+    if (!paramSet.has(normalizedName)) {
+      if (parameters[i].parentDefinition == null) {
+        if (i % 3 === 0) {
+          exportStatement += '\n' + tabs
+        }
+        exportStatement += normalizedName + 'Schema' + ', '
       }
-      exportStatement += normalizeParameterName(parameters[i].name, parameters[i].in) + 'Schema' + ', '
+      paramSet.add(normalizedName)
     }
   }
   exportStatement = exportStatement.slice(0, -2) + '\n}'

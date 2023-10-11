@@ -186,17 +186,6 @@ module.exports = {
     CursorQuerySchema, LimitQuerySchema, PageStartQuerySchema, 
     PageSizeQuerySchema, QuestionIdPathSchema, SchoolQuerySchema, 
     SearchQuerySchema, StartMonthPathSchema, SubsetStartQuerySchema, 
-    SubsetSizeQuerySchema, 
-    AdmitPeriodQuerySchema, ApplicantNameQuerySchema, EmailQuerySchema, 
-    AdmitPeriodQuerySchema, ApplicantTypeQuerySchema, CitizenshipQuerySchema, 
-    CountryQuerySchema, SexQuerySchema, StateQuerySchema, 
-    ApplicantNameQuerySchema, EmailQuerySchema, AdmitPeriodQuerySchema, 
-    ApplicantTypeQuerySchema, CitizenshipQuerySchema, CountryQuerySchema, 
-    SexQuerySchema, StateQuerySchema, NameQuerySchema, 
-    AdmitPeriodQuerySchema, PaginationParameterQuerySchema, CursorQuerySchema, 
-    LimitQuerySchema, ApplicantNameQuerySchema, EmailQuerySchema, 
-    AdmitPeriodQuerySchema, ApplicantTypeQuerySchema, CitizenshipQuerySchema, 
-    CountryQuerySchema, SexQuerySchema, StateQuerySchema, 
-    AdmitPeriodQuerySchema, ApplicantTypeQuerySchema, CitizenshipQuerySchema, 
+    SubsetSizeQuerySchema, ApplicantTypeQuerySchema, CitizenshipQuerySchema, 
     CountryQuerySchema, SexQuerySchema, StateQuerySchema, DeliverableIdPathSchema
 }
