@@ -2705,10 +2705,74 @@ const conceptTemplate = function (templateData) {
             range: templateData.concept_range
     }
 }
+const valuesTemplate = function (templateData) {
+    return {
+            claim_id: templateData.values_claim_id,
+            validation_response: {
+                code: templateData.validation_response_code,
+                message: templateData.validation_response_message
+        }
+    }
+}
+const trendsTemplate = function (templateData) {
+    return {
+            name: templateData.trends_name,
+            data: []
+    }
+}
 const attributeStringTemplate = function (templateData) {
     return {
             key: templateData.std_attribute_string_key,
             value: templateData.std_attribute_string
+    }
+}
+const criminalConvictionsTemplate = function (templateData) {
+    return {
+            crime: {
+                value: templateData.crime,
+                api_type: `modifiable`,
+                display_label: `What was the specific crime?`
+        },
+            crime_year: {
+                value: templateData.crime_year,
+                api_type: `modifiable`,
+                display_label: `What year was the crime committed?`
+        },
+            courts: {
+                value: templateData.courts,
+                api_type: `modifiable`,
+                display_label: `What were the name(s) and location(s) of the court(s) involved?`
+        },
+            conditions: {
+                value: templateData.conditions,
+                api_type: `modifiable`,
+                display_label: `What were the terms or conditions of any plea, penalty, punishment, sentence, probation, or parole?`
+        },
+            probation: {
+                value: templateData.probation,
+                api_type: `modifiable`,
+                display_label: `Are you currently on probation, parole, or under any ongoing penalty, punishment, or restriction with any court or law enforcement agency?`
+        },
+            probation_explanation: {
+                value: templateData.probation_explanation,
+                api_type: `modifiable`,
+                display_label: `Explanation`
+        },
+            penalties: {
+                value: templateData.penalties,
+                api_type: `modifiable`,
+                display_label: `Have all prison terms, penalties, fines, restitution, community service hours, any other part of your criminal sentence been completed?`
+        },
+            penalties_explanation: {
+                value: templateData.penalties_explanation,
+                api_type: `modifiable`,
+                display_label: `Explanation`
+        },
+            additional_explanation: {
+                value: templateData.additional_explanation,
+                api_type: `modifiable`,
+                display_label: `Explanation`
+        }
     }
 }
 const instituteClassDataTemplate = function (templateData) {
@@ -2931,6 +2995,12 @@ const questionGroupTemplate = function (templateData) {
         }
     }
 }
+const dataTemplate = function (templateData) {
+    return {
+            date: templateData.data_date,
+            value: templateData.data
+    }
+}
 const seminaryTermInfoTemplate = function (templateData) {
     return {
             term: {
@@ -2975,11 +3045,40 @@ const seminaryTermInfoTemplate = function (templateData) {
         }
     }
 }
+const testComponentsTemplate = function (templateData) {
+    return {
+            component_name: {
+                value: templateData.component_name,
+                description: templateData.component_name_description,
+                domain: `https://api.byu.edu/byuapi/meta/test_component_names/v1`,
+                api_type: `read-only`,
+                display_label: `Component Name`
+        },
+            component_score: {
+                value: templateData.component_score,
+                api_type: `read-only`,
+                display_label: `Component Score`
+        }
+    }
+}
 const sharedGradeTemplate = function (templateData) {
     return {
             value: templateData.shared_grade,
             api_type: `modifiable`,
             display_label: `Grade`
+    }
+}
+const responseCriteriaTemplate = function (templateData) {
+    return {
+            label: templateData.response_criteria_label,
+            value: templateData.response_criteria
+    }
+}
+const elementsTemplate = function (templateData) {
+    return {
+            id: templateData.elements_id,
+            label: templateData.elements_label,
+            ordinal: templateData.elements_ordinal
     }
 }
 
@@ -2994,8 +3093,10 @@ module.exports = {
     highSchoolSummaryTemplate, testScoresTemplate, endorsementTemplate, 
     geiProgramsTemplate, missionsTemplate, seminarySummariesTemplate, 
     instituteSummariesTemplate, questionsTemplate, questionTemplate, 
-    conceptTemplate, attributeStringTemplate, instituteClassDataTemplate, 
+    conceptTemplate, valuesTemplate, trendsTemplate, 
+    attributeStringTemplate, criminalConvictionsTemplate, instituteClassDataTemplate, 
     seminaryClassDataTemplate, testScoreTemplate, highSchoolCourseInfoTemplate, 
     highSchoolNonaccreditedWorkInfoTemplate, questionElementTemplate, questionGroupTemplate, 
-    seminaryTermInfoTemplate, sharedGradeTemplate
+    dataTemplate, seminaryTermInfoTemplate, testComponentsTemplate, 
+    sharedGradeTemplate, responseCriteriaTemplate, elementsTemplate
 }

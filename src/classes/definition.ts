@@ -111,7 +111,11 @@ export class ObjectDefinition extends Definition {
     for (const prop of this.properties) {
       if (prop.name !== 'metadata') {
         toReturn += `\n${indent(level + 1)}${prop.name}: `
-        toReturn += prop.getTemplateString(level + 1, defMap, parentName, arraySubObjects) + ','
+        if (prop.constructor.name === 'ObjectDefinition' || prop.constructor.name === 'ArrayDefinition' || prop.constructor.name === 'AllOfDefinition') {
+          toReturn += prop.getTemplateString(level + 1, defMap, prop.name, arraySubObjects) + ','
+        } else {
+          toReturn += prop.getTemplateString(level + 1, defMap, parentName, arraySubObjects) + ','
+        }
       }
     }
 
@@ -165,6 +169,11 @@ export class ArrayDefinition extends Definition {
     if (this.parents.length > 0) {
       for (const parent of this.parents) {
         arraySubObjects.push('#/definitions/' + parent.reference)
+      }
+    } else if (this.item != null) {
+      if (defMap[parentName] == null && this.item.constructor.name === 'ObjectDefinition') {
+        defMap[parentName] = this.item
+        arraySubObjects.push('#/definitions/' + parentName)
       }
     }
     return '[]'
