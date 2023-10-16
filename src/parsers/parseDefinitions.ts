@@ -38,6 +38,7 @@ export function parseDefinition (definition: SwaggerDefinition, name: string): D
       return parseArray(definition, name)
     case 'string':
       return parseString(definition, name)
+    case 'number':
     case 'integer':
       return parseNumber(definition, name)
     case 'boolean':
@@ -46,7 +47,7 @@ export function parseDefinition (definition: SwaggerDefinition, name: string): D
       if (definition.allOf != null) {
         return parseAllOf(definition, name)
       } else {
-        throw new Error('Undefined type: ' + name)
+        throw new Error('Undefined type with name: ' + name)
       }
   }
 }
@@ -77,6 +78,9 @@ function parseArray (definition: SwaggerArray, name: string): Definition {
       const parRef = definition.items.$ref
       arrayDef.addParent('item', parRef.split('#/definitions/')[1])
     } else {
+      if (definition.items.type == null) {
+        definition.items.type = 'object'
+      }
       arrayDef.addItem(parseDefinition(definition.items, 'item'))
     }
   }
