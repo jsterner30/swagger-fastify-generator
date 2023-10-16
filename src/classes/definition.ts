@@ -1,5 +1,6 @@
 import * as util from 'util'
 import { normalizeName, indent, getTemplateDataProperty } from '../util/util'
+import pluralize from 'pluralize'
 
 export interface Parent {
   name: string
@@ -171,9 +172,11 @@ export class ArrayDefinition extends Definition {
         arraySubObjects.push('#/definitions/' + parent.reference)
       }
     } else if (this.item != null) {
-      if (defMap[parentName] == null && this.item.constructor.name === 'ObjectDefinition') {
-        defMap[parentName] = this.item
-        arraySubObjects.push('#/definitions/' + parentName)
+      if (this.item.constructor.name === 'ObjectDefinition') {
+        const singularName = pluralize.singular(parentName)
+
+        defMap[singularName] = this.item
+        arraySubObjects.push('#/definitions/' + singularName)
       }
     }
     return '[]'

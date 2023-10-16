@@ -23,13 +23,15 @@
     "enquirer": "^2.4.1",
     "fastify": "^4.23.2",
     "graph-data-structure": "^3.3.0",
-    "pino": "^8.15.1"
+    "pino": "^8.15.1",
+    "pluralize": "^8.0.0"
   },
   "devDependencies": {
     "@fastify/type-provider-typebox": "^3.5.0",
     "@sinclair/typebox": "^0.31.15",
     "@tsconfig/node18": "^2.0.1",
     "@types/inquirer": "^9.0.3",
+    "@types/pluralize": "^0.0.31",
     "eslint": "^8.41.0",
     "husky": "^8.0.0",
     "rimraf": "^4.4.1",

@@ -2705,18 +2705,23 @@ const conceptTemplate = function (templateData) {
             range: templateData.concept_range
     }
 }
-const valuesTemplate = function (templateData) {
+const valueTemplate = function (templateData) {
     return {
-            claim_id: templateData.values_claim_id,
-            validation_response: {
-                code: templateData.validation_response_code,
-                message: templateData.validation_response_message
-        }
+            name: templateData.value_name,
+            description: templateData.value_description,
+            long_description: templateData.value_long_description,
+            category: templateData.value_category,
+            limit: templateData.value_limit,
+            pagination_parameter: templateData.value_pagination_parameter,
+            institutions: [],
+            content_type: [],
+            parameters: [],
+            columns: []
     }
 }
-const trendsTemplate = function (templateData) {
+const trendTemplate = function (templateData) {
     return {
-            name: templateData.trends_name,
+            name: templateData.trend_name,
             data: []
     }
 }
@@ -2726,7 +2731,7 @@ const attributeStringTemplate = function (templateData) {
             value: templateData.std_attribute_string
     }
 }
-const criminalConvictionsTemplate = function (templateData) {
+const criminalConvictionTemplate = function (templateData) {
     return {
             crime: {
                 value: templateData.crime,
@@ -2773,6 +2778,25 @@ const criminalConvictionsTemplate = function (templateData) {
                 api_type: `modifiable`,
                 display_label: `Explanation`
         }
+    }
+}
+const racialCategoryTemplate = function (templateData) {
+    return {
+            value: templateData.racial_category,
+            api_type: `related`,
+            related_resource: `ethnicities`,
+            domain: `https://api.byu.edu/byuapi/meta/racial_categories/v1`,
+            display_label: `Which racial categories describe you?`
+    }
+}
+const languageTemplate = function (templateData) {
+    return {
+            value: templateData.language,
+            api_type: `related`,
+            related_resource: `languages`,
+            description: templateData.language_description,
+            domain: `https://api.byu.edu/byuapi/meta/languages/v1`,
+            display_label: `Language Skills`
     }
 }
 const instituteClassDataTemplate = function (templateData) {
@@ -2995,10 +3019,18 @@ const questionGroupTemplate = function (templateData) {
         }
     }
 }
-const dataTemplate = function (templateData) {
+const columnTemplate = function (templateData) {
     return {
-            date: templateData.data_date,
-            value: templateData.data
+            ordinal: templateData.column_ordinal,
+            name: templateData.column_name,
+            qualifier: [],
+            link: templateData.column_link
+    }
+}
+const datumTemplate = function (templateData) {
+    return {
+            date: templateData.datum_date,
+            value: templateData.datum
     }
 }
 const seminaryTermInfoTemplate = function (templateData) {
@@ -3045,7 +3077,7 @@ const seminaryTermInfoTemplate = function (templateData) {
         }
     }
 }
-const testComponentsTemplate = function (templateData) {
+const testComponentTemplate = function (templateData) {
     return {
             component_name: {
                 value: templateData.component_name,
@@ -3068,17 +3100,17 @@ const sharedGradeTemplate = function (templateData) {
             display_label: `Grade`
     }
 }
-const responseCriteriaTemplate = function (templateData) {
+const responseCriterionTemplate = function (templateData) {
     return {
-            label: templateData.response_criteria_label,
-            value: templateData.response_criteria
+            label: templateData.response_criterion_label,
+            value: templateData.response_criterion
     }
 }
-const elementsTemplate = function (templateData) {
+const elementTemplate = function (templateData) {
     return {
-            id: templateData.elements_id,
-            label: templateData.elements_label,
-            ordinal: templateData.elements_ordinal
+            id: templateData.element_id,
+            label: templateData.element_label,
+            ordinal: templateData.element_ordinal
     }
 }
 
@@ -3093,10 +3125,11 @@ module.exports = {
     highSchoolSummaryTemplate, testScoresTemplate, endorsementTemplate, 
     geiProgramsTemplate, missionsTemplate, seminarySummariesTemplate, 
     instituteSummariesTemplate, questionsTemplate, questionTemplate, 
-    conceptTemplate, valuesTemplate, trendsTemplate, 
-    attributeStringTemplate, criminalConvictionsTemplate, instituteClassDataTemplate, 
-    seminaryClassDataTemplate, testScoreTemplate, highSchoolCourseInfoTemplate, 
-    highSchoolNonaccreditedWorkInfoTemplate, questionElementTemplate, questionGroupTemplate, 
-    dataTemplate, seminaryTermInfoTemplate, testComponentsTemplate, 
-    sharedGradeTemplate, responseCriteriaTemplate, elementsTemplate
+    conceptTemplate, valueTemplate, trendTemplate, 
+    attributeStringTemplate, criminalConvictionTemplate, racialCategoryTemplate, 
+    languageTemplate, instituteClassDataTemplate, seminaryClassDataTemplate, 
+    testScoreTemplate, highSchoolCourseInfoTemplate, highSchoolNonaccreditedWorkInfoTemplate, 
+    questionElementTemplate, questionGroupTemplate, columnTemplate, 
+    datumTemplate, seminaryTermInfoTemplate, testComponentTemplate, 
+    sharedGradeTemplate, responseCriterionTemplate, elementTemplate
 }
