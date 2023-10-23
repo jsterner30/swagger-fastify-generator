@@ -1,7 +1,7 @@
 import { 
    BiographicalClassificationsSchema,
    BiographicalClassificationsModifySchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -10,11 +10,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getBioClassifications,
+   modifyBioClassification
+ } from '../../controllers/biographical_classifications'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const biographicalClassificationsRoute = async (fastifyApp) => {
@@ -39,7 +43,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getBioClassifications(request, reply)
    })
 
    fastify.put('/:application_id/biographical_classifications', {
@@ -61,7 +65,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
          body: BiographicalClassificationsModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyBioClassification(request, reply)
    })
 }
 

@@ -3,7 +3,7 @@ import {
    ErrorResponseSchema,
    ApplicationSchema,
    ApplicationNewSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -12,7 +12,7 @@ import {
    Response500Schema,
    ResponseDefaultSchema,
    Response404Schema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    AdmitPeriodQuerySchema,
    ApplicantTypeQuerySchema,
@@ -30,8 +30,14 @@ import {
    ApplicationIdPathSchema,
    ContextQuerySchema,
    FieldSetsQuerySchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getApplications,
+   createApplication,
+   getApplication,
+   deleteApplication
+ } from '../../controllers/applications'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -71,7 +77,7 @@ const applicationsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyAp
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplications(request, reply)
    })
 
    fastify.post('/', {
@@ -90,7 +96,7 @@ const applicationsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyAp
          body: ApplicationNewSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await createApplication(request, reply)
    })
 
    fastify.get('/:application_id', {
@@ -116,7 +122,7 @@ const applicationsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyAp
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplication(request, reply)
    })
 
    fastify.delete('/:application_id', {
@@ -135,7 +141,7 @@ const applicationsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyAp
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await deleteApplication(request, reply)
    })
 }
 

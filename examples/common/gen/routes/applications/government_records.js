@@ -1,7 +1,7 @@
 const { 
     GovernmentRecordsSchema,
     GovernmentRecordsModifySchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -10,11 +10,15 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getGovRecs,
+    modifyGovRecs
+ } = require('../../controllers/government_records')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const governmentRecordsRoute = async (fastifyApp) => {
@@ -39,7 +43,7 @@ const governmentRecordsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getGovRecs(request, reply)
     })
 
     fastify.put('/:application_id/government_records', {
@@ -61,7 +65,7 @@ const governmentRecordsRoute = async (fastifyApp) => {
             body: GovernmentRecordsModifySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await modifyGovRecs(request, reply)
     })
 }
 

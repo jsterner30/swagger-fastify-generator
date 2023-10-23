@@ -2,7 +2,7 @@ const {
     ApplicationActionsSchema,
     ApplicationActionSchema,
     ApplicationActionNewSchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -11,11 +11,15 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getApplicationActions,
+    applyApplicationAction
+ } = require('../../controllers/application_actions')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const applicationActionsRoute = async (fastifyApp) => {
@@ -40,7 +44,7 @@ const applicationActionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplicationActions(request, reply)
     })
 
     fastify.post('/:application_id/application_actions', {
@@ -62,7 +66,7 @@ const applicationActionsRoute = async (fastifyApp) => {
             body: ApplicationActionNewSchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await applyApplicationAction(request, reply)
     })
 }
 

@@ -1,7 +1,7 @@
 import { 
    GovernmentRecordsSchema,
    GovernmentRecordsModifySchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -10,11 +10,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getGovRecs,
+   modifyGovRecs
+ } from '../../controllers/government_records'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const governmentRecordsRoute = async (fastifyApp) => {
@@ -39,7 +43,7 @@ const governmentRecordsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getGovRecs(request, reply)
    })
 
    fastify.put('/:application_id/government_records', {
@@ -61,7 +65,7 @@ const governmentRecordsRoute = async (fastifyApp) => {
          body: GovernmentRecordsModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyGovRecs(request, reply)
    })
 }
 

@@ -1,7 +1,7 @@
 import { 
    BackgroundQuestionsSchema,
    BackgroundQuestionsModifySchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -10,11 +10,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getBackgroundQuestions,
+   modifyBackgroundQuestions
+ } from '../../controllers/background_questions'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -42,7 +46,7 @@ const backgroundQuestionsRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getBackgroundQuestions(request, reply)
    })
 
    fastify.put('/:application_id/background_questions', {
@@ -64,7 +68,7 @@ const backgroundQuestionsRoute: FastifyPluginAsync<OptionsInterface> = async (fa
          body: BackgroundQuestionsModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyBackgroundQuestions(request, reply)
    })
 }
 

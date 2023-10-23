@@ -2,7 +2,7 @@ const {
     HighSchoolSummariesSchema,
     HighSchoolSummarySchema,
     HighSchoolSummaryModifySchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -11,14 +11,20 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema,
     HighSchoolPathSchema,
     StartMonthPathSchema,
     EndMonthPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getHighSchools,
+    addHighSchoolSummary,
+    modifyHighSchoolSummary,
+    deleteHighSchoolSummary
+ } = require('../../controllers/high_school_summaries')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const highSchoolSummariesRoute = async (fastifyApp) => {
@@ -43,7 +49,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getHighSchools(request, reply)
     })
 
     fastify.post('/:application_id/high_school_summaries', {
@@ -65,7 +71,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
             body: HighSchoolSummaryModifySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await addHighSchoolSummary(request, reply)
     })
 
     fastify.put('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -90,7 +96,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
             body: HighSchoolSummaryModifySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await modifyHighSchoolSummary(request, reply)
     })
 
     fastify.delete('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -112,7 +118,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await deleteHighSchoolSummary(request, reply)
     })
 }
 

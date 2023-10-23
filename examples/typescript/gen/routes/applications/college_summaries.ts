@@ -3,7 +3,7 @@ import {
    CollegeSummaryModifySchema,
    CollegeSummarySchema,
    ErrorResponseSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -12,14 +12,20 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    CollegePathSchema,
    StartMonthPathSchema,
    EndMonthPathSchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getCollegeSummaries,
+   modifyCollegeSummaries,
+   modifyApplicantCollegeSummary,
+   deleteApplicantCollegeSummary
+ } from '../../controllers/college_summaries'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -47,7 +53,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getCollegeSummaries(request, reply)
    })
 
    fastify.put('/:application_id/college_summaries', {
@@ -69,7 +75,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
          body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyCollegeSummaries(request, reply)
    })
 
    fastify.put('/:application_id/college_summaries/:college,:start_month,:end_month', {
@@ -95,7 +101,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
          body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyApplicantCollegeSummary(request, reply)
    })
 
    fastify.delete('/:application_id/college_summaries/:college,:start_month,:end_month', {
@@ -117,7 +123,7 @@ const collegeSummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fasti
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await deleteApplicantCollegeSummary(request, reply)
    })
 }
 

@@ -4,7 +4,7 @@ import {
    ClaimBodySchema,
    ClaimArrayResponseSchema,
    ClaimArraySchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -13,8 +13,13 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ResponseSchemas'
+import { 
+   getConcepts,
+   validateClaim,
+   validateClaimArray
+ } from '../../controllers/claims'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const claimsRoute = async (fastifyApp) => {
@@ -36,7 +41,7 @@ const claimsRoute = async (fastifyApp) => {
          }
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getConcepts(request, reply)
    })
 
    fastify.put('/', {
@@ -56,7 +61,7 @@ const claimsRoute = async (fastifyApp) => {
          body: ClaimBodySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await validateClaim(request, reply)
    })
 
    fastify.put('/batch', {
@@ -75,7 +80,7 @@ const claimsRoute = async (fastifyApp) => {
          body: ClaimArraySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await validateClaimArray(request, reply)
    })
 }
 

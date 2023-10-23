@@ -1,7 +1,7 @@
 import { 
    MissionsSchema,
    MissionsModifySchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -10,11 +10,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getMissions,
+   modifyMissions
+ } from '../../controllers/missions'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const missionsRoute = async (fastifyApp) => {
@@ -39,7 +43,7 @@ const missionsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getMissions(request, reply)
    })
 
    fastify.put('/:application_id/missions', {
@@ -61,7 +65,7 @@ const missionsRoute = async (fastifyApp) => {
          body: MissionsModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyMissions(request, reply)
    })
 }
 

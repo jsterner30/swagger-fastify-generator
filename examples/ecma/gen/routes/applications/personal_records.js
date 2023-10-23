@@ -1,6 +1,6 @@
 import { 
    PersonalRecordsSchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -9,11 +9,14 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getPersonalRecords
+ } from '../../controllers/personal_records'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const personalRecordsRoute = async (fastifyApp) => {
@@ -38,7 +41,7 @@ const personalRecordsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getPersonalRecords(request, reply)
    })
 }
 

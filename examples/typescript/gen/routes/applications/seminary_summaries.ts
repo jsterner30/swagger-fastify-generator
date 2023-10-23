@@ -1,6 +1,6 @@
 import { 
    SeminarySummariesSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -9,11 +9,14 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getSeminarySummaries
+ } from '../../controllers/seminary_summaries'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -41,7 +44,7 @@ const seminarySummariesRoute: FastifyPluginAsync<OptionsInterface> = async (fast
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getSeminarySummaries(request, reply)
    })
 }
 

@@ -54,5 +54,5 @@ export async function printTags (tags: Tags): Promise<void> {
     throw new Error('Bad print type in printTags()')
   }
 
-  await appendFile(`./gen/constants.${printType.fileType}`, tagEnumString)
+  await appendFile(`./gen/models/constants.${printType.fileType}`, tagEnumString)
 }

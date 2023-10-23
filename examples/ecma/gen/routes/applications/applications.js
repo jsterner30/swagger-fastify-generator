@@ -3,7 +3,7 @@ import {
    ErrorResponseSchema,
    ApplicationSchema,
    ApplicationNewSchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -12,7 +12,7 @@ import {
    Response500Schema,
    ResponseDefaultSchema,
    Response404Schema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    AdmitPeriodQuerySchema,
    ApplicantTypeQuerySchema,
@@ -30,8 +30,14 @@ import {
    ApplicationIdPathSchema,
    ContextQuerySchema,
    FieldSetsQuerySchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getApplications,
+   createApplication,
+   getApplication,
+   deleteApplication
+ } from '../../controllers/applications'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const applicationsRoute = async (fastifyApp) => {
@@ -68,7 +74,7 @@ const applicationsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplications(request, reply)
    })
 
    fastify.post('/', {
@@ -87,7 +93,7 @@ const applicationsRoute = async (fastifyApp) => {
          body: ApplicationNewSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await createApplication(request, reply)
    })
 
    fastify.get('/:application_id', {
@@ -113,7 +119,7 @@ const applicationsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplication(request, reply)
    })
 
    fastify.delete('/:application_id', {
@@ -132,7 +138,7 @@ const applicationsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await deleteApplication(request, reply)
    })
 }
 

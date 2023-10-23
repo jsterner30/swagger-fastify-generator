@@ -2,7 +2,7 @@ import {
    ApplicationDeliverablesSchema,
    ApplicationDeliverableSchema,
    ApplicationDeliverableModifySchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -11,12 +11,16 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    DeliverableIdPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getApplicationDeliverables,
+   modifyApplicationDeliverable
+ } from '../../controllers/application_deliverables'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const applicationDeliverablesRoute = async (fastifyApp) => {
@@ -41,7 +45,7 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplicationDeliverables(request, reply)
    })
 
    fastify.put('/:application_id/application_deliverables/:deliverable_id', {
@@ -64,7 +68,7 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
          body: ApplicationDeliverableModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyApplicationDeliverable(request, reply)
    })
 }
 

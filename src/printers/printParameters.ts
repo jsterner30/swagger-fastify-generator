@@ -10,7 +10,7 @@ export async function printParameters (parameters: Parameter[]): Promise<void> {
   const interfaceResponses = getUserSettings()
   const printDescription = interfaceResponses.printDescription
   const printType = interfaceResponses.printType
-  const fileName = `./gen/ParameterSchemas.${printType.fileType}`
+  const fileName = `./gen/models/ParameterSchemas.${printType.fileType}`
 
   await appendFile(fileName, printType.importTypeBox)
 

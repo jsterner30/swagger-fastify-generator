@@ -1,6 +1,6 @@
 const { 
     StatusSchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -8,12 +8,15 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     DateStartQuerySchema,
     DateEndQuerySchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getStatus
+ } = require('../../controllers/status')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const statusRoute = async (fastifyApp) => {
@@ -38,7 +41,7 @@ const statusRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getStatus(request, reply)
     })
 }
 

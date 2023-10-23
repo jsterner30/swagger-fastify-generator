@@ -1,7 +1,7 @@
 import { 
    InternationalRecordsSchema,
    InternationalRecordsModifySchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -10,11 +10,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getInternationalRecords,
+   modifyInternationalRecords
+ } from '../../controllers/international_records'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const internationalRecordsRoute = async (fastifyApp) => {
@@ -39,7 +43,7 @@ const internationalRecordsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getInternationalRecords(request, reply)
    })
 
    fastify.put('/:application_id/international_records', {
@@ -61,7 +65,7 @@ const internationalRecordsRoute = async (fastifyApp) => {
          body: InternationalRecordsModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyInternationalRecords(request, reply)
    })
 }
 

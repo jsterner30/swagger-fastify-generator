@@ -5,7 +5,7 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     AdmitPeriodQuerySchema,
     DateStartQuerySchema,
@@ -14,8 +14,11 @@ const {
     PaginationParameterQuerySchema,
     LimitQuerySchema,
     CursorQuerySchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getReport
+ } = require('../../controllers/report')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const reportRoute = async (fastifyApp) => {
@@ -45,7 +48,7 @@ const reportRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getReport(request, reply)
     })
 }
 

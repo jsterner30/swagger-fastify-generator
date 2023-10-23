@@ -2,7 +2,7 @@ const {
     ApplicationDeliverablesSchema,
     ApplicationDeliverableSchema,
     ApplicationDeliverableModifySchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -11,12 +11,16 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema,
     DeliverableIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getApplicationDeliverables,
+    modifyApplicationDeliverable
+ } = require('../../controllers/application_deliverables')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const applicationDeliverablesRoute = async (fastifyApp) => {
@@ -41,7 +45,7 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplicationDeliverables(request, reply)
     })
 
     fastify.put('/:application_id/application_deliverables/:deliverable_id', {
@@ -64,7 +68,7 @@ const applicationDeliverablesRoute = async (fastifyApp) => {
             body: ApplicationDeliverableModifySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await modifyApplicationDeliverable(request, reply)
     })
 }
 

@@ -4,7 +4,7 @@ import {
    DecisionReasonsSchema,
    IncidentBodyParameterSchema,
    ReportsMetadataSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -13,7 +13,7 @@ import {
    Response500Schema,
    ResponseDefaultSchema,
    Response404Schema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicantIdQuerySchema,
    InstitutionQuerySchema,
@@ -41,8 +41,19 @@ import {
    PaginationParameterQuerySchema,
    CursorQuerySchema,
    LimitQuerySchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getApplications,
+   getApplication,
+   applyApplicationAction,
+   applyApplicationComponentAction,
+   getApplicationActions,
+   getDecisionReasons,
+   submitIncident,
+   getReport,
+   getReportsMetadata
+ } from '../../controllers/proxy'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -83,7 +94,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplications(request, reply)
    })
 
    fastify.get('/applications', {
@@ -117,7 +128,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplications(request, reply)
    })
 
    fastify.get('/applications/:application_id', {
@@ -144,7 +155,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplication(request, reply)
    })
 
    fastify.put('/applications/:application_id', {
@@ -166,7 +177,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          body: ActionParameterSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await applyApplicationAction(request, reply)
    })
 
    fastify.put('/applications/:application_id/components/:component_id', {
@@ -189,7 +200,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          body: ActionParameterSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await applyApplicationComponentAction(request, reply)
    })
 
    fastify.get('/actions', {
@@ -213,7 +224,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplicationActions(request, reply)
    })
 
    fastify.get('/decisionReasons', {
@@ -235,7 +246,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getDecisionReasons(request, reply)
    })
 
    fastify.post('/incident', {
@@ -255,7 +266,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          body: IncidentBodyParameterSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await submitIncident(request, reply)
    })
 
    fastify.get('/report', {
@@ -281,7 +292,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getReport(request, reply)
    })
 
    fastify.get('/reports', {
@@ -300,7 +311,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          }
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getReportsMetadata(request, reply)
    })
 
    fastify.get('/:application_id', {
@@ -343,7 +354,7 @@ const proxyRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pro
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplication(request, reply)
    })
 }
 

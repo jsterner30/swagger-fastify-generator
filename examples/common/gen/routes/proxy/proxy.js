@@ -4,7 +4,7 @@ const {
     DecisionReasonsSchema,
     IncidentBodyParameterSchema,
     ReportsMetadataSchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -13,7 +13,7 @@ const {
     Response500Schema,
     ResponseDefaultSchema,
     Response404Schema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicantIdQuerySchema,
     InstitutionQuerySchema,
@@ -41,8 +41,19 @@ const {
     PaginationParameterQuerySchema,
     CursorQuerySchema,
     LimitQuerySchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getApplications,
+    getApplication,
+    applyApplicationAction,
+    applyApplicationComponentAction,
+    getApplicationActions,
+    getDecisionReasons,
+    submitIncident,
+    getReport,
+    getReportsMetadata
+ } = require('../../controllers/proxy')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const proxyRoute = async (fastifyApp) => {
@@ -80,7 +91,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplications(request, reply)
     })
 
     fastify.get('/applications', {
@@ -114,7 +125,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplications(request, reply)
     })
 
     fastify.get('/applications/:application_id', {
@@ -141,7 +152,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplication(request, reply)
     })
 
     fastify.put('/applications/:application_id', {
@@ -163,7 +174,7 @@ const proxyRoute = async (fastifyApp) => {
             body: ActionParameterSchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await applyApplicationAction(request, reply)
     })
 
     fastify.put('/applications/:application_id/components/:component_id', {
@@ -186,7 +197,7 @@ const proxyRoute = async (fastifyApp) => {
             body: ActionParameterSchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await applyApplicationComponentAction(request, reply)
     })
 
     fastify.get('/actions', {
@@ -210,7 +221,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplicationActions(request, reply)
     })
 
     fastify.get('/decisionReasons', {
@@ -232,7 +243,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getDecisionReasons(request, reply)
     })
 
     fastify.post('/incident', {
@@ -252,7 +263,7 @@ const proxyRoute = async (fastifyApp) => {
             body: IncidentBodyParameterSchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await submitIncident(request, reply)
     })
 
     fastify.get('/report', {
@@ -278,7 +289,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getReport(request, reply)
     })
 
     fastify.get('/reports', {
@@ -297,7 +308,7 @@ const proxyRoute = async (fastifyApp) => {
             }
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getReportsMetadata(request, reply)
     })
 
     fastify.get('/:application_id', {
@@ -340,7 +351,7 @@ const proxyRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplication(request, reply)
     })
 }
 

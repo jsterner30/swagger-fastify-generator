@@ -2,7 +2,7 @@ import {
    QuestionsSchema,
    QuestionSchema,
    QuestionAnswerSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -11,12 +11,17 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    QuestionIdPathSchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getQuestions,
+   getQuestion,
+   answerQuestion
+ } from '../../controllers/questions'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -44,7 +49,7 @@ const questionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp):
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getQuestions(request, reply)
    })
 
    fastify.get('/:application_id/questions/:question_id', {
@@ -67,7 +72,7 @@ const questionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp):
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getQuestion(request, reply)
    })
 
    fastify.put('/:application_id/questions/:question_id', {
@@ -91,7 +96,7 @@ const questionsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp):
          body: QuestionAnswerSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await answerQuestion(request, reply)
    })
 }
 

@@ -4,7 +4,7 @@ const {
     ClaimBodySchema,
     ClaimArrayResponseSchema,
     ClaimArraySchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -13,8 +13,13 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ResponseSchemas')
+const { 
+    getConcepts,
+    validateClaim,
+    validateClaimArray
+ } = require('../../controllers/claims')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const claimsRoute = async (fastifyApp) => {
@@ -36,7 +41,7 @@ const claimsRoute = async (fastifyApp) => {
             }
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getConcepts(request, reply)
     })
 
     fastify.put('/', {
@@ -56,7 +61,7 @@ const claimsRoute = async (fastifyApp) => {
             body: ClaimBodySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await validateClaim(request, reply)
     })
 
     fastify.put('/batch', {
@@ -75,7 +80,7 @@ const claimsRoute = async (fastifyApp) => {
             body: ClaimArraySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await validateClaimArray(request, reply)
     })
 }
 

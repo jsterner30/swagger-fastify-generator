@@ -12,7 +12,7 @@ export async function printDefinitions (definitions: Definition[]): Promise<void
   const printType = interfaceResponses.printType
   const printExample = interfaceResponses.printExample
   const useOptionalType = interfaceResponses.useOptionalType
-  const fileName = `./gen/DefinitionSchemas.${printType.fileType}`
+  const fileName = `./gen/models/DefinitionSchemas.${printType.fileType}`
 
   await appendFile(fileName, printType.importTypeBox)
 

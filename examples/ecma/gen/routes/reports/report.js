@@ -1,6 +1,6 @@
 import { 
    ReportsMetadataSchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -8,8 +8,11 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ResponseSchemas'
+import { 
+   getReportMetadata
+ } from '../../controllers/report'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const reportRoute = async (fastifyApp) => {
@@ -30,7 +33,7 @@ const reportRoute = async (fastifyApp) => {
          }
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getReportMetadata(request, reply)
    })
 }
 

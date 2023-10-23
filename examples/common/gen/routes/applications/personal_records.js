@@ -1,6 +1,6 @@
 const { 
     PersonalRecordsSchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -9,11 +9,14 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getPersonalRecords
+ } = require('../../controllers/personal_records')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const personalRecordsRoute = async (fastifyApp) => {
@@ -38,7 +41,7 @@ const personalRecordsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getPersonalRecords(request, reply)
     })
 }
 

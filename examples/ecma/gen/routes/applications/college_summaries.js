@@ -3,7 +3,7 @@ import {
    CollegeSummaryModifySchema,
    CollegeSummarySchema,
    ErrorResponseSchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -12,14 +12,20 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    CollegePathSchema,
    StartMonthPathSchema,
    EndMonthPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getCollegeSummaries,
+   modifyCollegeSummaries,
+   modifyApplicantCollegeSummary,
+   deleteApplicantCollegeSummary
+ } from '../../controllers/college_summaries'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const collegeSummariesRoute = async (fastifyApp) => {
@@ -44,7 +50,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getCollegeSummaries(request, reply)
    })
 
    fastify.put('/:application_id/college_summaries', {
@@ -66,7 +72,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
          body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyCollegeSummaries(request, reply)
    })
 
    fastify.put('/:application_id/college_summaries/:college,:start_month,:end_month', {
@@ -92,7 +98,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
          body: CollegeSummaryModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyApplicantCollegeSummary(request, reply)
    })
 
    fastify.delete('/:application_id/college_summaries/:college,:start_month,:end_month', {
@@ -114,7 +120,7 @@ const collegeSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await deleteApplicantCollegeSummary(request, reply)
    })
 }
 

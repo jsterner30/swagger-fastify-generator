@@ -1,6 +1,6 @@
 import { 
    ErrorResponseSchema
- } from './DefinitionSchemas.js'
+ } from './DefinitionSchemas'
 
 
 /**

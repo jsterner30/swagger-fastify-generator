@@ -1,6 +1,6 @@
 import { 
    ReportsMetadataSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -8,8 +8,11 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ResponseSchemas'
+import { 
+   getReportMetadata
+ } from '../../controllers/report'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -33,7 +36,7 @@ const reportRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          }
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getReportMetadata(request, reply)
    })
 }
 

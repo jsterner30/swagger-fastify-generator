@@ -154,6 +154,7 @@ async function deleteDirectoryContents (dirPath: string): Promise<void> {
 
 export async function setupGenDir (): Promise<void> {
   await createDirectoryIfNotExist('./gen')
+  await createDirectoryIfNotExist('./gen/models')
 }
 
 export async function createDir (dirPath: string): Promise<void> {

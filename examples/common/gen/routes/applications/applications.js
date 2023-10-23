@@ -3,7 +3,7 @@ const {
     ErrorResponseSchema,
     ApplicationSchema,
     ApplicationNewSchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -12,7 +12,7 @@ const {
     Response500Schema,
     ResponseDefaultSchema,
     Response404Schema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     AdmitPeriodQuerySchema,
     ApplicantTypeQuerySchema,
@@ -30,8 +30,14 @@ const {
     ApplicationIdPathSchema,
     ContextQuerySchema,
     FieldSetsQuerySchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getApplications,
+    createApplication,
+    getApplication,
+    deleteApplication
+ } = require('../../controllers/applications')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const applicationsRoute = async (fastifyApp) => {
@@ -68,7 +74,7 @@ const applicationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplications(request, reply)
     })
 
     fastify.post('/', {
@@ -87,7 +93,7 @@ const applicationsRoute = async (fastifyApp) => {
             body: ApplicationNewSchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await createApplication(request, reply)
     })
 
     fastify.get('/:application_id', {
@@ -113,7 +119,7 @@ const applicationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getApplication(request, reply)
     })
 
     fastify.delete('/:application_id', {
@@ -132,7 +138,7 @@ const applicationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await deleteApplication(request, reply)
     })
 }
 

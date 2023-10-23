@@ -10,7 +10,7 @@ export async function printResponses (responses: Response[]): Promise<void> {
   const interfaceResponses = getUserSettings()
   const printDescription = interfaceResponses.printDescription
   const printType = interfaceResponses.printType
-  const fileName = `./gen/ResponseSchemas.${printType.fileType}`
+  const fileName = `./gen/models/ResponseSchemas.${printType.fileType}`
   const defsToImport = []
 
   for (const response of responses) {

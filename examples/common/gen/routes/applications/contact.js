@@ -1,7 +1,7 @@
 const { 
     BasicSchema,
     ContactModifySchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -9,11 +9,14 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    modifyContactInfo
+ } = require('../../controllers/contact')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const contactRoute = async (fastifyApp) => {
@@ -38,7 +41,7 @@ const contactRoute = async (fastifyApp) => {
             body: ContactModifySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await modifyContactInfo(request, reply)
     })
 }
 

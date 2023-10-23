@@ -5,7 +5,7 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    AdmitPeriodQuerySchema,
    DateStartQuerySchema,
@@ -14,8 +14,11 @@ import {
    PaginationParameterQuerySchema,
    LimitQuerySchema,
    CursorQuerySchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getReport
+ } from '../../controllers/report'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const reportRoute = async (fastifyApp) => {
@@ -45,7 +48,7 @@ const reportRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getReport(request, reply)
    })
 }
 

@@ -1,6 +1,6 @@
 const { 
     TestScoresSchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -9,11 +9,14 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getTests
+ } = require('../../controllers/test_scores')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const testScoresRoute = async (fastifyApp) => {
@@ -38,7 +41,7 @@ const testScoresRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getTests(request, reply)
     })
 }
 

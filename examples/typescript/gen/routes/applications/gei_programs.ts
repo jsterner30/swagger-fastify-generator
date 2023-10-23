@@ -1,7 +1,7 @@
 import { 
    GeiProgramsSchema,
    GeiProgramModifySchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -10,11 +10,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getGEIPrograms,
+   modifyGEIPrograms
+ } from '../../controllers/gei_programs'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -42,7 +46,7 @@ const geiProgramsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getGEIPrograms(request, reply)
    })
 
    fastify.put('/:application_id/gei_programs', {
@@ -64,7 +68,7 @@ const geiProgramsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp
          body: GeiProgramModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyGEIPrograms(request, reply)
    })
 }
 

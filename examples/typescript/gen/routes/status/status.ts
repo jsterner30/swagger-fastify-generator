@@ -1,6 +1,6 @@
 import { 
    StatusSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -8,12 +8,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    DateStartQuerySchema,
    DateEndQuerySchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getStatus
+ } from '../../controllers/status'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -41,7 +44,7 @@ const statusRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getStatus(request, reply)
    })
 }
 

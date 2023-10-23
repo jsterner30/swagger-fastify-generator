@@ -2,7 +2,7 @@ import {
    QuestionsSchema,
    QuestionSchema,
    QuestionAnswerSchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -11,12 +11,17 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    QuestionIdPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getQuestions,
+   getQuestion,
+   answerQuestion
+ } from '../../controllers/questions'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const questionsRoute = async (fastifyApp) => {
@@ -41,7 +46,7 @@ const questionsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getQuestions(request, reply)
    })
 
    fastify.get('/:application_id/questions/:question_id', {
@@ -64,7 +69,7 @@ const questionsRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getQuestion(request, reply)
    })
 
    fastify.put('/:application_id/questions/:question_id', {
@@ -88,7 +93,7 @@ const questionsRoute = async (fastifyApp) => {
          body: QuestionAnswerSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await answerQuestion(request, reply)
    })
 }
 

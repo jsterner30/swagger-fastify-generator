@@ -2,7 +2,7 @@ import {
    ApplicationActionsSchema,
    ApplicationActionSchema,
    ApplicationActionNewSchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -11,11 +11,15 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getApplicationActions,
+   applyApplicationAction
+ } from '../../controllers/application_actions'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -43,7 +47,7 @@ const applicationActionsRoute: FastifyPluginAsync<OptionsInterface> = async (fas
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getApplicationActions(request, reply)
    })
 
    fastify.post('/:application_id/application_actions', {
@@ -65,7 +69,7 @@ const applicationActionsRoute: FastifyPluginAsync<OptionsInterface> = async (fas
          body: ApplicationActionNewSchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await applyApplicationAction(request, reply)
    })
 }
 

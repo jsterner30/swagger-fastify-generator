@@ -4,7 +4,7 @@ import {
    ClaimBodySchema,
    ClaimArrayResponseSchema,
    ClaimArraySchema
- } from '../../DefinitionSchemas'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -13,8 +13,13 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ResponseSchemas'
+import { 
+   getConcepts,
+   validateClaim,
+   validateClaimArray
+ } from '../../controllers/claims'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -39,7 +44,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          }
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getConcepts(request, reply)
    })
 
    fastify.put('/', {
@@ -59,7 +64,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          body: ClaimBodySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await validateClaim(request, reply)
    })
 
    fastify.put('/batch', {
@@ -78,7 +83,7 @@ const claimsRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          body: ClaimArraySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await validateClaimArray(request, reply)
    })
 }
 

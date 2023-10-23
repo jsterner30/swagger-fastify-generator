@@ -1,7 +1,7 @@
 const { 
     BiographicalClassificationsSchema,
     BiographicalClassificationsModifySchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -10,11 +10,15 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getBioClassifications,
+    modifyBioClassification
+ } = require('../../controllers/biographical_classifications')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const biographicalClassificationsRoute = async (fastifyApp) => {
@@ -39,7 +43,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getBioClassifications(request, reply)
     })
 
     fastify.put('/:application_id/biographical_classifications', {
@@ -61,7 +65,7 @@ const biographicalClassificationsRoute = async (fastifyApp) => {
             body: BiographicalClassificationsModifySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await modifyBioClassification(request, reply)
     })
 }
 

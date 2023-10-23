@@ -2,7 +2,7 @@ import {
    HighSchoolSummariesSchema,
    HighSchoolSummarySchema,
    HighSchoolSummaryModifySchema
- } from '../../DefinitionSchemas.js'
+ } from '../../models/DefinitionSchemas'
 import { 
    Response400Schema,
    Response401Schema,
@@ -11,14 +11,20 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas.js'
+ } from '../../models/ResponseSchemas'
 import { 
    ApplicationIdPathSchema,
    HighSchoolPathSchema,
    StartMonthPathSchema,
    EndMonthPathSchema
- } from '../../ParameterSchemas.js'
-import { Tags } from '../../constants.js'
+ } from '../../models/ParameterSchemas'
+import { 
+   getHighSchools,
+   addHighSchoolSummary,
+   modifyHighSchoolSummary,
+   deleteHighSchoolSummary
+ } from '../../controllers/high_school_summaries'
+import { Tags } from '../../models/constants'
 import { Type } from '@sinclair/typebox'
 
 const highSchoolSummariesRoute = async (fastifyApp) => {
@@ -43,7 +49,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getHighSchools(request, reply)
    })
 
    fastify.post('/:application_id/high_school_summaries', {
@@ -65,7 +71,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          body: HighSchoolSummaryModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await addHighSchoolSummary(request, reply)
    })
 
    fastify.put('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -90,7 +96,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          body: HighSchoolSummaryModifySchema
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await modifyHighSchoolSummary(request, reply)
    })
 
    fastify.delete('/:application_id/high_school_summaries/:high_school,:start_month,:end_month', {
@@ -112,7 +118,7 @@ const highSchoolSummariesRoute = async (fastifyApp) => {
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await deleteHighSchoolSummary(request, reply)
    })
 }
 

@@ -1,7 +1,7 @@
 const { 
     BackgroundQuestionsSchema,
     BackgroundQuestionsModifySchema
- } = require('../../DefinitionSchemas.js')
+ } = require('../../models/DefinitionSchemas')
 const { 
     Response400Schema,
     Response401Schema,
@@ -10,11 +10,15 @@ const {
     Response409Schema,
     Response500Schema,
     ResponseDefaultSchema
- } = require('../../ResponseSchemas.js')
+ } = require('../../models/ResponseSchemas')
 const { 
     ApplicationIdPathSchema
- } = require('../../ParameterSchemas.js')
-const { Tags } = require('../../constants.js')
+ } = require('../../models/ParameterSchemas')
+const { 
+    getBackgroundQuestions,
+    modifyBackgroundQuestions
+ } = require('../../controllers/background_questions')
+const { Tags } = require('../../models/constants')
 const { Type } = require('@sinclair/typebox')
 
 const backgroundQuestionsRoute = async (fastifyApp) => {
@@ -39,7 +43,7 @@ const backgroundQuestionsRoute = async (fastifyApp) => {
             })
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await getBackgroundQuestions(request, reply)
     })
 
     fastify.put('/:application_id/background_questions', {
@@ -61,7 +65,7 @@ const backgroundQuestionsRoute = async (fastifyApp) => {
             body: BackgroundQuestionsModifySchema
         }
     }, async (request, reply) => {
-        // TODO: make this route work
+        await modifyBackgroundQuestions(request, reply)
     })
 }
 

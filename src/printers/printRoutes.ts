@@ -6,7 +6,7 @@ import {
   createDir,
   normalizeName,
   normalizeParameterName,
-  getImportString, getImportStringResponseSchema
+  getImportString, getImportStringResponseSchema, getImportFunctionString
 } from '../util/util'
 import { RouteFile, Route } from '../classes/route'
 import { Parameter } from '../classes/parameter'
@@ -25,6 +25,7 @@ export async function printRoutes (routeDirsMap: Record<string, Record<string, R
       const paramsToImport: string[] = []
       const resToImport: string[] = []
       const parentDir = fileObj.parentDir
+      const functionsToImport: Record<string, string[]> = {}
 
       const fileName = `${routesDir}/${parentDir}/${file}.${printType.fileType}`
       let toPrint = ''
@@ -40,6 +41,10 @@ export async function printRoutes (routeDirsMap: Record<string, Record<string, R
       for (const path of fileObj.routePaths) {
         for (const route of path.routes) {
           toPrint += getRouteString(path.path, route, defsToImport, paramsToImport, resToImport)
+          if (functionsToImport[file] == null) {
+            functionsToImport[file] = []
+          }
+          functionsToImport[file].push(route.functionName)
         }
       }
       if (toPrint.at(toPrint.length - 1) === ',') {
@@ -48,15 +53,21 @@ export async function printRoutes (routeDirsMap: Record<string, Record<string, R
       toPrint += '\n}'
 
       if (defsToImport.length > 0) {
-        await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), '../../DefinitionSchemas'))
+        await appendFile(fileName, printType.importGeneral(getImportString(defsToImport), '../../models/DefinitionSchemas'))
       }
       if (resToImport.length > 0) {
-        await appendFile(fileName, printType.importGeneral(getImportStringResponseSchema(resToImport), '../../ResponseSchemas'))
+        await appendFile(fileName, printType.importGeneral(getImportStringResponseSchema(resToImport), '../../models/ResponseSchemas'))
       }
       if (paramsToImport.length > 0) {
-        await appendFile(fileName, printType.importGeneral(getImportString(paramsToImport), '../../ParameterSchemas'))
+        await appendFile(fileName, printType.importGeneral(getImportString(paramsToImport), '../../models/ParameterSchemas'))
       }
-      await appendFile(fileName, printType.importGeneral('Tags', '../../constants'))
+      if (Object.keys(functionsToImport).length > 0) {
+        for (const file of Object.keys(functionsToImport)) {
+          await appendFile(fileName, printType.importGeneral(getImportFunctionString(functionsToImport[file]), `../../controllers/${file}`))
+        }
+      }
+
+      await appendFile(fileName, printType.importGeneral('Tags', '../../models/constants'))
 
       toPrint += '\n\n' + printType.defaultExport(functionName)
 
@@ -107,7 +118,7 @@ function getHandlerString (route: Route): string {
   const tab = indent(2)
   let toReturn = ', async (request, reply) => {'
 
-  toReturn += `\n${tab}// TODO: make this route work`
+  toReturn += `\n${tab}await ${route.functionName}(request, reply)`
 
   return toReturn
 }

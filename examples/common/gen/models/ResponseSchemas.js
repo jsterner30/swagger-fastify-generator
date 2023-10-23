@@ -1,6 +1,6 @@
 const { 
     ErrorResponseSchema
- } = require('./DefinitionSchemas.js')
+ } = require('./DefinitionSchemas')
 
 
 /**

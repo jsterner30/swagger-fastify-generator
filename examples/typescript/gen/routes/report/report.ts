@@ -5,7 +5,7 @@ import {
    Response409Schema,
    Response500Schema,
    ResponseDefaultSchema
- } from '../../ResponseSchemas'
+ } from '../../models/ResponseSchemas'
 import { 
    AdmitPeriodQuerySchema,
    DateStartQuerySchema,
@@ -14,8 +14,11 @@ import {
    PaginationParameterQuerySchema,
    LimitQuerySchema,
    CursorQuerySchema
- } from '../../ParameterSchemas'
-import { Tags } from '../../constants'
+ } from '../../models/ParameterSchemas'
+import { 
+   getReport
+ } from '../../controllers/report'
+import { Tags } from '../../models/constants'
 import { Static, Type } from '@sinclair/typebox'
 import { FastifyPluginAsync } from 'fastify'
 import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox'
@@ -48,7 +51,7 @@ const reportRoute: FastifyPluginAsync<OptionsInterface> = async (fastifyApp): Pr
          })
       }
    }, async (request, reply) => {
-      // TODO: make this route work
+      await getReport(request, reply)
    })
 }
 
