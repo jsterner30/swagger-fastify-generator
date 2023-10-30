@@ -37,7 +37,7 @@ export class Definition {
     this.parents.push({ name, reference })
   }
 
-  toString (level: number, useOptionalType: boolean): string {
+  toString (level: number): string {
     throw new Error('Must be implemented in inherited class')
   }
 
@@ -70,24 +70,24 @@ export class ObjectDefinition extends Definition {
     return allParents
   }
 
-  toString (level: number, useOptionalType: boolean): string {
+  toString (level: number): string {
     const tabs = indent(level)
     let response = 'Type.Object({'
 
     for (const property of this.properties) {
       let optional = ''
       let optionalEnd = ''
-      if (useOptionalType && !this.required.includes(property.name)) {
+      if (!this.required.includes(property.name)) {
         optional = 'Type.Optional('
         optionalEnd = ')'
       }
-      response = response + '\n' + tabs + property.name + ': ' + optional + property.toString(level + 1, useOptionalType) + optionalEnd + ','
+      response = response + '\n' + tabs + property.name + ': ' + optional + property.toString(level + 1) + optionalEnd + ','
     }
 
     for (const parent of this.parents) {
       let optional = ''
       let optionalEnd = ''
-      if (useOptionalType && !this.required.includes(parent.name)) {
+      if (!this.required.includes(parent.name)) {
         optional = 'Type.Optional('
         optionalEnd = ')'
       }
@@ -153,11 +153,11 @@ export class ArrayDefinition extends Definition {
     return allParents
   }
 
-  toString (level: number, useOptionalType: boolean): string {
+  toString (level: number): string {
     let response = 'Type.Array('
 
     if (this.item != null) {
-      response = response + this.item.toString(level, useOptionalType) + ')'
+      response = response + this.item.toString(level) + ')'
     }
     for (const parent of this.parents) {
       response = response + `${normalizeName(parent.reference)}Schema)`
@@ -201,7 +201,7 @@ export class AllOfDefinition extends Definition {
     return allParents
   }
 
-  toString (level: number, useOptionalType: boolean): string {
+  toString (level: number): string {
     const tabs = indent(level)
     let response = 'Type.Intersect(['
 
@@ -209,7 +209,7 @@ export class AllOfDefinition extends Definition {
       response = response + `\n${tabs}${normalizeName(parent.reference)}Schema,`
     }
     for (const subDef of this.subDefinitions) {
-      response = response + '\n' + tabs + subDef.toString(level + 1, useOptionalType)
+      response = response + '\n' + tabs + subDef.toString(level + 1)
     }
 
     if (response.at(response.length - 1) === ',') {

@@ -60,9 +60,7 @@ export async function printCommonJSExports (fileName: string, responses: Respons
   await appendFile(fileName, '\n\nmodule.exports = {')
   let exportStatement = ''
   for (let i = 0; i < responses.length; ++i) {
-    if (i % 3 === 0) {
-      exportStatement = exportStatement + '\n' + tabs
-    }
+    exportStatement = exportStatement + '\n' + tabs
     exportStatement = exportStatement + 'Response' + normalizeName(responses[i].code) + 'Schema' + ', '
   }
   exportStatement = exportStatement.slice(0, -2) + '\n}'

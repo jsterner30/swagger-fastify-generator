@@ -11,7 +11,6 @@ export async function printDefinitions (definitions: Definition[]): Promise<void
   const printDescription = interfaceResponses.printDescription
   const printType = interfaceResponses.printType
   const printExample = interfaceResponses.printExample
-  const useOptionalType = interfaceResponses.useOptionalType
   const fileName = `./gen/models/DefinitionSchemas.${printType.fileType}`
 
   await appendFile(fileName, printType.importTypeBox)
@@ -22,7 +21,7 @@ export async function printDefinitions (definitions: Definition[]): Promise<void
     if (!printedDefs.has(normalizedName)) {
       let response = getDescriptionAndExample(printDescription, printExample, def)
 
-      response = response + `${printType.export} ${normalizedName}Schema = ${def.toString(1, useOptionalType)}`
+      response = response + `${printType.export} ${normalizedName}Schema = ${def.toString(1)}`
       if (printType.type === 'typescript') {
         response = response + `\nexport type ${normalizedName} = Static<typeof ${normalizedName}Schema>`
       }
@@ -63,9 +62,7 @@ export async function printCommonJSExports (fileName: string, definitions: Defin
   await appendFile(fileName, '\n\nmodule.exports = {')
   let exportStatement = ''
   for (let i = 0; i < definitions.length; ++i) {
-    if (i % 3 === 0) {
-      exportStatement = exportStatement + '\n' + tabs
-    }
+    exportStatement = exportStatement + '\n' + tabs
     exportStatement = exportStatement + normalizeName(definitions[i].name) + 'Schema' + ', '
   }
   exportStatement = exportStatement.slice(0, -2) + '\n}'

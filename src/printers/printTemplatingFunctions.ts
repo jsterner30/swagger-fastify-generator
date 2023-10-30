@@ -64,15 +64,11 @@ export async function printCommonJSExports (fileName: string, responses: Set<str
   const tabs = indent(1)
   await appendFile(fileName, '\n\nmodule.exports = {')
   let exportStatement = ''
-  let i = 0
   for (const res of responses) {
     const ref = res.split('/')
     if (ref[1] === 'definitions') {
-      if (i % 3 === 0) {
-        exportStatement = exportStatement + '\n' + tabs
-      }
+      exportStatement = exportStatement + '\n' + tabs
       exportStatement += `${normalizeLowerCamelName(ref[2])}Template, `
-      ++i
     }
   }
   exportStatement = exportStatement.slice(0, -2) + '\n}'

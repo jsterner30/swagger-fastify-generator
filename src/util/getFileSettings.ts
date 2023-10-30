@@ -9,8 +9,7 @@ export async function getFileSettings (): Promise<InterfaceSettings> {
     indentSize: settings.indentSize,
     filePath: settings.filePath,
     printDescription: settings.printDescription,
-    printExample: settings.printExample,
-    useOptionalType: settings.useOptionalType
+    printExample: settings.printExample
   }
   return fileSettings
 }

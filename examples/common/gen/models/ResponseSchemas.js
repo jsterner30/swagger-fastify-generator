@@ -39,7 +39,11 @@ const Response500Schema = ErrorResponseSchema
 const ResponseDefaultSchema = ErrorResponseSchema
 
 module.exports = {
-    Response400Schema, Response401Schema, Response403Schema, 
-    Response404Schema, Response409Schema, Response500Schema, 
+    Response400Schema, 
+    Response401Schema, 
+    Response403Schema, 
+    Response404Schema, 
+    Response409Schema, 
+    Response500Schema, 
     ResponseDefaultSchema
 }

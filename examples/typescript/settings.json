@@ -4,6 +4,5 @@
   "indentSize": 3,
   "filePath": "./swagger.json",
   "printDescription": true,
-  "printExample": true,
-  "useOptionalType": true
+  "printExample": true
 }

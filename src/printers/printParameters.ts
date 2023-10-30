@@ -57,9 +57,7 @@ export async function printCommonJSExports (fileName: string, parameters: Parame
     const normalizedName = normalizeParameterName(parameters[i].name, parameters[i].in)
     if (!paramSet.has(normalizedName)) {
       if (parameters[i].parentDefinition == null) {
-        if (i % 3 === 0) {
-          exportStatement += '\n' + tabs
-        }
+        exportStatement += '\n' + tabs
         exportStatement += normalizedName + 'Schema' + ', '
       }
       paramSet.add(normalizedName)

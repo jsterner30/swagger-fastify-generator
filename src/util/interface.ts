@@ -14,7 +14,6 @@ export interface InterfaceSettings {
   filePath: string
   printDescription: boolean
   printExample: boolean
-  useOptionalType: boolean
 }
 
 export const userInterface = async (): Promise<InterfaceSettings> => {
@@ -24,8 +23,7 @@ export const userInterface = async (): Promise<InterfaceSettings> => {
     indentSize: 4,
     filePath: './swagger.json',
     printDescription: true,
-    printExample: true,
-    useOptionalType: false
+    printExample: true
   }
 
   responses.openApiDocVersion = await selectPrompt('version', 'What version is your OpenAPI Document?',
@@ -40,7 +38,6 @@ export const userInterface = async (): Promise<InterfaceSettings> => {
 
   responses.printDescription = await booleanPrompt('desc', 'Would you like to print the definition description in a comment above each schema?')
   responses.printExample = await booleanPrompt('example', 'Would you like to print the definition example in a comment above each schema?')
-  responses.useOptionalType = await booleanPrompt('optional', 'Should properties not found in the "required" array be marked as optional?')
 
   return responses
 }
